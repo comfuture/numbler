@@ -1,0 +1,25 @@
+<div>
+<h2>Welcome to Numbler web services</h2>
+<p>Thanks for your interest in the Numbler web service API.  The goal of this guide is to help you get up and running with Numbler as quickly as possible!</p>
+<h3>What's this all about?</h3>
+<p>Hopefully at this point you have already checked out <a href="/">Numbler</a>, created a sheet or two, 
+    and perhaps shared a sheet with some of your friends or coworkers.  While our first goal with Numbler was 
+    to help people collaborate on a spreadsheets, and equally important goal is hooking up sheets with the rest of the 
+    information on the web.</p>
+      <div class="emph">This is where you fit in!</div>
+  <p>If you are a developer we want to help you integrate your application or "mash-up" with Numbler.  We have developed a dead simple REST based API that enables your code to talk to a web based spreadsheet.  It's really simple to use some sample code to help you out you can start using Numbler with only a <b>couple of lines of code</b>.
+</p>
+<h3>Want to get started? you need:</h3>
+  <ul>
+    <li>A Numbler account.  Create one <a href="/createaccount">here</a>.</li>
+    <li>A Numbler access ID and secret key.  Once you have an account you can register for your ID <a href="/getAPIid">here</a>.</li>
+  </ul>
+<p>Right now we have a python SDK available for download.  We will be adding additional languages shortly.  If you want to contribute a SDK drop us a <a href="/feedback">line!</a>
+</p>
+<h3>Upcoming features</h3>
+<ul>
+    <li>Developer support forum</li>
+    <li>Additional language support</li>
+    <li>Sample library</li>
+</ul>
+</div>

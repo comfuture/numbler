@@ -1,0 +1,11 @@
+Ä}qUnumblerlogpluginqctwisted.plugin
+CachedDropin
+q)Åq}q(U
+moduleNameqU twisted.plugins.numblerlogpluginqUdescriptionqNUpluginsq	]q
+ctwisted.plugin
+CachedPlugin
+q)Åq}q(Uprovidedq]q(ctwisted.plugin
+IPlugin
+qctwisted.python.log
+ILogObserver
+qeUdropinqhUnameqUNumblerLoggerObjqhNubaubs.

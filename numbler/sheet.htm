@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- xmlns="http://www.w3.org/1999/xhtml"> -->
+<html  xmlns:nevow="http://nevow.com/ns/nevow/0.1">
+  <head>
+    <title><span nevow:render="title"/></title>
+    <link href="css/sheet.css" type="text/css" rel="stylesheet"/>
+    <span nevow:render="liveglue"/>
+	  <script type="text/javascript">
+		djConfig = {
+		baseScriptUri:'./dojo/'
+		//isDebug:true
+		//debugAtAllCosts:true
+		};
+	  </script>
+    <script src="dojo/compresseddojo.js" type="text/javascript"></script>
+
+
+    <span nevow:render="scriptheaders"/>
+
+  </head>
+  <body>
+	<span class="ruler" id="ruler1"/>
+    <span class="ruler" id="ruler2"/>
+
+	<div id='loadingsheet'><span>Loading...</span>
+	  <div class="bcheck" id='safari'>
+		<p>Safari is not yet supported.  Please try <a href="http://www.mozilla.com/firefox">Firefox</a> or <a href="http://www.caminobrowser.org">Camino</a>.</p>
+      </div>
+	  <div class="bcheck" id='opera'>
+	    <p>Opera is not yet supported.  We recommend <a href="http://mozilla.com/firefox">Firefox</a>.</p>
+	    </div>
+	  <div class="bcheck" id='failedcon'>
+	    <p style="width:350px">Oops!  Numbler could not load your spreadsheet.  If you are on a slow connection or if this is the first time you have visited numbler, you might try reloading this page.</p>
+	  </div>
+	  </div>
+
+    <!-- dojo dialogs -->
+    <div dojoType="dialog" id="lostconnection" bgColor="white" bgOpacity="0.5" style="display:none">
+     <div id="lostconnection">
+      <p>The connection to the server was lost.  Please refresh your browser</p>
+     </div>
+    </div>
+    <div dojoType="dialog" id="loading" bgColor="white" bgOpacity="1" style="display:none">
+	  <p>fetching data..</p>
+    </div>
+    <div dojoType="dialog" id="invitedlg" bgColor="white" bgOpacity="0.2" style="display:none;margin-top:-140px">
+	   <div id="invitedlg">
+       <div>Need to collaborate with someone&#63; 
+			enter their email address to send an invite to this spreadsheet.</div>
+       <div style="display:padding-top:5px;padding-bottom:5px" id="badinvitediv">&nbsp;</div>
+	 <form action="" id="inviteform">
+     <input type="text" id="invitetext" style="margin-top:5px" value='enter email address'/>
+     </form>
+     <div style="padding-top:10px;padding-bottom:10px">
+     <span id="invitebutton"><img src="img/buttons/invite.gif"/></span>
+	 <span id="canceldlg"><img src="img/buttons/canceldlg.gif"/></span>
+     </div>
+     </div>
+    </div>
+
+	
+	<div dojoType="PopupMenu2" id="cellpopup">
+	  <div dojoType="MenuItem2" caption="cut" accelKey="Ctrl+X" iconSrc="img/edit-cut.png"/>
+	  <div dojoType="MenuItem2" caption="copy" accelKey="Ctrl+C" iconSrc="img/edit-copy.png"/>
+	  <div dojoType="MenuItem2" caption="paste" accelKey="Ctrl+V" iconSrc="img/edit-paste.png"/>
+	  <div dojoType="MenuSeparator2"/>
+	  <div dojoType="MenuItem2" caption="lock" isDisabled="False"/>
+	  <div dojoType="MenuItem2" caption="unlock" isDisabled="True"/>
+	  <div dojoType="MenuSeparator2"/>
+	  <div dojoType="MenuItem2" caption="Format" submenuId="formatSub"/>
+	  <div dojoType="MenuSeparator2"/>
+	  <div dojoType="MenuItem2" caption="enable overflow"/>
+	</div>
+
+	<div dojoType="PopupMenu2" id="floaterpop">
+	  <div dojoType="MenuItem2" caption="cut" accelKey="Ctrl+X" iconSrc="img/edit-cut.png"/>
+	  <div dojoType="MenuItem2" caption="copy" accelKey="Ctrl+C" iconSrc="img/edit-copy.png"/>
+	  <div dojoType="MenuItem2" caption="clear" iconSrc="img/edit-clear.png"/>
+	  <div dojoType="MenuItem2" caption="Insert..." submenuId="insertSub"/>
+	  <div dojoType="MenuItem2" caption="delete..." submenuId="deleteSub"/>
+	  <div dojoType="MenuSeparator2"/>
+	  <div dojoType="MenuItem2" caption="Auto Formula" submenuId="autoformula"/>
+	  <div dojoType="MenuSeparator2"/>
+	  <div dojoType="MenuItem2" caption="sort ascending"/>
+	  <div dojoType="MenuItem2" caption="sort descending"/>
+	  <div dojoType="MenuSeparator2"/>
+	  <div dojoType="MenuItem2" caption="Format" submenuId="formatSub"/>
+	  <div dojoType="MenuSeparator2"/>
+	  <div dojoType="MenuItem2" caption="lock region"/>
+	</div>
+
+   <div dojoType="PopupMenu2" id="autoformula" widgetId="autoformula">
+	  <div dojoType="MenuItem2" caption="SUM"/>
+	  <div dojoType="MenuItem2" caption="AVG"/>
+	  <div dojoType="MenuItem2" caption="Count"/>
+	  <div dojoType="MenuItem2" caption="Max"/>
+	  <div dojoType="MenuItem2" caption="Min"/>
+   </div>												  
+
+   <div dojoType="PopupMenu2" id="formatSub" widgetId="formatSub">
+     <div dojoType="MenuItem2" caption="none"/>
+     <div dojoType="MenuItem2" caption="currency"/>
+     <div dojoType="MenuItem2" caption="percentage"/>
+     <div dojoType="MenuItem2" caption="comma style"/>
+     <div dojoType="MenuItem2" caption="Date formatting" submenuId="fmtDateSub"/>
+     <div dojoType="MenuItem2" caption="Time formatting" submenuId="fmtTimeSub"/>
+   </div>												  
+
+   <div dojoType="PopupMenu2" id="fmtDateSub" widgetId="fmtDateSub">
+     <div dojoType="MenuItem2" caption="Short date format"/>
+     <div dojoType="MenuItem2" caption="Medium date format"/>
+     <div dojoType="MenuItem2" caption="Long date format"/>
+     <div dojoType="MenuItem2" caption="Date and time (combined)"/>
+   </div>												  
+
+   <div dojoType="PopupMenu2" id="fmtTimeSub" widgetId="fmtTimeSub">
+     <div dojoType="MenuItem2" caption="time (minutes and hours)"/>
+     <div dojoType="MenuItem2" caption="time (with seconds)"/>
+   </div>												  
+
+   <div dojoType="PopupMenu2" id="insertSub" widgetId="insertSub">
+     <div dojoType="MenuItem2" caption="insert rows"/>
+     <div dojoType="MenuItem2" caption="insert columns"/>
+   </div>												  
+
+   <div dojoType="PopupMenu2" id="deleteSub" widgetId="deleteSub">
+     <div dojoType="MenuItem2" caption="delete rows"/>
+     <div dojoType="MenuItem2" caption="delete columns"/>
+   </div>												  
+
+
+ 
+    <div id="linkbar">
+      <span style="float:left"><a href="/" style="border:0px"><img title="main page" src="img/logo_small.jpg"/></a></span>
+      <div id="topmenuright">
+       <nevow:invisible nevow:render="linkbar"/>
+    </div>
+    </div>
+    <div id="toolbar"/>					
+
+    
+      <div id='formulabar'>
+	  <div style="float:left;width:80%">
+	  <img src="img/formula.png"/>
+	  <textarea rows="1" id='formulainput'/>
+	  <img src="img/updating_glo.gif" id='updatingbutton' style="display:none;"/>
+	  </div>
+      <span id='statusupdate'/>
+      </div>
+    <!-- </form> -->
+    <div id="sheetcontainer">
+	<div id="spacer"></div>
+	<div id='colcontainer'><div id='colinsert'></div></div>
+	<div>
+	  <div id='rowcontainer'><div id="rowinsert"></div></div>
+	  <div id='scrollcontainer'>
+	    <div id='mainbody'></div>
+	  </div>
+	  <div id='rightscroller'><div id="rightscrollinsert"></div></div>
+	</div>
+	<div id='bottomscroller'><div id="bottominsert"></div></div>
+      </div>
+      
+      <div id='chatcontainer' style="display:none">
+	<div nevow:render="chat"/>
+	</div>
+
+
+	<div id='nevow-log' style="width:800px;"/>
+  </body>
+</html>

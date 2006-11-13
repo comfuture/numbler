@@ -1,0 +1,124 @@
+.. title:: dojo.namespace.* -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.namespace.* - do that thing that namespaces do
+
+Summary and Overview
+===============================================================================
+
+Please enumerate the major functions of your namespace here in sufficient
+detail to allow a reader to understand why they might want to require it and
+what down-sides doing so might have.
+
+Usage
+===============================================================================
+
+::
+
+    var ret = dojo.namespace.doSomething("arg1", "arg2");
+    dojo.namespace.exerciseYourFunctions(ret);
+    dojo.debug("huzzah!");
+
+
+API Reference
+===============================================================================
+
+.. contents:: Table of Contents
+   :depth: 2
+  
+Classes
+---------------------------------------
+
+``Foo(arg1)``:
+
+    Please eneumerate constructor argument types here and describe the classes
+    function.
+
+    *Inherits from*:
+        Nothing
+
+    ``arg1``:
+        A very arg-like argument.
+
+    *return*:
+        Object of type Foo.
+
+Properties
+~~~~~~~~~~~~~~~
+
+None
+
+Methods
+~~~~~~~~~~~~~~~
+``method1()``:
+
+    Does something
+
+    *return*:
+        Nothing.
+
+Properties
+---------------------------------------
+
+``foo``:
+
+    String. Has many foo-like propeties. Defaults to "thud".
+
+``bar``:
+
+    Object. Reference to an instance of ``dojo.namespace.Bar``
+
+Methods
+---------------------------------------
+
+``baz(arg1)``:
+
+    Describe ``dojo.namespace.baz()`` here.
+
+    ``arg1``:
+        An argument. Like many others, but different in its own special way.
+
+    *return*:
+        null
+	
+
+Requires
+===============================================================================
+
+- `dojo.hostenv`_
+- `dojo.other.namespace`_
+
+.. _`dojo.hostenv`: 		hostenv.html
+.. _`dojo.other.namespace`:	other.namespace.html
+
+Provides
+===============================================================================
+
+dojo.namespace.Foo
+    A class constructor that allows Foos to be created
+
+dojo.namespace.Bar
+    A class constructor that allows Bars to be created, although you might need
+    a liquor license in your own municipality to actually operate the created
+    Bars.
+
+To Do
+===============================================================================
+
+Lots. But that's always true.
+
+About
+===============================================================================
+
+:Author: Alex Russell
+:Version: 0.1
+:Copyright: Dojo Foundation, 200x
+:Date: YYYY/MM/DD
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

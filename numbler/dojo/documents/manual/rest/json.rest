@@ -1,0 +1,120 @@
+.. title:: dojo.json.* -- The Dojo Manual
+
+Name
+===============================================================================
+
+dojo.json.* - `JSON`_ serialization and deserialization for JavaScript
+
+Summary and Overview
+===============================================================================
+
+`JSON`_ is a lightweight object notation grammar suitable for encoding many
+nested object structures across languages. JSON produced from a data structure
+is much smaller than comparable XML serialization strategies and can be
+re-constitued using the browser's built-in ``eval`` method. Both of these
+properties make it an ideal choice for fast, efficient data transport to and
+from browsers.
+
+This module is ported from MochiKit's JSON implementation.
+
+Usage
+===============================================================================
+
+::
+
+    var ret = dojo.namespace.doSomething("arg1", "arg2");
+    dojo.namespace.exerciseYourFunctions(ret);
+    dojo.debug("huzzah!");
+
+
+API Reference
+===============================================================================
+
+Properties
+---------------------------------------
+
+``jsonRegistry``:
+
+    A ``dojo.AdapterRegistry`` object that is used to find class-custom JSON
+    serializations for non-primitive objects. Type-specific mappings are added
+    using ``dojo.json.register()``.
+
+Methods
+---------------------------------------
+
+``serialize(obj)``:
+
+    Produce a string serialization of the passed in object. All properties of
+    the object are recursively searched to produce a final serialization.
+    Objects with a ``json()`` or ``__json__()`` method will have that method
+    called to produce a serialization, allowing class authors to more easily
+    provide round-trip serialization for complex data structures.
+
+    ``obj``:
+        Object to be serialized.
+
+    *return*:
+        String. The serialization of the object.
+
+``register(name, checkFunc, wrapFunc, override)``:
+
+    Register a JSON serialization function. JSON serialization functions should
+    take one argument and return an object suitable for JSON serialization:
+
+    - string
+    - number
+    - boolean
+    - undefined
+    - object
+        - null
+        - Array-like (length property that is a number)
+        - Objects with a "json" method will have this method called
+        - Any other object will be used as {key:value, ...} pairs
+
+    If ``override`` is given, it is used as the highest priority JSON
+    serialization, otherwise it will be used as the lowest.
+
+    ``name``:
+        String. A name to be used for this mapping. Typically the name of the
+        class a serialization function is being registered for.
+
+    *return*:
+        Nothing
+	
+``evalJSON(jsonStr)``:
+    
+    Returns an object representing the deserialized JSON literal string,
+    ``jsonStr``.
+
+    ``jsonStr``:
+        String. JSON string literal.
+
+    *return*
+        The Object that results from passing the ``jsonStr`` through
+        ``eval()`` with appropriate wrapping and sanity checks.
+
+Requires
+===============================================================================
+
+- `dojo.lang`_
+
+.. _`dojo.lang`: 		lang.html
+
+Provides
+===============================================================================
+
+dojo.json
+    Methods for providing `JSON`_ serialization of objects.
+
+
+.. _`JSON`: 		http://json.org
+
+About
+===============================================================================
+
+:Author: Alex Russell
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/16
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

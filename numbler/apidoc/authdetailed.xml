@@ -1,0 +1,19 @@
+<div>
+  <h3>Authentication</h3>
+  <p>Every web services request made to Numbler must be authenticated.  This is true if the sheet is private (only you or people you have invited can access it) or public (anyone can access the spreadsheet).  The only way to create a valid authentication header is with a Numbler access ID and secret key - anonymous access is not allowed.</p>
+  <p>In order use the Numbler web service you must <a href="/createaccount">create</a> a Numbler account and then 
+    <a href="/getAPIid">register</a> for API access.  Your email address must be verified before your API access ID will work properly.  Once you register for an API access ID you will receive an email with your access ID and secret key.</p>
+  <div class="example">
+    <h3>Sample credentials</h3>
+    <p>Your access ID is 20 digits long and your secret key is 40 digits.</p>
+    <pre class="codesnippet">
+Access ID: lSUReoQjWydMLQvDGEdP
+Secret key: C83EEE2D724BF58C0B2AC76DAE7E7500451908B9
+    </pre>
+  </div>
+  <div class="important">
+    <p><span class="emph">Important:</span></p>
+    You must never give out your Numbler access credentials or bad things will happen to you.
+  </div>
+
+</div>

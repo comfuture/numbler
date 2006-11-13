@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<div id="contentcon" sytle="height:600px">
+<p>Numbler currently supports export to the Microsoft XML format or to CSV (comma seperated values).  
+More export options, include support for the native Microsoft Excel format, will be forthcoming in the future.</p>
+<p>XML export will preserve all of the spreadsheet formatting and formulas and is the best option if you are using Microsoft excel.</p>
+<form action="" method="POST" enctype="multipart/form-data"><input type="hidden" value="export" name="xmlexport"/>
+<div><input type="submit" value="export to XML" name="submit"/></div>
+</form>
+
+<p>The CSV format does not support formulas or formatting but is supported by a wide range of applications.
+</p>
+<form action="" METHOD="POST"><input type="hidden" value="export" name="csvexport"/>
+<div><input type="submit" value="export to CSV" name="submit"/></div>
+</form>
+
+</div>

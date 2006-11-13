@@ -1,0 +1,781 @@
+
+form { 
+  margin:0;
+  padding:0;
+}
+
+a { 
+  color:#808080;
+ }
+a:hover { 
+  color:#17A8DE;
+ }
+a img { 
+  border:0;
+ }
+
+
+.cell,.cellcorner,.cellright,.cellbottom,.cellerror { 
+  position:absolute;
+  /* height: 100%; */
+  border-left: 1px solid #C0C0C0;
+  border-top: 1px solid #C0C0C0;
+  margin: 0px;
+  padding: 0px;
+  /*float: left; */
+  font-size: 14px;  /* Resets 1em to 10px */
+  font-family: Arial,Tahoma,Sans-Serif,'Lucida Grande', Verdana,Arial;
+  overflow:hidden;
+  cursor:text;
+  text-indent:3px;
+  padding-right:3px;
+  text-align:left;
+}
+
+.celloverflow { 
+  border-left:0px;
+ }
+
+.cellnoborder { 
+  border-left:0px;border-top:0px;
+ }
+
+.cellbottom { 
+  border-bottom: 1px solid #C0C0C0;
+}
+
+.cellright { 
+  border-right: 1px solid #C0C0C0;
+}
+.cellcorner { 
+  border-bottom: 1px solid #C0C0C0;
+  border-right: 1px solid #C0C0C0;
+}
+
+.cellerror { /* not used currently */
+  color:red;
+}
+
+.cellbg { 
+  position:absolute;
+  left:0px;
+  top:0px;
+  z-index:-1;
+ }
+
+
+.column,.startcolumn,.endcolumn,.cmoverL,.cmoverR { 
+  cursor:normal;
+  position:absolute;
+  top:0px;
+  bottom:20px; /* from column container */
+  text-align:center;
+  background-color: #efebde;
+  border-top: 1px solid #C0C0C0; 
+  height: 100%;
+  margin:0;
+  padding:0;
+  /* float:left;*/
+}
+.startcolumn { 
+  border-left: 1px solid #C0C0C0; 
+}
+
+
+.endcolumn { 
+  border-right:1px solid #C0C0C0;
+}
+
+.cmoverL { 
+  cursor:e-resize;
+  width:5px;
+  border-left: 1px solid #C0C0C0; 
+}
+
+#columncontainer {
+  float:none;
+  width: 100%;
+  height: 20px;
+  padding:0;
+  margin:0;
+}
+#cellcontainer { 
+  float:none;
+  width: 100%;
+  height: 20px;
+  padding:0;
+  margin:0;
+}
+
+#cheaderspacer { 
+  margin:0;
+  padding:0;
+  float:left;
+  height:100%;
+  width:21px;
+}
+
+.sheetrow { 
+  float:none;
+  width:100%;
+  /*overflow:auto;*/
+}
+
+#rowcontainer { 
+  width:40px;
+  height:600px;
+  overflow:hidden;
+  float:left;
+  position:relative;
+}
+
+#rowinsert {
+  width:100%;
+  height:50000px;
+  background-color:#efebde;
+}
+
+.rowheader,.rowheaderend,.startrowheader,.rmoverT { 
+  position:absolute;
+  /*border-top: 1px solid #C0C0C0;*/
+  border-left: 1px solid #C0C0C0;
+  left:0px;
+  right:20px;
+  width: 40px;
+  margin: 0;
+  padding: 0;
+  text-align:center;
+  background-color: #efebde;
+  font-size: 85%;
+  float:left;
+}
+
+.rowheaderend { 
+  border-bottom:1px solid #C0C0C0;
+}
+
+.startrowheader { 
+  border-top: 1px solid #C0C0C0;
+}
+
+.rmoverT { 
+  cursor:n-resize;
+  height:5px;
+  border-top: 1px solid #C0C0C0;
+}
+
+
+#columnmover { 
+  /* background-color: #C0C0C0; */
+  border-left: 1px dotted black;
+  width: 1px;
+  position: absolute;
+}
+
+#rowmover { 
+  /* background-color: #C0C0C0; */
+  border-top: 1px dotted black;
+  height: 1px;
+  position: absolute;
+}
+
+
+.cellinput, .celltextarea { 
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  border: 0px;
+  margin:0px;
+  padding:0px;
+  font-size: 14px;  /* Resets 1em to 10px */
+  font-family: Arial,'Lucida Grande', Verdana, Sans-Serif;
+  text-indent:5px;
+}
+
+.celltextarea { 
+  overflow:hidden;
+  z-index:10;
+ }
+
+body { 
+  font-size: 90%;  /* Resets 1em to 10px */
+  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  border: 0px;
+  margin:0px;
+  padding:0px;
+}
+
+#contextmenu { 
+  /* note: change sheet.js if the color changes */
+  /* background-color: #F6F6F6; */
+  /* border:1px solid blue; */
+  position:absolute;
+  width: 150px;
+  z-index:100;
+}
+
+.contextmenuitem {
+  color: blue;
+  font-size: 75%;
+  /*margin: 4px 2px 4px 2px; */
+  background-color: #F6F6F6;
+  margin: 2px;
+  padding: 5px; 
+  width: 120px;
+  border: 1px solid #F6F6F6;
+  /* border: 1px solid #fff; */
+  z-index:100;
+}
+
+/* not to designers: if you change this width you will need to change the 
+   DocUtils.Widgets.errorBox implementation */
+#errorbox { 
+  font-size: 75%;
+  width: 200px;
+  /* height: 100px; */
+  z-index:1000;
+}
+
+#errorbox form { 
+  margin: 0px auto;
+  width: 40%;
+}
+
+#errorboxtext { 
+  color: black;
+  margin: 0px auto;
+  margin-bottom: 2em;
+  width: 80%;
+  text-align: center;
+}
+
+/* dropshadow stuff from listapart */
+
+.p-menu {  /* for IE because they don't support transparent PNG's */
+  margin: 10px 0 0 10px !important;
+  margin: 10px 0 0 5px;
+}
+
+.p-menu p { 
+  color: #777;
+  background-color: #F6F6F6;
+  border: 1px solid #a9a9a9;
+  padding: 4px;
+}
+
+
+.p-shadow {
+  width: 90%;
+  float:left;
+  background: url(/img/shadowAlpha.png) no-repeat bottom right !important;
+  background: url(/img/shadow.gif) no-repeat bottom right;
+  margin: 10px 0 0 10px !important;
+  margin: 10px 0 0 5px;
+}
+
+.p-shadow div {
+  background: none !important;
+  background: url(/img/shadow2.gif) no-repeat left top;
+  padding: 0 !important;
+  padding: 0 6px 6px 0;
+}
+
+.p-shadow p {
+  color: #777;
+  background-color: #F6F6F6;
+  /* background-color: #fff; */
+  /*font: italic 1em georgia, serif; */
+  border: 1px solid #a9a9a9;
+  padding: 4px;
+  margin: -6px 6px 6px -6px !important;
+  margin: 0;
+}
+
+.p-shadow span {
+  color: #777;
+  background-color: #fff;
+  font: italic 1em georgia, serif;
+  border: 1px solid #a9a9a9;
+  padding: 4px;
+  margin: -6px 6px 6px -6px !important;
+  margin: 0;
+}
+
+#mainbody { 
+  width:12750px;
+  height:50000px;
+  position:relative;
+}
+
+#rightscroller {
+  float:left;
+  width:20px;
+  height:600px;
+  overflow:auto;
+}
+#rightscrollinsert {
+  width:1px;
+  height:50000px;
+}
+
+#bottomscroller {
+  float:left;
+  height:20px;
+  width:940px;
+  overflow:auto;
+}
+#bottominsert {
+  width:12750px;
+  height:1px;
+}
+
+#formulabar { 
+  /*margin-top: 40px; */
+  margin-left: 27px;
+  margin-right:27px;
+  /*width: 100%; */
+}
+
+#formulainput { 
+  /*width: 400px;*/
+  overflow:hidden;
+  width:50%;
+  font-size: 14px;  /* Resets 1em to 10px */
+  font-family: Arial,Tahoma,Sans-Serif,'Lucida Grande', Verdana,Arial;
+  height:16px;
+}
+
+#statusupdate { 
+  float:right;
+  overflow:hidden;
+  text-align:right;
+  font-size:120%;
+  width:20%;
+  height:1.2em;
+  /*color:#750f26;*/
+  color:#858585;
+ }
+
+#chatbutton { 
+  margin-bottom:-5px;
+/*
+  margin-left: 25px;
+*/
+}
+
+#updatingbutton { 
+  margin-bottom:-5px;
+  margin-left: 25px;
+  height:24px;
+}
+
+#errorhint { 
+  background-color: #FFFFE1;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid #F1EFE2;
+  border-top: 1px solid #F1EFE2;
+  font-size: 75%;
+  padding: 2px;
+  z-index:10;
+
+}
+
+
+.hdrag { 
+  font-size:0%;
+  position:absolute;
+  height:3px;
+  border-top: 3px dotted #333300;
+  padding:0;margin:0;
+  z-index:50;
+  display:none;
+ }
+.vdrag { 
+  position:absolute;
+  width:3px;
+  border-left: 3px dotted #333300;
+  padding:0;
+  margin:0;
+  z-index:50;
+  display:none;
+}
+
+
+.hspacer,.hspacer3 { 
+  font-size:0%; /* necessary for IE */
+  position:absolute;
+  height:2px;
+  background-color:red;
+  padding:0;
+  margin:0;
+  z-index:50;
+  cursor:move;
+}
+
+.hspacer3 { 
+  height:3px;
+  z-index:50;
+}
+
+.vspacer, .vspacer3 { 
+  position:absolute;
+  width:2px;
+  background-color:red;
+  padding:0;
+  margin:0;
+  z-index:50;
+  cursor:move;
+}
+
+.vspacer3 { 
+  width:3px;
+  z-index:50;
+}
+
+.lockV { 
+  position:absolute;
+  height:3px;
+  border-top: 2px dashed blue;
+  /*background-color:black;*/
+  padding:0;margin:0;
+}
+
+.lockH { 
+  position:absolute;
+  width:3px;
+  border-left: 2px dashed blue;
+  /*background-color:black;*/
+  padding:0;margin:0;
+}
+
+.lockrange { 
+  position:absolute;
+  background-color:silver;
+  opacity:0.20; 
+  filter:alpha(Opacity=20); /* craptastic IE doesn't support opacity directly */
+  /*border:2px dashed blue;*/
+  z-index:20;
+}
+.lockrange p { 
+  width:100%;
+  text-align:center;
+  margin-top:25%;
+  font-size: 150%;
+}
+
+.locktt { 
+  background-color: #FFFFE1;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid #F1EFE2;
+  border-top: 1px solid #F1EFE2;
+  font-size: 75%;
+  padding: 2px;
+  z-index:100;
+ }
+
+
+#floater { 
+  position:absolute;
+  background-color:silver;
+  opacity:0.50; 
+  filter:alpha(Opacity=50); /* craptastic IE doesn't support opacity directly */
+  /*border:3px solid green;*/
+  z-index:100;
+}
+
+.floaterH, .refH { 
+  font-size:0%;
+  position:absolute;
+  height:3px;
+  background-color:green;
+  margin:0;padding:0;
+  border:0;
+  z-index:110;
+  cursor:move;
+ }
+.floaterV, .refV { 
+  width:3px;
+  position:absolute;
+  border:0;
+  margin:0;padding:0;
+  z-index:110;
+  background-color:green;
+  cursor:move;
+ }
+
+.refH { 
+  background-color:blue;
+  height:2px;
+ }
+.refV { 
+  background-color:blue;
+  width:2px;
+ }
+
+
+#chatarea {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  background-color:white;
+  float:none;
+  width: 100%;
+  overflow:auto;
+  position:relative;
+  
+}
+
+#chatarea p {  
+
+}
+
+#chattextarea { 
+  width:90%;
+  text-align: left;
+}
+
+
+#scrollcontainer {
+  position:relative;
+  overflow:hidden;
+  float:left;
+  width:900px;
+  height:600px;
+}
+
+#colcontainer {
+  height:30px;
+  width:900px;
+  overflow:hidden;
+  position:relative;
+  border-right:1px solid black;
+  background-color:#efebde;
+}
+
+#colinsert {
+  width:12750px;
+  height:30px;
+}
+
+#spacer {
+  border-left:1px solid #C0C0C0;
+  border-top:1px solid #C0C0C0;
+  float:left;
+  background-color:#efebde;
+  width:39px;
+  height:29px;
+  /*margin-right:-3px;*/
+}
+
+#chatcontainer {
+  float:left; 
+  width:20%;
+  height:100%;
+  margin-left:5px;
+  
+  /*
+     position: absolute;
+     margin-top: 520px;
+     width: 400px;
+     height: 400px;
+     left:200px;
+     */
+  font-size:85%;
+}
+
+#sheetcontainer { 
+  /*display:none;*/
+  margin-top:1px;
+  margin-left:10px;
+  float:left;
+}
+
+
+.userid {font-weight: bold; margin-right: 15px; float:left;}
+.useridself {font-weight: bold; margin-right: 15px; float:left;color:red;}
+.userjoin { font-weight: bold; color:blue; margin-right:15px;  }
+.message { font-size: small; }
+.timestamp {float:left;font-size: x-small; margin-left:0;} /* float:right; */
+
+.collision, .messageBox { 
+  font-size:75%;
+  position:absolute;
+  background : #eee;
+  border : 1px solid #999;
+  -moz-border-radius : 5px;
+  padding : 4px;
+  z-index:500;
+  width:200px;
+
+}
+
+.collision p#newformula { 
+  background-color: #FFFFE1;
+}
+.collision input { 
+  font-size:90%;
+  margin-left:20px;
+}
+
+
+.variabledrop { 
+  position:absolute;
+  /*width:100px; */
+  font-size:85%;
+  border:1px solid #002d96;
+  background-color:white;
+}
+
+.variabledrop div { 
+  padding-left:2px;
+  padding-top:1px;
+  padding-right:2px;
+  padding-bottom:1px;
+  margin-left:1px;
+  margin-right:1px;
+}
+
+.messageBox { 
+  font-size:100%;
+}
+
+.messageBox input { 
+  margin-left:20px;
+}
+
+/*#lostconnection {  */
+.dojoDialog { 
+  padding:10px;
+  -moz-border-radius : 5px;
+  display:none;
+  background-color: #eee;
+  border: 1px solid #999;
+}
+
+#lostconnection { 
+  width:300px;
+  height:150px;
+  font-size:150%;
+  font-weight:bold;
+ }
+
+#lostconnection p { 
+  text-align:center;
+}
+
+#invitedlg { 
+  font-size:14px;
+  width:250px;
+  height:140px;
+ }
+
+#invitedlg #invitebutton { 
+}
+
+#invitedlg #canceldlg { 
+  margin-left:20px;
+}
+
+#invitedlg #invitetext { 
+  width:100%;
+ }
+
+
+#loadingsheet { 
+  position:absolute;
+  left:0px;
+  top:0px;
+  right:1500px;
+  bottom:1500px;
+  width:1500px;
+  height:1500px;
+  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  color:black;
+  background-color:white;
+  z-index:1000;
+  padding-top:20px;
+  padding-left:20px;
+ }
+
+.bcheck { 
+  background-color:#ecf2a7;
+  border:0px;
+  display:none;
+  width:400px;
+ }
+.bcheck p { 
+  padding-left:5px;padding-right:5px;
+ }
+
+#safari { display:none; }
+#opera {  display:none; }
+
+
+#contentcontainer { 
+  /*
+  opacity:1; 
+  filter:alpha(Opacity=100); 
+	 */
+ }
+
+.ruler { 
+  position:absolute;
+  left:0px;
+  top:0px;
+  margin:0;
+  padding:0;
+  visibility:hidden;
+  font-size: 14px;  /* Resets 1em to 10px */
+  font-family: Arial,Tahoma,Sans-Serif,'Lucida Grande', Verdana,Arial;
+}
+
+#toolbar { 
+  margin-left:10px;
+  margin-right:10px;
+  border:1px solid #A0A0A0;
+  margin-bottom:1px;
+ }
+
+#linkbar { 
+  margin-left:10px;
+  margin-right:10px;
+  height:30px;
+  font-weight:bold;
+  z-index:5;
+ }
+
+#linkbar a:link,#linkbar a:visited { 
+	color:#17A8DE;
+ }
+
+#topmenuright { 
+  float:right;
+  margin-top:5px;
+  width:400px auto;
+ }
+#linkcont { 
+  float:left;
+  margin-right:10px; 
+ }
+
+#topmenuright a { 
+  padding-left:5px;
+  border-left:2px solid #C0C0C0;
+  margin-right:5px;
+  font-size:12px;
+ }
+
+#topmenuright a.left { 
+  border-left:0px;
+ }
+
+
+.smallinvite { 
+  font-size:10px;
+  font-weight:normal;
+  font-style:italic;
+  width:70px;
+  line-height:9px;
+ }

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- xmlns="http://www.w3.org/1999/xhtml"> -->
+<html  xmlns:n="http://nevow.com/ns/nevow/0.1">
+  <head>
+    <title><span n:render="title"/></title>
+    <link href="/css/admin.css" type="text/css" rel="stylesheet"></link>
+    <link href="/css/shared.css" type="text/css" rel="stylesheet"></link>
+    <script src="/js/admin.js" language="javascript"></script>
+    <script src="/mochikit/packed/MochiKit/MochiKit.js" language="javascript"></script>
+    <script language="javascript">
+      MochiKit.DOM.addLoadEvent(function() { 
+      if(document.body.clientHeight) {
+      document.body.style.height = (document.body.clientHeight) + "px";
+      }
+      else if(window.innerHeight) {
+      document.body.style.height = window.innerHeight + "px";
+      }
+      });
+    </script>
+    <span n:render="extrascripts"/>
+  </head>
+  <body>
+    <div n:render="header"/>
+    <div n:render="content"/>
+    <div n:render="footer"/>
+  </body>
+</html>

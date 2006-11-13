@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<div id="contentcon">
+  <script type="text/javascript">
+    MochiKit.DOM.addLoadEvent(function() {
+    roundElement($('iwarning'));
+    });
+  </script>
+  <p>Numbler can import spreadsheets from Microsoft&#174; Excel&#174; in either XML or XLS format.  Currently Numbler will only import the first worksheet in the workbook.  Numbler will also accept files CSV (comma seperated value) format.</p>
+  <div class="bcheck" id="iwarning" style="display:block;margin-left:15%;margin-right:15%">
+    <p style="padding:10px">Numbler currently supports only the popular spreadsheet features.  Many advanced features like macros are not supported.<br/><br/>  Numbler can not currently import date and time values with the XLS importer (we recommend using the XML import option).</p>
+  </div>
+  <p></p>
+  <p>Please specify a file to import.  Once import is complete you will be able to name your new spreadsheet and invite others to collaborate on your spreadsheet.</p>
+  <form action="/procimport" enctype="multipart/form-data" method="POST">
+	<div id="sheetname">
+	  <div class="label">file name</div>
+	  <input type="file" name="uploadfile" value="uploadfile"/>
+	  <div class="example">finances.xml, members.csv, etc</div>
+	</div>
+	<div id="sheetbutton">
+	  <div class="label">
+		&nbsp;
+	  </div>
+	  <input class="submitimport" type="submit" name="import" value="Import"/>
+	</div>
+  </form>
+</div>

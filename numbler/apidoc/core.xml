@@ -1,0 +1,9 @@
+<div>
+  <h3>Core Concepts</h3>
+  <p>This section covers the core concepts with using the Numbler web services API.</p>
+  <ul>
+    <li><a class="doclink" href="/apidoc/sheetmgmt">Working with Numbler spreadsheets</a></li>
+    <li><a class="doclink" href="/apidoc/ops">Supported operations</a></li>
+    <li><a class="doclink" href="/apidoc/changedcells">Handling modified cells</a></li>
+  </ul>
+</div>

@@ -1,0 +1,10 @@
+<div>
+  <h3>Python SDK</h3>
+  <p>We use the python SDK internally so we hope that it is fairly robust.  We have tested the SDK using Python 2.4.  Early version of Python may work but are untested.</p>
+  <p>
+    <a href="/apidoc/download/numbler_pysdk.zip">Download the python SDK (zip format)</a>
+  </p>
+  <p>
+    <a href="/apidoc/download/numbler_pysdk.tar.gz">Download the python SDK (tar.gz format)</a>
+  </p>
+</div>

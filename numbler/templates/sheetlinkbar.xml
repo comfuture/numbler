@@ -1,0 +1,14 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1" id="linkcont">
+  <n:invisible n:pattern="loggedin">
+    <span class="username"><n:invisible n:render="username"/>:</span>
+    <a href="/myaccount">My Account</a>
+    <a href="/logout">Sign out</a>    
+  </n:invisible>
+    
+  <div n:render="accountinfo"/>
+  <n:invisible n:render="invite"/>  
+  <a id="exportlink" title="export your spreadsheet">
+    <n:attr name="href"><n:slot name="exportURL"/></n:attr>Export</a>
+  <a href="/support" id="faqlink" target="numblersupport" title="Numbler support">Help</a>
+  <a href="/feedback" id="feedbacklink" target="numblersupport" title="Contact numbler">Contact</a>
+</div>

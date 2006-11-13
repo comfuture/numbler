@@ -1,0 +1,8 @@
+<servicedef name="getutctime" desc="get the current utc time">
+  <connection host="localhost" port="9000" resource="/getutctime"/>
+  <params>
+    <outputs>
+      <param name="time" calcValue="true"/>
+    </outputs>
+  </params>
+</servicedef>

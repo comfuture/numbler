@@ -1,0 +1,11 @@
+<div>
+<h3>Using the API</h3>
+<p>This section covers the basics of the Numbler API.  Numbler currently supports a REST interface.  We plan on adding a SOAP interface in the future.</p>
+<ul>
+    <li><a class="doclink" href="/apidoc/authdetailed">Authentication</a></li>
+    <li><a class="doclink" href="/apidoc/accesscontrol">Access control (who can edit your sheets)</a></li>
+    <li><a class="doclink" href="/apidoc/limits">limitations</a></li>
+    <li><a class="doclink" href="/apidoc/apierror">error handling and error codes</a></li>
+</ul>
+
+</div>

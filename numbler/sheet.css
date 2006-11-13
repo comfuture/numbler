@@ -1,0 +1,86 @@
+
+/* so called "holly hack"
+/* Hides from IE-mac \*/
+* html .cell {height: 1%;}
+/* End hide from IE-mac */
+
+.row { 
+	/*width: 100%; */
+/*	width: 1020px; */
+ }
+
+/*	 float : left; */
+
+.cell { 
+	width : 100px;
+	height: 20px;
+	border-left: 1px solid #C0C0C0;
+	border-top: 1px solid #C0C0C0;
+	margin: 0px;
+	padding: 0px;
+ }
+
+.column { 
+	text-align:center;
+	background-color: #efebde;
+	border-left: 1px solid #C0C0C0; 
+	border-top: 1px solid #C0C0C0; 
+	/* font-size: 150%; */
+	width: 100px;
+	height: 20px;
+
+ }
+
+.rowheader { 
+	border-top: 1px solid #C0C0C0;
+	border-left: 1px solid #C0C0C0;
+	width: 20px;
+	height: 20px;
+	margin: 0;
+	padding: 0;
+	text-align:center;
+	background-color: #efebde;
+	font-size: 85%;
+}
+
+#columnmover { 
+	/* background-color: #C0C0C0; */
+	border-left: 1px dotted black;
+	width: 1px;
+	position: absolute;
+ }
+
+#rowmover { 
+	/* background-color: #C0C0C0; */
+	border-top: 1px dotted black;
+	height: 1px;
+	position: absolute;
+}
+
+
+.cellinput { 
+	/*width: 98px; */
+	width: 100%;
+	overflow:visible;
+	
+	border: 0px;
+	margin:0px;
+	padding:0px;
+}
+
+body { 
+	font-size: 90%;  /* Resets 1em to 10px */
+	font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+	border: 0px;
+	margin:0px;
+	padding:0px;
+ }
+
+#mainbody { 
+/*
+	width: 500px;
+	height: 500px;
+	margin-left: 20px;
+	margin-top: 20px;
+*/
+}

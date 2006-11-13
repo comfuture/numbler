@@ -1,0 +1,25 @@
+<xml>
+  <fileinfo position="5" name="Collaboration"/>
+  <item description="How do I collaborate using Numbler?" ref="howtocollab">
+	Simple.  Click the invite link on the top of your spreadsheet and enter an email address.  Your collaborator will receive an email with instructions on how to start using your spreadsheet.  When they "connect" to the spreadsheet you will be able to chat with them using the built in chat support.
+  </item>
+  <item description="How many people can use the same spreadsheet at the same time?" ref="multicolab">
+	During the beta period there is no limit on the number of simultaneous users.  In practice we recommend only working with a small number of people to avoid confusion.
+  </item>
+  <item description="Conflicting edits" ref="conflictedit">
+	If someone makes a change to a cell you are currently editing, Numbler will prompt you if you wish to accept or reject the change.  Additionally, if you undo a change that may overwrite another user's edit you will be prompted to accept or reject the change.
+  </item>
+  <item description="Can I protect a cell or range of cells from other users?" ref="lockcells">
+	Numbler supports the ability to "lock" a range of cells.  During the beta period all locks are temporary and will automatically unlock after 15 minutes, if you refresh your browser, or if you navigate to a different page.
+  </item>
+  <item description="is the chat history recorded?" ref="chathistory">
+	Numbler does not permamently record the chat history.  Numbler will remember the most recent messages in case you are joining an existing conversation.
+  </item>
+<!--
+  <item description="" ref="">
+  </item>
+
+
+-->
+
+</xml>

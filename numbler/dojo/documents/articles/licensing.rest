@@ -1,0 +1,76 @@
+.. title:: Licensing Considerations of the Dojo Foundation
+
+.. raw:: html
+   :file: ../website/rest_template/header.html
+
+Background
+----------
+
+Dojo began life as a project to unify disparate Open Source DHTML development
+projects. Since they used several different Open Source licenses, a process was
+needed to assure users that Dojo's was friendly for all uses and not encumbered
+by opaque intellectual property lineages or IP compatibility concerns.
+
+Software licensing, and Open Source licensing in particular, is nothing short
+of a political and legal mine-field. If Dojo is to meet it's goal of reducing
+barriers to adoption, it is evident that politically charged licenses are
+unacceptable. The `Academic Free License`_ was selected as a workable as it is
+relatively liberal, does not require contributing changes back to the project,
+and has passed muster with corporate lawyers when used in previous projects.
+Other licenses under consideration at the time were the MIT/X-11 license and
+the BSD license.
+
+This document distills those early discussion into a set of guiding principles
+which can be used as to inform future licensing discussions.
+
+Licensing Goals
+---------------
+
+The licensing goals of the Dojo Foundation are straightforward:
+
+- Encourage adoption
+- Discourage political contention
+- Encourage collaboration and integration with other projects
+- Be transparent
+
+Licensing Policies
+------------------
+
+The above goals have given rise to the following policies:
+
+- All contributors much sign an `Individual Contributors License Agreement`_ or
+  `Corporate Contributors License Agreement`_ as appropriate.
+- Commit privileges are only extended when CLAs have been submitted.
+- All Dojo Foundation projects must release their code under the terms of the
+  `Academic Free License`_ v2.1
+- Foundation projects may negotiate to release their code under other
+  (parallel) terms so long as they are compatible with the Foundation's
+  licensing goals (as stated above) and with the OSI's `Open Source
+  Definition`_ . Such dual-licensing agreements must be approved by the
+  Foundation's Board of Directors.
+
+.. _`Academic Free License`: http://opensource.org/licenses/afl-2.1.php
+.. _`Open Source Definition`: http://opensource.org/docs/definition.php
+.. _`Individual Contributors License Agreement`: http://dojotoolkit.org/icla.txt
+.. _`Corporate Contributors License Agreement`: http://dojotoolkit.org/ccla.txt
+
+.. raw:: html
+   :file: ../website/rest_template/sidebar.html
+
+.. raw:: html
+   :file: ../website/rest_template/docs_menu.html
+
+Licensing Considerations of the Dojo Foundation
+===============================================
+
+:Author: Alex Russell
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/10/19
+
+.. contents::
+
+.. raw:: html
+   :file: ../website/rest_template/footer.html
+
+.. vim:ts=4:et:tw=0:shiftwidth=4:

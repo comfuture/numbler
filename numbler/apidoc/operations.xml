@@ -1,0 +1,16 @@
+<div>
+  <h3>Supported commands</h3>
+  <p>The Numbler API supports three basic commands: </p>
+  <ul>
+    <li><b>GET:</b> Get a cell or range of cells</li>
+    <li><b>PUT:</b> Publish cells to a Numbler spreadsheet</li>
+    <li><b>DELETE:</b> Delete a cell or range of cells</li>
+  </ul>
+  <div class="emph">How a web service request is processed:</div>
+  <p>When a web service request is received it is queued for processing by our engine.  For simple requests, 
+    the operation is guaranteed to have a "lock" on the spreadsheet, meaning that while the transaction is processed no other changes will be accepted from other users.</p>
+  <p>For large transactions, such as sending a large number of cells or requesting all the cells in a spreadsheet, your request is broken up into chunks for processing by the system.  There is a chance that while your request is being handled that another user could make a change that would effect the outcome of your transaction.  This would be visible to you because the contents of the cells returned to you would be modified by the other user's changes.  You can avoid this situation by sending cell updates in small batches and requesting specific cell ranges from a sheet instead of the entire sheet.</p>
+  <p>We reserve the right to process web service requests at a lower priority that "live" user requests.</p>
+
+  <p>For a list of features that we don't support please see the <a class="doclink" href="/apidoc/limits">limitations</a> page.</p>
+  </div>

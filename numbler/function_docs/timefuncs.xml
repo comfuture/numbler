@@ -1,0 +1,268 @@
+<div id="contentcon"><div>
+  
+  
+
+  
+  
+  <div><div>
+      <h3>NOW</h3>
+      <div>
+    returns the current serial date and time.  By default the result will display as a date-time.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">NOW(</span><span class="synreq">)</span>
+	<p>
+	<div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>the formatted result is dependent on your language settings. NOW is calculated every time the sheet is recalculated, meaning that whenever a new value is entered or the sheet is reloaded the value of NOW will change.</p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>DATE</h3>
+      <div>
+    return a serial date from the arguments.  By default the result will display as a date.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">DATE(</span><span class="synreq">year,</span><span class="synreq">month,</span><span class="synreq">day</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">year</span>
+    <span class="argdesc">year component of a date expressed as an number</span>
+  </div><div>
+    <span class="funcarg">month</span>
+    <span class="argdesc">month component of a date expressed as a number</span>
+  </div><div>
+    <span class="funcarg">day</span>
+    <span class="argdesc">day component of a date expressed as a number</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>For compatibility with other spreadsheet programs DATE supports positive and negative values in month and day.</p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>DATEVALUE</h3>
+      <div>
+    convert date_text (e.g the date string) to a serial date format.  This is useful when you want to do date arithmetic or convert another cell value to a date.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">DATEVALUE(</span><span class="synreq">date_text</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">date_text</span>
+    <span class="argdesc">a text value that represents a date. The value must conform to the standards for your language.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>DAY</h3>
+      <div>
+    return the day from date_value expressed as the numeric day in the month (e.g 15 for "May-15-2006")
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">DAY(</span><span class="synreq">date_value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">date_value</span>
+    <span class="argdesc">a date value expressed as a text value or a serial date number.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>HOUR</h3>
+      <div>
+    returns the hour from time_value expressed in a 24 hour clock.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">HOUR(</span><span class="synreq">time_value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">time_value</span>
+    <span class="argdesc">a time value expressed either as a text value (e.g "10:30 p") or in a serial number format.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>MONTH</h3>
+      <div>
+    return the month from date_value expressed as the numeric month in the year (e.g. 1 = January, 12 = December)
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">MONTH(</span><span class="synreq">date_value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">date_value</span>
+    <span class="argdesc">a date value expressed either as a text date or a serial date number</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>SECOND</h3>
+      <div>
+    return the second from time_value as a number in the range from zero to 59.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">SECOND(</span><span class="synreq">time_value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">time_value</span>
+    <span class="argdesc">a time value expressed as a text date-time, text time, or a serial time number</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>TIME</h3>
+      <div>
+    returns the fractional value for the specified time.  By default the value is formatted as a time.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">TIME(</span><span class="synreq">hour,</span><span class="synreq">minute,</span><span class="synreq">second</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">hour</span>
+    <span class="argdesc">hour component of time value ranging from 0 to 32767.</span>
+  </div><div>
+    <span class="funcarg">minute</span>
+    <span class="argdesc">minute component of time_value ranging from 0 to 32767.</span>
+  </div><div>
+    <span class="funcarg">second</span>
+    <span class="argdesc">second component of time_value ranging from 0 to 32767.</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>If any of the arguments to TIME overflow (e.g 99 hours, 75 minutes, etc) the date will automatically role over (99 hours = 4 days  + 3 hours)</p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>TIMEVALUE</h3>
+      <div>
+    returns the fractional portion of the date-time value represented by time_text.  The value must conform to the standards for your language.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">TIMEVALUE(</span><span class="synreq">time_text</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">time_text</span>
+    <span class="argdesc">a text value that represents a time value, a date value, or a date-time value.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>TODAY</h3>
+      <div>
+    returns the current serial date.  By default the result will display as a date.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">TODAY(</span><span class="synreq">)</span>
+	<p>
+	<div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>the formatted result is dependent on your language settings.  The value of TODAY is refreshed whenever the sheet is recalculated.</p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>YEAR</h3>
+      <div>
+    return the year from date_value.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">YEAR(</span><span class="synreq">date_value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">date_value</span>
+    <span class="argdesc">a date value expressed either as a text date or a serial date number</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>For Excel compatibility the range of valid years is 1900-9999.</p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>WEEKDAY</h3>
+      <div>
+    return the day of the week from date_value.  By default Sunday=1 and is considered first day of the week.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">WEEKDAY(</span><span class="synreq">date_value,</span><span class="synopt">week_type</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">date_value</span>
+    <span class="argdesc">a date value expressed as a text date or a serial date value</span>
+  </div><div>
+    <span class="funcarg">week_type</span>
+    <span class="argdesc">Indicates how the day of the week is computed.  The default value is 1.</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><div><p>for Excel compatibility week_type supports 3 different variations:</p><table><tr><td>1</td><td>Sunday = 1 and Saturady = 7.</td></tr><tr><td>2</td><td>Monday = 1 and Sunday = 7.</td></tr><tr><td>3</td><td>Monday = 0 and Sunday = 6.</td></tr></table></div></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>MINUTE</h3>
+      <div>
+    return the minute from time_value as a number in the range from zero to 59.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">MINUTE(</span><span class="synreq">time_value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">time_value</span>
+    <span class="argdesc">a time value expressed as a text date-time, text time, or a serial time number</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div></div>
+</div></div>

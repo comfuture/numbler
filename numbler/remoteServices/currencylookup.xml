@@ -1,0 +1,26 @@
+<servicedef name="convert_currency" desc="Get the conversion factor between two different currencies">
+  <connection host="localhost" port="9005" resource="/currencylookup"/>
+  <refreshInterval>2400</refreshInterval>
+  <params>
+    <inputs>
+      <param name="fromCurrency" required="true"/>
+      <param name="toCurrency" required="true"/>
+      </inputs>
+    <outputs>
+      <param name="conversion" calcValue="true"/>
+    </outputs>
+  </params>
+  <testdata>
+    <test name="simple lookup">
+      <params>
+	<inputs>
+	  <param name="fromCurrency">USD</param>
+	  <param name="toCurrency">EUR</param>
+	</inputs>
+	<outputs>
+	  <param name="conversion" testvalue="false"/>
+	</outputs>
+      </params>
+    </test>
+  </testdata>
+</servicedef>

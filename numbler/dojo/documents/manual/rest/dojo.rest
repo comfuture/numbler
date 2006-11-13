@@ -1,0 +1,440 @@
+.. title:: dojo.* -- The Dojo Manual
+
+Name
+===============================================================================
+
+dojo.* - utility routines which are always available in dojo.
+
+Summary and Overview
+===============================================================================
+
+When dojo.js is included, some functions are always available.  They include
+debugging aids, version information, etc. These utilites are not provided by
+dojo.js itself, but by the boostrap files and the 
+
+Usage
+===============================================================================
+
+::
+
+    // print out the current version when in debugging mode
+    dojo.debug("The current version of dojo is: ", dojo.version.toString());
+
+    // warn users of deprecated APIs
+    dojo.deprecated("dojo.foo.api", "please see dojo.bar.api instead", "3.0");
+
+    // conditional check for loading an HTML-specific module
+    dojo.requireIf("html", "dojo.foo.html.*");
+
+    // a check based on boolean criteria
+    dojo.requireIf(dojo.render.html.ie, "dojo.foo.bar.*");
+
+API Reference
+===============================================================================
+
+.. contents:: Table of Contents
+   :depth: 2
+  
+The ``render`` object
+------------------------
+
+The ``dojo.render`` object contains information about the environment that dojo
+is operating under.
+
+Properties
+~~~~~~~~~~~
+
+``dojo.render.name``:
+
+    The name of of the hosting environment (e.g.  "html", "swt", etc.).
+    
+``dojo.render.os``:
+
+    An object which describes the operating system.  It has properties which are
+    booleans: ``windows``, ``linux``, ``mac``, ``osx``.
+    
+``dojo.render.ver``:
+
+    The same thing as ``dojo.version``.
+    
+``dojo.render.html``:
+
+    An object which describes the browser capabilities of the current hosting
+    enviroment. It has its own properties derived from the User-Agent:
+    
+    ``capable``:
+    
+        true if the hosting environment is capable of rendering HTML
+    
+    ``moz``:
+    
+        Boolean, ``true`` if the User-Agent indicates a Mozilla (or
+        mozilla-derived) browser (e.g., Firefox).
+
+    ``safari``:
+    
+        Boolean, ``true`` if the User-Agent indicates Apple's Safari browser.
+
+    ``ie``:
+    
+        Boolean, ``true`` if the User-Agent indicates Microsoft Internet
+        Explorer.
+
+    ``khtml``:
+    
+        Boolean, ``true`` if the User-Agent indicates a KHTML browser (e.g.
+        Konqueror).
+
+    ``opera``:
+    
+        Boolean, ``true`` if the User-Agent indicates the Opera browser .
+
+``dojo.render.svg``, ``dojo.render.vml``,
+``dojo.render.swf``, ``dojo.render.swt``:
+
+    Object which describes the SVG, VML, SWF and SWT capabilities of the current
+    hosting environment.  Each has a property:
+    
+    ``capable``:
+    
+        Boolean. ``true`` if the environment can render SVG, VML, SWF, or SWT
+        respectively.  For example::
+
+            if (dojo.render.swf.capable) { ... } 
+
+
+The ``version`` object
+---------------------------------------
+
+The ``dojo.version`` object is a singleton object which describes the version of
+the dojo library in use.
+
+Properties
+~~~~~~~~~~~~~~~
+
+``major``, ``minor``, ``patch``, ``flag``:
+
+    The major, minor, patch numbers, and any eventual flag (beta, alpha, etc.)
+    corresponding to the current version (``flag`` is a String, all the others
+    are Numbers).
+
+``revision``:
+
+    a Number corresponding to the Subversion revision number. This is useful for
+    identifying builds which don't correspond to official builds but are pulled
+    from Subversion.
+    
+Methods
+~~~~~~~~~~~~~~~
+
+``toString()``:
+
+    The ``toString()`` method returns a string representation of the
+    current version, e.g. ``"0.2.1 (2495)"``.
+
+The ``hostenv`` object
+------------------------
+
+Methods
+~~~~~~~~
+
+``moduleLoaded(modulename)``:
+
+    This method allows package files to tell the system that their namespace has
+    been loaded. For example, the contents of ``src/io/__package__.js`` may be::
+    
+        dojo.kwCompoundRequire({
+            common: ["dojo.io"],
+            rhino: ["dojo.io.RhinoIO"],
+            browser: ["dojo.io.BrowserIO", dojo.io.cookie"]
+        });
+        dojo.hostenv.moduleLoaded("dojo.io.*");
+
+    ``modulename``:
+        String. The full name of the module request being satisifed. Should end
+        in ``.*``.
+
+    *return*:
+        Nothing
+
+Root ``dojo`` Methods
+---------------------------------------
+
+``addOnLoad(functionPointer)`` and ``addOnLoad(object, "functionName")``:
+
+    Add a function object to the list of functions that are called when the
+    document gets loaded (as part of the ``onload`` handler). This is the
+    recommended, portable way to attach initialization handlers in all hosting
+    environments.
+
+``require(modulename)``:
+
+    Dynamically and synchronously loads the requested module if it has not
+    already been loaded into the environment. ``dojo.require()`` may be used at
+    any point in a program's execution but may incur slight delay in operation
+    since its is synchronous.
+
+    ``modulename``:
+        String. The name of the module to load. e.g.::
+            
+            // load a single namepace, not a whole package
+            dojo.require("dojo.html");
+
+            // load an entire package
+            dojo.require("dojo.io.*");
+
+            // explicitly load a module not included in pakcage by default
+            dojo.require("dojo.io.IframeIO");
+
+    *return*:
+        Nothing.
+
+``requireIf(condition, modulename)``:
+
+    Include the specified module if the listed ``condition`` is met.
+
+    ``condition``:
+        String or Boolean. If a String, ``condition`` should refer to the name
+        of a rendering capability (e.g. ``dojo.render.html.capable`` would be
+        required as ``"html"``). If the passed condition is a Boolean, it's
+        value is used to determine if loading should proceed.
+
+    ``modulename``:
+        String. The name of the module to load.
+
+    *return*:
+        Nothing.
+
+``requireAfter(modulename)``:
+
+    Load ``modulename`` *after* the current namespace has finished evaluating.
+
+    ``modulename``:
+        String. The name of the module to load.
+
+    *return*:
+        Nothing.
+
+``requireAfterIf(condition, modulename)``:
+
+    Load ``modulename`` *after* the current namespace has finished evaluating if
+    ``condition`` is met.
+
+    ``condition``:
+        String or Boolean.
+
+    ``modulename``:
+        String. The name of the module to load.
+
+    *return*:
+        Nothing.
+
+``kwCompoundRequire(requireMap)``:
+
+    Loads specified modules based on hostenv type. When the following map is
+    used::
+
+        dojo.kwCompoundRequire({
+            common: ["dojo.io"],
+            rhino: ["dojo.io.RhinoIO"],
+            browser: ["dojo.io.BrowserIO", dojo.io.cookie"]
+        });
+
+    then the file ``src/dojo/io.js`` is loaded in all cases. Should the current
+    runtime be hosted in a browser, ``BrowserIO.js`` and ``cookie.js`` will also
+    be requested. Should Dojo be instantiated at the command line under Rhino,
+    neither of these files will be included, but rather ``RhinoIO`` will be
+    requested to compliment ``io.js``.
+
+    ``requireMap``:
+        Object. A map of arrays keyed by host environment name. The namespaces
+        listed in the ``common`` array are loaded regardless of host
+        environment.
+
+    *return*:
+        Nothing.
+
+``provide(modulename)``:
+
+    Ensure that subsequent calls to ``dojo.require("modulename")`` do not create
+    a circular request for this file. This is exteremely important for module
+    authors, who should place ``dojo.provide()`` outlining what objects and
+    classes are defined in a in their modules *before* listing the
+    ``dojo.require()`` statements that outline the module's dependencies.
+
+    ``modulename``:
+        String. e.g.: ``dojo.provide("dojo.lang");``
+
+    *return*:
+        Nothing
+
+``setModulePrefix(modulePath, prefix)``:
+
+    Informs the package system that it can find references to scripts under the
+    provided ``prefix`` at ``modulePath``, a URI relative to the root of the
+    Dojo source hierarchy. The default mapping for Dojo-provided scripts can be
+    expressed via ``setModulePrefix`` this way::
+
+        dojo.setModulePrefix("src/", "dojo");
+
+    Subsequent requests to ``dojo.require()`` would then search for unsatisfied
+    dependencies at ``[dojoroot]/src/``, which is the default behavior. A new
+    namepace whose contents are parallel to the ``[dojoroot]`` might be
+    registered with::
+
+        dojo.setModulePrefix("../foo/", "foo");
+
+    Longer prefixes may also be registered::
+
+        dojo.setModulePrefix("../baz/", "foo.bar.baz");
+
+    ``modulePrefix``:
+        String. A URI relative to the Dojo source root.
+
+    ``prefix``:
+        String.
+
+    *return*:
+        Nothing.
+
+``evalObjPath(objpath, create)``:
+
+    Evaluate a string like "A.B" without using eval. If ``create`` is passed,
+    leaf nodes which do not yet exist in the ``objpath`` are created as empty
+    objects.
+
+    ``objpath``:
+        String. The object hierarchy to search for or create.
+
+    ``create``:
+        Boolean. Should non-existant leaves be created? Defaults to ``false``.
+
+    *return*:
+        Object. The furthest leaf node or ``undefined`` if the object was not
+        found (or created).
+
+``raise(message, exception)``:
+
+    Throws an Error object given the string err. For now, will also do a println
+    to the user first.
+
+    ``message``:
+        String. The reason for the new exception to be create.
+
+    ``exception``:
+        Optional.  Object of built-in type ``Error``.
+
+    *return*:
+        Nothing. Execution may be halted due to the calling of this method
+        should no exception handler be registered in the calling context.
+
+``debug(message, ...)``:
+
+    This function does nothing if ``djConfig.isDebug`` is not true.  Thus it's a
+    good idea to have in your HTML page, prior to the inclusion of dojo.js, a
+    line like::
+    
+        <script type="text/javascript">
+            var djConfig = {isDebug: true, debugAtAllCosts: true};
+        </script>
+    
+    and to comment it or uncomment it depending on whether you want debugging
+    comments to show up.  The caller should not supply a trailing "\n".
+
+    ``message``:
+        String. An arbitrary number of messages may be passed. They will result
+        in a single debugging line being output to the envrionment's debugging
+        facility if ``djConfig.isDebug`` is set to ``true``.
+
+    *return*:
+        Nothing.
+
+``debugShallow(object)``:
+
+    This function prints out a list of all of the properties of ``object`` using
+    the ``dojo.debug`` mechanism.
+
+    ``object``:
+        Object.
+
+    *return*:
+        Nothing.
+    
+``unimpemented(funcname, extras)``:
+
+    Convenience for throwing an exception because some
+    function is not implemented.
+
+``deprecated(behaviour, extra, removal)``:
+
+    Convenience for informing of deprecated behavior.  ``extra`` and ``removal``
+    are optional, and ``removal`` should refer to a specific future version of
+    Dojo (e.g. ``"0.3"``). Deprecated behavior warnings will only be desplayed
+    when ``djConfig.isDebug`` is ``true``.
+
+    ``behavior``:
+        String. A breif message listing what is being removed.
+
+    ``extra``:
+        Optional. String. A longer description of ``behavior``, usually
+        including a reference to an API the superceedes that listed in
+        ``behavior``.
+
+    ``removal``:
+        Optional. String. The version of Dojo in which ``behavior`` will be
+        removed.
+
+    *return*:
+        Nothing.
+
+``inherits(subclass, superclass)``:
+
+    Make ``subclass`` inherit from ``superclass`` using the necessary JavaScript
+    prototype hooks.
+
+    ``subclass``:
+        Function. The class constructor.
+
+    ``superclass``:
+        Function. The class constructor.
+
+    *return*:
+        Nothing.
+
+``errorToString(exception)``:
+
+    Returns a string representation of the passed in ``exception``.
+
+    ``exception``:
+        Object of built-in type ``Error``.
+
+    *return*:
+        String.
+
+
+Requires
+===============================================================================
+
+Nothing.
+
+Provides
+===============================================================================
+
+dojo.version
+    an object describing the current version
+    
+dojo.render
+    an object describing the hosting environment
+    
+dojo.debug
+    a utility function to aid debugging
+
+About
+===============================================================================
+
+:Author: David Ascher
+:Version: 0.2
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/22
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

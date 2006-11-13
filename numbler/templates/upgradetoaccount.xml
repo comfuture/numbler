@@ -1,0 +1,19 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1" id="contentcon" style="padding-bottom:40px">
+  <h3>Welcome back!</h3>
+  <p style="margin-right:20px">Numbler has just added a new account feature to enable you to better manage your spreadsheets.  
+    In order to get started you need to create a Numbler account.  After your account is created you will be asked to verify your email address.  Once your email address is verify Numbler will import your old sheets into your account.</p>
+  <p style="margin-top:20px;margin-bottom:70px">
+  <a class="standout" href="/createaccount">Create your own account now!</a>
+  </p>
+  <div class="warningblock" id="clearoldsheets">
+    <div style="padding:20px">
+    You are seeing this message because you have used or create a Numbler spreadsheet in the past.  If you wish to avoid creating an account you can forget your old spreadsheets by clicking here: 
+
+<div style="padding-top:10px;padding-bottom:10px">
+<form method="POST" name="forgetsheets"><input type="submit" 
+name="forgetsheets" value="Forget old sheets"/></form>  
+</div>
+Your older sheets will still be available but you will not be able to manage them, invite new users, or create new sheets.  The only way to get to your old spreadsheets will be via the URL we mailed you when you created your sheet.  In short, you <b>*really*</b> don't want to do this but instead create an account.
+</div>
+  </div>
+</div>

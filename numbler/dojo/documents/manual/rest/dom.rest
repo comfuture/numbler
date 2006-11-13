@@ -1,0 +1,392 @@
+.. title:: dojo.dom -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.dom - convenience methods for renderer-independent DOM manipulation
+
+Summary and Overview
+===============================================================================
+
+This namespace contains methods and properties related to Document Object Model
+manipulation.
+
+Usage
+===============================================================================
+
+::
+
+    FIXME: need to provide a usage example here
+
+
+API Reference
+===============================================================================
+
+Properties
+---------------------------------------
+
+``ELEMENT_NODE``:
+    Alias for DOM ``nodeType`` constant, integer value of ``1``. 
+
+``ATTRIBUTE_NODE``:
+    Alias for DOM ``nodeType`` constant, integer value of ``2``. 
+
+``TEXT_NODE``:
+    Alias for DOM ``nodeType`` constant, integer value of ``3``. 
+
+``CDATA_SECTION_NODE``:
+    Alias for DOM ``nodeType`` constant, integer value of ``4``. 
+
+``ENTITY_REFERENCE_NODE``:
+    Alias for DOM ``nodeType`` constant, integer value of ``5``. 
+
+``ENTITY_NODE``:
+    Alias for DOM ``nodeType`` constant, integer value of ``6``. 
+
+``PROCESSING_INSTRUCTION_NODE``:
+    Alias for DOM ``nodeType`` constant, integer value of ``7``. 
+
+``COMMENT_NODE``:
+    Alias for DOM ``nodeType`` constant, integer value of ``8``. 
+
+``DOCUMENT_NODE``:
+    Alias for DOM ``nodeType`` constant, integer value of ``9``. 
+
+``DOCUMENT_TYPE_NODE``:
+    Alias for DOM ``nodeType`` constant, integer value of ``10``. 
+
+``DOCUMENT_FRAGMENT_NODE``:
+    Alias for DOM ``nodeType`` constant, integer value of ``11``. 
+
+``NOTATION_NODE``:
+    Alias for DOM ``nodeType`` constant, integer value of ``12``. 
+
+
+``dojoml``:
+	String representing the the location of the DojoML namespace DTD.
+
+``xmlns``:
+    key/value mapping of short names to DTD locations. Currently includes
+    lookups for ``svg``, ``smil``, ``mnl``, ``cml``, ``xlink``, ``xhtml``,
+    ``xul``, ``xbl``, ``fo``, ``xsl``, ``xslt``, ``xi``, ``xforms``, ``saxon``,
+    ``xalan``, ``xsd``, ``dt``, ``xsi``, ``rdf``, ``rdfs``, ``dc``, ``dcq``,
+    ``soap-env``, ``wsdl``, and ``AdobeExtensions``.
+
+Methods
+---------------------------------------
+
+``isNode(obj)``:
+
+    Determines whether or not the provided object is a DOM Node.
+
+    ``obj``:
+        A suspected DOM node.
+
+    *returns*:
+        boolean
+
+``getTagName(node)``:
+
+    Normalized various ways of specifying a Dojo tag name on a node and returns
+    the ``dojo:tagname`` variant if the node attempts to specify a DojoML element
+    type. Otherwise it returns the non-namespaced lower-case name of the element
+    it represents.
+
+    ``node``:
+        A DOM node.
+
+    *returns*:
+        String corresponding to DojoML tag name or element tag name.
+
+``getUniqueId()``:
+
+    *returns*:
+        String representing an ID not used elsewhere in the current document.
+
+``firstElement(node)``:
+
+    ``node``:
+        A DOM node.
+
+    *returns*:
+        DOM Node which is the first child of ``node`` with type
+        ``dojo.dom.ELEMENT_NODE``.
+		
+``lastElement(node)``:
+
+    ``node``:
+        A DOM node.
+
+    *returns*:
+        DOM Node which is the last child of ``node`` with type
+        ``dojo.dom.ELEMENT_NODE``.
+
+``nextElement(node)``:
+
+    ``node``:
+        A DOM node.
+
+    *returns*:
+        DOM Node which is the closest next sibling of ``node`` with type
+        ``dojo.dom.ELEMENT_NODE``.
+
+``prevElement(node)``:
+
+    ``node``:
+        A DOM node.
+
+    *returns*:
+        DOM Node which is the closest previous sibling of ``node`` with type
+        ``dojo.dom.ELEMENT_NODE``.
+
+``moveChildren(srcNode, destNode, trim)``:
+
+    Appends children of ``srcNode`` to ``destNode``, optionally removing
+    text nodes at the beginning and end of ``srcNode``'s children.
+
+    ``srcNode``:
+        A DOM node.
+
+    ``destNode``:
+        A DOM node.
+
+    *returns*:
+        Integer count of children moved from ``srcNode`` to ``destNode``.
+
+``copyChildren(srcNode, destNode, trim)``:
+
+    Appends deeply cloned children of ``srcNode`` to ``destNode``, optionally
+    removing text nodes at the beginning and end of ``srcNode``'s children.
+
+    ``srcNode``:
+        A DOM node.
+
+    ``destNode``:
+        A DOM node.
+
+    *returns*:
+        Integer count of children copied from ``srcNode`` to ``destNode``.
+
+``removeChildren(node)``:
+
+    ``node``:
+        A DOM node.
+
+    *returns*:
+        Integer count of children removed.
+
+``getAncestors(node, filterFunction, returnFirstHit)``:
+
+    ``node``:
+        A DOM node.
+
+    ``filterFunction``:
+        Optional. A unary function that accepts a DOM Node and returns a boolean
+        indication whether or not the passed in DOM Node meets the filter
+        criteria it implements.
+
+    ``returnFirstHit``:
+        Optional. Boolean indicating whether or not the first ancestor matching
+        the ``filterFunction`` should be returned on its own (instead of the
+        normal array result).
+
+    *returns*:
+        If ``returnFirstHit`` is ``true``, this function returns a single DOM
+        Node. Otherwise it returns an array of DOM Nodes, with the zero index
+        corresponding to the first parent node, or if a ``filterFunction`` is
+        provided, the first ancestor node meeting the filter conditions.
+
+``getAncestorsByTag(node, tag, returnFirstHit)``:
+
+    ``node``:
+        A DOM node.
+
+    ``tag``:
+        String name of tag to filter ancestor chain for.
+
+    ``returnFirstHit``:
+        Optional. Boolean indicating whether or not the first ancestor that
+        matches ``tag`` should be returned on its own (instead of the normal
+        array result).
+
+    *returns*:
+        If ``returnFirstHit`` is ``true``, this function returns a single DOM
+        Node. Otherwise it returns an array of DOM Nodes who are ancestors of
+        ``node``, with the zero index corresponding to the nearest ancestor.
+
+``getFirstAncestorByTag(node, tag)``:
+
+    ``node``:
+        A DOM node.
+
+    ``tag``:
+        String name of tag to filter ancestor chain for.
+
+    *returns*:
+        DOM Node.
+
+``isDescendantOf(node, ancestor, guaranteeDescendant)``:
+
+    ``node``:
+        A DOM node.
+
+    ``ancestor``:
+        A DOM node.
+
+    ``guaranteeDescendant``:
+        Boolean. Defaults to ``false``, but if ``true``, ensures that the method
+        does not return ``true`` if ``node`` and ``ancestor`` are same node.
+
+    *returns*:
+        Boolean
+
+``innerXML(node)``:
+
+    ``node``:
+        A DOM node.
+
+    *returns*:
+        String containing the serialized strucutre of all children of ``node``.
+
+``createDocumentFromText(str, mimetype)``:
+
+    Creates an XML document object from "source".
+
+    ``str``:
+        String that represents the source of the document to be parsed.
+
+    ``mimetype``:
+        String. Defaults to "text/xml".
+
+    *returns*
+        XML Document Object.
+
+``insertBefore(node, reference, force)``:
+
+    Inserts ``node`` as the previous sibling of ``reference`` in the DOM
+    hierarchy.
+
+    ``node``:
+        A DOM Node.
+
+    ``reference``:
+        A DOM Node.
+
+    ``force``:
+        Optional. Boolean. Defaults to ``false``. Determines whether or not
+        insertion should continue if ``node`` and ``reference`` point to the
+        same DOM Node.
+
+    *returns*:
+        Boolean. ``true`` for success and ``false`` if insertion fails.
+
+``insertAfter(node, reference, force)``:
+
+    Inserts ``node`` as the next sibling of ``reference`` in the DOM hierarchy.
+
+    ``node``:
+        A DOM Node.
+
+    ``reference``:
+        A DOM Node.
+
+    ``force``:
+        Optional. Boolean. Defaults to ``false``. Determines whether or not
+        insertion should continue if ``node`` and ``reference`` point to the
+        same DOM Node.
+
+    *returns*:
+        Boolean. ``true`` for success and ``false`` if insertion fails.
+
+``insertAtPosition(node, reference, position)``:
+
+    Inserts ``node`` at the specified ``position`` relative to ``reference`` in
+    the DOM hierarchy.
+
+    ``node``:
+        A DOM Node.
+
+    ``reference``:
+        A DOM Node.
+
+    ``position``:
+        Optional. String that determines where, relative to ``reference``, to
+        place ``node``. Accepted values are ``before``, ``after``, ``first``,
+        and ``last``. ``first`` and ``last`` make ``node`` a child of
+        ``reference``.
+
+    *returns*:
+        Boolean. ``true`` for success and ``false`` if insertion fails.
+
+``insertAtIndex(node, parent, index)``:
+
+    Inserts ``node`` at the specified ``position`` relative to ``reference`` in
+    the DOM hierarchy.
+
+    ``node``:
+        A DOM Node.
+
+    ``parent``:
+        A DOM Node.
+
+    ``index``:
+        Integer that determines where in the ``children`` of ``parent`` ``node``
+        should be inserted.
+
+    *returns*:
+        Boolean. ``true`` for success and ``false`` if insertion fails.
+
+``textContent(node, text)``:
+
+    Gets or sets the text-only serialization of a node's children. Implements
+    the same behavior as the DOM Level 3 attribute of the same name.
+
+    ``node``:
+        A DOM Node.
+
+    ``text``:
+        Optional. String to assign the text content of ``node`` to.
+
+    *returns*:
+        String representing the text content of ``node``. If ``text`` is
+        provided, the result should be the same as ``text``.
+
+``collectionToArray(collection)``:
+    
+    Since DOM Collection objects are not JavaScript arrays, this method provides
+    a simple translation to a "non-live" array object which contains references
+    to nodes, but without the non-intuitive mutability side-effects.
+
+    ``collection``:
+        A DOM Collection.
+
+    *returns*:
+        Array of nodes referenced in Collection.
+
+Requires
+===============================================================================
+
+- `dojo.lang`_
+
+.. _`dojo.lang`:    lang.html
+
+Provides
+===============================================================================
+
+dojo.dom
+    Namespace for DOM manipulation methods
+
+
+About
+===============================================================================
+
+:Author: Alex Russell
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/11/21
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

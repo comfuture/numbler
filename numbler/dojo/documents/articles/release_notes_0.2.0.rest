@@ -1,0 +1,119 @@
+.. title:: Dojo 0.2.0 Release Notes
+
+.. raw:: html
+   :file: ../website/rest_template/header.html
+
+Introduction
+------------
+
+Dojo 0.2.0 is the second major release of Dojo. Since 0.1.0, more than 70 bugs
+have been fixed, dozens of features added, and over a thousand commits made to
+the project's source control. Major refactoring in many namespaces to make it
+even easier to get to the goodies that Dojo makes available.
+
+The full list of closed bugs is available `from the project bug tracker
+<http://dojotoolkit.org/trac/query?status=closed&milestone=0.2release>`_.
+
+Highlights
+----------
+- Dojo is now dual-licensed as AFL and BSD. This means you can use Dojo in
+  (L)GPL projects without worry.
+- JSON serialization and JSON-RPC support
+- Persistent local storage via ``dojo.storage.*``
+- Extensive validation support in ``dojo.validate.*`` and ``dojo.regexp.*``
+- The new HTML Editor widget and continued improvements to the RichText
+  component.
+- Firefox 1.5 SVG widget support.
+- Significant performance improvements, including further automatic memory leak
+  prevention for IE.
+- Namespace flattening. Getting at most utility methods should now require much
+  less typing.
+- Major refactoring of the widget hierarchy to make writing and using cleaner
+  and significant feature work on many existing widgets.
+- File upload capability in the I/O system for both forms and programmatically
+  generated content.
+- Working implementations of Blowfish and MD5 in ``dojo.crypto.*``.
+- Documentation for many major systems (will be published at
+  _`http://manual.dojotoolkit.org`)
+- Numerous fixes for the build and package systems to improve performance and
+  reliability.
+- New widgets galore:
+    * Fisheye list
+    * Split pane
+    * Tree
+    * SVG Charts (FF 1.5 only)
+    * Layout pane
+    * Floating pane ("window")
+    * Wizard
+    * Accordion
+
+Upgrade Guidelines
+------------------
+
+Users of Dojo 0.1.0 will find many APIs moved from their previous locations.
+Likewise, many widget implementations have been moved to renderer-specific
+files. In both cases, stub files have been left in the old locations where
+possible and ``dojo.deprecated`` warnings should inform you of which APIs have
+moved and in what version they will be removed. To view these warnings, enable
+debugging output::
+
+    <script type="text/javascript">
+        djConfig = {
+            isDebug: true
+        };
+    </script>
+    <script src="/path/to/dojo.js" type="text/javascript"></script>
+    ...
+
+API Stability
+-------------
+
+This is an initial release with a "0.x.0" version number. We make no claims for
+forward-looking API stability on the main line, however the following sub-point
+release (0.2.1) should maintain API compatibility with this release. The next
+major release (0.3.0) makes no such guarantees. See the Dojo `bug tracker` for
+details on anticipated changes.
+
+Known Issues
+------------
+
+- Editor widget creation from a ``<textarea>`` node does not work correctly in
+  Safari
+- The Editor component does not work on Opera 9 due to a known issue with
+  Opera's implementation.
+- Several namespaces still lack unit tests
+- Several objects in dojo.collections.* fail their unit tests badly
+
+For an up-to-date list, see the Dojo bug tracking system:
+
+http://dojotoolkit.org/trac/
+
+Distributions
+-------------
+
+Multiple profile builds of this release are available from:
+
+http://dojotoolkit.org/download/
+
+.. _`bug tracker`: http://dojotoolkit.org/trac/report/6
+.. _`Dojo's Source`: http://dojotoolkit.org/svn/dojo/
+.. _`Dojo Status`: http://dojotoolkit.org/projectStatus.html
+.. _`The Dojo Wiki`: http://dojo.jot.com/
+
+.. raw:: html
+   :file: ../website/rest_template/sidebar.html
+
+Dojo 0.2.0 Release Notes
+================================
+
+:Author: Alex Russell
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/15
+
+.. contents::
+
+.. raw:: html
+   :file: ../website/rest_template/footer.html
+
+.. vim:ts=4:et:tw=0:shiftwidth=4:

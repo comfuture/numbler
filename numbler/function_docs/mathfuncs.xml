@@ -1,0 +1,531 @@
+<div id="contentcon"><div>
+  
+  
+
+  
+  
+  <div><div>
+      <h3>ROUND</h3>
+      <div>
+    round to the nearest value using the "half-up" convention.  Any number less than .5 at the specified precision is rounded down while values &gt;= .5 are rounded up.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ROUND(</span><span class="synreq">number,</span><span class="synreq">digits</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number</span>
+    <span class="argdesc">the number you wish to round</span>
+  </div><div>
+    <span class="funcarg">digits</span>
+    <span class="argdesc">the number of digits left after rounding</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>ROUNDUP</h3>
+      <div>
+    round up to the next largest value (away from 0)
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ROUNDUP(</span><span class="synreq">number,</span><span class="synreq">digits</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number</span>
+    <span class="argdesc">the number you wish to round</span>
+  </div><div>
+    <span class="funcarg">digits</span>
+    <span class="argdesc">the number of digits left after rounding</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>ROUNDDOWN</h3>
+      <div>
+    round down the the next smallest value (towards 0).
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ROUNDDOWN(</span><span class="synreq">number,</span><span class="synreq">digits</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number</span>
+    <span class="argdesc">the number you wish to round</span>
+  </div><div>
+    <span class="funcarg">digits</span>
+    <span class="argdesc">the number of digits left after rounding</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>POWER</h3>
+      <div>
+    raise number1 to the power of number2.  =POWER(5,2) is the same as =5^2
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">POWER(</span><span class="synreq">number1,</span><span class="synreq">number2</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number1</span>
+    <span class="argdesc">the base value</span>
+  </div><div>
+    <span class="funcarg">number2</span>
+    <span class="argdesc">the exponent to which to raise number1</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>INT</h3>
+      <div>
+    converts a floating point or decimal value to an integer value.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">INT(</span><span class="synreq">number</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number</span>
+    <span class="argdesc">the real number you wish to convert to an integer</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><div>WARNING: do not use INT to properly round a number, instead use one of the ROUND functions.</div></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>LOG</h3>
+      <div>
+    returns the logarithm of number with base base_val.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">LOG(</span><span class="synreq">number,</span><span class="synopt">base_val</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number</span>
+    <span class="argdesc">any positive number</span>
+  </div><div>
+    <span class="funcarg">base_val</span>
+    <span class="argdesc">the base of the logarithm.  If base_val is omitted the default is base 10</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>EXP</h3>
+      <div>
+    calculate e raised to the power of number.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">EXP(</span><span class="synreq">number</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number</span>
+    <span class="argdesc">the exponent applied to the base e</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>SIN</h3>
+      <div>
+    return the sine of the specified angle.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">SIN(</span><span class="synreq">angle</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">angle</span>
+    <span class="argdesc">the angle in radians used to compute the sine</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>for more information see <a href="http://en.wikipedia.org/wiki/Trigonometric_function">Trigonometric Functions</a></p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>COS</h3>
+      <div>
+    return the cosine of the specified angle.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">COS(</span><span class="synreq">angle</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">angle</span>
+    <span class="argdesc">the angle in radians used to compute the cosine</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>for more information see <a href="http://en.wikipedia.org/wiki/Trigonometric_function">Trigonometric Functions</a></p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>TAN</h3>
+      <div>
+    return the tangent of the specified angle.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">TAN(</span><span class="synreq">angle</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">angle</span>
+    <span class="argdesc">the angle in radians used to compute the tangent</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>for more information see <a href="http://en.wikipedia.org/wiki/Trigonometric_function">Trigonometric Functions</a></p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>ASIN</h3>
+      <div>
+    return the arcsine (or inverse sine) of a number.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ASIN(</span><span class="synreq">angle</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">angle</span>
+    <span class="argdesc">the arcsine of the angle you want in the range -1 to 1 (inclusive)</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>for more information see <a href="http://en.wikipedia.org/wiki/Trigonometric_function">Trigonometric Functions</a></p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>ATAN</h3>
+      <div>
+    return the arctangent (or inverse tangent) of a number.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ATAN(</span><span class="synreq">number</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number</span>
+    <span class="argdesc">the tangent of the angle you want.</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>for more information see <a href="http://en.wikipedia.org/wiki/Trigonometric_function">Trigonometric Functions</a></p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>COSH</h3>
+      <div>
+    returns the hyperbolic cosine of a number.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">COSH(</span><span class="synreq">number</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number</span>
+    <span class="argdesc">the number for which you want the hyperbolic cosine.</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>for more information see <a href="http://en.wikipedia.org/wiki/Trigonometric_function">Trigonometric Functions</a></p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>DEGREES</h3>
+      <div>
+    convert a number in radians to degrees.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">DEGREES(</span><span class="synreq">angle</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">angle</span>
+    <span class="argdesc">the angle in radians to convert</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>SINH</h3>
+      <div>
+    compute the hyperbolic sine of a number.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">SINH(</span><span class="synreq">number</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number</span>
+    <span class="argdesc">any real number</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>for more information see <a href="http://en.wikipedia.org/wiki/Trigonometric_function">Trigonometric Functions</a></p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>PRODUCT</h3>
+      <div>
+    multiply all the values together and return the product.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">PRODUCT(number1,number2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number1,number2,...</span>
+    <span class="argdesc">numbers you want to multiply</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>ABS</h3>
+      <div>
+    compute the absolute value of a numbler.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ABS(</span><span class="synreq">number</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number</span>
+    <span class="argdesc">any real number</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>SUM</h3>
+      <div>
+    add all the specified cells as individual values or ranges of cells.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">SUM(number1,number2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number1,number2,...</span>
+    <span class="argdesc">any numeric value</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>any non numeric values are ignored by SUM.</p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>AVG</h3>
+      <div>
+    Compute the average (mean) of the supplied numeric arguments.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">AVG(number1,number2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number1,number2,...</span>
+    <span class="argdesc">any number value</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>AVERAGE</h3>
+      <div>
+    Compute the average (mean) of the supplied numeric arguments.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">AVG(number1,number2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number1,number2,...</span>
+    <span class="argdesc">any number value</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>TRUNC</h3>
+      <div>
+    Truncate a number to an integer by removing the fractional portion of the number.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">TRUNC(</span><span class="synreq">number</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number</span>
+    <span class="argdesc">The number to truncate</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>TRUNC does not support a precision argument (Excel does)</p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>PI</h3>
+      <div>
+    returns the value of Pi, the ratio of a circle's circumference to its diameter.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">PI(</span><span class="synreq">)</span>
+	<p>
+	<div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>MOD</h3>
+      <div>
+    Returns the remainer of number divided by divisor.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">MOD(</span><span class="synreq">number,</span><span class="synreq">divisor</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number</span>
+    <span class="argdesc">the number that you want to compute the remainder of after dividing by divisor</span>
+  </div><div>
+    <span class="funcarg">divisor</span>
+    <span class="argdesc">the value used to divide number</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>SQRT</h3>
+      <div>
+    Compute the square root of number.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">SQRT(</span><span class="synreq">number</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number</span>
+    <span class="argdesc">number to compute the square root.  Negative numbers will return #NUM!</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>SUBTOTAL</h3>
+      <div>
+    evaluate a function over a series of cell ranges.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">SUBTOTAL(function_id,ref1,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">function_id,ref1,...</span>
+    <span class="argdesc">the number of the function you wish to use</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>SUBTOTAL does not avoid double counting so be sure not include overlapping or duplicate cell ranges.  This function is supported mostly for excel compatibility.</p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>SUMIF</h3>
+      <div>
+    Compute a SUM based specified by range based on criteria.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">SUMIF(</span><span class="synreq">cell_range,</span><span class="synreq">criteria,</span><span class="synopt">sum_range</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">cell_range</span>
+    <span class="argdesc">A range of cells to compute the SUM (e.g. A4:C12, B:D, etc)</span>
+  </div><div>
+    <span class="funcarg">criteria</span>
+    <span class="argdesc">A psuedo logical expression that indicates the criteria for evaluating whether a value from cell_range should be included.</span>
+  </div><div>
+    <span class="funcarg">sum_range</span>
+    <span class="argdesc">an optional cell range that is used to compute the sum based on an offset match with cell_range.  If sum_range is omitted the sum is performed from cell_range.</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>SUMIF does not support wildcards in the criteria field. The criteria field must establish a boolean expression to indicate if the cell in cell_range meets the conditions.  Example criteria values are "&gt;45" (any value greater than 45) and  "bananna" (any cell equal to "bananna").</p></div>
+    </p>
+  </div>
+      
+    </div></div>
+</div></div>

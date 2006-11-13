@@ -1,0 +1,205 @@
+.. title:: dojo.storage -- The Dojo Manual
+
+Name
+===============================================================================
+
+dojo.storage - A local durable cache
+
+Summary and Overview
+===============================================================================
+
+Importing this module should also provide to your application the most
+appropriate storage subsystem for your environment (if one is available).
+
+The storage system provides key-based storage for string values in a way that is
+(hopefully) non-transient and does not incur the delay of network access. This
+is important in DHTML/Ajax applications which deal with large data sets and
+whose startup time is gated by the retreival of data from the network. Other
+applications, such as providing "offline" modes for these applications, are also
+interesting.
+
+These storage pools should be thought of primarialy as cache or scratch space,
+since users of these applications tend to use multiple systems to access their
+data and the durability of the cache itself cannot be guranteed.
+
+Currently the only storage provider implemented provides access to the Flash
+cookie mechanism (>=100K of space) from a DHTML environment. This compares
+favorably to the HTTP cookie limit of 4K. Other providers will be implemented in
+the future as browsers begin to natively provide similar facilities.
+
+Non-browser envirnoments may implement this cache on a filesystem or other
+low-latency storage medium.
+
+Usage
+===============================================================================
+
+::
+
+    // store a value in the global namespace 
+    dojo.storage.set("foo", "bar baz");
+
+    // store a value in the "/foo" namespace
+    dojo.storage.set("foo", "bar baz", "/tmp");
+
+    // get the value back from the global namespace
+    var value = dojo.storage.get("foo", "bar baz");
+
+    // get the value back from the "/foo" namespace
+    var value = dojo.storage.get("foo", "bar baz", "/foo");
+
+    // remove both values
+    dojo.storage.remove("foo");
+    dojo.storage.remove("foo", "/foo");
+
+API Reference
+===============================================================================
+
+Properties
+---------------------------------------
+
+``provider``:
+    Object of type ``dojo.storage.StorageProvider``. Defaults to ``null``. 
+
+Methods
+---------------------------------------
+
+``set(key, value, namespace)``:
+
+    ``key``:
+        String.
+
+    ``value``:
+        String.
+
+    ``namespace``:
+        Optional. String.
+
+    *return*
+        ``StorageProvider`` specific
+
+``get(key, namespace)``:
+
+    ``key``:
+        String.
+
+    ``namespace``:
+        Optional. String.
+
+    *return*
+        String. 
+
+``remove(key, namespace)``:
+
+    ``key``:
+        String.
+
+    ``namespace``:
+        Optional. String.
+
+    *return*
+        String. 
+
+``setProvider(provider)``:
+
+    Assigns the provider object.
+    
+    ``provider``:
+        Object implementing ``dojo.storage.StorageProvider``.
+
+Classes
+---------------------------------------
+
+``StorageProvider()``:
+
+    The ``StorageProvider`` class represents the interface that storage
+    provdiders which plug into ``dojo.storage`` must implement.    
+
+    *Inherits from*:
+        nothing
+
+    *returns*:
+        new object of type Foo.
+
+Properties
+~~~~~~~~~~~~~
+
+    ``namespace``:
+        String. Name of the default namespace for this storage provider.
+        Defaults to ``*``.
+
+    ``initialized``:
+        Boolean. Is the provider ready to accept ``get()`` and ``set()``
+        requests?
+
+Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``set(key, value, namespace)``:
+
+        ``key``:
+            String.
+
+        ``value``:
+            String.
+
+        ``namespace``:
+            Optional. String.
+
+        *return*
+            Implementation specific
+
+    ``get(key, namespace)``:
+
+        ``key``:
+            String.
+
+        ``namespace``:
+            Optional. String.
+
+        *return*
+            String. 
+
+    ``remove(key, namespace)``:
+
+        ``key``:
+            String.
+
+        ``namespace``:
+            Optional. String.
+
+        *return*
+            String. 
+
+    ``free()``:
+
+        Returns the number of bytes left for storing data in the provider.
+
+        *return*
+            Int.
+
+Requires
+===============================================================================
+
+- `dojo.lang`_
+
+.. _`dojo.lang`: 		lang.html
+
+Provides
+===============================================================================
+
+dojo.storage
+    A local durable cache
+
+dojo.storage.StorageProvider
+    An interface class defining the APIs that a storage provider object must
+    implement.
+
+About
+===============================================================================
+
+:Author: Alex Russell
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/01
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

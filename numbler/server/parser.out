@@ -1,0 +1,3038 @@
+
+
+Unused terminals:
+
+   POINT
+
+Grammar
+
+Rule 1     expression -> expression PLUS expression
+Rule 2     expression -> expression MINUS expression
+Rule 3     expression -> expression TIMES expression
+Rule 4     expression -> expression DIVIDE expression
+Rule 5     expression -> expression EXP expression
+Rule 6     expression -> expression LE expression
+Rule 7     expression -> expression LT expression
+Rule 8     expression -> expression GE expression
+Rule 9     expression -> expression GT expression
+Rule 10    expression -> expression EQ expression
+Rule 11    expression -> expression NEQ expression
+Rule 12    expression -> expression CONCAT expression
+Rule 13    expression -> cell
+Rule 14    expression -> function
+Rule 15    expression -> ifFunction
+Rule 16    expression -> STRING
+Rule 17    expression -> ERR
+Rule 18    expression -> MINUS expression
+Rule 19    expression -> PLUS expression
+Rule 20    expression -> TRUE
+Rule 21    expression -> FALSE
+Rule 22    expression -> INTEGER
+Rule 23    expression -> FLOAT
+Rule 24    expression -> LPAREN expression RPAREN
+Rule 25    ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN
+Rule 26    ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN
+Rule 27    ifFunction -> IF LPAREN expression COMMA expression RPAREN
+Rule 28    function -> FUNC LPAREN arglist RPAREN
+Rule 29    function -> FUNC LPAREN RPAREN
+Rule 30    arglist -> arg
+Rule 31    arglist -> arglist COMMA arg
+Rule 32    arg -> expression
+Rule 33    arg -> areareference
+Rule 34    areareference -> range
+Rule 35    areareference -> vector
+Rule 36    vector -> colrange
+Rule 37    vector -> rowrange
+Rule 38    range -> cell RANGEOP cell
+Rule 39    colrange -> column RANGEOP column
+Rule 40    rowrange -> INTEGER RANGEOP INTEGER
+Rule 41    rowrange -> absrow RANGEOP INTEGER
+Rule 42    rowrange -> INTEGER RANGEOP absrow
+Rule 43    rowrange -> absrow RANGEOP absrow
+Rule 44    cell -> column row
+Rule 45    cell -> SHEETNAME column row
+Rule 46    column -> COLUMN
+Rule 47    column -> ABSREF COLUMN
+Rule 48    absrow -> ABSREF INTEGER
+Rule 49    row -> INTEGER
+Rule 50    row -> ABSREF INTEGER
+
+Terminals, with rules where they appear
+
+ABSREF               : 47 48 50
+COLUMN               : 46 47
+COMMA                : 25 25 26 26 27 31
+CONCAT               : 12
+DIVIDE               : 4
+EQ                   : 10
+ERR                  : 17
+EXP                  : 5
+FALSE                : 21
+FLOAT                : 23
+FUNC                 : 28 29
+GE                   : 8
+GT                   : 9
+IF                   : 25 26 27
+INTEGER              : 22 40 40 41 42 48 49 50
+LE                   : 6
+LPAREN               : 24 25 26 27 28 29
+LT                   : 7
+MINUS                : 2 18
+NEQ                  : 11
+PLUS                 : 1 19
+POINT                : 
+RANGEOP              : 38 39 40 41 42 43
+RPAREN               : 24 25 26 27 28 29
+SHEETNAME            : 45
+STRING               : 16
+TIMES                : 3
+TRUE                 : 20
+error                : 
+
+Nonterminals, with rules where they appear
+
+absrow               : 41 42 43 43
+areareference        : 33
+arg                  : 30 31
+arglist              : 28 31
+cell                 : 13 38 38
+colrange             : 36
+column               : 39 39 44 45
+expression           : 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9 10 10 11 11 12 12 18 19 24 25 25 25 26 26 27 27 32 0
+function             : 14
+ifFunction           : 15
+range                : 34
+row                  : 44 45
+rowrange             : 37
+vector               : 35
+
+
+Parsing method: SLR
+
+
+state 0
+
+    (0) S' -> . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 19
+
+state 1
+
+    (28) function -> FUNC . LPAREN arglist RPAREN
+    (29) function -> FUNC . LPAREN RPAREN
+
+    LPAREN          shift and go to state 20
+
+
+
+state 2
+
+    (17) expression -> ERR .
+
+    $               reduce using rule 17 (expression -> ERR .)
+    PLUS            reduce using rule 17 (expression -> ERR .)
+    MINUS           reduce using rule 17 (expression -> ERR .)
+    TIMES           reduce using rule 17 (expression -> ERR .)
+    DIVIDE          reduce using rule 17 (expression -> ERR .)
+    EXP             reduce using rule 17 (expression -> ERR .)
+    LE              reduce using rule 17 (expression -> ERR .)
+    LT              reduce using rule 17 (expression -> ERR .)
+    GE              reduce using rule 17 (expression -> ERR .)
+    GT              reduce using rule 17 (expression -> ERR .)
+    EQ              reduce using rule 17 (expression -> ERR .)
+    NEQ             reduce using rule 17 (expression -> ERR .)
+    CONCAT          reduce using rule 17 (expression -> ERR .)
+    RPAREN          reduce using rule 17 (expression -> ERR .)
+    COMMA           reduce using rule 17 (expression -> ERR .)
+
+
+
+state 3
+
+    (20) expression -> TRUE .
+
+    $               reduce using rule 20 (expression -> TRUE .)
+    PLUS            reduce using rule 20 (expression -> TRUE .)
+    MINUS           reduce using rule 20 (expression -> TRUE .)
+    TIMES           reduce using rule 20 (expression -> TRUE .)
+    DIVIDE          reduce using rule 20 (expression -> TRUE .)
+    EXP             reduce using rule 20 (expression -> TRUE .)
+    LE              reduce using rule 20 (expression -> TRUE .)
+    LT              reduce using rule 20 (expression -> TRUE .)
+    GE              reduce using rule 20 (expression -> TRUE .)
+    GT              reduce using rule 20 (expression -> TRUE .)
+    EQ              reduce using rule 20 (expression -> TRUE .)
+    NEQ             reduce using rule 20 (expression -> TRUE .)
+    CONCAT          reduce using rule 20 (expression -> TRUE .)
+    RPAREN          reduce using rule 20 (expression -> TRUE .)
+    COMMA           reduce using rule 20 (expression -> TRUE .)
+
+
+
+state 4
+
+    (18) expression -> MINUS . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 21
+
+state 5
+
+    (16) expression -> STRING .
+
+    $               reduce using rule 16 (expression -> STRING .)
+    PLUS            reduce using rule 16 (expression -> STRING .)
+    MINUS           reduce using rule 16 (expression -> STRING .)
+    TIMES           reduce using rule 16 (expression -> STRING .)
+    DIVIDE          reduce using rule 16 (expression -> STRING .)
+    EXP             reduce using rule 16 (expression -> STRING .)
+    LE              reduce using rule 16 (expression -> STRING .)
+    LT              reduce using rule 16 (expression -> STRING .)
+    GE              reduce using rule 16 (expression -> STRING .)
+    GT              reduce using rule 16 (expression -> STRING .)
+    EQ              reduce using rule 16 (expression -> STRING .)
+    NEQ             reduce using rule 16 (expression -> STRING .)
+    CONCAT          reduce using rule 16 (expression -> STRING .)
+    RPAREN          reduce using rule 16 (expression -> STRING .)
+    COMMA           reduce using rule 16 (expression -> STRING .)
+
+
+
+state 6
+
+    (46) column -> COLUMN .
+
+    RANGEOP         reduce using rule 46 (column -> COLUMN .)
+    RPAREN          reduce using rule 46 (column -> COLUMN .)
+    COMMA           reduce using rule 46 (column -> COLUMN .)
+    INTEGER         reduce using rule 46 (column -> COLUMN .)
+    ABSREF          reduce using rule 46 (column -> COLUMN .)
+
+
+
+state 7
+
+    (13) expression -> cell .
+
+    $               reduce using rule 13 (expression -> cell .)
+    PLUS            reduce using rule 13 (expression -> cell .)
+    MINUS           reduce using rule 13 (expression -> cell .)
+    TIMES           reduce using rule 13 (expression -> cell .)
+    DIVIDE          reduce using rule 13 (expression -> cell .)
+    EXP             reduce using rule 13 (expression -> cell .)
+    LE              reduce using rule 13 (expression -> cell .)
+    LT              reduce using rule 13 (expression -> cell .)
+    GE              reduce using rule 13 (expression -> cell .)
+    GT              reduce using rule 13 (expression -> cell .)
+    EQ              reduce using rule 13 (expression -> cell .)
+    NEQ             reduce using rule 13 (expression -> cell .)
+    CONCAT          reduce using rule 13 (expression -> cell .)
+    RPAREN          reduce using rule 13 (expression -> cell .)
+    COMMA           reduce using rule 13 (expression -> cell .)
+
+
+
+state 8
+
+    (19) expression -> PLUS . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 22
+
+state 9
+
+    (22) expression -> INTEGER .
+
+    $               reduce using rule 22 (expression -> INTEGER .)
+    PLUS            reduce using rule 22 (expression -> INTEGER .)
+    MINUS           reduce using rule 22 (expression -> INTEGER .)
+    TIMES           reduce using rule 22 (expression -> INTEGER .)
+    DIVIDE          reduce using rule 22 (expression -> INTEGER .)
+    EXP             reduce using rule 22 (expression -> INTEGER .)
+    LE              reduce using rule 22 (expression -> INTEGER .)
+    LT              reduce using rule 22 (expression -> INTEGER .)
+    GE              reduce using rule 22 (expression -> INTEGER .)
+    GT              reduce using rule 22 (expression -> INTEGER .)
+    EQ              reduce using rule 22 (expression -> INTEGER .)
+    NEQ             reduce using rule 22 (expression -> INTEGER .)
+    CONCAT          reduce using rule 22 (expression -> INTEGER .)
+    RPAREN          reduce using rule 22 (expression -> INTEGER .)
+    COMMA           reduce using rule 22 (expression -> INTEGER .)
+
+
+
+state 10
+
+    (14) expression -> function .
+
+    $               reduce using rule 14 (expression -> function .)
+    PLUS            reduce using rule 14 (expression -> function .)
+    MINUS           reduce using rule 14 (expression -> function .)
+    TIMES           reduce using rule 14 (expression -> function .)
+    DIVIDE          reduce using rule 14 (expression -> function .)
+    EXP             reduce using rule 14 (expression -> function .)
+    LE              reduce using rule 14 (expression -> function .)
+    LT              reduce using rule 14 (expression -> function .)
+    GE              reduce using rule 14 (expression -> function .)
+    GT              reduce using rule 14 (expression -> function .)
+    EQ              reduce using rule 14 (expression -> function .)
+    NEQ             reduce using rule 14 (expression -> function .)
+    CONCAT          reduce using rule 14 (expression -> function .)
+    RPAREN          reduce using rule 14 (expression -> function .)
+    COMMA           reduce using rule 14 (expression -> function .)
+
+
+
+state 11
+
+    (24) expression -> LPAREN . expression RPAREN
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 23
+
+state 12
+
+    (25) ifFunction -> IF . LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> IF . LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> IF . LPAREN expression COMMA expression RPAREN
+
+    LPAREN          shift and go to state 24
+
+
+
+state 13
+
+    (21) expression -> FALSE .
+
+    $               reduce using rule 21 (expression -> FALSE .)
+    PLUS            reduce using rule 21 (expression -> FALSE .)
+    MINUS           reduce using rule 21 (expression -> FALSE .)
+    TIMES           reduce using rule 21 (expression -> FALSE .)
+    DIVIDE          reduce using rule 21 (expression -> FALSE .)
+    EXP             reduce using rule 21 (expression -> FALSE .)
+    LE              reduce using rule 21 (expression -> FALSE .)
+    LT              reduce using rule 21 (expression -> FALSE .)
+    GE              reduce using rule 21 (expression -> FALSE .)
+    GT              reduce using rule 21 (expression -> FALSE .)
+    EQ              reduce using rule 21 (expression -> FALSE .)
+    NEQ             reduce using rule 21 (expression -> FALSE .)
+    CONCAT          reduce using rule 21 (expression -> FALSE .)
+    RPAREN          reduce using rule 21 (expression -> FALSE .)
+    COMMA           reduce using rule 21 (expression -> FALSE .)
+
+
+
+state 14
+
+    (15) expression -> ifFunction .
+
+    $               reduce using rule 15 (expression -> ifFunction .)
+    PLUS            reduce using rule 15 (expression -> ifFunction .)
+    MINUS           reduce using rule 15 (expression -> ifFunction .)
+    TIMES           reduce using rule 15 (expression -> ifFunction .)
+    DIVIDE          reduce using rule 15 (expression -> ifFunction .)
+    EXP             reduce using rule 15 (expression -> ifFunction .)
+    LE              reduce using rule 15 (expression -> ifFunction .)
+    LT              reduce using rule 15 (expression -> ifFunction .)
+    GE              reduce using rule 15 (expression -> ifFunction .)
+    GT              reduce using rule 15 (expression -> ifFunction .)
+    EQ              reduce using rule 15 (expression -> ifFunction .)
+    NEQ             reduce using rule 15 (expression -> ifFunction .)
+    CONCAT          reduce using rule 15 (expression -> ifFunction .)
+    RPAREN          reduce using rule 15 (expression -> ifFunction .)
+    COMMA           reduce using rule 15 (expression -> ifFunction .)
+
+
+
+state 15
+
+    (44) cell -> column . row
+    (49) row -> . INTEGER
+    (50) row -> . ABSREF INTEGER
+
+    INTEGER         shift and go to state 25
+    ABSREF          shift and go to state 26
+
+
+    row                            shift and go to state 27
+
+state 16
+
+    (47) column -> ABSREF . COLUMN
+
+    COLUMN          shift and go to state 28
+
+
+
+state 17
+
+    (23) expression -> FLOAT .
+
+    $               reduce using rule 23 (expression -> FLOAT .)
+    PLUS            reduce using rule 23 (expression -> FLOAT .)
+    MINUS           reduce using rule 23 (expression -> FLOAT .)
+    TIMES           reduce using rule 23 (expression -> FLOAT .)
+    DIVIDE          reduce using rule 23 (expression -> FLOAT .)
+    EXP             reduce using rule 23 (expression -> FLOAT .)
+    LE              reduce using rule 23 (expression -> FLOAT .)
+    LT              reduce using rule 23 (expression -> FLOAT .)
+    GE              reduce using rule 23 (expression -> FLOAT .)
+    GT              reduce using rule 23 (expression -> FLOAT .)
+    EQ              reduce using rule 23 (expression -> FLOAT .)
+    NEQ             reduce using rule 23 (expression -> FLOAT .)
+    CONCAT          reduce using rule 23 (expression -> FLOAT .)
+    RPAREN          reduce using rule 23 (expression -> FLOAT .)
+    COMMA           reduce using rule 23 (expression -> FLOAT .)
+
+
+
+state 18
+
+    (45) cell -> SHEETNAME . column row
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    column                         shift and go to state 29
+
+state 19
+
+    (0) S' -> expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    PLUS            shift and go to state 37
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+    LE              shift and go to state 30
+    LT              shift and go to state 35
+    GE              shift and go to state 33
+    GT              shift and go to state 36
+    EQ              shift and go to state 32
+    NEQ             shift and go to state 41
+    CONCAT          shift and go to state 40
+
+
+
+state 20
+
+    (28) function -> FUNC LPAREN . arglist RPAREN
+    (29) function -> FUNC LPAREN . RPAREN
+    (30) arglist -> . arg
+    (31) arglist -> . arglist COMMA arg
+    (32) arg -> . expression
+    (33) arg -> . areareference
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (34) areareference -> . range
+    (35) areareference -> . vector
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (38) range -> . cell RANGEOP cell
+    (36) vector -> . colrange
+    (37) vector -> . rowrange
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+    (39) colrange -> . column RANGEOP column
+    (40) rowrange -> . INTEGER RANGEOP INTEGER
+    (41) rowrange -> . absrow RANGEOP INTEGER
+    (42) rowrange -> . INTEGER RANGEOP absrow
+    (43) rowrange -> . absrow RANGEOP absrow
+    (48) absrow -> . ABSREF INTEGER
+
+    RPAREN          shift and go to state 44
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 48
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 51
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 50
+    absrow                         shift and go to state 52
+    rowrange                       shift and go to state 46
+    areareference                  shift and go to state 49
+    cell                           shift and go to state 45
+    range                          shift and go to state 53
+    vector                         shift and go to state 54
+    colrange                       shift and go to state 47
+    arg                            shift and go to state 42
+    arglist                        shift and go to state 43
+    expression                     shift and go to state 55
+
+state 21
+
+    (18) expression -> MINUS expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 18 (expression -> MINUS expression .)
+    PLUS            reduce using rule 18 (expression -> MINUS expression .)
+    MINUS           reduce using rule 18 (expression -> MINUS expression .)
+    TIMES           reduce using rule 18 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 18 (expression -> MINUS expression .)
+    EXP             reduce using rule 18 (expression -> MINUS expression .)
+    LE              reduce using rule 18 (expression -> MINUS expression .)
+    LT              reduce using rule 18 (expression -> MINUS expression .)
+    GE              reduce using rule 18 (expression -> MINUS expression .)
+    GT              reduce using rule 18 (expression -> MINUS expression .)
+    EQ              reduce using rule 18 (expression -> MINUS expression .)
+    NEQ             reduce using rule 18 (expression -> MINUS expression .)
+    CONCAT          reduce using rule 18 (expression -> MINUS expression .)
+    RPAREN          reduce using rule 18 (expression -> MINUS expression .)
+    COMMA           reduce using rule 18 (expression -> MINUS expression .)
+
+  ! PLUS            [ shift and go to state 37 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 34 ]
+  ! DIVIDE          [ shift and go to state 31 ]
+  ! EXP             [ shift and go to state 38 ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 22
+
+    (19) expression -> PLUS expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 19 (expression -> PLUS expression .)
+    PLUS            reduce using rule 19 (expression -> PLUS expression .)
+    MINUS           reduce using rule 19 (expression -> PLUS expression .)
+    TIMES           reduce using rule 19 (expression -> PLUS expression .)
+    DIVIDE          reduce using rule 19 (expression -> PLUS expression .)
+    EXP             reduce using rule 19 (expression -> PLUS expression .)
+    LE              reduce using rule 19 (expression -> PLUS expression .)
+    LT              reduce using rule 19 (expression -> PLUS expression .)
+    GE              reduce using rule 19 (expression -> PLUS expression .)
+    GT              reduce using rule 19 (expression -> PLUS expression .)
+    EQ              reduce using rule 19 (expression -> PLUS expression .)
+    NEQ             reduce using rule 19 (expression -> PLUS expression .)
+    CONCAT          reduce using rule 19 (expression -> PLUS expression .)
+    RPAREN          reduce using rule 19 (expression -> PLUS expression .)
+    COMMA           reduce using rule 19 (expression -> PLUS expression .)
+
+  ! PLUS            [ shift and go to state 37 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 34 ]
+  ! DIVIDE          [ shift and go to state 31 ]
+  ! EXP             [ shift and go to state 38 ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 23
+
+    (24) expression -> LPAREN expression . RPAREN
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    RPAREN          shift and go to state 56
+    PLUS            shift and go to state 37
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+    LE              shift and go to state 30
+    LT              shift and go to state 35
+    GE              shift and go to state 33
+    GT              shift and go to state 36
+    EQ              shift and go to state 32
+    NEQ             shift and go to state 41
+    CONCAT          shift and go to state 40
+
+
+
+state 24
+
+    (25) ifFunction -> IF LPAREN . expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> IF LPAREN . expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> IF LPAREN . expression COMMA expression RPAREN
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 57
+
+state 25
+
+    (49) row -> INTEGER .
+
+    $               reduce using rule 49 (row -> INTEGER .)
+    PLUS            reduce using rule 49 (row -> INTEGER .)
+    MINUS           reduce using rule 49 (row -> INTEGER .)
+    TIMES           reduce using rule 49 (row -> INTEGER .)
+    DIVIDE          reduce using rule 49 (row -> INTEGER .)
+    EXP             reduce using rule 49 (row -> INTEGER .)
+    LE              reduce using rule 49 (row -> INTEGER .)
+    LT              reduce using rule 49 (row -> INTEGER .)
+    GE              reduce using rule 49 (row -> INTEGER .)
+    GT              reduce using rule 49 (row -> INTEGER .)
+    EQ              reduce using rule 49 (row -> INTEGER .)
+    NEQ             reduce using rule 49 (row -> INTEGER .)
+    CONCAT          reduce using rule 49 (row -> INTEGER .)
+    RANGEOP         reduce using rule 49 (row -> INTEGER .)
+    RPAREN          reduce using rule 49 (row -> INTEGER .)
+    COMMA           reduce using rule 49 (row -> INTEGER .)
+
+
+
+state 26
+
+    (50) row -> ABSREF . INTEGER
+
+    INTEGER         shift and go to state 58
+
+
+
+state 27
+
+    (44) cell -> column row .
+
+    $               reduce using rule 44 (cell -> column row .)
+    PLUS            reduce using rule 44 (cell -> column row .)
+    MINUS           reduce using rule 44 (cell -> column row .)
+    TIMES           reduce using rule 44 (cell -> column row .)
+    DIVIDE          reduce using rule 44 (cell -> column row .)
+    EXP             reduce using rule 44 (cell -> column row .)
+    LE              reduce using rule 44 (cell -> column row .)
+    LT              reduce using rule 44 (cell -> column row .)
+    GE              reduce using rule 44 (cell -> column row .)
+    GT              reduce using rule 44 (cell -> column row .)
+    EQ              reduce using rule 44 (cell -> column row .)
+    NEQ             reduce using rule 44 (cell -> column row .)
+    CONCAT          reduce using rule 44 (cell -> column row .)
+    RANGEOP         reduce using rule 44 (cell -> column row .)
+    RPAREN          reduce using rule 44 (cell -> column row .)
+    COMMA           reduce using rule 44 (cell -> column row .)
+
+
+
+state 28
+
+    (47) column -> ABSREF COLUMN .
+
+    RANGEOP         reduce using rule 47 (column -> ABSREF COLUMN .)
+    RPAREN          reduce using rule 47 (column -> ABSREF COLUMN .)
+    COMMA           reduce using rule 47 (column -> ABSREF COLUMN .)
+    INTEGER         reduce using rule 47 (column -> ABSREF COLUMN .)
+    ABSREF          reduce using rule 47 (column -> ABSREF COLUMN .)
+
+
+
+state 29
+
+    (45) cell -> SHEETNAME column . row
+    (49) row -> . INTEGER
+    (50) row -> . ABSREF INTEGER
+
+    INTEGER         shift and go to state 25
+    ABSREF          shift and go to state 26
+
+
+    row                            shift and go to state 59
+
+state 30
+
+    (6) expression -> expression LE . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 60
+
+state 31
+
+    (4) expression -> expression DIVIDE . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 61
+
+state 32
+
+    (10) expression -> expression EQ . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 62
+
+state 33
+
+    (8) expression -> expression GE . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 63
+
+state 34
+
+    (3) expression -> expression TIMES . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 64
+
+state 35
+
+    (7) expression -> expression LT . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 65
+
+state 36
+
+    (9) expression -> expression GT . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 66
+
+state 37
+
+    (1) expression -> expression PLUS . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 67
+
+state 38
+
+    (5) expression -> expression EXP . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 68
+
+state 39
+
+    (2) expression -> expression MINUS . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 69
+
+state 40
+
+    (12) expression -> expression CONCAT . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 70
+
+state 41
+
+    (11) expression -> expression NEQ . expression
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 71
+
+state 42
+
+    (30) arglist -> arg .
+
+    RPAREN          reduce using rule 30 (arglist -> arg .)
+    COMMA           reduce using rule 30 (arglist -> arg .)
+
+
+
+state 43
+
+    (28) function -> FUNC LPAREN arglist . RPAREN
+    (31) arglist -> arglist . COMMA arg
+
+    RPAREN          shift and go to state 72
+    COMMA           shift and go to state 73
+
+
+
+state 44
+
+    (29) function -> FUNC LPAREN RPAREN .
+
+    $               reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    PLUS            reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    MINUS           reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    TIMES           reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    DIVIDE          reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    EXP             reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    LE              reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    LT              reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    GE              reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    GT              reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    EQ              reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    NEQ             reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    CONCAT          reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    RPAREN          reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+    COMMA           reduce using rule 29 (function -> FUNC LPAREN RPAREN .)
+
+
+
+state 45
+
+    (13) expression -> cell .
+    (38) range -> cell . RANGEOP cell
+
+    $               reduce using rule 13 (expression -> cell .)
+    PLUS            reduce using rule 13 (expression -> cell .)
+    MINUS           reduce using rule 13 (expression -> cell .)
+    TIMES           reduce using rule 13 (expression -> cell .)
+    DIVIDE          reduce using rule 13 (expression -> cell .)
+    EXP             reduce using rule 13 (expression -> cell .)
+    LE              reduce using rule 13 (expression -> cell .)
+    LT              reduce using rule 13 (expression -> cell .)
+    GE              reduce using rule 13 (expression -> cell .)
+    GT              reduce using rule 13 (expression -> cell .)
+    EQ              reduce using rule 13 (expression -> cell .)
+    NEQ             reduce using rule 13 (expression -> cell .)
+    CONCAT          reduce using rule 13 (expression -> cell .)
+    RPAREN          reduce using rule 13 (expression -> cell .)
+    COMMA           reduce using rule 13 (expression -> cell .)
+    RANGEOP         shift and go to state 74
+
+
+
+state 46
+
+    (37) vector -> rowrange .
+
+    RPAREN          reduce using rule 37 (vector -> rowrange .)
+    COMMA           reduce using rule 37 (vector -> rowrange .)
+
+
+
+state 47
+
+    (36) vector -> colrange .
+
+    RPAREN          reduce using rule 36 (vector -> colrange .)
+    COMMA           reduce using rule 36 (vector -> colrange .)
+
+
+
+state 48
+
+    (22) expression -> INTEGER .
+    (40) rowrange -> INTEGER . RANGEOP INTEGER
+    (42) rowrange -> INTEGER . RANGEOP absrow
+
+    $               reduce using rule 22 (expression -> INTEGER .)
+    PLUS            reduce using rule 22 (expression -> INTEGER .)
+    MINUS           reduce using rule 22 (expression -> INTEGER .)
+    TIMES           reduce using rule 22 (expression -> INTEGER .)
+    DIVIDE          reduce using rule 22 (expression -> INTEGER .)
+    EXP             reduce using rule 22 (expression -> INTEGER .)
+    LE              reduce using rule 22 (expression -> INTEGER .)
+    LT              reduce using rule 22 (expression -> INTEGER .)
+    GE              reduce using rule 22 (expression -> INTEGER .)
+    GT              reduce using rule 22 (expression -> INTEGER .)
+    EQ              reduce using rule 22 (expression -> INTEGER .)
+    NEQ             reduce using rule 22 (expression -> INTEGER .)
+    CONCAT          reduce using rule 22 (expression -> INTEGER .)
+    RPAREN          reduce using rule 22 (expression -> INTEGER .)
+    COMMA           reduce using rule 22 (expression -> INTEGER .)
+    RANGEOP         shift and go to state 75
+
+
+
+state 49
+
+    (33) arg -> areareference .
+
+    RPAREN          reduce using rule 33 (arg -> areareference .)
+    COMMA           reduce using rule 33 (arg -> areareference .)
+
+
+
+state 50
+
+    (44) cell -> column . row
+    (39) colrange -> column . RANGEOP column
+    (49) row -> . INTEGER
+    (50) row -> . ABSREF INTEGER
+
+    RANGEOP         shift and go to state 76
+    INTEGER         shift and go to state 25
+    ABSREF          shift and go to state 26
+
+
+    row                            shift and go to state 27
+
+state 51
+
+    (47) column -> ABSREF . COLUMN
+    (48) absrow -> ABSREF . INTEGER
+
+    COLUMN          shift and go to state 28
+    INTEGER         shift and go to state 77
+
+
+
+state 52
+
+    (41) rowrange -> absrow . RANGEOP INTEGER
+    (43) rowrange -> absrow . RANGEOP absrow
+
+    RANGEOP         shift and go to state 78
+
+
+
+state 53
+
+    (34) areareference -> range .
+
+    RPAREN          reduce using rule 34 (areareference -> range .)
+    COMMA           reduce using rule 34 (areareference -> range .)
+
+
+
+state 54
+
+    (35) areareference -> vector .
+
+    RPAREN          reduce using rule 35 (areareference -> vector .)
+    COMMA           reduce using rule 35 (areareference -> vector .)
+
+
+
+state 55
+
+    (32) arg -> expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    RPAREN          reduce using rule 32 (arg -> expression .)
+    COMMA           reduce using rule 32 (arg -> expression .)
+    PLUS            shift and go to state 37
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+    LE              shift and go to state 30
+    LT              shift and go to state 35
+    GE              shift and go to state 33
+    GT              shift and go to state 36
+    EQ              shift and go to state 32
+    NEQ             shift and go to state 41
+    CONCAT          shift and go to state 40
+
+
+
+state 56
+
+    (24) expression -> LPAREN expression RPAREN .
+
+    $               reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    EXP             reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    LE              reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    LT              reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    GE              reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    GT              reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    EQ              reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    NEQ             reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    CONCAT          reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+    COMMA           reduce using rule 24 (expression -> LPAREN expression RPAREN .)
+
+
+
+state 57
+
+    (25) ifFunction -> IF LPAREN expression . COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> IF LPAREN expression . COMMA expression COMMA RPAREN
+    (27) ifFunction -> IF LPAREN expression . COMMA expression RPAREN
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    COMMA           shift and go to state 79
+    PLUS            shift and go to state 37
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+    LE              shift and go to state 30
+    LT              shift and go to state 35
+    GE              shift and go to state 33
+    GT              shift and go to state 36
+    EQ              shift and go to state 32
+    NEQ             shift and go to state 41
+    CONCAT          shift and go to state 40
+
+
+
+state 58
+
+    (50) row -> ABSREF INTEGER .
+
+    $               reduce using rule 50 (row -> ABSREF INTEGER .)
+    PLUS            reduce using rule 50 (row -> ABSREF INTEGER .)
+    MINUS           reduce using rule 50 (row -> ABSREF INTEGER .)
+    TIMES           reduce using rule 50 (row -> ABSREF INTEGER .)
+    DIVIDE          reduce using rule 50 (row -> ABSREF INTEGER .)
+    EXP             reduce using rule 50 (row -> ABSREF INTEGER .)
+    LE              reduce using rule 50 (row -> ABSREF INTEGER .)
+    LT              reduce using rule 50 (row -> ABSREF INTEGER .)
+    GE              reduce using rule 50 (row -> ABSREF INTEGER .)
+    GT              reduce using rule 50 (row -> ABSREF INTEGER .)
+    EQ              reduce using rule 50 (row -> ABSREF INTEGER .)
+    NEQ             reduce using rule 50 (row -> ABSREF INTEGER .)
+    CONCAT          reduce using rule 50 (row -> ABSREF INTEGER .)
+    RANGEOP         reduce using rule 50 (row -> ABSREF INTEGER .)
+    RPAREN          reduce using rule 50 (row -> ABSREF INTEGER .)
+    COMMA           reduce using rule 50 (row -> ABSREF INTEGER .)
+
+
+
+state 59
+
+    (45) cell -> SHEETNAME column row .
+
+    $               reduce using rule 45 (cell -> SHEETNAME column row .)
+    PLUS            reduce using rule 45 (cell -> SHEETNAME column row .)
+    MINUS           reduce using rule 45 (cell -> SHEETNAME column row .)
+    TIMES           reduce using rule 45 (cell -> SHEETNAME column row .)
+    DIVIDE          reduce using rule 45 (cell -> SHEETNAME column row .)
+    EXP             reduce using rule 45 (cell -> SHEETNAME column row .)
+    LE              reduce using rule 45 (cell -> SHEETNAME column row .)
+    LT              reduce using rule 45 (cell -> SHEETNAME column row .)
+    GE              reduce using rule 45 (cell -> SHEETNAME column row .)
+    GT              reduce using rule 45 (cell -> SHEETNAME column row .)
+    EQ              reduce using rule 45 (cell -> SHEETNAME column row .)
+    NEQ             reduce using rule 45 (cell -> SHEETNAME column row .)
+    CONCAT          reduce using rule 45 (cell -> SHEETNAME column row .)
+    RANGEOP         reduce using rule 45 (cell -> SHEETNAME column row .)
+    RPAREN          reduce using rule 45 (cell -> SHEETNAME column row .)
+    COMMA           reduce using rule 45 (cell -> SHEETNAME column row .)
+
+
+
+state 60
+
+    (6) expression -> expression LE expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 6 (expression -> expression LE expression .)
+    LE              reduce using rule 6 (expression -> expression LE expression .)
+    LT              reduce using rule 6 (expression -> expression LE expression .)
+    GE              reduce using rule 6 (expression -> expression LE expression .)
+    GT              reduce using rule 6 (expression -> expression LE expression .)
+    EQ              reduce using rule 6 (expression -> expression LE expression .)
+    NEQ             reduce using rule 6 (expression -> expression LE expression .)
+    CONCAT          reduce using rule 6 (expression -> expression LE expression .)
+    RPAREN          reduce using rule 6 (expression -> expression LE expression .)
+    COMMA           reduce using rule 6 (expression -> expression LE expression .)
+    PLUS            shift and go to state 37
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+
+  ! PLUS            [ reduce using rule 6 (expression -> expression LE expression .) ]
+  ! MINUS           [ reduce using rule 6 (expression -> expression LE expression .) ]
+  ! TIMES           [ reduce using rule 6 (expression -> expression LE expression .) ]
+  ! DIVIDE          [ reduce using rule 6 (expression -> expression LE expression .) ]
+  ! EXP             [ reduce using rule 6 (expression -> expression LE expression .) ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 61
+
+    (4) expression -> expression DIVIDE expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 4 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 4 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 4 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 4 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 4 (expression -> expression DIVIDE expression .)
+    LE              reduce using rule 4 (expression -> expression DIVIDE expression .)
+    LT              reduce using rule 4 (expression -> expression DIVIDE expression .)
+    GE              reduce using rule 4 (expression -> expression DIVIDE expression .)
+    GT              reduce using rule 4 (expression -> expression DIVIDE expression .)
+    EQ              reduce using rule 4 (expression -> expression DIVIDE expression .)
+    NEQ             reduce using rule 4 (expression -> expression DIVIDE expression .)
+    CONCAT          reduce using rule 4 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 4 (expression -> expression DIVIDE expression .)
+    COMMA           reduce using rule 4 (expression -> expression DIVIDE expression .)
+    EXP             shift and go to state 38
+
+  ! EXP             [ reduce using rule 4 (expression -> expression DIVIDE expression .) ]
+  ! PLUS            [ shift and go to state 37 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 34 ]
+  ! DIVIDE          [ shift and go to state 31 ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 62
+
+    (10) expression -> expression EQ expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 10 (expression -> expression EQ expression .)
+    LE              reduce using rule 10 (expression -> expression EQ expression .)
+    LT              reduce using rule 10 (expression -> expression EQ expression .)
+    GE              reduce using rule 10 (expression -> expression EQ expression .)
+    GT              reduce using rule 10 (expression -> expression EQ expression .)
+    EQ              reduce using rule 10 (expression -> expression EQ expression .)
+    NEQ             reduce using rule 10 (expression -> expression EQ expression .)
+    CONCAT          reduce using rule 10 (expression -> expression EQ expression .)
+    RPAREN          reduce using rule 10 (expression -> expression EQ expression .)
+    COMMA           reduce using rule 10 (expression -> expression EQ expression .)
+    PLUS            shift and go to state 37
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+
+  ! PLUS            [ reduce using rule 10 (expression -> expression EQ expression .) ]
+  ! MINUS           [ reduce using rule 10 (expression -> expression EQ expression .) ]
+  ! TIMES           [ reduce using rule 10 (expression -> expression EQ expression .) ]
+  ! DIVIDE          [ reduce using rule 10 (expression -> expression EQ expression .) ]
+  ! EXP             [ reduce using rule 10 (expression -> expression EQ expression .) ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 63
+
+    (8) expression -> expression GE expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 8 (expression -> expression GE expression .)
+    LE              reduce using rule 8 (expression -> expression GE expression .)
+    LT              reduce using rule 8 (expression -> expression GE expression .)
+    GE              reduce using rule 8 (expression -> expression GE expression .)
+    GT              reduce using rule 8 (expression -> expression GE expression .)
+    EQ              reduce using rule 8 (expression -> expression GE expression .)
+    NEQ             reduce using rule 8 (expression -> expression GE expression .)
+    CONCAT          reduce using rule 8 (expression -> expression GE expression .)
+    RPAREN          reduce using rule 8 (expression -> expression GE expression .)
+    COMMA           reduce using rule 8 (expression -> expression GE expression .)
+    PLUS            shift and go to state 37
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+
+  ! PLUS            [ reduce using rule 8 (expression -> expression GE expression .) ]
+  ! MINUS           [ reduce using rule 8 (expression -> expression GE expression .) ]
+  ! TIMES           [ reduce using rule 8 (expression -> expression GE expression .) ]
+  ! DIVIDE          [ reduce using rule 8 (expression -> expression GE expression .) ]
+  ! EXP             [ reduce using rule 8 (expression -> expression GE expression .) ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 64
+
+    (3) expression -> expression TIMES expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 3 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 3 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 3 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 3 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 3 (expression -> expression TIMES expression .)
+    LE              reduce using rule 3 (expression -> expression TIMES expression .)
+    LT              reduce using rule 3 (expression -> expression TIMES expression .)
+    GE              reduce using rule 3 (expression -> expression TIMES expression .)
+    GT              reduce using rule 3 (expression -> expression TIMES expression .)
+    EQ              reduce using rule 3 (expression -> expression TIMES expression .)
+    NEQ             reduce using rule 3 (expression -> expression TIMES expression .)
+    CONCAT          reduce using rule 3 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 3 (expression -> expression TIMES expression .)
+    COMMA           reduce using rule 3 (expression -> expression TIMES expression .)
+    EXP             shift and go to state 38
+
+  ! EXP             [ reduce using rule 3 (expression -> expression TIMES expression .) ]
+  ! PLUS            [ shift and go to state 37 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 34 ]
+  ! DIVIDE          [ shift and go to state 31 ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 65
+
+    (7) expression -> expression LT expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 7 (expression -> expression LT expression .)
+    LE              reduce using rule 7 (expression -> expression LT expression .)
+    LT              reduce using rule 7 (expression -> expression LT expression .)
+    GE              reduce using rule 7 (expression -> expression LT expression .)
+    GT              reduce using rule 7 (expression -> expression LT expression .)
+    EQ              reduce using rule 7 (expression -> expression LT expression .)
+    NEQ             reduce using rule 7 (expression -> expression LT expression .)
+    CONCAT          reduce using rule 7 (expression -> expression LT expression .)
+    RPAREN          reduce using rule 7 (expression -> expression LT expression .)
+    COMMA           reduce using rule 7 (expression -> expression LT expression .)
+    PLUS            shift and go to state 37
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+
+  ! PLUS            [ reduce using rule 7 (expression -> expression LT expression .) ]
+  ! MINUS           [ reduce using rule 7 (expression -> expression LT expression .) ]
+  ! TIMES           [ reduce using rule 7 (expression -> expression LT expression .) ]
+  ! DIVIDE          [ reduce using rule 7 (expression -> expression LT expression .) ]
+  ! EXP             [ reduce using rule 7 (expression -> expression LT expression .) ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 66
+
+    (9) expression -> expression GT expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 9 (expression -> expression GT expression .)
+    LE              reduce using rule 9 (expression -> expression GT expression .)
+    LT              reduce using rule 9 (expression -> expression GT expression .)
+    GE              reduce using rule 9 (expression -> expression GT expression .)
+    GT              reduce using rule 9 (expression -> expression GT expression .)
+    EQ              reduce using rule 9 (expression -> expression GT expression .)
+    NEQ             reduce using rule 9 (expression -> expression GT expression .)
+    CONCAT          reduce using rule 9 (expression -> expression GT expression .)
+    RPAREN          reduce using rule 9 (expression -> expression GT expression .)
+    COMMA           reduce using rule 9 (expression -> expression GT expression .)
+    PLUS            shift and go to state 37
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+
+  ! PLUS            [ reduce using rule 9 (expression -> expression GT expression .) ]
+  ! MINUS           [ reduce using rule 9 (expression -> expression GT expression .) ]
+  ! TIMES           [ reduce using rule 9 (expression -> expression GT expression .) ]
+  ! DIVIDE          [ reduce using rule 9 (expression -> expression GT expression .) ]
+  ! EXP             [ reduce using rule 9 (expression -> expression GT expression .) ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 67
+
+    (1) expression -> expression PLUS expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 1 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 1 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 1 (expression -> expression PLUS expression .)
+    LE              reduce using rule 1 (expression -> expression PLUS expression .)
+    LT              reduce using rule 1 (expression -> expression PLUS expression .)
+    GE              reduce using rule 1 (expression -> expression PLUS expression .)
+    GT              reduce using rule 1 (expression -> expression PLUS expression .)
+    EQ              reduce using rule 1 (expression -> expression PLUS expression .)
+    NEQ             reduce using rule 1 (expression -> expression PLUS expression .)
+    CONCAT          reduce using rule 1 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 1 (expression -> expression PLUS expression .)
+    COMMA           reduce using rule 1 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+
+  ! TIMES           [ reduce using rule 1 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 1 (expression -> expression PLUS expression .) ]
+  ! EXP             [ reduce using rule 1 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 37 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 68
+
+    (5) expression -> expression EXP expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 5 (expression -> expression EXP expression .)
+    PLUS            reduce using rule 5 (expression -> expression EXP expression .)
+    MINUS           reduce using rule 5 (expression -> expression EXP expression .)
+    TIMES           reduce using rule 5 (expression -> expression EXP expression .)
+    DIVIDE          reduce using rule 5 (expression -> expression EXP expression .)
+    EXP             reduce using rule 5 (expression -> expression EXP expression .)
+    LE              reduce using rule 5 (expression -> expression EXP expression .)
+    LT              reduce using rule 5 (expression -> expression EXP expression .)
+    GE              reduce using rule 5 (expression -> expression EXP expression .)
+    GT              reduce using rule 5 (expression -> expression EXP expression .)
+    EQ              reduce using rule 5 (expression -> expression EXP expression .)
+    NEQ             reduce using rule 5 (expression -> expression EXP expression .)
+    CONCAT          reduce using rule 5 (expression -> expression EXP expression .)
+    RPAREN          reduce using rule 5 (expression -> expression EXP expression .)
+    COMMA           reduce using rule 5 (expression -> expression EXP expression .)
+
+  ! PLUS            [ shift and go to state 37 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! TIMES           [ shift and go to state 34 ]
+  ! DIVIDE          [ shift and go to state 31 ]
+  ! EXP             [ shift and go to state 38 ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 69
+
+    (2) expression -> expression MINUS expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 2 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 2 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 2 (expression -> expression MINUS expression .)
+    LE              reduce using rule 2 (expression -> expression MINUS expression .)
+    LT              reduce using rule 2 (expression -> expression MINUS expression .)
+    GE              reduce using rule 2 (expression -> expression MINUS expression .)
+    GT              reduce using rule 2 (expression -> expression MINUS expression .)
+    EQ              reduce using rule 2 (expression -> expression MINUS expression .)
+    NEQ             reduce using rule 2 (expression -> expression MINUS expression .)
+    CONCAT          reduce using rule 2 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 2 (expression -> expression MINUS expression .)
+    COMMA           reduce using rule 2 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+
+  ! TIMES           [ reduce using rule 2 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 2 (expression -> expression MINUS expression .) ]
+  ! EXP             [ reduce using rule 2 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 37 ]
+  ! MINUS           [ shift and go to state 39 ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 70
+
+    (12) expression -> expression CONCAT expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 12 (expression -> expression CONCAT expression .)
+    LE              reduce using rule 12 (expression -> expression CONCAT expression .)
+    LT              reduce using rule 12 (expression -> expression CONCAT expression .)
+    GE              reduce using rule 12 (expression -> expression CONCAT expression .)
+    GT              reduce using rule 12 (expression -> expression CONCAT expression .)
+    EQ              reduce using rule 12 (expression -> expression CONCAT expression .)
+    NEQ             reduce using rule 12 (expression -> expression CONCAT expression .)
+    CONCAT          reduce using rule 12 (expression -> expression CONCAT expression .)
+    RPAREN          reduce using rule 12 (expression -> expression CONCAT expression .)
+    COMMA           reduce using rule 12 (expression -> expression CONCAT expression .)
+    PLUS            shift and go to state 37
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+
+  ! PLUS            [ reduce using rule 12 (expression -> expression CONCAT expression .) ]
+  ! MINUS           [ reduce using rule 12 (expression -> expression CONCAT expression .) ]
+  ! TIMES           [ reduce using rule 12 (expression -> expression CONCAT expression .) ]
+  ! DIVIDE          [ reduce using rule 12 (expression -> expression CONCAT expression .) ]
+  ! EXP             [ reduce using rule 12 (expression -> expression CONCAT expression .) ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 71
+
+    (11) expression -> expression NEQ expression .
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    $               reduce using rule 11 (expression -> expression NEQ expression .)
+    LE              reduce using rule 11 (expression -> expression NEQ expression .)
+    LT              reduce using rule 11 (expression -> expression NEQ expression .)
+    GE              reduce using rule 11 (expression -> expression NEQ expression .)
+    GT              reduce using rule 11 (expression -> expression NEQ expression .)
+    EQ              reduce using rule 11 (expression -> expression NEQ expression .)
+    NEQ             reduce using rule 11 (expression -> expression NEQ expression .)
+    CONCAT          reduce using rule 11 (expression -> expression NEQ expression .)
+    RPAREN          reduce using rule 11 (expression -> expression NEQ expression .)
+    COMMA           reduce using rule 11 (expression -> expression NEQ expression .)
+    PLUS            shift and go to state 37
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+
+  ! PLUS            [ reduce using rule 11 (expression -> expression NEQ expression .) ]
+  ! MINUS           [ reduce using rule 11 (expression -> expression NEQ expression .) ]
+  ! TIMES           [ reduce using rule 11 (expression -> expression NEQ expression .) ]
+  ! DIVIDE          [ reduce using rule 11 (expression -> expression NEQ expression .) ]
+  ! EXP             [ reduce using rule 11 (expression -> expression NEQ expression .) ]
+  ! LE              [ shift and go to state 30 ]
+  ! LT              [ shift and go to state 35 ]
+  ! GE              [ shift and go to state 33 ]
+  ! GT              [ shift and go to state 36 ]
+  ! EQ              [ shift and go to state 32 ]
+  ! NEQ             [ shift and go to state 41 ]
+  ! CONCAT          [ shift and go to state 40 ]
+
+
+state 72
+
+    (28) function -> FUNC LPAREN arglist RPAREN .
+
+    $               reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    PLUS            reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    MINUS           reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    TIMES           reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    DIVIDE          reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    EXP             reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    LE              reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    LT              reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    GE              reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    GT              reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    EQ              reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    NEQ             reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    CONCAT          reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    RPAREN          reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+    COMMA           reduce using rule 28 (function -> FUNC LPAREN arglist RPAREN .)
+
+
+
+state 73
+
+    (31) arglist -> arglist COMMA . arg
+    (32) arg -> . expression
+    (33) arg -> . areareference
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (34) areareference -> . range
+    (35) areareference -> . vector
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (38) range -> . cell RANGEOP cell
+    (36) vector -> . colrange
+    (37) vector -> . rowrange
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+    (39) colrange -> . column RANGEOP column
+    (40) rowrange -> . INTEGER RANGEOP INTEGER
+    (41) rowrange -> . absrow RANGEOP INTEGER
+    (42) rowrange -> . INTEGER RANGEOP absrow
+    (43) rowrange -> . absrow RANGEOP absrow
+    (48) absrow -> . ABSREF INTEGER
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 48
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 51
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 50
+    absrow                         shift and go to state 52
+    rowrange                       shift and go to state 46
+    areareference                  shift and go to state 49
+    cell                           shift and go to state 45
+    range                          shift and go to state 53
+    vector                         shift and go to state 54
+    colrange                       shift and go to state 47
+    arg                            shift and go to state 80
+    expression                     shift and go to state 55
+
+state 74
+
+    (38) range -> cell RANGEOP . cell
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    SHEETNAME       shift and go to state 18
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    cell                           shift and go to state 81
+    column                         shift and go to state 15
+
+state 75
+
+    (40) rowrange -> INTEGER RANGEOP . INTEGER
+    (42) rowrange -> INTEGER RANGEOP . absrow
+    (48) absrow -> . ABSREF INTEGER
+
+    INTEGER         shift and go to state 82
+    ABSREF          shift and go to state 84
+
+
+    absrow                         shift and go to state 83
+
+state 76
+
+    (39) colrange -> column RANGEOP . column
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    column                         shift and go to state 85
+
+state 77
+
+    (48) absrow -> ABSREF INTEGER .
+
+    RANGEOP         reduce using rule 48 (absrow -> ABSREF INTEGER .)
+    RPAREN          reduce using rule 48 (absrow -> ABSREF INTEGER .)
+    COMMA           reduce using rule 48 (absrow -> ABSREF INTEGER .)
+
+
+
+state 78
+
+    (41) rowrange -> absrow RANGEOP . INTEGER
+    (43) rowrange -> absrow RANGEOP . absrow
+    (48) absrow -> . ABSREF INTEGER
+
+    INTEGER         shift and go to state 87
+    ABSREF          shift and go to state 84
+
+
+    absrow                         shift and go to state 86
+
+state 79
+
+    (25) ifFunction -> IF LPAREN expression COMMA . expression COMMA expression RPAREN
+    (26) ifFunction -> IF LPAREN expression COMMA . expression COMMA RPAREN
+    (27) ifFunction -> IF LPAREN expression COMMA . expression RPAREN
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 88
+
+state 80
+
+    (31) arglist -> arglist COMMA arg .
+
+    RPAREN          reduce using rule 31 (arglist -> arglist COMMA arg .)
+    COMMA           reduce using rule 31 (arglist -> arglist COMMA arg .)
+
+
+
+state 81
+
+    (38) range -> cell RANGEOP cell .
+
+    RPAREN          reduce using rule 38 (range -> cell RANGEOP cell .)
+    COMMA           reduce using rule 38 (range -> cell RANGEOP cell .)
+
+
+
+state 82
+
+    (40) rowrange -> INTEGER RANGEOP INTEGER .
+
+    RPAREN          reduce using rule 40 (rowrange -> INTEGER RANGEOP INTEGER .)
+    COMMA           reduce using rule 40 (rowrange -> INTEGER RANGEOP INTEGER .)
+
+
+
+state 83
+
+    (42) rowrange -> INTEGER RANGEOP absrow .
+
+    RPAREN          reduce using rule 42 (rowrange -> INTEGER RANGEOP absrow .)
+    COMMA           reduce using rule 42 (rowrange -> INTEGER RANGEOP absrow .)
+
+
+
+state 84
+
+    (48) absrow -> ABSREF . INTEGER
+
+    INTEGER         shift and go to state 77
+
+
+
+state 85
+
+    (39) colrange -> column RANGEOP column .
+
+    RPAREN          reduce using rule 39 (colrange -> column RANGEOP column .)
+    COMMA           reduce using rule 39 (colrange -> column RANGEOP column .)
+
+
+
+state 86
+
+    (43) rowrange -> absrow RANGEOP absrow .
+
+    RPAREN          reduce using rule 43 (rowrange -> absrow RANGEOP absrow .)
+    COMMA           reduce using rule 43 (rowrange -> absrow RANGEOP absrow .)
+
+
+
+state 87
+
+    (41) rowrange -> absrow RANGEOP INTEGER .
+
+    RPAREN          reduce using rule 41 (rowrange -> absrow RANGEOP INTEGER .)
+    COMMA           reduce using rule 41 (rowrange -> absrow RANGEOP INTEGER .)
+
+
+
+state 88
+
+    (25) ifFunction -> IF LPAREN expression COMMA expression . COMMA expression RPAREN
+    (26) ifFunction -> IF LPAREN expression COMMA expression . COMMA RPAREN
+    (27) ifFunction -> IF LPAREN expression COMMA expression . RPAREN
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    COMMA           shift and go to state 90
+    RPAREN          shift and go to state 89
+    PLUS            shift and go to state 37
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+    LE              shift and go to state 30
+    LT              shift and go to state 35
+    GE              shift and go to state 33
+    GT              shift and go to state 36
+    EQ              shift and go to state 32
+    NEQ             shift and go to state 41
+    CONCAT          shift and go to state 40
+
+
+
+state 89
+
+    (27) ifFunction -> IF LPAREN expression COMMA expression RPAREN .
+
+    $               reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    PLUS            reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    MINUS           reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    TIMES           reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    DIVIDE          reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    EXP             reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    LE              reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    LT              reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    GE              reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    GT              reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    EQ              reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    NEQ             reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    CONCAT          reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    RPAREN          reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+    COMMA           reduce using rule 27 (ifFunction -> IF LPAREN expression COMMA expression RPAREN .)
+
+
+
+state 90
+
+    (25) ifFunction -> IF LPAREN expression COMMA expression COMMA . expression RPAREN
+    (26) ifFunction -> IF LPAREN expression COMMA expression COMMA . RPAREN
+    (1) expression -> . expression PLUS expression
+    (2) expression -> . expression MINUS expression
+    (3) expression -> . expression TIMES expression
+    (4) expression -> . expression DIVIDE expression
+    (5) expression -> . expression EXP expression
+    (6) expression -> . expression LE expression
+    (7) expression -> . expression LT expression
+    (8) expression -> . expression GE expression
+    (9) expression -> . expression GT expression
+    (10) expression -> . expression EQ expression
+    (11) expression -> . expression NEQ expression
+    (12) expression -> . expression CONCAT expression
+    (13) expression -> . cell
+    (14) expression -> . function
+    (15) expression -> . ifFunction
+    (16) expression -> . STRING
+    (17) expression -> . ERR
+    (18) expression -> . MINUS expression
+    (19) expression -> . PLUS expression
+    (20) expression -> . TRUE
+    (21) expression -> . FALSE
+    (22) expression -> . INTEGER
+    (23) expression -> . FLOAT
+    (24) expression -> . LPAREN expression RPAREN
+    (44) cell -> . column row
+    (45) cell -> . SHEETNAME column row
+    (28) function -> . FUNC LPAREN arglist RPAREN
+    (29) function -> . FUNC LPAREN RPAREN
+    (25) ifFunction -> . IF LPAREN expression COMMA expression COMMA expression RPAREN
+    (26) ifFunction -> . IF LPAREN expression COMMA expression COMMA RPAREN
+    (27) ifFunction -> . IF LPAREN expression COMMA expression RPAREN
+    (46) column -> . COLUMN
+    (47) column -> . ABSREF COLUMN
+
+    RPAREN          shift and go to state 91
+    STRING          shift and go to state 5
+    ERR             shift and go to state 2
+    MINUS           shift and go to state 4
+    PLUS            shift and go to state 8
+    TRUE            shift and go to state 3
+    FALSE           shift and go to state 13
+    INTEGER         shift and go to state 9
+    FLOAT           shift and go to state 17
+    LPAREN          shift and go to state 11
+    SHEETNAME       shift and go to state 18
+    FUNC            shift and go to state 1
+    IF              shift and go to state 12
+    COLUMN          shift and go to state 6
+    ABSREF          shift and go to state 16
+
+
+    function                       shift and go to state 10
+    ifFunction                     shift and go to state 14
+    column                         shift and go to state 15
+    cell                           shift and go to state 7
+    expression                     shift and go to state 92
+
+state 91
+
+    (26) ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .
+
+    $               reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    PLUS            reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    MINUS           reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    TIMES           reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    DIVIDE          reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    EXP             reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    LE              reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    LT              reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    GE              reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    GT              reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    EQ              reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    NEQ             reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    CONCAT          reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    RPAREN          reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+    COMMA           reduce using rule 26 (ifFunction -> IF LPAREN expression COMMA expression COMMA RPAREN .)
+
+
+
+state 92
+
+    (25) ifFunction -> IF LPAREN expression COMMA expression COMMA expression . RPAREN
+    (1) expression -> expression . PLUS expression
+    (2) expression -> expression . MINUS expression
+    (3) expression -> expression . TIMES expression
+    (4) expression -> expression . DIVIDE expression
+    (5) expression -> expression . EXP expression
+    (6) expression -> expression . LE expression
+    (7) expression -> expression . LT expression
+    (8) expression -> expression . GE expression
+    (9) expression -> expression . GT expression
+    (10) expression -> expression . EQ expression
+    (11) expression -> expression . NEQ expression
+    (12) expression -> expression . CONCAT expression
+
+    RPAREN          shift and go to state 93
+    PLUS            shift and go to state 37
+    MINUS           shift and go to state 39
+    TIMES           shift and go to state 34
+    DIVIDE          shift and go to state 31
+    EXP             shift and go to state 38
+    LE              shift and go to state 30
+    LT              shift and go to state 35
+    GE              shift and go to state 33
+    GT              shift and go to state 36
+    EQ              shift and go to state 32
+    NEQ             shift and go to state 41
+    CONCAT          shift and go to state 40
+
+
+
+state 93
+
+    (25) ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .
+
+    $               reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    PLUS            reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    MINUS           reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    TIMES           reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    DIVIDE          reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    EXP             reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    LE              reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    LT              reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    GE              reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    GT              reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    EQ              reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    NEQ             reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    CONCAT          reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    RPAREN          reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+    COMMA           reduce using rule 25 (ifFunction -> IF LPAREN expression COMMA expression COMMA expression RPAREN .)
+
+

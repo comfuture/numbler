@@ -1,0 +1,83 @@
+<div>
+  <h3>Retrieving a cell range using REST</h3>
+  <div class="emph">syntax:</div>
+  <pre class="codesnippet">
+GET / sheetUID / API / rangestart + "-" + rangeend
+  </pre>
+
+  <p>A cell range refers to a rectangular region in the target spreadsheet.  An example of valid cell ranges:</p>
+  <ul><li>D4:E32</li>
+    <li>1:2 (all cells between rows 1 and 2)</li>
+    <li>E:Z (all cells between columns E and Z)</li>
+  </ul>
+  <p>In Numbler you can refer to a range via an absolute reference, eg. $D40:E$99.  This syntax is not supported via the web service since all requests are for a fixed range.  Additionally the cell range must use a "-" instead of a colon.</p>
+  
+  <p>Numbler will return a sparse set of cells in the range and will ignore cells that have formatting but no formula or text values.  
+    The order of the cells in the returned XML is not guaranteed.</p>
+  <div class="example">
+    <h3>Example</h3>
+    <p>In this example we will retrieve all the cells in the range A1:J10.</p>
+    <div class="emph">the request using Python</div>
+    <pre class="codesnippet">
+from numbler.sdk import api
+
+sheet = 'vCskO2bQZfwtRNGR'
+accid =  'lSUReoQjWydMLQvDGEdP'
+key = 'C83EEE2D724BF58C0B2AC76DAE7E7500451908B9'
+
+con = api.NumblerConnection(sheet,accid,key,'ws.numbler.com')
+res = con.getCellRange(1,1,10,10)
+    </pre>
+    <div class="emph">the REST request</div>
+    <p>Note that instead of using the syntax A1:J10 we use "-" instead (colon is a reserved character)</p>
+    <pre class="codesnippet">
+GET /vCskO2bQZfwtRNGR/API/a1-j10 HTTP/1.1
+content-type: text/xml
+Authorization: NUMBLER lSUReoQjWydMLQvDGEdP:gN4ncV9HL4AFoSVXA/avhQ==
+x-numbler-date: Mon, 03 Apr 2006 15:54:13 GMT
+    </pre>
+    <div class="emph">the response</div>
+    <pre class="codesnippet">
+HTTP/1.1 200 OK
+Transfer-encoding: chunked
+Date: Mon, 03 Apr 2006 15:54:13 GMT
+Content-type: text/xml; charset=UTF-8
+Server: TwistedWeb/2.1.0
+
+&lt;?xml version="1.0" ?&gt;
+&lt;xml&gt;
+  &lt;sheet guid="vCskO2bQZfwtRNGR" name="publicsheet"&gt;
+    &lt;cell col="d" formula="50" row="4" value="50"/&gt;
+    &lt;cell col="a" formula="50" row="5" value="50"/&gt;
+    &lt;cell col="i" formula="50" row="9" value="50"/&gt;
+  &lt;/sheet&gt;
+&lt;/xml&gt;
+    </pre>
+  </div>
+  <h3>Other examples:</h3>
+  <p>You can easily fetch all of the cells in a column range or a row range.</p>
+  <div class="example">
+    <div class="emph">Python row range request</div>
+    <pre class="codesnippet">
+from numbler.sdk import api
+
+sheet = 'vCskO2bQZfwtRNGR'
+accid =  'lSUReoQjWydMLQvDGEdP'
+key = 'C83EEE2D724BF58C0B2AC76DAE7E7500451908B9'
+
+con = api.NumblerConnection(sheet,accid,key,'ws.numbler.com')
+res = con.getRowRange(5,12)
+    </pre>
+    <div class="emph">Python column range request</div>
+    <pre class="codesnippet">
+from numbler.sdk import api
+
+sheet = 'vCskO2bQZfwtRNGR'
+accid =  'lSUReoQjWydMLQvDGEdP'
+key = 'C83EEE2D724BF58C0B2AC76DAE7E7500451908B9'
+
+con = api.NumblerConnection(sheet,accid,key,'ws.numbler.com')
+res = con.getColRange('B','F')
+    </pre>
+  </div>
+</div>

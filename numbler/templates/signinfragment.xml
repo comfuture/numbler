@@ -1,0 +1,7 @@
+<div id="signinpanel">
+  <div id="signininner">
+    <div class="emph">New to Numbler?</div>
+    <div class="emph">Register for a free account</div>
+    <div style="padding-top:10px"><a class="standout" href="/createaccount">Sign up now!</a></div>
+  </div>
+</div>

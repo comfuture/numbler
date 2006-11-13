@@ -1,0 +1,270 @@
+.. title:: dojo.collections.SortedList -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.collections.SortedList - An indexed/ordered Dictionary.
+
+Summary and Overview
+===============================================================================
+
+SortedList is basically a Dictionary that is also allows ordered access to its
+members.
+
+Usage
+===============================================================================
+
+::
+
+    var sl = new dojo.collections.SortedList();
+    sl.add("item1", myObject);
+    sl.add("item2", mySecondObject);
+    if(sl.containsValue(mySecondObject)){
+        sl.remove("item2");
+    }
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+``SortedList(dictionary)``:
+
+    Creates a new instance of SortedList.  Note that while you can pass it an
+    object that returns a DictionaryIterator from ``getIterator``, this
+    functionality is reserved for cloning.
+    
+
+    *Inherits from*:
+        nothing
+
+    ``dictionary``:
+        a collection object that implements ``getIterator``, and returns a
+        DictionaryIterator object.
+
+    *returns*:
+        new object of type SortedList.
+
+Properties
+---------------------------------------
+
+``count``:
+
+    An integer denoting how many members the SortedList has.
+
+
+Methods
+---------------------------------------
+
+``add(key, object)``:
+
+    Adds a new SortedListEntry to the internal hashtable.  Note that if the key
+    already exists in the SortedList, its value will be overwritten with the new
+    object.
+
+    ``key``:
+        A String identifier.
+
+    ``object``:
+        An object of type Object.
+
+    *returns*:
+        void.
+	
+``clear()``:
+
+    Clears all members of the SortedList and resets ``count`` to 0.
+
+    *returns*:
+        null
+	
+``clone()``:
+
+    Clones the SortedList.  Note that while the clone is not a reference to the
+    current SortedList, members that are references to objects will remain
+    references to objects (i.e. reference members remain references).
+
+    *returns*:
+        new SortedList.
+	
+``contains(key)``:
+
+    Check to see if the passed string key is a member of the SortedList.
+
+    ``key``:
+        A string identifier.
+
+    *returns*:
+        Boolean (true || false)
+	
+``containsKey(key)``:
+
+    Check to see if the passed string key is a member of the SortedList.
+
+    ``key``:
+        A string identifier.
+
+    *returns*:
+        Boolean (true || false)
+	
+``containsValue(object)``:
+
+    Check to see if the passed object is a member of the SortedList.
+
+    ``object``:
+        An object of type Object.
+
+    *returns*:
+        Boolean (true || false)
+	
+``copyTo(array, index)``:
+
+    Copies the contents of the SortedList to array beginning at index.
+
+    ``array``:
+        The array to copy the contents of the sorted list to.
+
+    ``index``:
+        The index in the array to begin copying at.
+
+    *returns*:
+        void.
+	
+``getByIndex(index)``:
+
+    Returns the object at index.
+
+    ``index``:
+        The index of the object to be returned.
+
+    *returns*:
+        object of type Object.
+	
+``getKey(index)``:
+
+    Returns the key of the DictionaryEntry at the given index.
+
+    ``index``:
+        The index of the key to be returned.
+
+    *returns*:
+        string.
+	
+``getKeyList()``:
+
+    Gets an array of all of the current keys of the SortedList.
+
+    *returns*:
+        Array.
+	
+``getValueList()``:
+
+    Gets an array of all of the current values of the SortedList.
+
+    *returns*:
+        Array.
+	
+``getIterator()``:
+
+    Gets an object of type dojo.collections.DictionaryIterator, for use in 
+    iterating over the elements of the collection.
+
+    *returns*:
+        dojo.collections.DictionaryIterator
+	
+``indexOfKey(key)``:
+
+    Returns the index at which key is found, -1 if not found.
+
+    ``key``:
+        A string identifier.
+
+    *returns*:
+        integer.
+	
+``indexOfValue(object)``:
+
+    Returns the index at which the object is found, -1 if not found.
+
+    ``object``:
+        An object.
+        
+    *returns*:
+        integer.
+	
+``item(key)``:
+
+    Returns a DictionaryEntry object of the passed key, undefined if not found.
+
+    ``key``:
+        A string identifier.
+
+    *returns*:
+	    dojo.collections.DictionaryEntry
+        
+``remove(key)``:
+
+    Removes the DictionaryEntry at string key.
+
+    ``key``:
+        A string identifier.
+
+    *returns*:
+        void.
+	
+``removeAt(index)``:
+
+    Removes the item at index.
+
+    ``index``:
+        The index of the object to be removed.
+
+    *returns*:
+        void.
+	
+``setByIndex(index, object)``:
+
+    Sets the value of the DictionaryEntry object at index to object.  Note the
+    key is *not* changed, nor is a new entry created.
+
+    ``index``:
+        The index of the object to be set.
+
+    ``object``:
+        The new value of the object at index.
+
+    *returns*:
+        void.
+	
+Requires
+===============================================================================
+
+- No requirements.
+
+Provides
+===============================================================================
+
+dojo.collections.SortedList
+    A class constructor that allows SortedLists to be created
+
+
+To Do
+===============================================================================
+
+Public signature will not change in the foreseeable future, although internal
+implementations might.
+
+About
+===============================================================================
+
+:Author: Thomas R. Trenka, Ph.D.
+:Version: 0.2
+:Copyright: Dojo Foundation, 200x
+:Date: 2005/10/31
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

@@ -1,0 +1,349 @@
+.. title:: Rich Text Editing With Dojo
+
+.. raw:: html
+   :file: ../website/rest_template/header.html
+
+Rich text (WYSIWYG) editing on the web is a difficult problem. Browser-based
+rich text editors to date have failed to meet users stability expectations or
+in other ways subtly break the seamlessness of the editing experience. The Dojo
+Editor widget, written by `Paul Sowden`_ and `David Schontzler`_, provides a
+solution to these problems in an easy-to-integrate package.
+
+`Quick link to the Editor demo`_
+
+Experience Matters
+------------------
+
+`JotSpot`_ has been a key sponsor of Dojo and as the first Wiki to provide
+usable WYSIWYG, Jot's WYSIWYG editor is a critical part of the Wiki experience.
+While WYSIWYG is a clear advantage, it can be quickly undermined if niggling
+interaction problems or crashes make users distrustful or hesitant. Trust is
+earned slowly, but can be destroyed in the blink of an eye.
+
+Testing showed almost every in-browser editor breaks user expectations or makes
+editing unstable. Of course it's not intentional. WYSIWYG on the web *is* a
+hard problem, and providing features cross-browser is a difficult feat.  We've
+all struggled against unhelpful APIs, lousy documentation, and a never-ending
+maze of bugs and feature requests. Line ending issues and
+iframes-vs-contenteditable is enough to drive anyone mad. Amidst the
+frustration it's easy to forget that while it is possible to add a feature,
+endangering a solid experience is never worth it. What use is an editor if
+"undo" doesn't work? Do the semantics of an editor's output matter if it
+crashes?
+
+A new editor that adhered to strict user-experience and reliability principles
+was needed. The results are the Dojo Rich Text, Toolbar, and Editor controls.
+JotSpot has generously made this work Open Source Software under the same
+`liberal license`_ as Dojo.
+
+Getting There From Here
+-----------------------
+
+Several principles guided development of the Dojo Editor:
+
+*Do not break undo*
+    Browsers that support Rich Text editing hook editing into the undo stack.
+    This means that hitting ``ctrl-z`` *should* work.  The Dojo Editor takes
+    great pains to avoid doing things that break this behavior. Users trust an
+    editor (and the applications that use it) more if minor mistakes do not
+    incur disproportionate costs.
+
+*Provide WYSIWYG, not source editing*
+    Users like WYSIWYG because they care about how something looks and not the
+    quality of HTML produced. The Dojo Editor provides What You See Is What You
+    Get (WYSIWYG) and not What You See Has A Semantic Meaning Which May Or May
+    Not Be What You Get (WYSHASMWMOMNBWYG). Therefore, filtering and reworking
+    HTML to meet markup cleanliness is done via hooks at save time, not
+    invasive and slow DOM manipulation at runtime.
+
+*Data Loss Is Unacceptable*
+    Nothing destroys trust like data loss. In a web app, this translates into
+    being able to hit the "back" button after an error and not have work lost.
+    Browsers imbue ``textareas`` with this capability but rich text editing
+    components usually fail the test. Dojo's Editor gives rich text
+    applications this trust-enhancing behavior.
+
+Using the Editor
+----------------
+
+The Dojo Editor is a container for a Rich Text widget and a Toolbar
+widget. When building an Editor, you can outline which buttons you'd like to be
+in the toolbars and their order. If the browser viewing the page can't support
+a particular option you've specified, its button won't appear in the toolbar.
+The simplest example of creating an Editor is::
+
+    <div class="dojo-Editor">
+        some content
+    </div>
+
+When the page loads, the above node will appear as an editable area with a
+toolbar. assuming that Dojo and the Editor control are included. To include
+them, unpack Dojo into a directory and add the following code in the header of
+the document::
+
+    <script src="/path/to/dojo.js"
+        type="text/javascript"></script>
+    <script type="text/javascript">
+        dojo.require("dojo.widget.Editor");
+    </script>
+
+As you can see...
+
+.. raw:: html
+
+        <!-- Dojo configuration -->
+        <script type="text/javascript">
+            djConfig = {
+                // keep dojo from parsing the whole page...
+                parseWidgets: false,
+                // ...and tell it where to look instead
+                searchIds: ["testEditor"]
+            };
+        </script>
+
+        <!-- pull in the core of Dojo -->
+        <script type="text/javascript" 
+            src="/archive/dojo-2005-11-07/editor/dojo/dojo.js"></script>
+
+        <!--
+        <script type="text/javascript" 
+            src="/~alex/dojo/trunk/dojo.js"></script>
+        -->
+
+        <!-- Dojo is loaded, include the widget  -->
+        <script type="text/javascript">
+            dojo.require("dojo.widget.Editor");
+        </script>
+
+        <!-- outline the editor so people know where they can type -->
+        <div style="border: 1px solid #908f8f;" id="testEditor">
+            <div dojoType="Editor"
+                items="blockGroup;|;textGroup;|;justifyGroup;|;colorGroup;">
+                <br />
+                ...It could scarcely be easier.
+                <br />
+                <br />
+            </div>
+        </div>
+
+
+You need only tell the system that you want the Editor component and it pulls
+in all of the Editor's dependencies transparently.
+
+.. note: We use the *dojoType* syntax instead of a special class name in this
+         example, although they are equivalent. Dojo supports special
+         class names in order to provide strict support for XHTML and similarly
+         restrictive markup environments.
+
+Editor Configuration
+####################
+
+Like all Dojo widgets, the properties of the editor control can be set using
+attributes in your markup. So if you want to set only bold, italic, and
+underline buttons in your editor's toolbar, the invocation might be::
+
+    <div dojoType="Editor" items="textGroup">
+        some content
+    </div>
+
+Or if we would like to see the editor created with list controls exposed, we
+could add them (with a separator in between) like this::
+
+    <div dojoType="Editor" items="textGroup;|;listGroup;">
+        some content
+    </div>
+
+These groups indicate sets of icons which can also be specified individually.
+Available groups, with their constituent options listed are:
+
+textGroup
+    bold, italic, underline, strikethrough
+
+blockGroup
+    fontFace, formatBlock
+
+justifyGroup
+    justifyleft, justifycenter, justifyright
+
+commandGroup
+    save, cancel
+
+colorGroup
+    forecolor, hilitecolor
+
+listGroup
+    insertorderedlist, insertunorderedlist
+
+indentGroup
+    outdent, indent
+
+linkGroup
+    createlink, insertimage
+
+Therefore, we can get the same result as specifying the ``textGroup`` by
+declaring our widget this way::
+
+    <div dojoType="Editor" 
+        items="bold;italic;underline;strikethrough;">
+        some content
+    </div>
+
+Of course, it's also possible to create an editor widget directly from
+JavaScript::
+
+    var editor = dojo.widget.fromScript("Editor", {}, 
+                                        dojo.byId("contentNode"));
+
+Which will make the contents of ``contentNode`` editable. It's also easy to
+pass a different set of toolbar options as we have in previous examples::
+
+    var editorArgs = {
+        items: ["bold", "italic", "underline", "strikethrough"]
+    };
+    var editor = dojo.widget.fromScript("Editor", editorArgs, 
+                                        dojo.byId("contentNode"));
+
+Getting Content Back Out
+########################
+
+So create editor controls, but how to save out the results of editing?
+
+The Editor widget provides some methods for getting at the result of an end
+user's editing session. The first is ``getEditorContent``, which provides the
+current HTML generated by the WYSIWYG editing. This is useful when submitting
+content through ``dojo.io.bind()``:: 
+
+    var editor = dojo.widget.fromScript("Editor", {}, 
+                                        dojo.byId("contentNode"));
+
+    // ... time passes ...
+
+    dojo.io.bind({
+        url: "foo.php",
+        content: {
+            editorContent: editor.getEditorContent()
+        }
+        // ...
+    });
+    
+
+In many cases, however,  we'll just want to have the Editor participate in a
+form the same way that any other input element might.
+
+The simplest way to accomplish this is to create your Editor from a
+``textarea``::
+
+    <textarea dojoType="Editor" name="editorContent"
+        items="bold;italic;underline;strikethrough;">
+        some content
+    </textarea>
+
+When the editor detects that it's being constructed out of a ``textarea``, it
+automatically hooks into the ``onsubmit`` method of the form the ``textarea``
+is a part of and ensures that the editor content is saved back out to the
+``textarea`` before the form is submitted. 
+
+From the perspective of the developer, it's just like any other ``textarea``
+that contains HTML content to be edited.
+
+Stand-Alone Rich Text Widgets
+-----------------------------
+
+At the core of each Editor is a RichText widget, but it is possible to use
+RichText components independently of the Editor and Toolbar. RichText widgets
+can be created as easily as Editor components using inline constructors::
+
+    <div dojoType="RichText">
+        some content
+    </div>
+
+Or in script::
+
+    var rte = dojo.widget.fromScript("RichText", {}, 
+                                     dojo.byId("contentNode"));
+
+As with Editor instances, the RichText widget supports simple form
+participation and back-button save capability. Using the ``fromScript`` method
+of creating RichText widgets opens up possibilities for quickly enabling
+WYSIWYG editing for many in-place editing tasks.
+
+Like the Editor, the RichText widget provides a ``getEditorContent`` method
+which allows you to easily save out the "live" contents of an editor. As with
+the Editor control, the RichText widget passes the raw HTML contents through a
+series of (optional) filters. These filters are unary functions that accept and
+return a single string. To register a new filter, simply push it onto the
+``contentFilters`` array::
+
+    var rte = dojo.widget.fromScript("RichText", {}, 
+                                     dojo.byId("contentNode"));
+    rte.contentFilters.push(
+        function(str){
+            var copyright = "<!-- Copyright The Dojo Foundation -->";
+            // prepend the HTML with a copyright statement:
+            return copyright+str;
+        }
+    );
+
+Now when ``rte.getEditorContent()`` is called, the return will be preceded
+with a copyright notice comment.
+
+.. FIXME: discuss fast creation/removal of RichText controls
+.. FIXME: discuss customizing event handlers
+
+Availability
+------------
+
+The Editor component covered in this article is part of the upcoming 0.2
+release of Dojo. To take advantage of it before 0.2 becomes available, you can
+download a nightly build, available at http://archive.dojotoolkit.org/ and the
+latest builds of the various Editions of Dojo are available from
+http://archive.dojotoolkit.org/nightly-profiles/
+
+Developers familiar with Subversion can get the lastest Dojo directly from:
+http://dojotoolkit.org/svn/dojo/trunk/
+
+Endnotes
+--------
+
+About The Developers
+#########################
+
+Paul Sowden is a Masters student at the University of Southampton, former
+intern at `JotSpot`_, and DHTML hacker extrordinare. He can be reached at
+<psowden@dojotoolkit.org>. His personal site is http://idontsmoke.co.uk
+
+David Schontzler is a UI Engineer at `JotSpot`_. He can be reached at
+<david@dojotoolkit.org> and his personal site is http://stilleye.com
+
+About The Author
+#########################
+
+Alex Russell is the project lead for Dojo and can be reached at
+<alex@dojotoolkit.org>. His blog is at: http://alex.dojotoolkit.org
+
+.. _`Paul Sowden`: http://idontsmoke.co.uk
+.. _`David Schontzler`: http://stilleye.com
+.. _`JotSpot`: http://www.jot.com
+.. _`liberal license`: http://opensource.org/licenses/afl-2.1.php
+.. _`Quick link to the Editor demo`: http://dojotoolkit.org/archive/dojo-2005-11-07/demos/widget/Editor.html
+
+.. raw:: html
+   :file: ../website/rest_template/sidebar.html
+
+.. raw:: html
+   :file: ../website/rest_template/docs_menu.html
+
+Rich Text Editing With Dojo
+===========================
+
+:Author: Alex Russell
+:Version: 0.2
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/11/5
+
+.. contents::
+
+.. raw:: html
+   :file: ../website/rest_template/footer.html
+
+.. vim:ts=4:et:tw=0:shiftwidth=4:

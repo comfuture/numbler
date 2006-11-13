@@ -1,0 +1,159 @@
+.. title:: dojo.xml.Parse -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.xml.Parse - a first pass XML to JS parser.  The theory behind this parser 
+is that DOM calls are expensive relative to JS object manipulations, so only a 
+very minimal set of optimizations are done in this step.  Instead, focus is 
+placed on getting a generic JS object structure created as quickly as possible.
+
+Summary and Overview
+===============================================================================
+
+This namespace contains three methods, all related to parsing XML into JS.  
+parseFragment and parseElement are really essentially the same thing, except 
+that Element and Fragment are as they are defined in the DOM.  So Fragment 
+does not require that their be a single top level parent node.
+
+Usage
+===============================================================================
+
+::
+
+    var parser = new dojo.xml.Parse();
+    var parsedNodes = parser.parseElement(node);
+
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+``Parse()``:
+
+    The constructor has no arguments.
+
+    *Inherits from*:
+        nothing
+
+    *returns*:
+        new object of type dojo.xml.Parse.
+
+Properties
+---------------------------------------
+
+``parsedFragment``:
+
+    A local object that is returned after parsing is completed.
+
+
+Methods
+---------------------------------------
+
+``parseFragment(documentFragment)``:
+
+    parseFragment accepts a node set, and returns an object of arrays, making 
+		calls to parseElement as needed.
+
+    ``documentFragment``:
+        A DOM fragment.
+
+    *returns*:
+        parsedFragment
+
+``parseElement(node, hasParentNodeSet, optimizeForDojoML, thisIdx)``:
+
+    parseElement accepts a node, and returns an object of arrays, making 
+		recursive calls to parseElement as needed for nested child elements.
+
+    ``node``:
+        A DOM node to parse.
+
+    ``hasParentNodeSet``:
+        A boolean that will create an object to place the return value.  This is 
+				convenient for the nested recursion that takes place.
+
+    ``optimizeForDojoML``:
+        A boolean that specifies whether to make certain performance 
+				optimizations for the DojoML.
+
+    ``thisIdx``:
+        An index so that node order can be inferred for nested widgets and 
+				nodes..
+
+    *returns*:
+        parsedNodeSet
+				For example, the following xml fragment::
+				
+				    <foo bar="bard">
+					    <baz xyzzy="xyzzyd"/>
+				    </foo>
+				
+				would return::
+				
+				    {
+					    foo: {[
+						    bar: {[
+							    "bard"
+						    ]},
+						    baz: {[
+							    xyzzy: {[
+								    "xyzzyd"
+							    ],
+							    nodeRef: bazDomNodeRef,
+							    tagName: "baz",
+							    index: index
+							    }
+						    ]}
+						    ],
+						    nodeRef: fooDomNodeRef,
+						    tagName: "foo",
+						    index: index
+					    }
+				    }
+
+``parseAttributes(node)``:
+
+    parseAttributes takes a node, and returns attributes in an object of arrays.
+		Redundant attributes are preserved rather than being ignored.  Child text 
+		nodes and child elements are normalized in the same manner as attributes, 
+		thus allowing authors to freely interchange the use of attributes and child 
+		elements.
+
+    ``node``:
+        A DOM node.
+
+    *returns*:
+        parsedAttributeSet
+
+Requires
+===============================================================================
+
+- `dojo.hostenv`_
+- `dojo.dom`_
+
+.. _`dojo.hostenv`: 		hostenv.html
+.. _`dojo.dom`:	dom.html
+
+Provides
+===============================================================================
+
+dojo.xml.Parse
+    A class constructor that allows dojo.xml.Parse to be created
+
+
+About
+===============================================================================
+
+:Author: Dylan Schiemann
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/10/21
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

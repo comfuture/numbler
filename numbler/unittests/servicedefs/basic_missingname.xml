@@ -1,0 +1,13 @@
+<servicedef desc="lookup price">
+  <connection host="localhost" port="9000" resource="/lookupprice"/>
+  <params>
+    <inputs>
+      <param name="category" required="True"/>
+      <param name="keywords" required="true"/>
+      <param name="hint" required="false"/>
+    </inputs>
+    <outputs>
+      <param name="cost"/>
+    </outputs>
+  </params>
+</servicedef>

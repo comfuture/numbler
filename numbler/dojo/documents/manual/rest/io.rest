@@ -1,0 +1,245 @@
+.. title:: dojo.io.* -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.io.* - Platform independent input/output APIs
+
+Summary and Overview
+===============================================================================
+
+The ``dojo.io.*`` namespace contains generic APIs for doing network I/O. In a
+browser, ``dojo.io.bind()`` is how one makes "Ajax" requests using Dojo. The
+default browser transport mechanism also sports features such as back-button
+interception, transparent form submission, and advanced error handling.
+
+The ``bind()`` method is suitable for synchronous or asyncronous communication
+and allows for "pluggable" implementations to provide transport capability.
+These transports may feature implementation-specific features, which are covered
+in the documentation for each transport type. Transports may be explicitly
+requested via the ``transport`` attribute or the request object passed to
+``bind()``.
+
+Each transport defines a unique name which it sends to the server so you can
+identify which transport was used for the request. The argument is sent as
+``dojo.transport``. Possible values:
+
+    * ``xmlhttp`` for ``XMLHTTPTransport``
+    * ``iframe`` for ``IframeTransport``
+
+Usage
+===============================================================================
+
+::
+
+    // an asynchronous request to foo.php that returns a JavaScript literal
+    // which is eval()'d
+    var bindArgs = {
+        url:        "foo.php",
+        mimetype:   "text/javascript",
+        error:      function(type, errObj){
+            // handle error here
+        },
+        load:      function(type, data, evt){
+            // handle successful response here
+        }
+    };
+
+    // dispatch the request
+	var requestObj = dojo.io.bind(bindArgs);
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+``Request(url, mimetype, transport, changeUrl)``:
+
+    A class representing the methods and state of a request processed by
+    ``dojo.io.bind``.
+
+    *Inherits from*:
+        nothing
+
+    ``url``:
+        the location of the resource being requested
+
+    *return*:
+        new object of type Foo.
+
+Properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``url``:
+        the location of the resource being requested
+
+    ``mimetype``:
+        Mimetype used to interpret the contents of the response with. Defaults
+        to "text/plain". This does *not* set an outgoing mime header for HTTP
+        transports.
+
+    ``method``:
+        Format to use whem making the request. For HTTP transports this us
+        usually either of "GET" or "POST" although non-HTTP transports may
+        define and accept others. Defaults to "GET".
+
+    ``content``:
+        An key/value mapping of properties to be constructed into paramaters
+        passed with the data request. In HTTP transports, these are equivalent
+        to query string paramaters or form fields in POST requests. The exact
+        behavior of ``content``-specified paramaters is dependent upon the
+        transport in use.
+        
+    ``transport``:
+        String that explicitly specifies the transport object to use for the
+        request. If the specified transport is not available, the request will
+        not be made and the ``error`` callback will be fired.
+
+    ``changeUrl``:
+        Boolean, defaults to ``false``. Determines whether or not the request
+        should be made "bookmarkable". This may be removed in the future as it
+        pertains exclusively to in-browser HTTP transports.
+
+    ``formNode``:
+        DOM Node that specifies a form to be serialized and submitted by this
+        request. Form nodes may be used to populate the ``method`` and ``url``
+        properties by some transports. This property may be removed in the
+        future as it pertains exclusively to in-browser HTTP transports.
+
+    ``sync``:
+        Boolean, defaults to ``false``. ``sync`` determines whether the
+        accepting transport should attempt to make the request synchronously.
+        Transports that support synchronous operation will block execution of
+        other code until the ``bind`` is complete.
+
+    ``bindSuccess``:
+        Boolean, defaults to ``false``. Indicates whether or not this
+        ``Request`` was accepted and dispatched by any transport.
+
+    ``useCache``:
+        Boolean, defaults to ``false``. Indicates whether the result of the
+        request should be cached and whether requesting a result for this
+        request from the cache is acceptable.
+
+Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``handle(type, data, event)``:
+        A catch-all handler method that is used when ``load``, ``error`` or
+        another status-specific handler is not defined or not available. The
+        event type may be determined via string comparision with the ``type``
+        paramater.
+
+    ``load(type, data, event)``:
+        Method called when data is successfully returned for this ``Request``.
+        The ``type`` paramater will always have a value of "load". The ``data``
+        paramater passes in whatever data was returned from the network, subject
+        to any pre-processing the accepting transport class may have applied.
+        For instance, many transports run the result of a ``bind`` through
+        JavaScript's ``eval`` function when a ``mimetype`` of "text/javascript"
+        is specified. In this case, ``data`` will be the result of this call to
+        ``eval`` (usually an object). ``event`` is a transport-specific
+        low-level object that provides access to the specifics of the transport
+        state. For example, using the ``dojo.io.XMLHTTPTransport``, ``event``
+        is a reference to the XMLHTTP object used to dispatch the network
+        request.
+
+    ``error(type, errorObject)``:
+        Handler called with data cannot be returned for this ``Request``. The
+        ``type`` paramater will always have a value of "error". The
+        ``errorObject`` is transport specific, but should provide details about
+        the type and details of the ``bind`` failure.
+
+    ``abort()``:
+        A method that attempts to belay a pending Request dispatch. The behavior
+        of ``abort`` is transport-specific.
+
+Properties
+---------------------------------------
+
+     ``transports``:
+        Array of registered transport objects. This is consulted for each 
+        ``bind`` request and the first transport to accept a particular request
+        handles it.
+
+Methods
+---------------------------------------
+
+``transports.addTransport(name)``:
+
+    Registers a transport object with the system, allowing ``bind`` to use it
+    for request dispatch. The ``name`` of the transport corresponds to its
+    property name on the ``dojo.io`` namespace. Therefore, if the transport
+    named ``dojo.io.DummyIO`` were to register itself, it would use::
+
+        dojo.io.transports.addTrasnport("DummyIO");
+		
+    ``name``:
+        String denoting the location in the ``dojo.io`` namespace where the
+        transport object is attached.
+				
+    *return*:
+        null
+				
+``bind(requestObject)``:
+
+    ``requestObject``:
+        An object that specified the paramaters of the requst to be made. This
+        can be either an object of type ``dojo.io.Request``, or an anonymous
+        object that implements the essential properties of that class, namely
+        the url to be requested. A ``dojo.io.Request`` object will be created
+        out of this anonymous object and returned by the method.
+				
+    *return*:
+        Object of type ``dojo.io.Request``. If no transport agrees to handle the
+        ``bind`` request, the ``bindSuccess`` property of this object will be
+        ``false``.
+
+``argsFromMap(mapObject, encoding)``:
+
+    Returns a string that represents a URL-encoded serialization of the passed
+    in ``map``. This is analagous to the format of HTTP GET paramaters.
+
+    ``mapObject``:
+        Object. An object whose properties are to be serialized.
+
+    ``encoding``:
+        Optional. String that controls what encoding format should be used.
+        Options are either "utf" or "ascii".
+
+    *return*:
+        String.
+				
+Requires
+===============================================================================
+
+- `dojo.string`_
+
+.. _`dojo.string`: 		string.html
+
+Provides
+===============================================================================
+
+dojo.io
+    IO methods for Dojo
+
+To Do
+===============================================================================
+
+This API is considered stable. Further transports may be added in the future to
+support non-browser enviornments or low-latency data for browser consumption.
+
+About
+===============================================================================
+
+:Author: Alex Russell
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/03
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

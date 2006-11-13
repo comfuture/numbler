@@ -1,0 +1,41 @@
+<xml>
+  <fileinfo position="9" name="Working with dates and times"/>
+  <item description="How do I enter date and time values?" ref="dtentervals">
+    Simply type the date or time directly into the cell.  Numbler will parse the cell value based on your langauge settings.  Numbler supports a couple of non-standard date representations as well.  For instance, you can enter any of the following: "10-2007", "Oct-2007", "10/2007".  You can also enter dates and times using the DATE and TIME functions.
+  </item>
+  <item description="The value of NOW() or TODAY() does not look correct." ref="dtentervals">
+    Numbler uses the timezone of the sheet owner to compute NOW() and TODAY().  Additionally, the value is formatted based on the language of the sheet owner.
+  </item>
+  <item description="how are date and time values represented internally?" ref="dtserialrep">
+    For backwards compatibility with other spreadsheet packages Numbler use a serial date representation.  The integer component is the number of days since Jan 1st 1900.  The fractional component is a fraction of the total number of seconds in a day.  A cell that is formatted as a day will ignore the fractional component while a cell that is formatted as a time will ignore the integer component.  A cell formatted as a date-time will use both the integer and fractional components (e.g the NOW() formula).
+  </item>
+  <item description="What date and time functions does Numbler support?" ref="dtfuncsupport">
+	<table class="doctable" cellspacing="0" cellpadding="0">
+	  <tr><th id="col1">Function</th><th>Description</th></tr>
+	  <tr><td id="col1">NOW</td><td>Compute the current date-time based on your timezone</td></tr>
+	  <tr><td id="col1">TODAY</td><td>Compute and return the current date.</td></tr>
+	  <tr><td id="col1">DATE</td><td>Use DATE to compute a new date value.  DATE takes three arguments: year, month, and day.  Example: DATE(2008,11,03)</td></tr>
+	  <tr><td id="col1">DATEVALUE</td><td>returns a serial date value based on a date text value</td></tr>
+	  <tr><td id="col1">YEAR</td><td>Returns the year from a date value.  Requires a text date or serial date as an argument.</td></tr>
+	  <tr><td id="col1">MONTH</td><td>Returns the month (1-12) from a date value.  Requires a text date or serial date as an argument.</td></tr>
+	  <tr><td id="col1">DAY</td><td>Returns the day of the week.  Requires a text date or serial date as an argument.</td></tr>
+	  <tr><td id="col1">TIME</td><td>Use TIME to compute a new time value.  TIME takes three arguments: hour, minute, and second.  Example: TIME(20:30:45)</td></tr>
+	  <tr><td id="col1">TIMEVALUE</td><td>return a serial time value based on a time text value.</td></tr>
+	  <tr><td id="col1">HOUR</td><td>Returns the hour (in a 24 hour clock) from a time or date value.  Requires a text value or a serial time value as an argument.</td></tr>
+	  <tr><td id="col1">MINUTE</td><td>return the minutes in a hour (0-59) from a time value.  Requires a text value or a serial time value as an argument.</td></tr>
+	  <tr><td id="col1">SECOND</td><td>return the seconds in a hour (0-59) from a time value.  Requires a text value or a serial time value as an argument.</td></tr>
+
+
+
+
+	</table>
+
+  </item>
+</xml>
+
+  <!--
+  <item description="" ref="">
+  </item>
+
+  -->
+

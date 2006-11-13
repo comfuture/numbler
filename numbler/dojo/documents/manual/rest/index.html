@@ -1,0 +1,149 @@
+<html>
+	
+<title>Dojo Reference Documentation</title>
+<style type="text/css">
+@import url(screen.css);
+</style>
+<h1>Dojo Reference Documentation</h1>
+<h2>Table of Contents</h2>
+
+<ul>
+    <li><a href="#infrastructure">The Dojo packaging and debugging systems</a></li>
+    <li><a href="#general">General Purpose Libraries</a></li>
+    <li><a href="#visualweb">Visual Web</a></li>
+    <li><a href="#webio">Web I/O (AJAX, etc.)</a></li>
+    <li><a href="#datastructures">Data Structures</a></li>
+    <li><a href="#mathcrypto">Math &amp; Crypto</a></li>
+    <li><a href="#widgets">Widgets</a></li>
+</ul>
+
+<h2><a name="infrastructure">Dojo Infrastructure</a></h2>
+Dojo's bootstrap system provides some fundamental behaviors, including a
+package system for dynamically loading scripts.
+<ul>
+    <li><a href="dojo.html">dojo</a>: The Dojo bootstrap.</li>
+	<!--
+    <li>including dojo.js, making builds</li>
+    <li>dojo.require, dojo.provides, dojo.extends</li>
+    <li>dojo.debug</li>
+	-->
+</ul>
+
+<h2><a name="general">General purpose libraries</a></h2>
+Dojo includes some core libraries to make it easier to work with JavaScript, HTML, the DOM:
+<ul>
+    <li><a href="lang.html">dojo.lang</a>: Utility routines to make JavaScript easier to use.</li>
+    <li><a href="string.html">dojo.string</a>: String manipulation routines.</li>
+    <li><a href="dom.html">dojo.dom</a>: DOM manipulation routines.</li>
+    <li><a href="style.html">dojo.style</a>: CSS Style manipulation routines.</li>
+    <li><a href="html.html">dojo.html</a>: HTML specific operations</li>
+    <li><a Xhref="event.html">dojo.event</a>: The Aspect Oriented Programming-inspired event system (undocumented, but see <a href="http://dojotoolkit.org/docs/dojo_event_system.html">this introduction</a>)</li>    
+    <li><a Xhref="reflect.html">dojo.reflect</a>: Reflection API (undocumented)</li>    
+    <li><a Xhref="date.html">dojo.date</a>: Date manipulation. (undocumented)</li>    
+    <li><a Xhref="logging/Logger.html">dojo.logging.Logger</a>: Logging library (undocumented).</li>    
+    <li><a Xhref="profile.html">dojo.profile</a>: JS Profiler (undocumented)</li>    
+    <li><a Xhref="regexp.html">dojo.regexp</a>: Regular Expression generators (undocumented)</li>    
+	<!--
+    <li><a Xhref="undo/Manager.html">dojo.undo.Manager</a>: Undo management (undocumented)</li>    
+	-->
+</ul>
+<h2><a name="datastructures">Data Structures</a></h2>
+The dojo.collections package has a few sub-parts:
+<ul>
+	<li><a href="collections/Dictionary.html">Dictionary</a>: a dictionary/hash object</li>
+	<li><a href="collections/ArrayList.html">ArrayList</a>: an extended version of the core ECMAScript Array object.</li>
+	<li><a href="collections/Queue.html">Queue</a>: a basic implementation of a typical queue (FIFO) object.</li>
+	<li><a href="collections/SortedList.html">SortedList</a>: An indexed/ordered Dictionary</li>
+	<li><a href="collections/Set.html">Set</a>: an object that provides basic set operations.</li>
+	<li><a href="collections/Stack.html">Stack</a>: a basic implementation of a standard Stack (FILO).</li>
+</ul>
+
+<h2><a name="webio">Web I/O</a></h2>
+<ul>
+	<li><a href="io.html">dojo.io</a>: Platform independent input/output APIs (also see <a href="http://dojotoolkit.org/docs/intro_to_dojo_io.html">this</a>)</li>
+	<li><a href="rpc.html">dojo.rpc</a>: RPC, the Dojo way</li>
+	<li><a href="json.html">dojo.json</a>: JSON, the Dojo way</li>
+</ul>
+
+<h2><a name="visualweb">Visual Web</a></h2>
+<ul>
+    <li><a href="animation/Animation.html">dojo.animation.Animation</a>: Animation supprt</li>
+    <li><a href="dnd.html">dojo.dnd</a>: Drag and Drop support</li>
+    <li><a href="validate.html">dojo.validate</a>: Data validation methods (isText, isNumber, isValidDate, etc..)</li>
+    <li><a Xhref="fx.html">dojo.fx</a>: Fading, exploding visual effects (undocumented)</li>    
+    <li><a Xhref="graphics/Colorspace.html">dojo.graphics.Colorspace</a>: Colorspace manipulation (undocumented)</li>    
+    <li><a Xhref="graphics/color.html">dojo.graphics.color</a>: color manipulation (undocumented)</li>    
+    <li><a Xhref="svg.html">dojo.svg</a>: SVG library (undocumented)</li>    
+</ul>
+
+<h2><a name="mathcrypto">Math and Crypto</a></h2>
+<ul>
+    <li><a href="crypto.html">dojo.crypto</a>: Cryptographic routines.</li>
+    <li><a Xhref="math/Math.html">dojo.math.Math</a>: Math library (undocumented)</li>    
+    <li><a Xhref="math/curves.html">dojo.math.curves</a>: Curve generation library (undocumented)</li>    
+    <li><a Xhref="math/matrix.html">dojo.math.matrix</a>: Linear Algebra (undocumented)</li>    
+    <li><a Xhref="math/points.html">dojo.math.points</a>: Point manipulations (undocumented)</li>    
+</ul>
+
+<h2><a name="other">Other</a></h2>
+<ul>
+	<li><a href="storage.html">dojo.storage</a>: The storage system implements a local durable cache.</li>
+	<li><a href="xml/Parse.html">dojo.xml.Parse</a>: a first pass XML to JS parser.</li>
+	<li><a href="uri.html">dojo.uri</a>: URI/URL manipulation routines</li>
+</ul>
+
+<h2><a name="widgets">Widgets</a></h2>
+<h3>Core widgets</h3>
+<ul>
+	<li>The <a href="widget/Widget.html">Widget</a> base class.</li>
+	<li>The <a Xhref="widget/DomWidget.html">DomWidget</a> base class (undocumented)</li>
+	<li>The <a Xhref="widget/DomWidget.html">HtmlWidget</a> base class (undocumented)</li>
+	<li>The <a Xhref="widget/Editor.html">Editor</a> widget (undocumented, but see <a href="http://dojotoolkit.org/docs/rich_text.html">this</a>)</li>
+	<!-- <li>The <a Xhref="widget/Button.html">Button</a> widget (undocumented)</li> -->
+	<li>The <a Xhref="widget/Checkbox.html">Checkbox</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/ComboBox.html">ComboBox</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/ContextMenu.html">ContextMenu</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/DropdownButton.html">DropdownButton</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/Menu.html">Menu</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/MenuItem.html">MenuItem</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/PopUpButton.html">PopUpButton</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/SimpleDropDownButton.html">SimpleDropDownButton</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/TabSet.html">TabSet</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/Tabs.html">Tabs</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/Tree.html">Tree</a> widget (undocumented)</li>
+</ul>
+<h3>Layout widgets</h3>
+<ul>
+	<li>The <a Xhref="widget/Container.html">Container</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/Accordion.html">Accordion</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/Dialog.html">Dialog</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/FloatingPane.html">FloatingPane</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/LayoutPane.html">LayoutPane</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/Manager.html">Manager</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/SplitPane.html">SplitPane</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/TemplatedContainer.html">TemplatedContainer</a> widget (undocumented)</li>
+</ul>
+<h3>Other widgets</h3>
+<ul>
+	<li>The <a href="widget/DatePicker.html">DatePicker</a> widget</li>
+	<li>The <a href="widget/TimePicker.html">TimePicker</a> widget</li>
+	<li>The <a Xhref="widget/RichText.html">RichText</a> widget (undocumented, but see <a href="http://dojotoolkit.org/docs/rich_text.html">this</a>))</li>
+	<li>The <a Xhref="widget/Chart.html">Chart</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/ColorPalette.html">ColorPalette</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/CiviCrmDatePicker.html">CiviCrmDatePicker</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/FisheyeList.html">FisheyeList</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/InlineEditBox.html">InlineEditBox</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/ResizableTextArea.html">ResizableTextArea</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/SlideShow.html">SlideShow</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/TaskBar.html">TaskBar</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/Toggler.html">Toggler</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/Toolbar.html">Toolbar</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/Wizard.html">Wizard</a> widget (undocumented)</li>
+</ul>
+<h3>SVG widgets</h3>
+<ul>
+	<li>The <a Xhref="widget/SvgButton.html">SvgButton</a> widget (undocumented)</li>
+	<li>The <a Xhref="widget/SvgWidget.html">SvgWidget</a> widget (undocumented)</li>
+</ul>
+
+</html>

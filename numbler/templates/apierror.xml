@@ -1,0 +1,1 @@
+<error xmlns:n="http://nevow.com/ns/nevow/0.1" n:render="error"><n:invisible n:pattern="error" n:render="internalerror"><code><n:slot name="code"/></code><message><n:slot name="message"/></message><resource><n:slot name="resource"/></resource></n:invisible></error>

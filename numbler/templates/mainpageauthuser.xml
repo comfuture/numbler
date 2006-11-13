@@ -1,0 +1,12 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1" id="loginparent">
+  <div id="loginpanel">
+    <div class="emph">Welcome back <span n:render="displayname"/>!</div>
+    <p id='numsheetprefix'>You have used the following spreadsheets recently:</p>
+    <div n:render="existingsheets"/>
+    <div class="emph" style="padding-top:20px">Take me to:</div>
+    <div style="padding-top:10px;padding-left:10px">
+      <div class ="permlink"><a href="/myaccount">My Account</a></div>
+      <div class="permlink"><a href="/simport">Import</a></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<xml>
+  <fileinfo position="6" name="Security"/>
+  <item description="Is Numbler secure?" ref="issecure">
+    Yes.  If your spreadsheet is private only you and whomever you invite will be able to access your sheet.
+  </item>
+  <item description="Does Numbler support SSL?" ref="secssl">
+    Yes.  Numbler uses SSL for any confidential information such as your account settings and login information.  This means that any information between your browser and the Numbler servers is encrypted and can not be viewed by anyone (with the possible exception of the wizards at the NSA).  Additionally, any Numbler sheet can be used via SSL - simply replace the HTTP in your browser with HTTPS when accessing your sheet.
+  </item>
+  <item description="Can someone I don't know access my spreadsheet?" ref="secthirdparty">
+    Only if your spreadsheet is public - see accounts.
+  </item>
+  <item description="Should I store my grandmother's secret cookie recipe in a Numbler sheet?" ref="secendtoened">
+    Sure.  However, if your goal is to avoid the recipe falling into the hands of your evil Aunt Bernice in the case you get hit by a school bus, the answer is "probably not".  Numbler does not support "end to end" encryption, meaning that the contents of your sheet could be recovered by the Numbler support team (when Aunt Bernice sues for access to the secret recipe).
+  </item>
+</xml>
+
+<!--
+
+  <item description="" ref="">
+  </item>
+-->

@@ -1,0 +1,60 @@
+<xml>
+  <fileinfo position="2" name="Accounts">
+    <item description="When do I need a Numbler account?" ref="needacountref">
+      A Numbler account is required if you want to create your own sheets.  Additionally, if you are invited to a private sheet you need an account so that we can verify your identity.  In the future accounts will be useful for keeping track of protected cells, cell and sheet history, versioning, and other exciting new features.
+    </item>
+    <item description="How many spreadsheets can I have on my account?" ref="accountsheetlimit">
+      We don't currently have a limit on the number of spreadsheets per account.  We reserve the right to change this in the future (hey, we aren't doing this for our health!)
+    </item>
+    <item description="What is the difference between a public and private sheet?" ref="accpubvspriv">
+      <p>
+	A public sheet is available to anyone on the internet.  A public sheet makes sense when you want to share an idea 
+	with a large number of users and don't really care about who accesses the spreadsheet.  Keep in mind that even if a 
+	spreadsheet is public, it is not listed in a directory and can not be found by a search engine.
+      </p>
+      <p>A private sheet is only accessible to the owner and anyone the owner invites from the <a href="/myaccount">my account</a> page.  
+	Only the owner can send invites from a private sheet and more than one owner is not supported (this may change in the future). 
+	The owner can revoke an invite to a private sheet at any time.  By default all Numbler sheets are created private.
+      </p>
+      <p>
+      A public sheet makes sense if you want to send our spreadsheet link to a wide audience, publish it on your blog, etc.  
+	A private sheet make sense when you want to control access to your spreadsheet or limit when people can view the 
+	spreadsheet (ex: invite a third party company to view your spreadsheet but then revoke the invite after a week when the contract fizzles).
+      </p>
+    </item>
+    <item description="How to invite another person to use your spreadsheet" ref="accinvitehowto">
+      <p>
+      Simply enter an email address into the invite box from the <a href="/myaccount">my account</a> page.  
+	If the sheet is private the user will need to create a Numbler account before continuing.  If the user already has an 
+	account the new sheet they will get an email informing them of the new spreadsheet.  Additionally, the sheet will now show up 
+	in their sheet member list.
+      </p>
+      <p>
+	If the sheet is public you can also send an invite via the invite box from the <a href="myaccount">my account</a> page.  The user will receive an email about the sheet.  In this case, the user will not be required to create an account.  If you want you can send your own invites to a public sheet via an email list, blog, etc.
+      </p>
+    </item>
+    <item description="What happens when I make a public sheet private?" ref="accpubtoprivate">
+      Anyone who is in your invite list must have an account before they can continue using the sheet.
+    </item>
+    <item description="What's the difference between a sheet member and a pending member?" ref="accmembervspending">
+      When you invite a user they either show up as pending (gray) or a member (Numbler blue).  A pending member is created when you 
+      send an invite to a person who does not have a Numbler account (we can't match up their email address with one we have on record).  
+      As soon as someone creates a Numbler account, any pending invites associated with their email address are automatically copied 
+      to their account.  The next time you view your my account page the user will show up in Numbler blue instead of gray.
+    </item>
+    <item description="What happens when I delete a sheet?" ref="accdelsheet">
+      Numbler will warn you if anyone is currently using the sheet.  You will also be prompted to export your sheet first before deleting it because once its gone, its gone!
+    </item>
+    <item description="Can I have a read-only public sheet?" ref="accpubreadonly">
+      Not yet.  This feature is high on our list!
+    </item>
+    <item description="I liked your old system without accounts." ref="accoldsystem">
+      Thanks.  When you created your Numbler account your existing spreadsheets were marked for compatibility with the prior 
+      version of Numbler.  You can continue to create public sheets from your Numbler account so that people using your sheets do not need accounts.
+    </item>
+  </fileinfo>
+
+  <!--
+
+  -->
+</xml>

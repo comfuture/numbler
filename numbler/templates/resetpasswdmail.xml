@@ -1,0 +1,13 @@
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+  <body style="  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;font-size:14px">
+    <div style="padding-top:20px">
+      We received a request on <span n:render="linkname"/> to reset the password for <span n:render="emailaddr"/>.  
+      To change your password please visit this link:<br/><br/>
+      <span n:render="link"/><br/>
+      <br/>
+      For security purposes this link will expire after one hour.<br/>
+      <br/>
+      Numbler support team
+    </div>
+  </body>
+</html>

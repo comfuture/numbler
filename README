@@ -1,0 +1,56 @@
+Installation instructions:
+
+
+make sure the appropriate packages are installed.  The following instructions
+have been tested on ubunty edgy:
+
+  * apt-get python-mysqldb rhino gnumeric libicu34-dev g++ python-dev 
+    python-numpy python-numpy-ext python-twisted python-pyopenssl python-ply 
+    python-setuptools python-xml python-celementtree python-egenix-mxdatetime 
+    mysql-server openssl
+
+  * download, compile, and install PyICU from http://pyicu.osafoundation.org/ 
+
+  * checkout latest source code via:
+    svn co http://numbler.googlecode.com/svn/trunk
+
+  * move the nevow subfolder to /usr/lib/python2.4/site-packages/nevow
+    Nevow is web toolkit available at http://divmod.org.  unfortunately
+    Numbler only works right now an older patched version.
+
+  * create the numbler database.  By default the mysql username and password
+    is ssdb/ssdb.  from the mysql prompt
+
+    create database ssdb
+    grant all privileges on ssdb.* to 'ssdb'@'localhost' identified by 'ssdb'
+
+    cd to the server directory and run "python ssdb.py init"
+
+  * move the numbler source folder to /usr/lib/python2.4/site-packages/numbler.
+    You might want to create a soft link to this location, perhaps something
+    like /var/www/numbler.
+
+  * start the numbler server in debug mode.
+
+    cd /var/www/numbler
+    twistd -noy sheet.tac 
+
+    it will fail the first time.  Follow the instructions to configure your crypto
+    keys and run "twistd -noy sheet.tac"
+
+    go to http://hostname:8080 to access your numbler install.  To run Numbler
+    on port 80 run "twistd -noy sheetprod.tac."
+
+
+    
+        
+        
+   
+
+
+
+
+   
+
+      
+

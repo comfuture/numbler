@@ -1,0 +1,30 @@
+
+/*
+div { 
+  padding:0px;margin:0px;
+ }
+*/
+
+.commentdetails { 
+  font-weight:bold;
+ }
+
+span.funcarg { 
+  font-weight:bold;
+ }
+
+span.synreq { 
+  font-weight:bold;
+ }
+
+div.syntax { 
+  background-color: #eff7ff;
+  width:90%;
+  padding: 10px;
+  border: 1px dashed #333;
+  margin-bottom:5px;
+ }
+
+h1,h2,h3,h4 { 
+  padding-bottom:0px;
+ }

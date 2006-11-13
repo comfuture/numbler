@@ -1,0 +1,373 @@
+.. title:: dojo.widget.Widget -- The Dojo Manual
+
+Name
+===============================================================================
+
+dojo.widget.Widget - Base class for all Dojo widget.
+
+Summary and Overview
+===============================================================================
+
+Base class for all Dojo widgets. Environment-specific customizations extend this
+base class significantly and very few classes inherit from
+``dojo.widget.Widget`` directly.
+
+Usage
+===============================================================================
+
+::
+
+    // a class that inherits from Widget
+    dojo.widget.FooWidget = function(){
+        // the constructor only preforms mixin-based inheritance
+        dojo.widget.Widget.call(this);
+    }
+
+    // over-ride base widget properties
+    dojo.lang.extend(FooWidget, {
+        widgetType: "FooWidget",
+        show:       function(){
+            // widget-specific code here
+        }
+        // ...
+    });
+
+API Reference
+===============================================================================
+
+Properties
+---------------------------------------
+
+``parent``:
+    Object. Reference to the logical parent of this widget (if any).
+
+``children``:
+    Array. References to all children of the widget.
+
+``extraArgs``:
+    Object. A map that contains properties not assigned by
+    ``mixInProperties()``.
+
+``isContainer``:
+    Boolean. Can this widget contain other widgets? Defaults to ``false``.
+
+``isTopLevel``:
+    Boolean. Should this widget be treated as a "top level", e.g. a window or
+    other root container type, in a widget hierarchy?
+
+``isModal``:
+    Boolean. Defaults to ``false``.
+
+``isEnabled``:
+    Boolean. Defaults to ``true``.
+
+``isHidden``:
+    Boolean. Defaults to ``false``.
+
+``widgetId``:
+    String. A unique ID for this widget instance.
+
+``widgetType``:
+    String. The type of this widget.
+
+Methods
+---------------------------------------
+
+``create(args, parserFragment, parent)``:
+    
+    This method kicks off the initialization of the widget, starting it's
+    display lifecycle. The arguments passed in are somewhat opaque, and the
+    ``dojo.widget.fromScript()`` method is recommended for those looking to
+    manually create widgets. The order of widget methods called is:
+
+        - ``satisfyPropertySets``
+        - ``mixInProperties``
+        - ``postMixInProperties``
+        - ``buildRendering``
+        - ``initialize``
+        - ``postInitialize``
+        - ``postCreate``
+
+    ``args``:
+        Object. 
+
+    ``parserFragment``:
+        Object. A subtree section from the return of the ``dojo.xml.Parser``
+        system.
+
+     ``parent``:
+        Optional. Object of type ``dojo.widget.Widget``. If not provided, the
+        widget will be added to the root widget (defined by
+        ``dojo.widget.manager``).
+
+    *return*:
+        Object. This widget.
+
+``destroy()``:
+
+    Destroys the widget.
+
+``destroyChildren(testFunc)``:
+
+    Destroys the widgets children.
+
+    ``testFunc``:
+        Optional. A unary function which returns a Boolean determining if the
+        widget provided as an argument should be destroyed.
+
+``destroyChildrenOfType(type)``:
+
+    ``type``:
+        String. The ``widgetType`` of widgets to be culled.
+
+``getChildrenOfType(type)``:
+
+    ``type``:
+        String. The ``widgetType`` of widgets to be returned.
+
+    *return*:
+        Array of Objects of type ``dojo.widget.Widget`` which match the filter
+        ``type``.
+
+``toString()``:
+
+    *return*:
+        String. A short description of the widget. Not a full serialization.
+
+``enable()``:
+
+    If the widget supports enabled and disabled states, enables the widget. Sets
+    the ``isEnabled`` property to ``true``.
+    
+    *return*:
+        none
+
+``disable()``:
+
+    If the widget supports enabled and disabled states, disables the widget.
+    Sets the ``isEnabled`` property to ``false``.
+    
+    *return*:
+        none
+
+``hide()``:
+
+    If the widget supports being hidden, makes widget invisible. Sets the
+    ``isHidden`` property to ``true``.
+    
+    *return*:
+        none
+
+``show()``:
+
+    If the widget supports being hidden, makes widget visible. Sets the
+    ``isHidden`` property to ``false``.
+    
+    *return*:
+        none
+
+``satisfyPropertySets(args)``:
+
+    This method should not be called directly. This method is called in the
+    widget instantiation process and is used to ensure that "cascaded" property
+    set attributes are correctly initialized.
+
+    ``args``:
+        Object. 
+
+    *return*:
+        Object. Usually the same as ``args``, only modified.
+
+``mixInProperties(args, parserFragment)``:
+
+    This method should not be called directly. This method is called in the
+    widget instantiation process and is used to populate user-provided
+    attributes on widget markup as values on the widget class. Lightweight type
+    checking is applied to the properties that already exist on the widget and
+    the values being assigned are converted (if they can be). Arguments that
+    don't have a mapping on the widget object are added to the widget's
+    ``extraArgs`` property. No conversion is applied to these attributes.
+
+    ``args``:
+        Object. 
+
+    ``parserFragment``:
+        Object. A subtree section from the return of the ``dojo.xml.Parser``
+        system.
+
+``postMixInProperties()``:
+
+    A stub function available for widget authors to over-ride.
+
+``initialize()``:
+
+    Preforms base widget initialization. Over-ridden by widget sub-classes.
+
+``postInitialize()``:
+
+    A stub function available for widget authors to over-ride.
+
+``postCreate()``:
+
+    A stub function available for widget authors to over-ride.
+
+``uninitialize()``:
+
+    Preforms base widget destruction. Over-ridden by widget sub-classes.
+
+``buildRendering()``:
+
+    Create the rendering of the widget. Over-ridden by widget sub-classes.
+
+``destroyRendering()``:
+
+    Destroy the rendering of the widget. Over-ridden by widget sub-classes.
+
+``cleanUp()``:
+
+    Post-destruction handler stub for widget authors.
+
+    *return*:
+        Boolean indicating success or failure.
+
+``addedTo(parent)``:
+
+    Callback indicating to a child widget that it has been made the child of
+    ``parent``.
+
+    ``parent``:
+        Object of type ``dojo.widget.Widget``.
+
+``addChild(child)``:
+
+    Add the ``child`` to the ``children`` array and places it correctly in the
+    rendering tree of the platform. Over-ridden by widget sub-classes.
+
+    ``child``:
+        Object of type ``dojo.widget.Widget``.
+
+    *return*:
+        Boolean indicating success or failure.
+
+``addChildAtIndex(child, index)``:
+
+    Add the ``child`` to the ``children`` array at the specified offset.
+    Additionally places it correctly in the rendering tree of the platform.
+    Over-ridden by widget sub-classes.
+
+    ``child``:
+        Object of type ``dojo.widget.Widget``.
+
+    ``index``:
+        Int.
+
+    *return*:
+        Boolean indicating success or failure.
+
+``removeChild(child)``:
+
+    Preforms removal of the ``child`` widget. Over-ridden by widget sub-classes.
+    
+    ``child``:
+        Object of type ``dojo.widget.Widget``.
+
+    *return*:
+        Boolean indicating success or failure.
+
+``removeChildAtIndex(index)``:
+
+    Removes the widget in the ``children`` array at the specified offset and
+    also removes it's rendering. Over-ridden by widget sub-classes.
+
+    ``index``:
+        Int.
+
+    *return*:
+        Boolean indicating success or failure.
+
+``resize(width, height)``:
+
+    Sets the width and height of the widget.
+
+    ``width``:
+        Integer or string. If a string, it may contain a "%" char to indicate
+        width in relative terms.
+
+    ``height``:
+        Integer or string. If a string, it may contain a "%" char to indicate
+        height in relative terms.
+
+``setWidth(width)``:
+
+    Sets width of the widget.
+
+    ``width``:
+        Integer or string. If a string, it may contain a "%" char to indicate
+        width in relative terms.
+
+``setHeight(height)``:
+
+    Sets the height of the widget.
+
+    ``height``:
+        Integer or string. If a string, it may contain a "%" char to indicate
+        height in relative terms.
+
+``setPercentageWidth(width)``:
+
+    Sets width of the widget as a percentage of it's container. Unimplemented,
+    so sub-classes need to provide implementations.
+
+    ``width``:
+        Integer.
+
+``setPercentageHeight(width, height)``:
+
+    Sets height of the widget as a percentage of it's container. Unimplemented,
+    so sub-classes need to provide implementations.
+
+    ``height``:
+        Integer.
+
+
+``setNativeWidth(width)``:
+
+    Sets width in terms of renderer-specific units. Unimplemented, so
+    sub-classes need to provide implementations.
+
+    ``width``:
+        Integer.
+
+``setNativeHeight(height)``:
+
+    Sets height in terms of renderer-specific units. Unimplemented, so
+    sub-classes need to provide implementations.
+
+    ``height``:
+        Integer.
+
+Requires
+===============================================================================
+
+- `dojo.widget.DomWidget`_
+
+.. _`dojo.widget.DomWidget`:	widget/DomWidget.html
+
+Provides
+===============================================================================
+
+dojo.widget.Widget
+    Abstract class constructor.
+
+dojo.widget.tags 
+    Namespace for tag-parser related utilities that widgets rely on.
+
+About
+===============================================================================
+
+:Author: Alex Russell
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/03
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

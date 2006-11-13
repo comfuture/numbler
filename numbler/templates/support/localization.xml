@@ -1,0 +1,33 @@
+<xml>
+  <fileinfo position="8" name="Language and Internationalization"/>
+  <item description="How do I change my language?" ref="localelangchange">
+    Click on the settings link from within your account management page.
+  </item>
+  <item description="What does Numbler do with my language settings?" ref="localespeclang">
+    Correctly setting your language is very important.  Your language setting determine how Numbler will interpret data entered into your spreadsheet.
+    <ul class="doclist">
+      <li><span class="stress">Currency:</span>  Numbler recognizes currency values based on your language setting.  For instance, if your language is French Numbler will only recognize a value with the Euro symbol at the end of the number.  You can always leave off the currency symbol and specify it later via the format menu.</li>
+      <li><span class="stress">Decimal values:</span>  Numbler will recognize a number with a fractional component (e.g 3.45, 9,23) based on the language convention.  This is also true for formula values.  For instance, if your language is Dutch you would enter <code>=9,45 * 100 </code> while if your language is English (American) your formula must be entered as <code>=9.45 * 100</code></li>
+      <li><span class="stress">Dates and times:</span> This is very specific to your language.  If you wish to make your spreadsheet more portable across multiple languages it is better to specific dates and times using the built-in functions rather than enter the data by hand.</li>
+      <li><span class="stress">Formula syntax:</span> Because some languages use "," as part of the number format, the syntax for formulas is changed so that multiple entries must be seperated by a semicolon.  For example, an American English formula might look like <code>=SUM(4.5,9.2,2e5-2)</code> while a German formula would look like <code>=SUM(4,5;9,2;2e5-2)</code></li>
+    </ul>
+
+  </item>
+  <item description="What happens if my language is English and I am collaborating with people in another country?" ref="localecolab">
+    Numbler uses the sheet owner's language settings to control how the sheet is displayed ( currency, times, etc).  
+If you wish to have the spreadsheet use another language you must change your language from the settings page.  For instance, if you want your currency values to show up as Euro's you must choose a European language.  It is not possible at this time to customize the language for an individual spreadsheet.
+  </item>
+  <item description="Can I change my language settings while other people are using my spreadsheet?" ref="localenotifychange">
+    Yes.  Any users connected to your spreadsheet will get a message via the chat window that they should reload the current page.
+  </item>
+  <item description="Something doesn't work quite right with my language.  Can you help?" ref="localeklingon">
+    Numbler's language support is derived from the industry standard <a href="http://icu.sourceforge.net">International Components for Unicode</a> project.  If you have an issue with how Numbler displays numbers, dates, times, or currencies we would be glad to help.  Unfortunately, Numbler does not currently support Klingon.
+  </item>
+</xml>
+
+  <!--
+  <item description="" ref="">
+  </item>
+
+  -->
+

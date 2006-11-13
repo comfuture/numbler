@@ -1,0 +1,10 @@
+<servicedef name="foo" desc="bar">
+  <connection host="localhost" port="9000" resource="/foobar"/>
+  <params>
+    <inputs>
+      <param name="category" required="True"/>
+      <param name="keywords" required="true"/>
+      <param name="hint" required="false"/>
+    </inputs>
+  </params>
+</servicedef>

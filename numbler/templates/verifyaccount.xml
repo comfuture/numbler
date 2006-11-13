@@ -1,0 +1,10 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1" id="contentcon" style="width:80%;padding-bottom:40px">
+<p n:render="main"/>
+
+<p n:pattern="success">
+Your email address is now validated.  You are now able to <a href="/accountlogin">sign</a> into your account.
+</p>
+<p n:pattern="badtoken">
+Oops!  we were unable to verify your email address based on this link.  Did you type in the correct address?  If you have already verified your email address you can safely ignore this warning.
+</p>
+</div>

@@ -1,0 +1,109 @@
+/* Begin Typography & Colors */
+
+html {
+  height:100%;
+  background-color: #d5d6d7;
+}
+
+body {
+  font-size: 13px;
+  font-family: 'Lucida Grande',Verdana, Arial, Sans-Serif;
+  
+  color: #333;
+   margin: 10px auto;
+  height: 750px;
+  background-color:white; 
+  text-align: left;
+  padding-top: 50px;
+  margin-left:8%;
+  margin-right:8%;
+}
+
+a         { color:#404040; text-decoration: underline; font-weight:bold;}
+a:visited { color:#808080;  text-decoration: underline; font-weight:bold; }
+a:hover   { color:#17A8DE;  text-decoration:none;font-weight:bold;}
+
+#treediv { 
+  float:left;
+  width: 20%;
+  height: 600px;
+  overflow:auto;
+  border:1px solid #C0C0C0;
+  font-size:12px;
+  margin-right:10px;
+ }
+
+#content { 
+  padding-left:20px;
+  padding-right:20px;
+  overflow-y:auto;
+  background-color:white;
+  padding-bottom:0px;
+  /*margin-bottom:-15px;*/
+
+ }
+
+h1,h2,h3,h4 { 
+  color: #c60;
+  padding-bottom:10px;
+ }
+
+#apicontent, #funccontent {
+  padding-left:15px;
+  width:75%;
+  float:left;
+ }
+
+
+.monosnippet { 
+  font-family: "Courier New", Courier, mono;
+ }
+
+
+
+.codesnippet { 
+  margin-top:10px;
+  font-family: "Courier New", Courier, mono;
+  font-size:12px;
+  color: #000066;
+  background-color:#eff7ff;
+  padding: 10px;
+  border: 1px dashed #333;
+ }
+
+.example { 
+  border: 1px solid #C0C0C0;
+  padding:10px;
+ }
+
+.emph { 
+  font-weight:bold;
+ }
+
+.important { 
+  margin:10px;padding:10px;
+  font-size:14px;
+  background-color:#ecf2a7;  
+ }
+
+ul li { 
+  padding-top:5px;
+ }
+
+#apierrors { 
+  border: 1px solid #C0C0C0;
+  width:100%;
+  margin:0;
+  padding:0;
+ }
+
+#apierrors th { 
+  padding:5px;
+ }
+
+#apierrors td { 
+  border-top:1px solid #C0C0C0;
+  padding:5px;
+  margin:0;
+ }
+

@@ -1,0 +1,14 @@
+<div>
+  <h3>This section covers the operations that are available with the REST API.</h3>
+  <ul>
+    <li><a class="doclink" href="/apidoc/restgetcell">GET cell</a></li>
+    <li><a class="doclink" href="/apidoc/restgetcellrng">GET cell range</a></li>
+    <li><a class="doclink" href="/apidoc/restgetsheet">GET sheet</a></li>
+    <li><a class="doclink" href="/apidoc/restdelcell">DELETE cell</a></li>
+    <li><a class="doclink" href="/apidoc/restdelcellrng">DELETE cell range</a></li>
+    <li><a class="doclink" href="/apidoc/restputcell">PUT cells</a></li>
+  </ul>
+  <p>All examples in the section will show the raw HTTP request and XML response as well as sample code using the python SDK.</p>
+  <p>The examples here should work verbatin but there may be transcription errors between running code and formatted samples. Additionally, the authentication credentials may not necessarily result in the right computed authenticated headers.</p>
+  <p>The XML samples included in this documentation are pretty-printed for display purposes.</p>
+</div>

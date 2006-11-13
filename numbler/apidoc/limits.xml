@@ -1,0 +1,13 @@
+<div>
+  <h3>Limitations of the Numbler API</h3>
+  <p>The Numbler API does not support some of the features that are supported via the browser interface.  
+    Some of these features are likely to be added to future versions of the API.  If you find a feature that you need to have supported please let us <a href="/feedback">know</a>.</p>
+  <h3>Formatting</h3>
+  <p>You cannot set the format of a cell via the API including the background color, the font color, underline, etc.</p>
+  <h3>Column width and row height</h3>
+  <p>The column width and row height cannot be set via the API</p>
+  <h3>Sorting</h3>
+  <p>sorting is only supported via the browser</p>
+  <h3>Locking</h3>
+  <p>You cannot programatically request a lock yet.  We will be adding this feature shortly</p>
+</div>

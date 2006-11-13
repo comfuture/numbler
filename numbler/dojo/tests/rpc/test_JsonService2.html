@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Dojo Testing Script</title>
+
+<script type="text/javascript">
+        var djConfig = {isDebug: true};
+        //djConfig.debugAtAllCosts = true;
+</script>
+
+<script type="text/javascript" src="../../dojo.js"></script>
+
+<script type="text/javascript">
+	dojo.require("dojo.widget.*");
+	dojo.require("dojo.widget.Button");
+	dojo.require("dojo.widget.html.Button");
+	dojo.require("dojo.rpc.JsonService");
+</script>
+
+</head>
+
+
+<body>
+
+
+<h2>Returned Content:</h2>
+<div id="ReturnedContent">
+None.
+</div>
+
+<script type="text/javascript">
+
+	function contentCallBack(result) {
+		var handlerNode = document.getElementById("ReturnedContent");
+		handlerNode.innerHTML = "<p>" + result + "</p>" ;
+	}
+
+	var testClass = new dojo.rpc.JsonService("testClass.smd");
+	var def = testClass.myecho("blah");
+	def.addCallback(contentCallBack);
+
+</script>
+</head>
+</html>

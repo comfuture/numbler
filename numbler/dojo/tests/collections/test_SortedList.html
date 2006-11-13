@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>SortedList Test</title>
+		<script language="JavaScript" type="text/javascript">
+			// Dojo configuration
+			djConfig = { 
+				isDebug: true
+			};
+		</script>
+		<script language="JavaScript" type="text/javascript" src="../../dojo.js"></script>
+		<script language="JavaScript" type="text/javascript" src="../jsunit_browser.js"></script>
+		<script language="JavaScript" type="text/javascript" src="test_SortedList.js"></script>
+		<script language="JavaScript" type="text/javascript">
+			function init(){
+				test_SortedList_ctor();
+				test_SortedList_add();
+				test_SortedList_clear();
+				test_SortedList_clone();
+				test_SortedList_contains();
+				test_SortedList_containsKey();
+				test_SortedList_containsValue();
+				test_SortedList_getKeyList();
+				test_SortedList_getValueList();
+				test_SortedList_copyTo();
+				test_SortedList_getByIndex();
+				test_SortedList_getKey();
+				test_SortedList_indexOfKey();
+				test_SortedList_indexOfValue();
+				test_SortedList_remove();
+				test_SortedList_removeAt();
+				test_SortedList_setByIndex();
+			}
+			dojo.hostenv.modulesLoadedListeners.push(init);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,298 @@
+2006/11/12 21:02 CST [-] Log opened.
+2006/11/12 21:02 CST [-] --> test_utils.testNumblerUtils.testBinGuid <--
+2006/11/12 21:02 CST [-] --> test_wsmanager.fullRemoteManagerTestCase.testBasicFormula <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb59d76ec>
+2006/11/12 21:02 CST [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:28 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [-] adbapi connecting: MySQLdb {'passwd': 'ssdb', 'host': 'localhost', 'db': 'ssdb', 'user': 'ssdb'}
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb59d76ec>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_wsmanager.fullRemoteManagerTestCase.testChildWithBadArgs <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb388f08c>
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] adbapi connecting: MySQLdb {'passwd': 'ssdb', 'host': 'localhost', 'db': 'ssdb', 'user': 'ssdb'}
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb388f08c>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_wsmanager.fullRemoteManagerTestCase.testExpiredTransaction <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb388dcac>
+2006/11/12 21:02 CST [-] adbapi connecting: MySQLdb {'passwd': 'ssdb', 'host': 'localhost', 'db': 'ssdb', 'user': 'ssdb'}
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb388dcac>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_wsmanager.fullRemoteManagerTestCase.testImpliedCurrencyFormatting <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb38a202c>
+2006/11/12 21:02 CST [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:29 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb38a202c>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_wsmanager.fullRemoteManagerTestCase.testMultipleCalls <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb38a70ec>
+2006/11/12 21:02 CST [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:30 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [HTTPChannel,1,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:30 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb38a70ec>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_wsmanager.fullRemoteManagerTestCase.testNotEnoughArguments <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb592b36c>
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb592b36c>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_wsmanager.fullRemoteManagerTestCase.testOutstandingRequestCancelled <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb38b716c>
+2006/11/12 21:02 CST [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:30 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [HTTPChannel,1,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:30 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb38b716c>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_wsmanager.fullRemoteManagerTestCase.testParentChild <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb38ba18c>
+2006/11/12 21:02 CST [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:30 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [HTTPChannel,1,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:30 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb38ba18c>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_wsmanager.wsDefinitionTestCase.testBasicDefinition <--
+2006/11/12 21:02 CST [-] --> test_wsmanager.wsDefinitionTestCase.testBasicMessageGen <--
+2006/11/12 21:02 CST [-] --> test_wsmanager.wsDefinitionTestCase.testDictArgs <--
+2006/11/12 21:02 CST [-] --> test_wsmanager.wsDefinitionTestCase.testMissingAttrs <--
+2006/11/12 21:02 CST [-] --> test_wsmanager.wsDefinitionTestCase.testNoInputs <--
+2006/11/12 21:02 CST [-] --> test_wsmanager.wsDefinitionTestCase.testNoParamMessageGen <--
+2006/11/12 21:02 CST [-] --> test_wsmanager.wsDefinitionTestCase.testOutputPropDescriptions <--
+2006/11/12 21:02 CST [-] --> test_wsmanager.wsDefinitionTestCase.testResponseProcessing <--
+2006/11/12 21:02 CST [-] --> test_wsmanager.wsManagerTestCase.testWsManager <--
+2006/11/12 21:02 CST [-] --> test_sep.CutCellTestCase.testcutRegionCellUpdate <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_sheet_unit.BulkDeleteTestCase.testDeleteCummulativeSum <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_sheet_unit.BulkDeleteTestCase.testDeleteRefs <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_sheet_unit.BulkDeleteTestCase.testDeleteSrc <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_sheet_unit.BulkDeleteTestCase.testDeleteSums <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_sheet_unit.ConcatTestCase.testLiteralConcat <--
+2006/11/12 21:02 CST [-] --> test_sheet_unit.ConcatTestCase.testNumericConcat <--
+2006/11/12 21:02 CST [-] --> test_sheet_unit.ConcatTestCase.testNumericRefConcat <--
+2006/11/12 21:02 CST [-] --> test_sheet_unit.ConcatTestCase.testRefConcat <--
+2006/11/12 21:02 CST [-] --> test_sheet_unit.CutCellTestCase.testcutRegionCellUpdate <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_sheet_unit.MoveRegionTestCase.testMoveRegion <--
+2006/11/12 21:02 CST [-] --> test_sheet_unit.MoveRegionTestCase.testUndoMoveRegion <--
+2006/11/12 21:02 CST [-] --> test_sheet_unit.formulaGenTestCase.testMultiRightSum <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_sheet_unit.formulaGenTestCase.testMultiRightSumWithGetData <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_sheet_unit.formulaGenTestCase.testRightSum <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_sheet_unit.pasteTestCase.testPastFromBuffer <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_sheet_unit.pasteTestCase.testPasteFromExistingCell <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_remotews.xmlTransactionParserTestCase.testMalformedRequest <--
+2006/11/12 21:02 CST [-] --> test_remotews.xmlTransactionParserTestCase.testMultipleRequests <--
+2006/11/12 21:02 CST [-] --> test_remotews.xmlTransactionParserTestCase.testResponseData <--
+2006/11/12 21:02 CST [-] --> test_remotews.xmlTransactionParserTestCase.testSingleRequest <--
+2006/11/12 21:02 CST [-] --> test_remotews.xmlTransactionResponseTestCase.testMultiResponse <--
+2006/11/12 21:02 CST [-] --> test_remotews.xmlTransactionResponseTestCase.testSimpleResponse <--
+2006/11/12 21:02 CST [-] --> test_thirdpartyservices.amazonNewPrice.testBooks <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb2e24aac>
+2006/11/12 21:02 CST [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:42 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb2e24aac>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_thirdpartyservices.amazonNewPrice.testDVD <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb2e1f9cc>
+2006/11/12 21:02 CST [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:42 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb2e1f9cc>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_thirdpartyservices.amazonNewPrice.testDVDWithNoCategory <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb2e1884c>
+2006/11/12 21:02 CST [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:43 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb2e1884c>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_thirdpartyservices.currencyTestCase.testBadConversion <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb2e10d2c>
+2006/11/12 21:02 CST [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:44 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb2e10d2c>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_thirdpartyservices.currencyTestCase.testUsdToEur <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb2e0b8ac>
+2006/11/12 21:02 CST [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:44 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb2e0b8ac>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_thirdpartyservices.ebayPriceLookup.testBadLookup <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb2e0652c>
+2006/11/12 21:02 CST [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:45 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb2e0652c>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_thirdpartyservices.ebayPriceLookup.testBikeLookup <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb2e7c5cc>
+2006/11/12 21:02 CST [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:45 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb2e7c5cc>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_thirdpartyservices.ebayPriceLookup.testCategoryLookup <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb38b91ac>
+2006/11/12 21:02 CST [HTTPChannel,0,127.0.0.1] 127.0.0.1 - - [13/Nov/2006:03:02:47 +0000] "PUT /wsresponse HTTP/1.0" 200 - "-" "Twisted PageGetter"
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb38b91ac>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_thirdpartyservices.ebayPriceLookup.testMissingArgument <--
+2006/11/12 21:02 CST [-] nevow.appserver.NevowSite starting on 9010
+2006/11/12 21:02 CST [-] Starting factory <nevow.appserver.NevowSite instance at 0xb2d8e9ac>
+2006/11/12 21:02 CST [-] (Port 9010 Closed)
+2006/11/12 21:02 CST [-] Stopping factory <nevow.appserver.NevowSite instance at 0xb2d8e9ac>
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testBadCellGet <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testBadCellRangeGet <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testBadColRef <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testBadFormula <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testBadRowRef <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testCellGetBadApi <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testCellGetBadSignature <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testCellGetPrivate <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testCellGetPrivateSheetNotInvited <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testCellGetPublicSheet <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testDelBadColRange <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testDelBadsRowRange <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testDelColRange <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testDelRowRange <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testDeleteCell <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testDeleteCellRange <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testDeleteEntireSheet <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testGetAllCells <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testGetBadCellRange <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testGetBadRowRange <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testGetCellRange <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testGetColRange <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testGetFromNonExistantSheet <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testGetRowRange <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testGiganticCellRequest <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testMissingXmlAttributes <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testMultiSheetPost <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testNoResponseWanted <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testSSL <--
+2006/11/12 21:02 CST [-] --> test_webservices.webservicesTestCase.testValidPostDataResponse <--
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.colrowStyleMoveTestCase.testDeleteBeforeStyle <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.colrowStyleMoveTestCase.testDeleteColStyleEnclosing <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.colrowStyleMoveTestCase.testDeleteColStyleExcat <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.colrowStyleMoveTestCase.testDeleteRowBefore <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.colrowStyleMoveTestCase.testDeleteRowStyleEnclosing <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.colrowStyleMoveTestCase.testDeleteRowStyleExcat <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.colrowStyleMoveTestCase.testInsertBeforeStyle <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.colrowStyleMoveTestCase.testInsertExact <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.colrowStyleMoveTestCase.testInsertMiddle <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.colrowStyleMoveTestCase.testInsertRowBefore <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.deleteTestCase.testDeleteColumn <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.deleteTestCase.testDeleteColumn2 <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.deleteTestCase.testDeleteColumnRefError <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.deleteTestCase.testDeleteRow <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.deleteTestCase.testDeleteRow2 <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.deleteTestCaseBeginning.testDeleteEarlyRows <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.formulaAdjustmentSampleCase.testDb <--
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.formulaAdjustmentTestCase.testAddColsRight <--
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.formulaAdjustmentTestCase.testAdjustColMiddle <--
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.formulaAdjustmentTestCase.testAdjustColOverlap <--
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.formulaAdjustmentTestCase.testAdjustRowDown <--
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.formulaAdjustmentTestCase.testAdjustRowMiddle <--
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.formulaAdjustmentTestCase.testAdjustRowUp <--
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.formulaAdjustmentTestCase.testDeleteCols <--
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.formulaAdjustmentTestCase.testMisc <--
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.formulaAdjustmentTestCase.testRangeReference <--
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.insertColTestCase.testColStyleMove <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.insertColTestCase.testInsertNoAction <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.insertColTestCase.testInsertOneCol <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.insertFormulaAdjTestCase.testCellRefChangeOnNewCol <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.insertFormulaAdjTestCase.testCellRefChangeOnNewColDelDown <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.insertFormulaAdjTestCase.testColInsertAfter <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.insertFormulaAdjTestCase.testColInsertBefore <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.insertFormulaAdjTestCase.testColInsertMiddle <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.insertFormulaAdjTestCase.testDepUpdates <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.insertFormulaAdjTestCase.testRangeRefNoMove <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.maximumTestCase.testMaxCol <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.maximumTestCase.testMaxRow <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.rowInsertTestCase.testCellRefChangeOnNewCol <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.rowInsertTestCase.testRangeRefNoMove <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.rowInsertTestCase.testRowInsertAfter <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.rowInsertTestCase.testRowInsertBefore <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.rowInsertTestCase.testRowInsertMiddle <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.rowInsertTestCase.testRowInsertVerifySum <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_rowinsertdel.styleMoveTestCase.testDeleteBeforeStyle <--
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] --> test_locking.lockExpansionTestCase.testAdjustDelLock <--
+2006/11/12 21:02 CST [-] --> test_locking.lockExpansionTestCase.testAdjustDelLockExact <--
+2006/11/12 21:02 CST [-] --> test_locking.lockExpansionTestCase.testAdjustDelLockExact2 <--
+2006/11/12 21:02 CST [-] --> test_locking.lockExpansionTestCase.testAdjustOverNonOwnedLock <--
+2006/11/12 21:02 CST [-] --> test_locking.lockExpansionTestCase.testAdjustShrinkLock <--
+2006/11/12 21:02 CST [-] --> test_locking.lockExpansionTestCase.testExpandLockEnd <--
+2006/11/12 21:02 CST [-] --> test_locking.lockExpansionTestCase.testExpandLockMiddle <--
+2006/11/12 21:02 CST [-] --> test_locking.lockExpansionTestCase.testInsertAdjNonOwner <--
+2006/11/12 21:02 CST [-] --> test_locking.lockExpansionTestCase.testInsertBeforeCol <--
+2006/11/12 21:02 CST [-] --> test_locking.lockExpansionTestCase.testInsertBeforeColExact <--
+2006/11/12 21:02 CST [-] --> test_locking.lockExpansionTestCase.testInsertBeforeRow <--
+2006/11/12 21:02 CST [-] --> test_locking.lockExpansionTestCase.testdeleteAdjacentNonOwner <--
+2006/11/12 21:02 CST [-] adbapi closing: MySQLdb
+2006/11/12 21:02 CST [-] adbapi closing: MySQLdb
+2006/11/12 21:02 CST [-] adbapi closing: MySQLdb
+2006/11/12 21:02 CST [-] Main loop terminated.
+2006/11/12 21:02 CST [-] Unhandled error in Deferred:
+2006/11/12 21:02 CST [-] Unhandled Error
+	Traceback (most recent call last):
+	Failure: twisted.internet.error.UserError: User aborted connection.
+	

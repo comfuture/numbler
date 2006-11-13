@@ -1,0 +1,102 @@
+<div>
+  <h3>Deleting a cell</h3>
+  <div class="emph">syntax:</div>
+  <pre class="codesnippet">
+DELETE / sheetUID / API / cellID [ recvResults=0 ]
+
+DELETE /vCskO2bQZfwtRNGR/API/D4
+DELETE /vCskO2bQZfwtRNGR/API/D4?recvResults=0
+  </pre>
+  <p>A delete request consists of the DELETE method, the sheet UID, and a cell reference.  The cell reference syntax is the same as documented in <a class="doclink" href="/apidoc/restgetcell">GET cell</a>.</p>
+  <p>Because deleting a cell can potentially cause other cells to change, Numbler will return a list of cells 
+    that were affected by the deletion.  Imagine that you have a spreadsheet with contains a bunch of raw data in rows 1 - 20.  
+    In cell 22A you have a formula which calculates the total of all cells in rows 1-20, eg. <span class="monosnippet">=SUM(1:20)</span>.  If you delete the value in cell D4 you will cause 22A to change.
+    <p>By default Numbler will return you the new value of 22A.  If you do not want the modified cells to be sent back set the query parameter recvReults=0.  In this case you will simply get back a count of the number of changed cells as documented in the <a class="doclink" href="/apidoc/restxmlformat">XML format</a> section.</p>
+  </p>
+  <div class="example">
+    <h3>Deleting a cell (do not send changed cells)</h3>
+    <div class="emph">send a bunch of cells to a sheet so that we have something to delete:</div>
+    <pre class="codesnippet">
+PUT /z8qRk7Pa98JiH2uk/API HTTP/1.1
+Content-Length: 310
+ncontent-type: text/xml
+Authorization: NUMBLER oQHMghOxzPFpVkxGgdXg:Yn8y80sJNxk5pQ3tiEUC0A==
+x-numbler-date: Tue, 11 Apr 2006 02:36:18 GMT
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xml&gt;
+  &lt;sheet guid="z8qRk7Pa98JiH2uk"&gt;
+    &lt;cell col="A" formula="25" row="1"/&gt;
+    &lt;cell col="b" formula="50" row="5"/&gt;
+    &lt;cell col="c" formula="75" row="9"/&gt;
+    &lt;cell col="d" formula="100" row="11"/&gt;
+    &lt;cell col="A" formula="=SUM(1:11)" row="22"/&gt;
+  &lt;/sheet&gt;
+&lt;/xml&gt;
+    </pre>
+
+    <div class="emph">Deleting a cell with python:</div>
+    <pre class="codesnippet">
+from numbler.sdk import api
+
+sheet = 'z8qRk7Pa98JiH2uk'
+accid =  'lSUReoQjWydMLQvDGEdP'
+key = 'C83EEE2D724BF58C0B2AC76DAE7E7500451908B9'
+
+con = api.NumblerConnection(sheet,accid,key,'ws.numbler.com')
+con.deleteCell('b',5)
+    </pre>
+    <div class="emph">REST request</div>
+    <pre class="codesnippet">
+DELETE /z8qRk7Pa98JiH2uk/API/b5?recvResults=0 HTTP/1.1
+content-type: text/xml
+Authorization: NUMBLER oQHMghOxzPFpVkxGgdXg:kinQ/emv4JM3pg5WM89lGw==
+x-numbler-date: Tue, 11 Apr 2006 02:36:18 GMT
+    </pre>
+    <div class="emph">REST Response</div>
+    <pre class="codesnippet">
+HTTP/1.1 200 OK
+Transfer-encoding: chunked
+Date: Tue, 11 Apr 2006 02:36:18 GMT
+Content-type: text/xml; charset=UTF-8
+Server: TwistedWeb/2.2.0
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xml&gt;
+  &lt;sheet guid="z8qRk7Pa98JiH2uk" name="testdeletesheet" changedCells="2"&gt;
+  &lt;/sheet&gt;
+&lt;/xml&gt;
+    </pre>
+  </div>
+  <div class="example">
+    <h3>Deleting a cell (send changed cells)</h3>
+    <div class="emph">python code:</div>
+    <pre class="codesnippet">
+con.deleteCell('a',1)
+    </pre>
+    <div class="emph">REST request</div>
+    <pre class="codesnippet">
+DELETE /z8qRk7Pa98JiH2uk/API/a1 HTTP/1.1
+content-type: text/xml
+Authorization: NUMBLER oQHMghOxzPFpVkxGgdXg:PHXesj1BEwoptZ9d2DzTbg==
+x-numbler-date: Tue, 11 Apr 2006 02:36:18 GMT
+    </pre>
+    <div class="emph">REST Response</div>
+    <p>In this scenario we get back the empty a1 cell as well as the changed contents of cell a22.</p>
+    <pre class="codesnippet">
+HTTP/1.1 200 OK
+Transfer-encoding: chunked
+Date: Tue, 11 Apr 2006 02:36:18 GMT
+Content-type: text/xml; charset=UTF-8
+Server: TwistedWeb/2.2.0
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xml&gt;
+  &lt;sheet guid="z8qRk7Pa98JiH2uk" name="testdeletesheet"&gt;
+    &lt;cell formula="" col="a" value="" row="1"&gt;&lt;/cell&gt;
+    &lt;cell formula="=SUM(1:11)" col="a" value="175" row="22"&gt;&lt;/cell&gt;
+  &lt;/sheet&gt;
+&lt;/xml&gt;
+    </pre>
+  </div>
+</div>

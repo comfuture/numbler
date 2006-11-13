@@ -1,0 +1,18 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1"
+     xmlns:athena="http://divmod.org/ns/athena/0.7"
+     n:render="liveFragment">
+  <div id="manageaccount">
+    <p class="emph">Need to make a new sheet?</p>
+    
+    <div class="label">Spreadsheet name:</div>
+    <div style="padding-bottom:5px"><input class="newsheetname" type="text" value=""/></div>
+    <div class="example">example: October budget</div>
+    <div><input type="image" src="/img/buttons/create_button.gif" value="create new" name="createnew" onclick="Nevow.Athena.Widget.get(this).addnewsheet(this)"/></div>
+    <div style="padding-top:20px">
+      <div id="existingsheetstitle" class="label" style="font-size:14px">You have used the following sheets recently:</div>
+      <div id='recentresults' n:render="existingsheets"/>
+      <div style="padding-top:10px"><a class="standout" href="/simport">Import now!</a></div>
+    </div>
+  </div>
+  <div style="clear:both"/>
+</div>

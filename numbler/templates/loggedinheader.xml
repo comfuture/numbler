@@ -1,0 +1,9 @@
+<div id="header" xmlns:n="http://nevow.com/ns/nevow/0.1">
+  <div style="float:left"><img src="/img/bloglogo.jpg"/></div>
+  <div id="linkbar">
+    <span class="username"><n:invisible n:render="username"/>:</span>
+    <a n:render="acclink"/>
+    <a href="/logout">Sign out</a>
+  </div>
+  <div style="clear:both"/>
+</div>

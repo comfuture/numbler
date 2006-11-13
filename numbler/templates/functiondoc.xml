@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- xmlns="http://www.w3.org/1999/xhtml"> -->
+<html  xmlns:n="http://nevow.com/ns/nevow/0.1">
+  <head>
+    <title>Numbler Function Documentation</title>
+    <link href="/css/apidoc.css" type="text/css" rel="stylesheet"></link>
+    <link href="/css/functiondoc.css" type="text/css" rel="stylesheet"></link>
+    <link href="/css/footer.css" type="text/css" rel="stylesheet"></link>
+    <link href="/js/yahoo/src/css/default/tree.css" type="text/css" rel="stylesheet"></link>
+    <script src="/mochikit/packed/MochiKit/MochiKit.js" language="javascript"></script>
+    <script src ="/js/yahoo/build/YAHOO.js" ></script>
+    <script src ="/js/yahoo/build/treeview.js" ></script>
+    <script src ="/js/funcdoc.js"></script>
+    <n:invisible n:render="loadtree"/>
+  </head>
+  <body>
+    <div style="padding-left:15px"><img src="/img/bloglogo.jpg"/></div>
+    <div id="content">
+      <div style="padding-top:10px">&nbsp;</div>
+      <div id="treediv"/>
+      <div id="funccontent">
+	<n:invisible n:render="content"/>
+      </div>
+    </div>
+    <div style="clear:both"/>
+    <div n:render="footer"/>
+  </body>
+</html>

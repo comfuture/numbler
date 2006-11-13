@@ -1,0 +1,42 @@
+<div id="contentcon"  xmlns:n="http://nevow.com/ns/nevow/0.1">
+<script language="javascript">
+
+MochiKit.DOM.addLoadEvent(function() {
+  if(window.innerHeight) { 
+    if(window.scrollMaxY) {
+     document.body.style.height = (window.scrollMaxY + window.innerHeight) + "px";
+  }
+}
+});
+</script>
+<style type="text/css">
+body {
+    padding-right:15px;
+}
+</style>
+
+<ol>
+<div id="supporttop" n:render="supporttop"/>
+</ol>
+
+<div id="supportcontents" n:render="supportcontents"/>
+
+<div class="supportheader" n:pattern="supportheader" n:render="supportheader">
+<div class="topic"><n:slot name="topic"/></div>
+<n:slot name="headeritems"/>
+
+</div>
+
+<li n:pattern="headeritem" n:render="headeritem">
+<a><n:attr name="href"><n:slot name="href"/></n:attr>
+<n:slot name="name"/>
+</a></li>
+
+<div class="supportlnk" n:pattern="supportlnk" n:render="supportlnk">
+<a class="supportlnk"><n:attr name="name"><n:slot name="name"/></n:attr></a>
+<div class="stitle"><n:slot name="desc"/></div>
+<p><n:slot name="content"/></p>
+</div>
+
+
+</div>

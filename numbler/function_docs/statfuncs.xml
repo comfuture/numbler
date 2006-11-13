@@ -1,0 +1,225 @@
+<div id="contentcon"><div>
+  
+  
+
+  
+  
+  <div><div>
+      <h3>STDEV</h3>
+      <div>
+    calculate the standard deviation for a sample population.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">STDEV(number1,number2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number1,number2,...</span>
+    <span class="argdesc">a value in the population</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>RAND</h3>
+      <div>
+    Compute a random real number between 0 and 1.  A new random number is returned every time the sheet is loaded or recalculated.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">RAND(</span><span class="synreq">)</span>
+	<p>
+	<div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>RAND is implemented with triple redunancy to pass the diehard test in order to ensure true randomness.</p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>MEDIAN</h3>
+      <div>
+    return the median value (e.g the middle value) in a range of values.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">MEDIAN(number1,number2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number1,number2,...</span>
+    <span class="argdesc">any number</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>SMALL</h3>
+      <div>
+    return the K-th smallest value in a data set.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">SMALL(</span><span class="synreq">cell_range,</span><span class="synreq">k</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">cell_range</span>
+    <span class="argdesc">a range of cells to compute the smallest value</span>
+  </div><div>
+    <span class="funcarg">k</span>
+    <span class="argdesc">the position from the smallest to return.  K should be &gt;0 and &lt; number of values in cell_range</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>STDEVP</h3>
+      <div>
+    calculate the standard deviation assuming that the arguments represent the entire population.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">STDEVP(number1,number2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number1,number2,...</span>
+    <span class="argdesc">a value in the population</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>STDEVP is the same as the square root of the variance for the population, e.g. =SQRT(VARP(...))</p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>VAR</h3>
+      <div>
+    calculate the variance for a sample population.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">VAR(number1,number2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number1,number2,...</span>
+    <span class="argdesc">a sample of the population</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>VARP</h3>
+      <div>
+    calculate the variance for the entire population.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">VARP(number1,number2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number1,number2,...</span>
+    <span class="argdesc">a member of the population</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>MAX</h3>
+      <div>
+    return the largest number in a set of values.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">MAX(number1,number2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number1,number2,...</span>
+    <span class="argdesc">any numeric value or cell reference</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>MIN</h3>
+      <div>
+    return the smallest number in a set of values.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">MIN(number1,number2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">number1,number2,...</span>
+    <span class="argdesc">any numberic value or cell reference</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>COUNT</h3>
+      <div>
+    Count the number of cells that contain numeric values.  Non numeric values are ignored.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">COUNT(value1,value2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">value1,value2,...</span>
+    <span class="argdesc">any numeric value or cell reference</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>COUNTA</h3>
+      <div>
+    Count the number of cells that are not empty.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">COUNTA(value1,value2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">value1,value2,...</span>
+    <span class="argdesc">any value or cell reference</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>COUNTIF</h3>
+      <div>
+    Count the number of cells within range that match criteria.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">COUNTIF(</span><span class="synreq">range,</span><span class="synreq">criteria</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">range</span>
+    <span class="argdesc">a range of cells over which to count</span>
+  </div><div>
+    <span class="funcarg">criteria</span>
+    <span class="argdesc">a value which can be used to compute a boolean match against all values in range.  Examples include "&gt;34" (greater than 34), a5 (must match the value in a5), "&lt;&gt;0" (any value that is not zero), etc.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div></div>
+</div></div>

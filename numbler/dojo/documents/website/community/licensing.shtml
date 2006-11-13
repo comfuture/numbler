@@ -1,0 +1,61 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="http://dojotoolkit.org/css/screen.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://dojotoolkit.org/css/print.css" media="print">
+</head>
+<body class="community">
+<!--#include virtual="/rest_template/header.html" -->
+<!-- content goes here -->
+<h1>Dojo Licensing</h1>
+<p>
+	Dojo is Open Source software, distributed by a non-profit foundation which
+	has been set up for the purpose of providing a vendor-neutral owner of Dojo
+	intellectual property. In order to ensure to users of Foundation projects
+	that there is no ambiguity or hidden liability regarding the use of
+	Foundation code, all contributors are required to provide signed
+	Contributor License Agreements (<a
+	href="http://dojotoolkit.org/icla.txt">individual</a> and <a
+	href="http://dojotoolkit.org/ccla.txt">corporate</a>). 
+</p>
+<p>
+	All <a
+	href="http://dojotoolkit.org/community/contributors.shtml">committers</a>
+	on Dojo Foundation projects have a vote in Foundation matters. The
+	Foundation is run by contributors, operates in a transparent way, and is
+	funded exclusively by donations. The licensing goals of the Foundations are
+	spelled out in a short <a
+	href="http://dojotoolkit.org/docs/licensing.html">document that informs
+	Foundation decisions.</a>
+</p>
+<h2>Dual Licensing</h2>
+<p>
+	The Dojo Toolkit is currently dual-licensed. The preferred license is the
+	<a href="http://opensource.org/licenses/afl-2.1.php">Academic Free License
+	v2.1</a>. All Dojo Foundation projects release their code under the terms
+	of this license. It is almost never necessary to exercise the "dual"
+	portion of the dual-licensing terms since the AFL is well written, widely
+	accepted, and incredibly permissive.
+</p>
+<p>
+	For users who face the problem of artificial ambiguity the FSF has created
+	regarding the compatibility of the AFL and the (L)GPL, The Dojo Toolkit
+	may alternately be used under the terms of the <a
+	href="http://opensource.org/licenses/bsd-license.php">BSD License</a>. Both
+	the AFL and the BSD licenses meet the licensing goals of the Dojo
+	Foundation.
+</p>
+<p>
+	This "dual licensing" system is similar to licensing systems employed by
+	projects such as MySQL and the Mozilla Foundation. In almost every case,
+	you will not need to understand the differences between the Dojo licenses
+	or choose anything other than the AFL. If you have questions regarding Dojo
+	licensing, please do not hesitate to contact <a
+	href="mailto:alex@dojotoolkit.org">Alex Russell</a>, current President of
+	the Dojo Foundation.
+</p>
+<!-- content ends here -->
+<!--#include virtual="/rest_template/sidebar.html" -->
+<!--#include virtual="menu.html" -->
+<!--#include virtual="/rest_template/footer.html" -->
+</body>
+</html>

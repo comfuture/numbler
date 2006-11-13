@@ -1,0 +1,252 @@
+.. title:: dojo.collections.* -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.collections.* - namespace contains classes that handle collections
+of various types; see individual classes for more information.
+
+Summary and Overview
+===============================================================================
+
+The dojo.collections namespace is the basic container for general collections
+of items.  It is meant to augment the basic mechanisms provided with core
+ECMAScript (i.e. Object and Array) with more specific purposes.  
+
+For reasons of brevity, only the DictionaryEntry, Iterator and
+DictionaryIterator classes are detailed here; please see the various
+documentation for other classes in the collections namespace.
+
+Usage
+===============================================================================
+
+::
+
+    var entry = new dojo.collections.DictionaryEntry("myKey", myValueObject);
+    var dictionary = new dojo.collections.Dictionary();
+    var arrayList = new dojo.collections.ArrayList();
+    var it = arrayList.getIterator();   //  returns Iterator
+    var dit = dictionary.getIterator(); //  returns DictionaryIterator
+
+
+API Reference
+===============================================================================
+
+Class
+---------------------------------------
+
+``DictionaryEntry(key, value)``:
+
+    Represents an actual entry in a Dictionary class.
+
+    *Inherits from*:
+        nothing
+
+    ``key``:
+        the key by which the entry will be indexed.
+
+    ``value``:
+        the value of the index. Can be any object.
+
+    *returns*:
+        new object of type DictionaryEntry.
+
+Properties
+---------------------------------------
+
+``key``:
+
+    The key of the entry.
+
+``value``:
+
+    The value of the entry.
+
+Methods
+---------------------------------------
+
+``valueOf()``:
+
+    Overridden method signature of Object.
+
+    *returns*:
+        The value of the entry; equivilent of foo.value.
+	
+``toString()``:
+
+    Overridden method signature of Object.
+
+    *returns*:
+        The value of the entry; equivilent of foo.value.
+	
+Requires
+===============================================================================
+
+- No requirements.
+
+Provides
+===============================================================================
+
+dojo.collections.DictionaryEntry
+
+To Do
+===============================================================================
+
+Nothing.
+
+Class
+---------------------------------------
+
+``Iterator(array)``:
+
+    Basic iterator for array-based collections.  Note that most collection
+    classes implement ``getIterator``, which is the preferred method of gaining
+    an object of this type.
+
+    *Inherits from*:
+        nothing
+
+    ``array``:
+        the Array form of the collection in question.
+
+    *returns*:
+        new object of type Iterator.
+
+Properties
+---------------------------------------
+
+``current``:
+
+    The current object of the iterator.
+
+``atEnd``:
+
+    Boolean indicator to show whether or not the iterator has reached the last
+    member of the collection it is iterating.
+
+Methods
+---------------------------------------
+
+``moveNext()``:
+
+    Moves the iterator to point to the next member of the collection being
+    iterated.  Switches the value of ``current``, and sets the value of
+    ``atEnd``.
+
+    *returns*:
+        true or false, indicating whether or not the iterator has reached the
+        end of its iteration cycle.
+	
+``reset()``:
+
+    Resets the internal position of the iterator.
+
+    *returns*:
+        void.
+
+Requires
+===============================================================================
+
+- No requirements.
+
+Provides
+===============================================================================
+
+dojo.collections.Iterator
+
+To Do
+===============================================================================
+
+Nothing.  Internal implementations may change but the public signature is solid.
+
+Class
+---------------------------------------
+
+``DictionaryIterator(object)``:
+
+    Basic iterator for hashtable/dictionary-based collections.  Note that most
+    collection classes implement ``getIterator``, which is the preferred method
+    of gaining an object of this type.
+
+    *Inherits from*:
+        nothing
+
+    ``object``:
+        the Object of the collection in question.
+
+    *returns*:
+        new object of type DictionaryIterator.
+
+Properties
+---------------------------------------
+
+``current``:
+
+    The current object of the iterator.  Will return (unless the passed object
+    is of type Object) an object of type DictionaryEntry.
+
+``entry``:
+
+    The current object of the iterator.  Is an alias for ``current``.
+
+``key``:
+
+    The current object's key; is a shortcut for ``entry.key``.
+
+``value``:
+
+    The value of the current object; is a shortcut for ``entry.value``.
+
+``atEnd``:
+
+    Boolean indicator to show whether or not the iterator has reached the last
+    member of the collection it is iterating.
+
+Methods
+---------------------------------------
+
+``moveNext()``:
+
+    Moves the iterator to point to the next member of the collection being
+    iterated.  Switches the value of ``current``, and sets the value of
+    ``atEnd``.
+
+    *returns*:
+        true or false, indicating whether or not the iterator has reached the
+        end of its iteration cycle.
+	
+``reset()``:
+
+    Resets the internal position of the iterator.
+
+    *returns*:
+        void.
+
+Requires
+===============================================================================
+
+- No requirements.
+
+Provides
+===============================================================================
+
+dojo.collections.DictionaryIterator
+
+To Do
+===============================================================================
+
+Nothing.  Internal implementations may change but the public signature is solid.
+
+About
+===============================================================================
+
+:Author: Thomas R. Trenka, Ph.D.
+:Version: 0.2
+:Copyright: Dojo Foundation, 200x
+:Date: 2005/10/31
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

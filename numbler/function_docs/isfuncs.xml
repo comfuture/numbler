@@ -1,0 +1,178 @@
+<div id="contentcon"><div>
+  
+  
+
+  
+  
+  <div><div>
+      <h3>ISBLANK</h3>
+      <div>
+    returns TRUE if value refers to an empty cell.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ISBLANK(</span><span class="synreq">value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">value</span>
+    <span class="argdesc">The value you want tested.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>ISERROR</h3>
+      <div>
+    returns TRUE if value is an error (either directly or via a cell reference)
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ISBLANK(</span><span class="synreq">value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">value</span>
+    <span class="argdesc">The value you want tested.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>ISERR</h3>
+      <div>
+    Same as ISERROR.  This is slightly different from Excel where ISERR will not return TRUE if value is #N/A.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ISBLANK(</span><span class="synreq">value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">value</span>
+    <span class="argdesc">The value you want tested.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>ISLOGICAL</h3>
+      <div>
+    returns TRUE if value is either TRUE or FALSE.  1 and 0 are not considered TRUE and FALSE (respectively) in ISLOGICAL.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ISBLANK(</span><span class="synreq">value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">value</span>
+    <span class="argdesc">The value you want tested.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>ISNONTEXT</h3>
+      <div>
+    returns TRUE if value is not a text value.  A blank cell is considered a non text value.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ISBLANK(</span><span class="synreq">value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">value</span>
+    <span class="argdesc">The value you want tested.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>ISNUMBER</h3>
+      <div>
+    returns TRUE if value is a number.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ISBLANK(</span><span class="synreq">value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">value</span>
+    <span class="argdesc">The value you want tested.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>ISREF</h3>
+      <div>
+    returns TRUE if value refers to a cell or range of cells.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ISBLANK(</span><span class="synreq">value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">value</span>
+    <span class="argdesc">The value you want tested.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>ISTEXT</h3>
+      <div>
+    returns TRUE if value is a text value.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ISBLANK(</span><span class="synreq">value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">value</span>
+    <span class="argdesc">The value you want tested.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>ISEVEN</h3>
+      <div>
+    returns TRUE if value is divisible by 2.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ISBLANK(</span><span class="synreq">value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">value</span>
+    <span class="argdesc">The value you want tested.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>ISODD</h3>
+      <div>
+    returns TRUE if value is not divisible by 2.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ISBLANK(</span><span class="synreq">value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">value</span>
+    <span class="argdesc">The value you want tested.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div></div>
+</div></div>

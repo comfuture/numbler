@@ -1,0 +1,428 @@
+.. title:: dojo.dnd.* -- The Dojo Manual
+
+Name
+===============================================================================
+
+dojo.dnd.* - Easily extensible Drag and Drop support
+
+Summary and Overview
+===============================================================================
+
+Dojo's Drag-and-Drop facility is implemented as a set of extensible classes
+whose itneraction is mediated by a manager object. The ``DragSource``,
+``DragObject``, ``DropTarget`` and ``DragManager`` classes are implemented for
+each rendering environment.
+
+Usage
+===============================================================================
+
+::
+
+    // note that these examples are for the HTML environment
+
+    // make a list item draggable, but give it the catch-all type
+    new dojo.dnd.HtmlDragSource(dojo.byId("item1"), "*");
+
+    // make a <ul> element something that can be dropped into and let it accept
+    // DragSources of any type
+    new dojo.dnd.HtmlDropTarget(dojo.byId("list1"), ["*"]);
+
+    // we can also create "typed" DragSources, which DropTargets can choose to
+    // accept (or not) via the array of types given as the second parameter to
+    // the DropTarget constructor. Here we create incompatible DragSource and
+    // DropTarget objects
+    new dojo.dnd.HtmlDragSource(dojo.byId("item2"), "foo");
+    new dojo.dnd.HtmlDropTarget(dojo.byId("list2"), ["bar"]);
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+``DragSource()``:
+
+    Class representing the source of a drag operation. ``DragSource`` objects
+    generate ``DragObject``s when a drag operation starts. The class constructor
+    for a ``DragSource`` must inform ``dojo.dnd.dragManager`` of its existance
+    via ``dojo.dnd.dragManager.registerDragSource()``.
+
+    *Inherits from*:
+        nothing
+
+    *return*:
+        new object of type ``dojo.dnd.DragSource``
+
+
+Properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``type``:
+        String. An arbitrary "type" for use in determining compatbility between
+        drag sources and drop targets in a drag operation.
+
+Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``onDragStart()``:
+
+        Called when a drag operation begins which includes this object. 
+
+        *return*
+            Object of type ``dojo.dnd.DragObject``.
+
+
+    ``onDragEnd(evt)``:
+
+        Called when a drag operation ends. A ``DragEvent`` object containing
+        enough information to handle drag ending intelligently is passed as the
+        only argument.
+
+        ``evt``:
+            Object of type ``dojo.dnd.DragEvent``
+
+        *return*
+            Nothing
+
+    ``unregister()``:
+
+        Removes this object from the ``DragManager``s list of active
+        ``DragSource`` objects.
+
+        *return*
+            Nothing
+
+    ``reregister()``:
+
+       Adds this object to the ``DragManager``s list of active ``DragSource``
+       objects.
+
+        *return*
+            Nothing
+
+    ``constrainTo(constrainingContainer)``:
+	Constraints this drag to stay within the physical boundaries of ``constrainingContainer``.  If
+	container is not supplied, it will default to the objects parent.  Constraints default to off.
+
+	``constrainingContainer``:
+		Containing domnode.
+
+	*return*
+	    Nothing	
+
+``DropTarget()``:
+
+    Class representing the "dropped on" area of a drag operation. 
+
+    *Inherits from*:
+        nothing
+
+    *return*:
+        new object of type ``dojo.dnd.DropTarget``
+
+
+Properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``acceptedTypes``:
+        Array. A list of arbitrary "type" names for use in determining
+        compatbility between drag sources and drop targets durring drag
+        operations.
+
+Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``onDragOver(evt)``:
+
+        Called when a drag operation "enters" this drop zone. May be called
+        multiple times durring the course of a user's drag-and-drop cycle, but
+        only once for a set of contiguious drag operations in which
+        ``onDragOut()`` is not called.
+
+        ``evt``:
+            Object of type ``dojo.dnd.DragEvent``
+
+        *return*
+            Boolean. Indicates whether accepting the drag objects listed in
+            ``evt`` would be acceptable to this target.
+
+    ``onDragOut(evt)``:
+
+        Called when dragged items "leave" the drop target.
+
+        ``evt``:
+            Object of type ``dojo.dnd.DragEvent``
+
+        *return*
+            Nothing
+
+    ``onDragMove(evt)``:
+
+        Called frequently after a drag operation "enters" this drop zone,
+        indicating cursor movement.
+
+        ``evt``:
+            Object of type ``dojo.dnd.DragEvent``
+
+        *return*
+            Nothing
+
+    ``onDrop(evt)``:
+
+        Called when compatible items are dropped on this drop area.
+
+        ``evt``:
+            Object of type ``dojo.dnd.DragEvent``
+
+        *return*
+            Boolean. Indicates success or failure of drop action, as defined by
+            this handler.
+
+
+``DragObject()``:
+
+    Class representing the intermediate or "ghost" object that handles
+    programmatic feedback from the various actors in a drag operation and
+    subsequently provides user feedback.
+
+    *Inherits from*:
+        nothing
+
+    *return*:
+        new object of type ``dojo.dnd.DragObject``
+
+
+Properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``type``:
+        String. An arbitrary "type" for use in determining compatbility between
+        drag sources and drop targets in a drag operation.
+
+Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``onDragStart()``:
+
+        Called when a drag operation begins which includes this object. 
+
+        *return*
+            Nothing
+
+    ``onDragMove()``:
+
+        Called frequently after a drag operation "enters" this drop zone,
+        indicating cursor movement.
+
+        *return*
+            Nothing
+
+    ``onDragOver()``:
+
+        Called when a drag operation that includes this object "enters" a drop
+        zone.
+
+        *return*
+            Nothing
+
+    ``onDragOut()``:
+
+        Called when a drag operation that includes this object "leaves" a drop
+        zone.
+
+        *return*
+            Nothing
+
+    ``onDragEnd()``:
+
+        Called when a drag operation that includes this object ends, either via
+        dropping or via cancelation.
+
+        *return*
+            Nothing
+
+    ``constrainTo(constrainingContainer)``:
+	Constraints this drag to stay within the physical boundaries of ``constrainingContainer``.  If
+	container is not supplied, it will default to the objects parent.
+
+	``constrainingContainer``:
+		Containing domnode.
+
+	*return*
+	    Nothing	
+
+
+``DragManager()``:
+
+    A class of which only one instance is made. It manages all state in a
+    drag-and-drop operation, dispatch events at the correct times to the various
+    participants.
+
+    *Inherits from*:
+        Nothing
+
+    *return*:
+        new object of type ``dojo.dnd.DragManager``
+
+
+Properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``dragSources``:
+        Array of all registered ``dojo.dnd.DragObject`` objects.        
+
+    ``selectedSources``:
+        Array of currently selected ``dojo.dnd.DragSource`` objects.        
+
+    ``dragObjects``:
+        Array of active ``dojo.dnd.DragObject`` objects.        
+
+    ``dropTargets``:
+        Array of active ``dojo.dnd.DropTarget`` objects.        
+
+    ``lastDragTarget``:
+        Object of type ``dojo.dnd.DropTarget``.
+
+    ``currentDragTarget``:
+        Object of type ``dojo.dnd.DropTarget``.
+
+Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``registerDragSource(obj)``:
+
+        ``obj``:
+            Object of type ``dojo.dnd.DragSource``.
+
+        *return*:
+            Nothing
+
+    ``registerDropTarget(obj)``:
+
+        ``obj``:
+            Object of type ``dojo.dnd.DropTarget``.
+
+        *return*:
+            Nothing
+
+    ``onKeyDown(evt)``:
+
+        ``evt``:
+            Renderer specific event object.
+
+        *return*
+            Nothing
+
+    ``onMouseOut(evt)``:
+
+        ``evt``:
+            Renderer specific event object.
+
+        *return*
+            Nothing
+
+    ``onMouseUp(evt)``:
+
+        ``evt``:
+            Renderer specific event object.
+
+        *return*
+            Nothing
+
+    ``onMouseMove(evt)``:
+
+        ``evt``:
+            Renderer specific event object.
+
+        *return*
+            Nothing
+
+    ``onMouseUp(evt)``:
+
+        ``evt``:
+            Renderer specific event object.
+
+        *return*
+            Nothing
+
+``DragEvent()``:
+
+    An event object class for passing state information between participants in
+    a drag-and-drop operation cycle.
+
+    *Inherits from*:
+        Nothing
+
+    *return*:
+        new object of type ``dojo.dnd.DropEvent``
+
+
+Properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    ``dragSource``:
+        Object of type ``dojo.dnd.DragSource``. Defaults to ``null``.
+
+    ``dragObject``:
+        Object of type ``dojo.dnd.DragObject``. Defaults to ``null``.
+
+    ``target``:
+        Renderer dependent. Defaults to ``null``.
+
+    ``eventStatus``:
+        String. May be one of:
+            - success
+            - dropSuccess
+            - dropFailure
+            - dragMove
+            - dragStart
+            - dragEnter
+            - dragLeave
+
+Properties
+---------------------------------------
+
+``dragManager``:
+
+    Object of type ``dojo.dnd.DragManager``. This object mediates drag and drop
+    operations.
+
+
+Requires
+===============================================================================
+
+- `dojo.lang`_
+
+.. _`dojo.lang`: 		lang.html
+
+Provides
+===============================================================================
+
+dojo.dnd.DragSource
+    Superclass for ``DragSource`` implementations.
+
+dojo.dnd.DragObject
+    Superclass for ``DragObject`` implementations.
+
+dojo.dnd.DropTarget
+    Superclass for ``DropTarget`` implementations.
+
+dojo.dnd.DragManager
+    Superclass for ``DragManager`` implementations.
+
+To Do
+===============================================================================
+
+Still need to document the arguments to the class constructors for the ``Html*``
+variants of ``DragSource`` and ``DropTarget`` as well as the ``nestedTargets``
+property of the ``HtmlDragManager`` class.
+
+About
+===============================================================================
+
+:Author: Alex Russell
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/17
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

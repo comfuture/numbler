@@ -1,0 +1,46 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1"
+  xmlns:athena="http://divmod.org/ns/athena/0.7" n:render="liveFragment">
+  <div class="sheetinfo">
+    <div class="sheetsummary" n:render="sheetsummary">
+      <div class="expander" title="show details">+</div>
+      <a class="sheetnamelink" title="open this sheet"><n:attr name="href"><n:slot name="url"/></n:attr><n:slot name="name"/></a>
+      <div class="invitesum">
+	<span class="membercount"><span class="nummembers"><n:slot name="invites"/></span> members/</span>
+	<span class="pendingcount"><span class="pendcount"><n:slot name="pending"/></span> pending...</span>
+      </div>
+      <div class="deletetab"><img src="/img/buttons/delete_xbox.jpg"/>
+      </div>
+      <div style="clear:both"/>
+    </div>
+    <div class="sheetdetails" style="display:none">
+      <div class="detailleftborder"/><div class="detailstop"/><div class="detailrightborder"/>
+
+      <div class="dcontainer">
+	<form>
+	  <div class="detailsleft">Sheet type</div>
+	  <div class="detailsright" title="only available to invited users" style="float:left">
+	    <input class="sheetprivate" type="radio" value="private" name="sheettype" checked="checked"/>Private
+	  </div>
+	  <div class="permlink" style="margin-left:20px;float:left;font-size:12px">
+	    <a href="/support#accpubvspriv" target="numblersupport">What's this?</a></div>
+	  <div style="clear:both"/>
+	  <div class="detailsleft">&#160;</div>
+	  <div class="detailsright" title="available to anyone"><input class="sheetpublic" type="radio" value="public" name="sheettype"/>Public</div>
+	  <div class="detailsleft">Sheet name</div>
+	  <div class="detailsright"><input class="sheetname" type="text" value="sheetname" name="sheetname"></input></div>
+	  <div class="detailsleft">Members:</div>
+	  <div class="currentmembers"/>
+	  <div class="detailsleft">Invite:</div>
+	  <div class="detailsright"><input class="invitetext" type="text" value="enter an email address" name="inviteemail"/></div>
+	  <div class="detailsleft">&#160;</div>
+	  <div class="detailsright"><span class="emailhint">seperate email addresses with commas</span></div>
+	  <div class="detailsleft">&#160;</div>
+	  <div class="updatecont">&#160;<span class="updatingserver">Updating...</span></div>
+	  <div>
+	    <input title="save changes" class ="applychanges" type="image" src ="/img/buttons/applybutton_small.jpg" value="apply" name="applychanges"/>
+	  </div>
+	</form>
+      </div>
+    </div>
+  </div>
+</div>

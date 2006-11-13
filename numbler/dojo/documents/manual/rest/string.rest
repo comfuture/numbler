@@ -1,0 +1,438 @@
+.. title:: dojo.string.* -- The Dojo Manual
+
+Name
+===============================================================================
+
+dojo.string.* - String manipulation utilities.
+
+Summary and Overview
+===============================================================================
+
+Functions and classes for common string operations which the langauage does not
+provide built-in support for.
+
+Usage
+===============================================================================
+
+::
+
+    // FIXME: TODOC
+
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+``Builder(str)``:
+
+    Please eneumerate constructor argument types here and describe the classes
+    function.
+
+    *Inherits from*:
+        nothing
+
+    ``str``:
+        String. The initial contents of the builder.
+
+    *return*:
+        New object of type ``dojo.string.Builder``.
+
+Properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``length``:
+        Integer. The cumulative length of the string being constructed.
+
+    ``arrConcat``:
+        Boolean. Used internally to decide which method of string concatentation
+        to employ. The correct value is auto-detected by the module and should
+        not be changed on an instance.
+
+Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``toString()``:
+
+        *return*
+            String.
+
+    ``append(str)``:
+        
+        Adds the passed ``str`` to the end of the string being built.
+
+        ``str``:
+            String.
+
+        *return*:
+            This object.
+
+    ``clear()``:
+
+        Empties the contents of the builder and sets ``length`` to 0.
+
+        *return*:
+            This object.
+
+    ``remove(index, count)``:
+
+        Removes ``count`` chars from the string being built, starting from
+        ``index`` (where 0 is the first char).
+
+        ``index``:
+            Integer.
+
+        ``count``:
+            Integer.
+
+        *return*:
+            This object.
+
+    ``replace(match, value)``:
+
+        Replaces occurances of the value of ``match`` in the string being built
+        with the contents of ``value``.
+
+        ``match``:
+            String. The value being replaced.
+
+        ``value``:
+            String. The value ``match`` is being replaced with.
+
+        *return*:
+            This object.
+
+    ``insert(index, str)``:
+
+        Inserts ``str`` at ``index``, where 0 is the first char in the string.
+
+        ``index``:
+            Integer.
+
+        ``str``:
+            String.
+
+        *return*:
+            This object.
+
+Properties
+---------------------------------------
+
+None.
+
+Methods
+---------------------------------------
+
+``trim(str)``:
+
+    Removes whitespace chars from the beginning and end of ``str``.
+
+    ``str``:
+        String.
+
+    *return*:
+        String. A new string with whitespace removed from the beginning and end.
+
+``trimStart(str)``:
+    
+    Removes whitespace from the beginning of ``str``.
+	
+    ``str``:
+        String.
+
+    *return*:
+        String.
+
+``trimEnd(str)``:
+    
+    Removes whitespace from the end of ``str``.
+	
+    ``str``:
+        String.
+
+    *return*:
+        String.
+
+``paramString(str, pairs, clobberUnmatched)``: 
+    
+    Replaces values in ``str`` based on the mapping specified in ``pairs``.
+    Values for replacement are determined by matching the replacement key in the
+    provided ``str`` prefixed with "%{" and ended with "}". For example, this
+    string::
+
+        var foo = "bar %{baz}";
+
+    would be transformed into::
+
+        "bar thud"
+
+    using::
+
+        dojo.string.paramString(foo, {"baz": "thud"});
+
+    The ``clobberUnmatched`` attributed determines if unmatched params are
+    stripped from the resulting string.
+
+    ``str``:
+        String.
+
+    ``pairs``:
+        Object. A map of strings and values for replacement in ``str``.
+
+    ``clobberUnmatched``:
+        Boolean. Should un-matched "%{...}" strings be removed from the
+        resulting String? Defaults to false.
+
+    *return*:
+        String. A new String with the keys in ``pairs`` replaced with the values
+        in ``pairs`` that they map to.
+
+``capitalize(str)``:
+
+    Capitalizes words in the passed ``str``.
+
+    ``str``:
+        String.
+
+    *return*:
+        String.
+
+``isBlank(str)``:
+
+    Does the string contain any content?
+
+    ``str``:
+        String.
+
+    *return*:
+        Boolean
+
+``encodeAscii(str)``:
+    
+    Encode the passed ``str`` in pure ASCII, escaping as required.
+
+    ``str``:
+        String
+
+    *return*:
+        String. The escaped version of ``str``.
+
+``summary(str, len)``:
+
+    Returns a string which contains a truncated version of ``str`` which is no
+    longer than ``len``+3 chars (ellipsis) if the string is longer than ``len``.
+
+    ``str``:
+        String.
+
+    ``len``:
+        Integer.
+
+    *return*:
+        String. The potentially shortened string.
+
+``repeat(str, count, separator)``:
+    
+    Return ``str`` repeated ``count`` times, optionally placing ``separator``
+    between each repetition.
+
+    ``str``:
+        String.
+    
+    ``count``:
+        Integer.
+
+    ``separator``:
+        String.
+
+    *return*:
+        String.
+
+``endsWith(str, end, ignoreCase)``:
+
+    Return true of ``str`` ends with ``end``.
+
+    ``str``:
+        String.
+
+    ``end``:
+        String.
+
+    ``ignoreCase``:
+        Boolean. Should case be disregarded when making the comparison? Defaults
+        to false.
+
+    *return*:
+        Boolean.
+
+``startsWithAny(str, compare, ...)``:
+
+    Returns true if ``str`` starts with any of the arguments[2 -> n].
+
+    ``str``:
+        String to be tested.
+
+    ``compare, ...``:
+        Strings to test ``str`` against.
+
+    *return*:
+        Boolean.
+
+``has(str, compare, ...)``:
+
+    Returns true if ``str`` contains any of the arguments[2 -> n].
+
+    ``str``:
+        String to be tested.
+
+    ``compare, ...``:
+        Strings to test ``str`` against.
+
+    *return*:
+        Boolean.
+
+``pad(str, len, char, direction)``:
+    
+    Pad ``str`` to guarantee that it is at least ``len`` length with the
+    character ``char`` at either the start (``direction=1``) or end
+    (``direction=-1``) of the string.
+
+    ``str``:
+        String.
+
+    ``len``:
+        Integer. Minimum length of the resulting String.
+
+    ``char``:
+        Char. The char to pad the resulting String with.
+
+    ``direction``:
+        The side of the resulting String to pad.
+
+    *return*:
+        String with length at least ``len``.
+
+``padLeft(str, len, char)``:
+    
+    Pad ``str`` to guarantee that it is at least ``len`` length with the
+    character ``char`` at the beginning of the string.
+
+    ``str``:
+        String.
+
+    ``len``:
+        Integer. Minimum length of the resulting String.
+
+    ``char``:
+        Char. The char to pad the resulting String with.
+
+    *return*:
+        String with length at least ``len``.
+
+``padRight(str, len, char)``:
+    
+    Pad ``str`` to guarantee that it is at least ``len`` length with the
+    character ``char`` at the end of the string.
+
+    ``str``:
+        String.
+
+    ``len``:
+        Integer. Minimum length of the resulting String.
+
+    ``char``:
+        Char. The char to pad the resulting String with.
+
+    *return*:
+        String with length at least ``len``.
+
+``escape(type, str)``:
+
+    Escapes the passed ``str`` using the conversion ``type`` specified. Types
+    currently supported include:
+
+        - xml
+        - html
+        - xhtml
+        - sql
+        - regexp
+        - regex
+        - javascript
+        - jscript
+        - js
+        - ascii
+
+    ``type``:
+        String.
+
+    ``str``:
+        String. To be escaped.
+
+    *return*:
+        String. Escaped version.
+
+``esacpeXml(str)``:
+
+    ``str``:
+        String.
+
+    *return*:
+        String. Escaped version.
+
+``esacpeSql(str)``:
+
+    ``str``:
+        String.
+
+    *return*:
+        String. Escaped version.
+
+``esacpeRegExp(str)``:
+
+    ``str``:
+        String.
+
+    *return*:
+        String. Escaped version.
+
+``esacpeJavaScript(str)``:
+
+    ``str``:
+        String.
+
+    *return*:
+        String. Escaped version.
+
+Requires
+===============================================================================
+
+- `dojo.lang`_
+
+.. _`dojo.lang`: 		lang.html
+
+Provides
+===============================================================================
+
+dojo.namespace.Foo
+    A class constructor that allows Foos to be created
+
+dojo.namespace.Bar
+    A class constructor that allows Bars to be created, although you might need
+    a liquor license in your own municipality to actually operate the created
+    Bars.
+
+To Do
+===============================================================================
+
+Lots. But that's always true.
+
+About
+===============================================================================
+
+:Author: Alex Russell
+:Version: 0.1
+:Copyright: Dojo Foundation, 200x
+:Date: YYYY/MM/DD
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

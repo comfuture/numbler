@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<title>dojo: Committers</title>
+		<link rel="stylesheet" type="text/css" href="http://dojotoolkit.org/css/screen.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="http://dojotoolkit.org/css/print.css" media="print">
+	</head>
+<body class="community">
+<!--#include virtual="/rest_template/header.html" -->
+<h1>Dojo Committers</h1>
+<p>
+	The following individuals are committers on one or more Dojo Foundation
+	projects. Committers have submitted <a
+	href="http://dojotoolkit.org/icla.txt">CLAs</a> and have earned the trust
+	of their peers in the Dojo community to the extent that they have been
+	granted write privleges on the Dojo source code repository.
+</p>
+<table cellpadding="0" cellspacing="0" border="0">
+	<thead>
+		<tr>
+			<th>Checkin User</th>
+			<th>Real Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td> alex </td>
+			<td> Alex Russell </td>
+		</tr>
+		<tr>
+			<td> dylan </td>
+			<td> Dylan Schiemann </td>
+		</tr>
+		<tr>
+			<td> david </td>
+			<td> David Schontzler </td>
+		</tr>
+		<tr>
+			<td> psowden </td>
+			<td> Paul Sowden </td>
+		</tr>
+		<tr>
+			<td> bill </td>
+			<td> Bill Keese </td>
+		</tr>
+		<tr>
+			<td> sjmiles </td>
+			<td> Scott Miles </td>
+		</tr>
+		<tr>
+			<td> cal </td>
+			<td> Cal Henderson </td>
+		</tr>
+		<tr>
+			<td> dan </td>
+			<td> Dan Pupius </td>
+		</tr>
+		<tr>
+			<td> jesse </td>
+			<td> Jesse Andrews </td>
+		</tr>
+		<tr>
+			<td> ttrenka </td>
+			<td> Tom Trenka </td>
+		</tr>
+		<tr>
+			<td> manzoid </td>
+			<td> Tim Mansfield </td>
+		</tr>
+		<tr>
+			<td> jpark </td>
+			<td> Joyce Park </td>
+		</tr>
+		<tr>
+			<td> mda </td>
+			<td> Mark Anderson </td>
+		</tr>
+		<tr>
+			<td> da </td>
+			<td> David Ascher </td>
+		</tr>
+		<tr>
+			<td> BradNeuberg </td>
+			<td> Brad Neuberg </td>
+		</tr>
+		<tr>
+			<td> simon </td>
+			<td> Simon Willison </td>
+		</tr>
+		<tr>
+			<td> lhl </td>
+			<td> Leonard Lin </td>
+		</tr>
+		<tr>
+			<td> martinc </td>
+			<td> Martin Cooper </td>
+		</tr>
+		<tr>
+			<td> supah </td>
+			<td> Aaron Boodman </td>
+		</tr>
+		<tr>
+			<td> bob </td>
+			<td> Bob Ippolito </td>
+		</tr>
+		<tr>
+			<td> skinner </td>
+			<td> Brian Skinner </td>
+		</tr>
+		<tr>
+			<td> tildahl </td>
+			<td> Michael Tildahl </td>
+		</tr>
+		<tr>
+			<td> dmachi </td>
+			<td> Dustin Machi </td>
+		</tr>
+	</tbody>
+</table>
+<!--#include virtual="/rest_template/sidebar.html" -->
+<!--#include virtual="menu.html" -->
+<!--#include virtual="/rest_template/footer.html" -->
+</body>
+</html>

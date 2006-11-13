@@ -1,0 +1,46 @@
+<div>
+  <h3>XML response format</h3>
+  <p>Every request to the Numbler web service will result in an XML response, either a list of cells or an error document.  There are two variations to the response document: a version that lists all of the cells requested or updated and more concise document that reports back on the numbler of modified cells.</p>
+  <p>all strings in the XML document are UTF-8 encoded.</p>
+  <div class="example">
+    <div class="emph">The full response format:</div>
+    <p>This is the default response format for all requests (GET, DELETE, PUT).</p>
+    <pre class="codesnippet">
+&lt;xml&gt;
+  &lt;sheet guid="qEzxkiHOxmPIbMfe" name="formulatest"&gt;
+    &lt;cell formula="=SUM(A:C)" col="d" value="0" row="8"&gt;&lt;/cell&gt;
+    &lt;cell formula="=SUM(B1:B7)" col="b" value="0" row="8"&gt;&lt;/cell&gt;
+    &lt;cell formula="=SUM(A1:A7)" col="a" value="0" row="8"&gt;&lt;/cell&gt;
+    &lt;cell formula="=SUM(C1:C7)" col="c" value="0" row="8"&gt;&lt;/cell&gt;
+  &lt;/sheet&gt;
+&lt;/xml&gt;      
+    </pre>
+  </div>
+  <div class="emph">sheet element:</div>
+  <ul>
+    <li>guid: the global identifier of the sheet</li>
+    <li>name: the name of the spreadsheet as assigned by the owner.  
+      This value can change and should not be used as a key.</li>
+  </ul>
+  <div class="emph">Cell element:</div>
+  <ul>
+    <li>formula: the formula value for the cell.  If the contents of the formula do not start with an "=" sign the formula value is 
+      equivalent to the value attribute.</li>
+    <li>value: the calculated value of the formula or the text value of the cell</li>
+    <li>col: the column identifier in the range [A-IV]</li>
+    <li>row: the row identifier in the range [1-65536]</li>
+  </ul>
+  <div class="example">
+    <div class="emph">The compact format:</div>
+    <p>This format is used when you request the server not to return a list of modified cells.  The difference is that no cell elements are sent and an additional attribute "changedCells" is added to the sheet element.</p>
+    <pre class="codesnippet">
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xml&gt;
+  &lt;sheet guid="z8qRk7Pa98JiH2uk" name="testdeletesheet" changedCells="2"&gt;
+  &lt;/sheet&gt;
+&lt;/xml&gt;
+    </pre>
+  </div>
+
+</div>

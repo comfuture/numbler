@@ -1,0 +1,161 @@
+.. title:: dojo.collections.Queue -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.collections.Queue - the Dojo implementation of a standard Queue (FIFO).
+
+Summary and Overview
+===============================================================================
+
+dojo.collections.Queue is a basic implementation of a typical queue (FIFO)
+object.
+
+Usage
+===============================================================================
+
+::
+
+    var queue = new dojo.collections.Queue();
+    queue.enqueue(myObject);
+    queue.enqueue(mySecondObject);
+    var o = queue.dequeue();
+    dojo.debug("The value of o is mySecondObject: " + (o == mySecondObject));
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+``Queue(array)``:
+
+    Creates a new instance of Queue, either empty or based on the passed
+    array object.
+
+    *Inherits from*:
+        nothing
+
+    ``array``:
+        argument of type Array
+
+    *returns*:
+        new object of type Queue.
+
+Properties
+---------------------------------------
+
+``count``:
+
+    An integer denoting how many members the Queue has.
+
+
+Methods
+---------------------------------------
+
+``clear()``:
+
+    Clears all members of the Queue and resets ``count`` to 0.
+
+    *returns*:
+        null
+	
+``clone()``:
+
+    Clones the Queue.  Note that while the clone is not a reference to the
+    current Queue, members that are references to objects will remain
+    references to objects (i.e. reference members remain references).
+
+    *returns*:
+        new Queue.
+	
+``contains(object)``:
+
+    Check to see if the passed object is a member of the Queue.
+
+    ``object``:
+        An object of type Object.
+
+    *returns*:
+        Boolean (true || false)
+	
+``copyTo(array, index)``:
+
+    Copies the contents of the Queue to array beginning at index.
+
+    ``array``:
+        The array to copy the contents of the queue to.
+
+    ``index``:
+        The index in the array to begin copying at.
+
+    *returns*:
+        void.
+	
+``getIterator()``:
+
+    Gets an object of type dojo.collections.Iterator, for use in iterating over
+    the elements of the collection.
+
+    *returns*:
+        dojo.collections.Iterator
+	
+``peek()``:
+
+    Returns the next item on the queue without removing it from the queue.
+
+    *returns*:
+        object of type Object.
+	
+``dequeue()``:
+
+    Removes and returns the next item on the queue.
+
+    *returns*:
+        object of type Object.
+	
+``enqueue(object)``:
+
+    Pushing an object onto the queue.
+
+    *returns*:
+        void.
+	
+``toArray()``:
+
+    Returns an object of type Array, filled with the members of the Queue.
+    
+    *returns*:
+        object of type Array.
+
+Requires
+===============================================================================
+
+- No requirements.
+
+Provides
+===============================================================================
+
+dojo.collections.Queue
+    A class constructor that allows Queues to be created
+
+
+To Do
+===============================================================================
+
+Public signature will not change in the foreseeable future, although internal
+implementations might.
+
+About
+===============================================================================
+
+:Author: Thomas R. Trenka, Ph.D.
+:Version: 0.2
+:Copyright: Dojo Foundation, 200x
+:Date: 2005/10/31
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

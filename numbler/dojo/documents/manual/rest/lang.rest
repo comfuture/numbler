@@ -1,0 +1,424 @@
+.. title:: dojo.lang.* -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.lang.* - extensions to the JavaScript language
+
+Summary and Overview
+===============================================================================
+
+The *lang* namespace contains several generally useful functions for working with 
+JavaScript constructs. This namespace is part of the core, and is a dependency of most other modules.
+
+Usage
+===============================================================================
+
+::
+
+  dojo.inherits(dojo.widget.HtmlHideWidget, dojo.widget.HtmlWidget);
+  dojo.lang.extend(dojo.widget.HtmlHideWidget, {
+          widgetType: "HideWidget",
+          initialize: function() { if (domNode) domNode.style.display = 'none'; };
+  });
+
+API Reference
+===============================================================================
+
+Properties
+---------------------------------------
+
+``anon``:
+
+    Namespace to contain otherwise anonymous functions.
+
+Methods
+---------------------------------------
+
+``mixin(obj, props)``:
+
+    Copies all properties of the ``props`` object to the ``obj`` object. For
+    example, given::
+    
+      var foo = { name: 'foo', a: 20 };
+      var bar = { name: 'bar', b: 60 };
+      var baz = dojo.lang.mixin(foo, bar);
+      
+    ``foo`` and ``baz`` will reference the same object, and it's properties
+    will be: ``{ name: "bar", a: 20, b: 60 }``
+    Properties of the built-in class ``Object`` are not copied.
+    
+    ``obj``:
+        The object that will receive properties. This object is modified in-place.
+        
+    ``props``:
+        The object from which properties are copied. 
+
+    *returns*:
+        A reference to the target object ``obj``.
+        
+``extend(ctor, props)``:
+
+    Extends class with constructor ``ctor`` by copying properties of the
+    ``props`` object to the class prototype, providing a compact syntax for
+    adding methods or values to a class.
+    
+    For example, given::
+    
+        foo = function() {};
+    
+    instead of::
+    
+        foo.prototype.name = 'foo';
+        foo.prototype.bar = function() { alert('bar'); };
+    
+    we can write::
+    
+        dojo.lang.extend(foo, { name: 'foo', bar: function() { alert('bar'); } };
+    
+    and objects of type ``foo`` gain ``name`` and ``bar`` properties from foo.prototype.
+    
+    ``ctor``:
+        The constructor function that will be extended.
+        
+    ``props``:
+        The object from which properties are copied. 
+
+    *returns*:
+        Nothing.
+
+``extendPrototype(obj, props)``:
+
+    Extends the class of object ``obj`` copying properties of the ``props`` object to the class prototype,  
+    providing a compact syntax for adding methods or values to a class.
+    
+    Shorthand for calling dojo.lang.extend with the constructor of ``obj``.
+    
+    ``obj``:
+        The object whose class will be extended.
+        
+    ``props``:
+        The object from which properties are copied. 
+
+    *returns*:
+        Nothing.
+        
+``nameAnonFunc(anonFuncPtr, namespaceObj)``:
+
+    Assign a name to anonymous function ``anonFunPtr`` and make it a property of 
+    ``namespaceObj`` or dojo.lang.anon if ``namespaceObj`` is null.
+     
+    If djConfig.slowAnonFuncLookups is defined, the namespace is searched for 
+    ``anonFuncPtr`` and any previously assigned name is returned.
+    
+    ``anonFuncPtr``:
+        A reference to the function to be named.
+        
+    ``namespaceObj``:
+        The object to which ``anonFuncPtr`` will be attached. If null, the function 
+        is attached to the dojo.lang.anon namespace.
+
+    *returns*:
+        Name generated for ``anonFuncPtr``.
+      
+``hitch(obj, meth)``:
+
+    Returns a function that will invoke function ``meth`` as a method on object ``obj``. 
+     
+    ``obj``:
+        The object on which ``meth`` will be invoked by the returned function.
+        
+    ``meth``:
+        A function reference or name. 
+
+    *returns*:
+        A function which will invoke ``meth`` on ``obj`` (with whatever arguments are sent to the outer function).
+
+``setTimeout(context, func, delay, [arg1, arg2, ...]);``
+``setTimeout(func, delay, [arg1, arg2, ...]);``:
+
+    Sets a timeout to execute a function with arguments, optionally in a given context.
+  
+    ``context``:
+        An object for ``func`` to use as ``this``. I.e., the calling context for ``func``. May be omitted.
+        
+    ``func``:
+        Function to invoke after ``delay`` milliseconds elapse. Any extra arguments sent to setTimeout are 
+        passed into this function.
+        
+    ``delay``:
+        Duration before timeout fires, in milliseconds.
+  
+    ``[arg1, arg2, ...]``:
+        Optional arguments that are passed into ``func``.
+  
+``isObject(wh)``:
+
+    Determine if ``wh`` is an Object.
+
+    ``wh``:
+        The value to test.
+
+    *returns*:
+        True if ``wh`` is an Object, otherwise false.
+        
+``isArray(wh)``:
+
+    Determine if ``wh`` is an Array.
+
+    ``wh``:
+        The value to test.
+
+    *returns*:
+        True if ``wh`` is an Array, otherwise false.
+        
+``isFunction(wh)``:
+
+    Determine if ``wh`` is a Function.
+
+    ``wh``:
+        The value to test.
+
+    *returns*:
+        True if ``wh`` is a Function, otherwise false.
+        
+``isString(wh)``:
+
+    Determine if ``wh`` is a String.
+
+    ``wh``:
+        The value to test.
+
+    *returns*:
+        True if ``wh`` is a String, otherwise false.
+
+``isNumber(wh)``:
+
+    Determine if ``wh`` is of type Number.
+
+    ``wh``:
+        The value to test.
+
+    *returns*:
+        True if ``wh`` is of type Number, otherwise false.
+        
+``isBoolean(wh)``:
+
+    Determine if ``wh`` is of type Boolean.
+
+    ``wh``:
+        The value to test.
+
+    *returns*:
+        True if ``wh`` is of type Boolean, otherwise false.
+
+``isUndefined(wh)``:
+
+    Determine if ``wh`` is undefined.
+
+    ``wh``:
+        The value to test.
+
+    *returns*:
+        True if ``wh`` is undefined, otherwise false.
+        
+``isAlien(wh)``:
+
+    Determine if ``wh`` is a function which is not built-in.
+
+    ``wh``:
+        The value to test.
+
+    *returns*:
+        True if ``wh`` is a function which is not implemented natively by the interpreter, otherwise false.
+
+``find(arr, val, identity)``:
+
+    Locate a value inside an array, with optional strict comparison. 
+
+    ``arr``:
+        The array to search.
+        
+    ``val``:
+        The value to search for.
+        
+    ``identity``:
+        If true, comparisons are done with the identity operator (``===``) instead of the equality operator (``==``). 
+        The identity operator does strict comparisons and no type conversion, the equality operator performs a 
+        more relaxed comparison.
+
+    *returns*:
+        Index of ``val`` inside ``arr``, or -1 if not found.
+  
+``inArray(arr, val)``:
+
+    Return true if ``val`` is in array ``arr``.
+
+    ``arr``:
+        The array to search.
+        
+    ``val``:
+        The value to search for.
+        
+    *returns*:
+        True if a value equal (``==``) to ``val`` is found in ``arr``, false otherwise. 
+        
+``getNameInObj(ns, item)``:
+
+    Return the name of ``item`` in object (namespace) ``ns``, or null.
+
+    ``ns``:
+        The object searched for ``item``. If null, the global namespace is used.
+        
+    ``item``:
+        The value to search for.
+        
+    *returns*:
+        Name (string) of ``item`` in ``ns``, or null if ``item`` is not a member of ``ns``.
+        
+``has(obj, name)``:
+
+    Return true if ``name`` is defined on ``obj``.
+
+    ``obj``:
+        The object to test for property ``name``.
+        
+    ``name``:
+        The property to test for.
+        
+    *returns*:
+        True if ``name`` is a property of ``obj``, false otherwise.
+        
+``isEmpty(obj)``:
+
+    Return true if ``obj`` has no user-defined properties.
+
+    ``obj``:
+        The object to test for property ``name``.
+        
+    ``name``:
+        The property to test for.
+        
+    *returns*:
+        True if ``obj`` has no properties, or only properties that are part of Object.
+        
+``forEach(arr, unary_func, fix_length)``:
+
+    Process each element of an array through a function. Specifically, call function ``unary_func`` with each element 
+    of array ``arr`` until all elements have been processed or ``unary_func`` returns the string ``break``.
+
+    ``arr``:
+        The array to iterate over.
+        
+    ``unary_func``:
+        Function that takes a single argument. This function is invoked for each element of the input array 
+        (with the array element passed as it's argument). The function can return the string ``break`` to cause 
+        forEach to halt iteration and return immediately.
+
+    ``fix_length``:
+        If the length of array ``arr`` will be constant during processing, set this argument true for faster execution.
+        
+    *returns*:
+        Nothing.
+        
+``map(arr, [obj,] unary_func)``:
+
+    Process each element of an array using a object method. Specifically, invoke function ``unary_func`` in the context of ``obj`` 
+    with each element of array ``arr``.
+
+    ``arr``:
+        The array to iterate over.
+        
+    ``obj``:
+        The object that will provide context for invocations of ``unary_func``. If ``obj`` is omitted, the global context is used.
+        
+    ``unary_func``:
+        Function that takes a single argument. This function is invoked as a method of ``obj`` for each element 
+        of the input array (with the array element passed as it's argument). 
+        
+    *returns*:
+        Nothing.
+        
+``tryThese([func1, func2, ...])``:
+          
+    Invoke each argument function inside a try/catch block, until a function returns a non-false value.
+            
+    ``[func1, func2, ...]``: 
+        tryThese takes a variable number of arguments. Each argument that is a function is 
+        invoked inside a try/catch block. If a function returns a non-false value, that value is 
+        returned and no more arguments are processed.
+
+    *returns*:
+        Nothing.
+        
+``delayThese(farr, cb, delay, onend)``:
+``delayThese(farr, cb, onend)``:
+``delayThese(farr, cb)``:
+``delayThese(farr)``:
+          
+    Invoke a series of functions with an optional delay before each invocation.
+    
+    Notes: the input array will be destroyed. Delays are asynchronous 
+    (var window.setTimeout) and other processing can take place during delay periods.
+    
+    ``farr``: 
+        An array of functions to invoke. 
+        
+    ``cb``: 
+        A callback function fired after each invocation of an input function. 
+
+    ``delay``: 
+        Number of milliseconds to wait before each invocation of an input function.
+        
+    ``onend``: 
+        Callback function invoked after all elements of the input array are processed.
+        
+    *returns*:
+        Nothing.
+      
+``shallowCopy(obj)``:
+          
+    Return a new object which contains properties copied from source object ``obj``. This is a shallow copy: 
+    properties that point to non-concrete objects (Objects, Arrays, Functions) are copied by reference. 
+    The source and target properties will reference the same entities.
+            
+    ``obj``: 
+      Source object whose properties are copied.
+
+    *returns*:
+        Object with copied properties.
+        
+Requires
+===============================================================================
+
+- `dojo.hostenv`_
+
+.. _`dojo.hostenv`:     hostenv.html
+
+Provides
+===============================================================================
+
+dojo.lang
+    The namespace for the provided functions.
+
+dojo.lang.Lang
+    Unused. 
+
+To Do
+===============================================================================
+
+Lots. But that's always true.
+
+About
+===============================================================================
+
+:Author: Scott J. Miles
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/10/29
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

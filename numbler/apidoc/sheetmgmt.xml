@@ -1,0 +1,28 @@
+<div>
+  <h3>Working with Numbler spreadsheets</h3>
+  <div class="emph">What is a Numbler spreadsheet?</div>
+  <p>A Numbler spreadsheet, like most spreadsheets, is a "virtual" grid of 256 columns by 65536 rows.  By virtual we mean that the spreadsheet is sparse - it only contains what you put in it.  The size of the grid isn't necessarily fixed and we may increase the maximum number of rows or columns in the future.</p>
+  <p>All Numbler spreadsheets are identified by a 16 character unique identifier.  This UID is the first part of the URL to your spreadsheet, e.g numbler.com/d6kWBx1GvTlhSDuv.</p>
+  <div class="important">
+    A Numbler spreadsheet can currently only be created or deleted from the <a href="/myaccount">My Account</a> page.
+    </div>
+  <div class="emph">Cell syntax:</div>
+<p>  The normal cell syntax is similar to most spreadsheet packages where a cell is referenced by the column identifier and row identifer, e.g, A10,B$44, etc. The absolute syntax for a cell looks like:</p>
+  <pre class="codesnippet">
+UID ! cellref
+
+examples:
+=d6kWBx1GvTlhSDu!D4
+=SUM(d6kWBx1GvTlhSDu!D4,d6kWBx1GvTlhSDu!R10)
+</pre>
+<p>Most of the time you don't need to include the sheet UID unless you are refering to cells in another sheet.  We know this syntax is akward and hope to fix it in the future.</p>
+  <div class="emph">Data that can go into a cell:</div>
+  <ol><li>
+      any UTF-8 encoded string.  The string will automatically overflow into the adjacent cell 
+      if the adjacent cell(s) are empty.  Overflow is only visible in your browser and is impossible to detect using the Numbler API.</li>
+    <li>A number string encoded in UTF-8, eg. "1.23", "$99.34", "45%", "3.4e-9".  These strings are converted by Numbler into their mathmatical representation.</li>
+    <li>An web address like http://numbler.com, or www.google.com.  These strings will be automatically presented as links in the your web browser</li>
+    <li>A web address to an image like http://foobar.com/picture.jpg.</li>
+</ol>
+
+</div>

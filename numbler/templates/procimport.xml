@@ -1,0 +1,4 @@
+<div id="contentcon" xmlns:n="http://nevow.com/ns/nevow/0.1">
+	<div><span n:render="status"/></div>
+	<div id="statuscontainer"/>
+</div>

@@ -1,0 +1,7 @@
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+<body style="font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;font-size:14px">
+<p>Numbler has imported the following spreadsheets:</p>
+<div n:render="listsheets"/>
+<p>Please keep a copy of this email for your records.</p>
+</body>
+</html>

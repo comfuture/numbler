@@ -1,0 +1,9 @@
+<div>
+<h3>Sheet types</h3>
+<p>Numbler currently supports two types of spreadsheets: private and public.  We will likely be adding support for a public read-only mode in the future.</p>
+<p>Spreadsheet access is managed from <a href="/myaccount">http://numbler.com/myaccount</a>.  You cannot manipulate access control for your spreadsheets with the Numbler web services API.</p>
+<h3>Public sheets</h3>
+<p>Public sheets allow anyone to read or write to a spreadsheet.  Any one on the internet can access your spreadsheet from a browser and manipulate the contents of the sheet.  It is unlikely that a random person will find your spreadsheet since the sheet UID is randomly generated.  Public spreadsheets are very useful when you want to make your spreadsheet available to a large number of people.  Additionally, anyone with a Numbler api access ID can read/write from a public spreadsheet.</p>
+<h3>Private sheets</h3>
+<p>Private sheets are only accessible to users who have created a Numbler account and are invited to the sheet.  You can manipulate who has access to your spreadhseet from the <a href="/myaccount">my account</a> page.  If you attempt to access a private sheet (and you are not an invited member) you will receive an error.  See the <a class="doclink" href="/apidoc/apierror">error section</a>.</p>
+</div>

@@ -1,0 +1,117 @@
+.. title:: dojo.date -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.date - Convenience methods and properties for working with dates.
+
+Summary and Overview
+===============================================================================
+
+Convenience methods and properties for working with dates.
+
+Usage
+===============================================================================
+
+::
+
+    var dateObject = dojo.date.setIso8601 = function (dateObject, string);
+
+
+API Reference
+===============================================================================
+
+Methods
+---------------------------------------
+
+``setIso8601(dateObject, string)``:
+
+    Sets the current Date object to the time given in an ISO 8601 date/time 
+    stamp
+
+    ``dateObject``:
+		    a JavaScript Date object
+
+    ``string``:
+		    The date/time formted as an ISO 8601 string
+
+		*returns*:
+        dateObject
+
+``setIso8601Date(dateObject, string)``:
+
+    Sets the current Date object to the date given in an ISO 8601 date stamp.
+    The time is left unchanged.
+
+    ``dateObject``:
+		    a JavaScript Date object
+
+    ``string``:
+		    The date formted as an ISO 8601 string
+
+		*returns*:
+        dateObject
+
+``setIso8601Time(dateObject, string)``:
+
+    Sets the current Date object to the date given in an ISO 8601 time stamp.
+    The date is left unchanged.
+
+    ``dateObject``:
+		    a JavaScript Date object
+
+    ``string``:
+		    The time formted as an ISO 8601 string
+
+		*returns*:
+        dateObject
+
+``setDayOfYear(dateObject, dayofyear)``:
+
+    Sets the date to the day of year
+
+    ``dateObject``:
+		    a JavaScript Date object
+
+    ``dayofyear``:
+		    The day of year
+
+		*returns*:
+        dateObject
+
+``getDayOfYear(dateObject)``:
+
+    Retrives the day of the year the Date is set to.
+
+    ``dateObject``:
+		    a JavaScript Date object
+
+		*returns*:
+        day of year
+
+.. FIXME: finish documenting methods
+
+
+Requires
+===============================================================================
+
+none
+
+Provides
+===============================================================================
+
+dojo.date
+
+About
+===============================================================================
+
+:Author: Dylan Schiemann
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/30
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

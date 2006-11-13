@@ -1,0 +1,64 @@
+.. title:: dojo.xml -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.xml - a base class for the xml parser.  Formerly the home for dom, html, 
+style, and svg utility namespaces, until those were deprecated and moved to the 
+top level namespace
+
+Summary and Overview
+===============================================================================
+
+Basically a stub namespace that is the parent for dojo.xml.Parse, and contains 
+deprecation warnings for htmlUtil, domUtil, and svgUtil
+
+Usage
+===============================================================================
+
+::
+
+    var parser = new dojo.xml.Parse();
+
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+none
+
+Properties
+---------------------------------------
+
+none
+
+Methods
+---------------------------------------
+
+none
+
+Requires
+===============================================================================
+
+none
+
+Provides
+===============================================================================
+
+dojo.xml
+
+About
+===============================================================================
+
+:Author: Dylan Schiemann
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/10/30
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

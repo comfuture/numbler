@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:n="http://nevow.com/ns/nevow/0.1">
+  <head>
+    <title>Modify your Numbler account details</title>
+    <n:invisible n:render="liveglue" />
+    <link href="css/myaccount.css" type="text/css" rel="stylesheet"/>    
+    <link href="css/shared.css" type="text/css" rel="stylesheet"/>    
+  </head>
+  <body>
+    <n:invisible n:render="header"/>
+    <div id="contentcon" style="width:80%;padding-bottom:40px;padding-left:25px"> 
+      <div n:render="theform"/>
+    </div>
+    <div style="clear:both"/>
+    <n:invisible n:render="footer"/>
+  </body>
+</html>
+
+
+

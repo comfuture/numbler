@@ -1,0 +1,45 @@
+<div>
+  <h3>Common REST elements</h3>
+  <p>Numbler REST requests are essentially basic HTTP requests as defined by <a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a>.  The REST API supports common HTTP methods such as GET, PUT, and DELETE.</p>
+  <p>A Numbler REST request consists of the request method with a URI, HTTP headers, and an optional body (only used when sending cell changes).  The response contains a HTTP status code, the headers, and an XML body.</p>
+  <div class="example">
+    <h3>Example</h3>
+    <p>In this example we will request a cell located at D10 in our spreadsheet.</p>
+    <div class="emph">Request</div>
+    <pre class="codesnippet">
+GET /cPvA8UX1dpAS7fLY/API/D4 HTTP/1.1
+Authorization: NUMBLER EIqgyygGzWIdeqsaKPMF:ued085+Josotc30q7GpWyw==
+x-numbler-date: Mon, 03 Apr 2006 15:54:12 GMT
+    </pre>
+    <div class="emph">Response</div>
+    <pre class="codesnippet">
+HTTP/1.1 200 OK
+Transfer-encoding: chunked
+Date: Mon, 03 Apr 2006 15:54:12 GMT
+Content-type: text/xml; charset=UTF-8
+Server: TwistedWeb/2.1.0
+
+&lt;?xml version="1.0" charset="utf-8"?&gt;
+&lt;xml&gt;
+   &lt;sheet guid="cPvA8UX1dpAS7fLY" name="testcellprivate"&gt;
+      &lt;cell col="d" formula="50" row="4" value="50"/&gt;
+   &lt;/sheet&gt;
+&lt;/xml&gt;
+    </pre>
+  </div>
+  <h3>REST Endpoint</h3>
+  <p>The REST endpoint should be ws.numbler.com. Right now this is simply an alias to numbler.com but may change in the future.</p>
+  <h3>Method</h3>
+  <p>The GET operation contains three path segments.  The first is the unique identifier (UID) for your spreadsheet.  This UID will show up in your browser when you access your numbler spreadsheet.  The second is segment is the the word API which must be present. The last segment indicates the requested cell.
+    </p>
+  <h3>Headers</h3>
+  <p>The following headers must be present:</p>
+  <ul>
+    <li><span class="emph">Authorization: </span> Provides authentication information so that your request can be verified.  See the <a href="/apidoc/restauth" class="doclink">REST authentication</a> for more details.</li>
+    <li><span class="emph">x-numbler-date: </span> the Numbler date field must be present in the request (as some http clients omit it).</li>
+  </ul>
+  <h3>Response</h3>
+  <p>The response is <span class="emph">always</span> an XML document that contains at least one sheet element.</p>
+
+
+</div>

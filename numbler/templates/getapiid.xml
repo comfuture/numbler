@@ -1,0 +1,3 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1" id="contentcon" style="width:80%;padding-bottom:40px">
+<p>We have mailed you your Numbler API access ID and Numbler API key.  Please follow the instructions on the <a href="http://numbler.com/apidoc">API documentation</a> site to get started.  Thanks for using Numbler!</p>
+</div>

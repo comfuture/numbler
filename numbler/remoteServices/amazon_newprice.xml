@@ -1,0 +1,27 @@
+<servicedef name="amazon" desc="Get the price for the item from amazon marketplace">
+  <connection host="localhost" port="9005" resource="/awsNewPrice"/>
+  <refreshInterval>86400</refreshInterval>
+  <params>
+    <inputs>
+      <param name="keywords" required="true"/>
+      <param name="category" required="false"/>
+      </inputs>
+    <outputs>
+      <param name="cost" calcValue="true"/>
+      <param name="itemURL" link="true"/>
+    </outputs>
+  </params>
+  <testdata>
+    <test name="simple lookup">
+      <params>
+	<inputs>
+	  <param name="category">books</param>
+	  <param name="keywords">Twisted Network Programming Essentials</param>
+	</inputs>
+	<outputs>
+	  <param name="cost" testvalue="false"/>
+	</outputs>
+      </params>
+    </test>
+  </testdata>
+</servicedef>
