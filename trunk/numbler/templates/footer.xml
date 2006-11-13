@@ -1,0 +1,10 @@
+<div id="bottomfooter">
+  <div id="funkydiv" style="clear:both;margin:0;padding:0;height:0"/>
+  <div class="footer"><ul>
+      <li class="begin"><a href="/apidoc">developers</a></li>
+      <li><a href="/About">About</a></li>
+      <li><a href="/support">help</a></li>
+      <li><a href="/">home</a></li>
+    </ul>
+  </div>
+</div>

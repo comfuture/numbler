@@ -1,0 +1,11 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1" id="contentcon" style="width:80%;padding-bottom:40px">
+  <p n:pattern="notvalidated">
+    Oops! Numbler has not verified your email address yet.  You should have received a email message from Numbler to verify your email.  Please follow the instructions in the email to verify your account.
+  </p>
+  <p n:pattern="infomessage">
+    You need to login to access this page.
+  </p>
+
+  <n:invisible n:render="message"/>
+  <n:invisible n:render="loginfrag"/>
+</div>

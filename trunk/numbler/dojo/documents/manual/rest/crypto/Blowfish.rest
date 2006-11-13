@@ -1,0 +1,118 @@
+.. title:: dojo.crypto.Blowfish -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.crypto.Blowfish - An implementation of the Blowfish encryption algorithm.
+
+Summary and Overview
+===============================================================================
+
+An implementation of the Blowfish algorithm as described by Bruce Schneier.
+Written from scratch, based on the C# and Java implementations by Markus Hahn.
+This implementation does *not* cache Blowfish contexts at all, but calculates
+S-Boxes on the fly.
+
+Note that the version included in release 0.2 only implements ECB mode.
+
+Usage
+===============================================================================
+
+::
+
+    var encrypted = dojo.crypto.Blowfish.encrypt(
+        "The rain in Spain falls mainly on the plain", 
+        "foobar",
+        dojo.crypto.Blowfish.outputTypes.Base64
+    );
+    var decrypted = dojo.crypto.Blowfish.decrypt(
+        encrypted,
+        "foobar",
+        dojo.crypto.Blowfish.outputTypes.Base64
+    );
+
+API Reference
+===============================================================================
+
+
+Properties
+---------------------------------------
+
+``outputTypes``:
+
+    An enumeration (object) for use in determining output types.  Valid values
+    are "Base64", "Hex", "String", and "Raw" i.e.
+    dojo.crypto.Blowfish.outputTypes.Base64.
+
+
+Methods
+---------------------------------------
+
+``encrypt(data, key, outputType)``:
+
+    Encrypts ``data`` using ``key``, and returns a string of form
+    ``outputType``.
+
+    ``data``:
+        A string of data to encrypt.
+
+    ``key``:
+        A string representing the key with which to encrypt the message.
+
+    ``outputType``:
+        An integer representing the type of output (see outputTypes, above).
+        Optional, defaults to dojo.crypto.Blowfish.outputTypes.Base64.
+
+    *return*:
+        A string encoded according to the passed outputType.
+	
+``decrypt(data, key, inputType)``:
+
+    Decrypts ``data`` using ``key``, and returns a string.  Input string can be
+    specified using ``inputType``, default is
+    dojo.crypto.Blowfish.outputTypes.Base64.
+
+    ``data``:
+        A string of data to decrypt.
+
+    ``key``:
+        A string representing the key with which to decrypt the message.
+
+    ``integerType``:
+        An integer representing the form of input (see outputTypes, above).
+        Optional, defaults to dojo.crypto.Blowfish.outputTypes.Base64.
+
+    *return*:
+        A string.
+	
+
+Requires
+===============================================================================
+
+No requirements.
+
+Provides
+===============================================================================
+
+dojo.crypto.Blowfish
+    Singleton pattern object to perform Blowfish encryption and decryption.
+
+
+To Do
+===============================================================================
+
+Implement other cipher block modes.
+
+About
+===============================================================================
+
+:Author: Thomas R. Trenka, Ph.D.
+:Version: 0.2
+:Copyright: Dojo Foundation, 200x
+:Date: 2005/12/12
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

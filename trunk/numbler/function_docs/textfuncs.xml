@@ -1,0 +1,134 @@
+<div id="contentcon"><div>
+  
+  
+
+  
+  
+  <div><div>
+      <h3>PROPER</h3>
+      <div>
+    convert text_value to it's proper format, meaning the first character of every letter is converted to upper case.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">PROPER(</span><span class="synreq">text_value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">text_value</span>
+    <span class="argdesc">Any value that evaluates to a text value, either text enclosed in quotation marks or reference to a cell or formula that computes a text value</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>INDIRECT</h3>
+      <div>
+    convert's ref_text to a real cell reference.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">INDIRECT(</span><span class="synreq">ref_text</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">ref_text</span>
+    <span class="argdesc">ref_text can be a text value (e.g "A4") or a cell reference that refers to another cell.</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><div>Use INDIRECT if you want to make sure that a cell reference never gets translated if you move the formula around the spreadsheet.  To always refer to C12 use =INDIRECT('C12')</div></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>CONCATENATE</h3>
+      <div>
+    concatenate one or more text values together into one text value.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">CONCATENATE(text1,text2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">text1,text2,...</span>
+    <span class="argdesc">any value that can be converted to a text value (e.g numbers, dates, etc)</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><div>CONCATENATE is supported for backwards compatability with existing spreadsheet programs.  Numbler supports the native ampersand operator to join strings, eg ="hello"&amp;" "&amp;"world".</div></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>LEFT</h3>
+      <div>
+    return the first N characters in text_value.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">LEFT(</span><span class="synreq">text_value,</span><span class="synopt">num_chars</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">text_value</span>
+    <span class="argdesc">the target text value</span>
+  </div><div>
+    <span class="funcarg">num_chars</span>
+    <span class="argdesc">the number of characters from the left (beginning) to return.  If num_chars is omitted the default value is 1.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>RIGHT</h3>
+      <div>
+    return the last N characters in text_value.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">RIGHT(</span><span class="synreq">text_value,</span><span class="synopt">num_chars</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">text_value</span>
+    <span class="argdesc">text target text value</span>
+  </div><div>
+    <span class="funcarg">num_chars</span>
+    <span class="argdesc">the number of characters from the right (end) to return.  If num_chars is omitted the default value is 1.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>HYPERLINK</h3>
+      <div>
+    Create a hyperlink.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">HYPERLINK(</span><span class="synreq">link,</span><span class="synopt">name</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">link</span>
+    <span class="argdesc">location of link.  You must include the HTTP specifier to create a web link.</span>
+  </div><div>
+    <span class="funcarg">name</span>
+    <span class="argdesc">the name of the link.  If name is not specified the link will be displayed as the name.</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><div>Numbler natively supports hyperlinks that are directly typed into a cell.  The HYPERLINK function is provided for backwards compatability and when you want to name a link.</div></div>
+    </p>
+  </div>
+      
+    </div></div>
+</div></div>

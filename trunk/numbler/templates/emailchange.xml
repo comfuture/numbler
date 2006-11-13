@@ -1,0 +1,11 @@
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+<body style="  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;font-size:14px">
+<div style="padding-top:20px">
+
+This email is notifying that you have changed your email address registered with <span n:render="linkname"/> to <span style="font-weight:bold"><n:invisible n:render="newmail"/></span>.<br/>
+If you do not wish to change your email address you can ignore this message.<br/>
+<br/>
+If you did not request the email address change please contact <span n:render="supportemail"/>.<br/>
+</div>
+</body>
+</html>

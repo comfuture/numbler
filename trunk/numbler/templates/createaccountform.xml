@@ -1,0 +1,57 @@
+  <div xmlns:n="http://nevow.com/ns/nevow/0.1" xmlns:athena="http://divmod.org/ns/athena/0.7" n:render="liveFragment">
+  <p id="aftercreate" style="display:none">
+    Your account has been created and a verification email has been sent to your address.  Before you can continue you must verify your email address by following the instructions in the email.  If for some reason you do not believe you received an email from Numbler please check your junk mail or spam folder.  In some rare cases email from Numbler may be blocked by your ISP.  In this case send mail to <a href="mailto:support@numbler.com">support@numbler.com</a> or send us a message from the <a href="/feedback">contact page.</a>
+  </p>
+  <p id="accChanged" style="display:none">
+    Your account settings have been updated.  You might like to return to your <a href="/myaccount">account</a> page.
+  </p>
+  <div id="emailchanged" style="display:none">
+    <p>
+      Your account settings have been updated.  Since you changed your email address you must confirm the new address.  An email has been sent to your old address regarding the change as well as a verification email to the new address.  Please follow the instructions to verify your new mail address.</p>
+    <p class="important">If you didn't mean to change your email address you can ignore this message.  Your email address will only be changed once you confirm the new address.</p>
+  </div>
+  <div id="listpendingsheets" style="display:none;width:100%;margin-bottom:20px">
+    <p>The following sheets will be added to your account when your email address is verified:</p>
+  </div>
+  
+  <form action='' method="" enctype="multiple/form-data" name="createaccount" id="createaccount">
+    <p id='createaccintro'>
+      Please fill in the following information to create a Numbler account.
+    </p>
+    <p id='modifyaccintro' style="display:none">
+      You can change your personal information here.  If you change your email you must verify the new address before it will take effect.
+    </p>
+    <div id="formcontents" n:render="theform">
+      <div class="createlabel">Your email address</div>
+      <input type="text" class="sheettext inputs" name="useremail" id="emailinput">
+	<n:attr name="value"><n:slot name="emailaddr"/></n:attr>
+      </input>
+      <div class="example">Your email address is used to login into Numbler</div>
+      <div style="clear:both"/>
+      <div class="createlabel">Password:</div>
+      <input type="password" class="sheettext inputs" name="password1" id="password1"/><div style="clear:both"/>
+      <div class="createlabel">confirm:</div>
+      <input type="password" class="sheettext inputs" name="password2" id="password2"/>
+      <div style="clear:both"/>
+      <div class="createlabel">Your name:</div>
+      <input type="text" class="sheettext inputs" name="nick" id="nick"/><div class="example">Example: Bob</div><div style="clear:both"/>
+      <div style="clear:both"/>
+      <div class="createlabel">Language:</div>
+      <select class="sheettext inputs" n:render="langoptions" id="langselect" style="width:300px">
+      </select>
+      <!-- <div class="example">English (American)</div> -->
+      <div style="clear:both"/>
+      <div class="createlabel">Time zone:</div>
+      <select class="sheettext inputs" n:render="timezones" style="width:300px" id="tzselect">
+      </select>
+      <!-- <div class="example">EST (eastern standard time)</div> -->
+      <div style="clear:both"/>
+      <div class="createlabel">&#160;</div>      
+      <input type="submit" name="submit" value="submit" id="processform"/> 
+      <div style="clear:both"/>	
+      <div class="createlabel">&#160;</div>
+      <div id="error"/>
+      <div style="clear:both"/>	
+    </div>
+  </form>
+  </div>

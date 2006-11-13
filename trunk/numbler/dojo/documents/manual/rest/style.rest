@@ -1,0 +1,547 @@
+.. title:: dojo.style -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.style - a number of convenience methods available to retrieve and set 
+styles.
+
+Summary and Overview
+===============================================================================
+
+This namespace contains methods and properties related to getting and setting 
+css properties, style sheet object model manipulations, and dimensions and 
+other properties that are not as easily determined through normal css methods.
+
+There are several methods used to determine the dimensions of a box.  There are 
+a large number of issues currently in flux with this approach:
+
+The following several function use the dimensions shown below
+
+.. does this break rest?:
+
+Box diagram::
+
+    +-------------------------+
+    |  margin                 |
+    | +---------------------+ |
+    | |  border             | |
+    | | +-----------------+ | |
+    | | |  padding        | | |
+    | | | +-------------+ | | |
+    | | | |   content   | | | |
+    | | | +-------------+ | | |
+    | | +-|-------------|-+ | |
+    | +-|-|-------------|-|-+ |
+    +-|-|-|-------------|-|-|-+
+    | | | |             | | | |
+    | | | |<- content ->| | | |
+    | |<------ inner ------>| |
+    |<-------- outer -------->|
+    +-------------------------+
+
+content-box::
+
+    |m|b|p|             |p|b|m|
+    | |<------ offset ----->| |
+    | | |<---- client --->| | |
+    | | | |<-- width -->| | | |
+
+border-box::
+
+    |m|b|p|             |p|b|m|
+    | |<------ offset ----->| |
+    | | |<---- client --->| | |
+    | |<------ width ------>| |
+
+General:
+    - Uncomputable values are returned as NaN.
+    - setOuterWidth/Height return *false* if the outer size could not be
+      computed, otherwise *true*.
+    - Finding the calculated values for auto-margins is not beleived to be
+      practical. 
+    - All returned values are floating point in 'px' units. If a non-zero
+      computed style value is not specified in 'px', NaN is returned.
+
+Firefox:
+    - styles specified as '0' (unitless 0) show computed as '0pt'.
+
+IE:
+    - clientWidth/Height are unreliable (0 unless the object has 'layout').
+    - margins must be specified in px, or 0 (in any unit) for any sizing
+      function to work. Otherwise margins detect as 'auto'.
+    - padding can be empty or, if specified, must be in px, or 0 (in any unit)
+      for any sizing function to work.
+
+Safari:
+    - Safari defaults padding values to 'auto'.
+
+These work for most elements (e.g. DIV) but not all (e.g. TEXTAREA)
+
+Usage
+===============================================================================
+
+::
+
+    var nodeBoxSizingModel = dojo.style.getBoxSizing(node);
+
+
+API Reference
+===============================================================================
+
+Properties
+---------------------------------------
+
+``boxSizing``:
+	string representing the box model in use
+
+Methods
+---------------------------------------
+
+``getBoxSizing(node)``:
+
+    getBoxSizing accepts a node, and returns a string representing the box 
+		model currently in use.
+
+    ``node``:
+        A DOM node.
+
+    *returns*:
+        string of margin-box, border-box, padding-box, or content-box
+
+``isBorderBox(node)``:
+
+    isBorderBox accepts a node, and returns a boolean if the box sizing model 
+		for this node equals border-box.
+
+    ``node``:
+        A DOM node.
+
+    *returns*:
+        boolean
+
+``getUnitValue(element, cssSelector, autoIsZero)``:
+
+    Attempts to determine the computed value,for a specific element, of a
+    specified selector.
+
+    ``element``:
+        A DOM element.
+
+    ``cssSelector``:
+        String. CSS selector to check against, for example "font-size".
+
+    ``autoIsZero``:
+        Boolean. Speicifies whether or not auto should be treated as zero.
+
+    *return*:
+        Object with value and units properties.
+
+``getPixelValue(element, cssSelector, autoIsZero)``:
+
+    Calls ``getUnitValue``, and if ``isNaN`` is returned for the value, returns
+    the value (and not the units).
+
+    ``element``:
+        A DOM element.
+
+    ``cssSelector``:
+        String. Css selector to check against, for example "font-size".
+
+    ``autoIsZero``:
+        Boolean. Speicifies whether or not auto should be treated as zero.
+
+    *return*:
+        Integer value, or NaN
+
+``isPositionAbsolute(node)``:
+
+    Determines if an element is positioned absolutely, or not.
+
+    ``node``:
+        A DOM node.
+
+    *return*:
+        Boolean
+
+``getMarginWidth(node)``:
+
+    Returns the total width of margins (in px) on the left and right sides of
+    the passed ``node``.
+
+    ``node``:
+        A DOM node.
+
+    *return*:
+        Integer value, or NaN
+
+``getBorderWidth(node)``:
+
+    Returns the total width of borders (in px) on the left and right sides of
+    the passed ``node``.
+
+    ``node``:
+        A DOM node.
+
+    *return*:
+        Integer value, or NaN
+
+``getPaddingWidth(node)``:
+
+    Returns the total width of padding (in px) on the left and right sides of
+    the passed ``node``.
+
+    ``node``:
+        A DOM node.
+
+    *return*:
+        Integer value, or NaN
+
+``getContentBoxWidth(node)``:
+
+    Returns the total width of the content of ``node`` in px. Does not include
+    margins or padding.
+
+    ``node``:
+        A DOM node.
+
+    *return*:
+        Integer value, or NaN
+
+``getBorderBoxWidth(node)``:
+
+    The "content" width, potentially including margins and padding.
+
+    ``node``:
+        A DOM node.
+
+    *return*:
+        Integer value, or NaN
+
+``getMarginBoxWidth(node)``:
+
+    The "content" width, potentially including margins and padding.
+
+    ``node``:
+        A DOM node.
+
+    *return*:
+        Integer value, or NaN
+
+``setMarginBoxWidth(node, pxWidth)``:
+
+    Sets the total width of ``node``, including margins and padding, but not
+    borders.
+
+    ``node``:
+        A DOM node.
+
+    ``pxWidth``:
+        Integer or String representing the width in pixels.
+
+    *returns*:
+        Integer value, or NaN
+
+``getMarginHeight(node)``:
+
+    Returns the total height of margins (in px) on the top and bottom of the
+    passed ``node``.
+
+    ``node``:
+        A DOM node.
+
+    *return*:
+        Integer value, or NaN
+
+``getBorderHeight(node)``:
+
+    Returns the total height of borders (in px) on the top and bottom of the
+    passed ``node``.
+
+    ``node``:
+        A DOM node.
+
+    *return*:
+        Integer value, or NaN
+
+``getPaddingHeight(node)``:
+
+    Returns the total height of padding (in px) on the top and bottom of
+    the passed ``node``.
+
+    ``node``:
+        A DOM node.
+
+    *return*:
+        Integer value, or NaN
+
+``getContentBoxHeight(node)``:
+
+    Returns the total height of the content of ``node`` in px. Does not include
+    margins or padding.
+
+    ``node``:
+        A DOM node.
+
+    *return*:
+        Integer value, or NaN
+
+``getBorderBoxHeight(node)``:
+
+    The "content" height, potentially including margins and padding.
+
+    ``node``:
+        A DOM node.
+
+    *return*:
+        Integer value, or NaN
+
+``getMarginBoxHeight(node)``:
+
+    The "content" height, potentially including margins and padding.
+
+    ``node``:
+        A DOM node.
+
+    *return*:
+        Integer value, or NaN
+
+``setMarginBoxHeight(node, pxHeight)``:
+
+    Sets the total Height of ``node``, including margins and padding, but not
+    borders.
+
+    ``node``:
+        A DOM node.
+
+    ``pxHeight``:
+        Integer or String representing the height in pixels.
+
+    *return*:
+        Integer value, or NaN
+
+``getTotalOffset(node, type, includeScroll)``:
+
+    Returns the cumulative offset of ``node`` from the document's root
+    coordinate space. If ``includeScroll`` is true, the position in containers
+    includes offset due to content scrolling.
+
+    ``node``:
+        A DOM node.
+
+    ``type``:
+        String. Can be either "left" or "top".
+
+    ``includeScroll``:
+        Boolean. Should ``node`` container scrolling be accounted for? Defaults
+        to false.
+
+    *return*:
+        Integer.
+
+``totalOffsetLeft(node, includeScroll)``:
+
+    Returns the cumulative left offset of ``node``.
+
+    ``node``:
+        A DOM node.
+
+    ``includeScroll``:
+        Boolean. Should ``node`` container scrolling be accounted for? Defaults
+        to false.
+
+    *return*:
+        Integer.
+
+``totalOffsetTop(node, includeScroll)``:
+
+    Returns the cumulative top offset of ``node``.
+
+    ``node``:
+        A DOM node.
+
+    ``includeScroll``:
+        Boolean. Should ``node`` container scrolling be accounted for? Defaults
+        to false.
+
+    *return*:
+        Integer.
+
+``getAbsolutePosition(node, includeScroll)``:
+
+    Returns the cumulative left and top offsets of ``node``.
+
+    ``node``:
+        A DOM node.
+
+    ``includeScroll``:
+        Boolean. Should ``node`` container scrolling be accounted for? Defaults
+        to false.
+
+    *return*:
+        Array object. Index ``0`` is the x-axis offset and ``1`` is the y-axis
+        offset.
+
+``insertCssFile(uri, doc, checkForDuplicates)``:
+
+    Attempts to load the CSS style sheet located at ``uri`` into ``doc``, even
+    after the page has loaded. If ``checkForDuplicates`` is true, the method
+    attempts to avoid avoid re-requesting the style sheet.
+
+    ``uri``:
+        String.
+
+    ``doc``:
+        Optional. DOM Document. Defaults to ``document``.
+
+    ``checkForDuplicates``:
+        Boolean
+
+    *return*:
+        Nothing
+
+``getBackgroundColor(node)``:
+
+    Returns the RGB-encoded value for the background color of ``node``. If
+    ``node`` itself does not specify a background color, the parents of ``node``
+    are searched untl the controlling background color can be located.
+
+    ``node``:
+        A DOM Node.
+
+    *return*:
+        String.
+
+``getComputedStyle(node, selector, defaultValue)``:
+
+    Returns the string value of the currently computed style for ``selector``.
+
+    ``node``:
+        A DOM Node.
+
+    ``selector``:
+        String.
+
+    ``defaultValue``:
+        String.
+
+    *return*:
+        String.
+
+``getStyle(node, selector)``:
+
+    Returns the explicitly set value of ``selector`` on ``node``. Failing that,
+    get the computed style.
+
+    ``node``:
+        A DOM Node.
+
+    ``selector``:
+        String.
+
+    *return*:
+        String.
+
+``toCamelCase(str)``:
+
+    *return*:
+        String.
+
+``toSelectorCase(str)``:
+
+    *return*:
+        String.
+
+``setOpacity(node, opacity, preventOpacityFix)``:
+
+    Many HTML user agents support alpha-channel compositing of HTML elements.
+    This method make the passed ``node`` as transparent as the listed
+    ``opacity`` suggested, with 0.0 being fully transparent and 1.0 being fully
+    opaque. If ``preventOpacityFix`` is true, no work will be done to ensure
+    that it's possible to actually set the opacity of the node to the passed
+    ``opacity``.
+
+    ``node``:
+        A DOM Node.
+
+    ``opacity``:
+        Number between 0.0 and 1.0
+    
+    ``preventOpacityFix``:
+
+    *return*:
+        Nothing
+
+``getOpacity(node)``:
+
+    *return*:
+        Number between 0.0 and 1.0
+    
+``clearOpacity(node)``:
+    
+    Makes ``node`` completely opaque, with the additonal benefit of improving
+    compositing performance for rendering ``node`` on some HTML user agents.
+
+    *return*:
+        Nothing
+    
+``insertCssRule(selector, declaration, index)``:
+
+    Inserts the ``declaration`` for ``selector`` at ``index``. May be removed or
+    modified in future releases!
+
+    ``selector``:
+        String.
+
+    ``declaration``:
+        String.
+
+    ``index``:
+        Integer.
+
+    *return*:
+        Nothing
+
+``removeCssRule(index)``:
+
+    Removes the rule at ``index``. May be removed or modified in future
+    releases!
+
+    ``index``:
+        Integer.
+
+    *return*:
+        Nothing
+
+.. FIXME: a whole bunch more to add here
+				
+Requires
+===============================================================================
+
+- `dojo.dom`_
+- `dojo.uri.Uri`_
+- `dojo.graphics.Color`_
+
+.. _`dojo.dom`:	dom.html
+.. _`dojo.uri.Uri`:	uri.Uri.html
+.. _`dojo.graphics.color`:	graphics.color.html
+
+Provides
+===============================================================================
+
+dojo.style
+    CSS and style methods for HTML environments
+
+About
+===============================================================================
+
+:Author: Dylan Schiemann
+:Version: 0.2
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/24
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

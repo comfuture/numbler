@@ -1,0 +1,351 @@
+.. title:: dojo.widget.html.TimePicker -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.widget.html.TimePicker - A stand-alone TimePicker widget that makes it 
+easy to select a time.
+
+Summary and Overview
+===============================================================================
+
+UI and convenience methods for a basic time picker widget.  Much of the 
+validation and conversion methods contained within are pretty primitive or are 
+oversimplified, but perhaps sufficient for the simple nature of this widget.
+
+.. _`RFC 3339`:	http://www.faqs.org/rfcs/rfc3339.html
+
+
+
+Usage
+===============================================================================
+
+::
+
+  var timePicker = dojo.widget.createWidget("TimePicker", {},  
+  dojo.byId("timePickerNode"));
+
+or::
+
+  <div dojoType="TimePicker"></div>
+																		
+
+API Reference
+===============================================================================
+
+Properties
+---------------------------------------
+
+``time``:
+
+    A JavaScript Date object representing the current time, based on the date 
+    of the client computer
+
+``useDefaultTime``:
+
+    A flag, true will set a default time
+
+``useDefaultMinutes``:
+
+    A flag, true will set a default time with minutes equal to the current time,
+    false will set to 0.  Default is false.
+
+``storedTime``:
+
+    An `RFC 3339`_ Date (2005-06-30T08:05:00-07:00 ) representing the 
+		currently stored time for the TimePicker
+
+``currentTime``:
+
+    An object representing the currently selected date as it appears in the 
+		user interface.  hours, minutes, and seconds properties are set on this object in the format that will be displayed.
+
+``selectedTime``:
+
+    An object representing the dom node indecies for the selection hour, 
+		minute, am/pm, and "any time" option.
+
+``any``:
+
+    A string representing the text that should be placed into storedTime if 
+		the anyTime option is selected.
+
+``classNames``:
+
+    An object representing the CSS class names for the selected time.
+
+``templatePath``:
+
+    dojo.uri.dojoUri object representing the url for the html template for a 
+		TimePicker widget.
+		
+``templateCssPath``:
+
+    dojo.uri.dojoUri object representing the url for the css to be used for a 
+		TimePicker widget.
+
+Methods
+---------------------------------------
+
+``fillInTemplate(param)``:
+
+    Standard widget initialization function that allows the data and UI to be 
+		initialized after the template has been loaded.
+
+    no parameters
+
+    *returns*:
+        null
+				
+				
+``initData()``:
+
+    Initializes the time data for the TimePicker widget instance.  For example, 
+		if there is not already a value for storedTime, it is populated with 
+		today's date from the client, or the time is set to "any time", depending 
+		on the state of the useDefaultTime boolean.
+
+    no parameters
+
+    *returns*:
+        null
+				
+
+``initUI()``:
+
+    Initializes the TimePicker user interface (UI).  Sets the state of the 
+		selected hour, minute, am/pm, and any time selectors.
+
+		no parameters
+				
+    *returns*:
+        null
+
+``setDateTime(rfcDate)``:
+
+    Sets the value for storedTime to the rfcDate parameter that is passed. This 
+		is useful as it makes it easy to attach a dojo.event.connect statement to 
+		setDateTime to watch for changes to the storedTime value.
+
+    ``rfcDate``:
+        A date in `RFC 3339`_ format
+
+    *returns*:
+        null
+
+``onClearSelectedHour(evt)``:
+
+    Event handler for clearing the selected hour.
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+
+``onClearSelectedMinute(evt)``:
+
+    Event handler for clearing the selected minute.
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+
+``onClearSelectedAmPm(evt)``:
+
+    Event handler for clearing the am/pm selection.
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+				
+``onClearSelectedAnyTime(evt)``:
+
+    Event handler for clearing the any time selection.
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+
+``clearSelectedHour()``:
+
+    Recurses through the hour nodes in the TimePicker UI and deselects them all.
+
+    no parameters
+
+    *returns*:
+        null
+				
+``clearSelectedMinute()``:
+
+    Recurses through the minute nodes in the TimePicker UI and deselects them all.
+
+    no parameters
+
+    *returns*:
+        null
+
+``clearSelectedHour()``:
+
+    Deselects the AM and PM nodes in the TimePicker UI.
+
+    no parameters
+
+    *returns*:
+        null
+
+``clearSelectedHour()``:
+
+    Deselects the "any time" nodes in the TimePicker UI.
+
+    no parameters
+
+    *returns*:
+        null
+				
+``onSetSelectedHour(evt)``:
+
+    Event handler for setting the selected hour.
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+
+``setSelectedHour(evt)``:
+
+   Set the selected hour in the UI, and for selectedTime.
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+
+``onSetSelectedMinute(evt)``:
+
+    Event handler for setting the selected minute.
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+
+``setSelectedMinute(evt)``:
+
+   Set the selected minute in the UI, and for selectedTime.
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+				
+``onSetSelectedAmPm(evt)``:
+
+    Event handler for setting the selected am/pm option.
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+
+``setSelectedAmPm(evt)``:
+
+   Set the selected amp/pm in the UI, and for selectedTime.
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+				
+``onSetSelectedAnyTime(evt)``:
+
+    Event handler for selecting the "any time" option.
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+
+``setSelectedAntTime(evt)``:
+
+   Set the "any time" option in the UI, and for selectedTime.
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+				
+``onClick(evt)``:
+
+    Default click event handler that prevents click events from propagating 
+		up the UI tree, or that can be connected to through dojo.event.connect to 
+		listen for other click events.
+
+    ``evt``:
+        DOM event object
+
+    *returns*:
+        null
+				
+``onSetTime(evt)``:
+
+    Event handler that listens for clicks on the actual time nodes items, and 
+		determines how to change the UI of the TimePicker, as well as the 
+		storedTime.  Calls are then made to reinitialize the UI.
+
+    ``evt``:
+        DOM event object
+
+    *returns*:
+        null
+
+Requires
+===============================================================================
+
+- `dojo.widget`_
+- `dojo.widget.HtmlWidget`_
+- `dojo.widget.TimePicker`_
+- `dojo.event`_
+- `dojo.html`_
+
+.. _`dojo.widget`:	widget.html
+.. _`dojo.widget.HtmlWidget`:	widget/HtmlWidget.html
+.. _`dojo.widget.date`:	widget/TimePicker.html
+.. _`dojo.event`:	event.html
+.. _`dojo.html`:	html.html
+
+Provides
+===============================================================================
+
+dojo.widget.html.TimePicker
+    A class constructor that allows a widget of type 
+		dojo.widget.html.TimePicker to be created.
+
+
+About
+===============================================================================
+
+:Author: Dylan Schiemann
+:Version: 0.2
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/30
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

@@ -1,0 +1,9 @@
+<div id="contentcon" style="padding-right:50px;padding-bottom:30px;margin-bottom:-20px"  xmlns:n="http://nevow.com/ns/nevow/0.1">
+  <div style="float:right;margin-top:20px;margin-left:50px;margin-bottom:20px"></div>
+  <div>
+    <p>Numbler version information:</p>
+    <table>
+      <n:invisible n:render="installed_software"/>
+    </table>
+  </div>
+</div>

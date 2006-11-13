@@ -1,0 +1,40 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1" id="loginparent">
+  <n:invisible n:pattern="loginerror">
+    Email and password do not match
+  </n:invisible>
+  <n:invisible n:pattern="welcome">
+    <div class="accmessage">
+      <div class="smaller">Already a member?</div>
+      <div class="smaller">Sign in to access your sheets</div>    
+    </div>
+  </n:invisible>
+  <n:invisible n:pattern="welcomepublic">
+    <div class="accmessage">
+      <div class="smaller">Please sign in to your account</div>    
+    </div>
+  </n:invisible>
+
+
+  <div id="loginpanel">
+    <n:invisible n:render="message"/>
+    <form method="POST" enctype="multipart/form-data"  name="createsheet" n:render="formattrs">
+      <n:attr name="action"><n:slot name="action"/></n:attr>
+      <div class='logindisp'>Your email address</div>
+      <div class="logininput"><input n:render="emailaddr" type="text" value='' name="user"/></div>
+      <div class="logindisp">Password:</div>
+      <div class="logininput"><input type="password" name="passwd"/></div>
+      <div class="logininput" style="width:170px">
+	<input type="checkbox" name="remembermail" n:render="checkbox">
+	</input>
+	<span class="logindisp">Remember email</span>
+      </div>
+      <div class="loginerror" n:render="error"/><div style="clear:both"/>
+      <div style="padding-bottom:5px"><a href="/resetpasswd" style="font-size:12px">Forgot your password?</a></div>
+      <input class="button" type="image" name="submit" value="create" src="img/buttons/signin.jpg"/>
+      <input type="hidden" name="frompost" value="true"/>
+      <input type="hidden" name="embedcontinue">
+	<n:attr name="value"><n:slot name="continueURL"/></n:attr>
+      </input>
+    </form>
+  </div>
+</div>

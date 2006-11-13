@@ -1,0 +1,11 @@
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+<body style="  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;font-size:14px">
+<div style="padding-top:20px">
+Thank you for creating an account at <span n:render="org"/><br/>
+<br/>
+In order to activate your account please click (or paste into your browser) this link: <br/>
+<br/>
+<span n:render="link"/>.
+</div>
+</body>
+</html>

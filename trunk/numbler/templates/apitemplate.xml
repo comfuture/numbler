@@ -1,0 +1,14 @@
+<xml xmlns:n="http://nevow.com/ns/nevow/0.1">
+  <sheet n:pattern="sheet" n:render="sheet">
+    <n:attr name="guid"><n:slot name="guid"/></n:attr>
+    <n:attr name="name"><n:slot name="name"/></n:attr> 
+  </sheet>
+  <cell n:pattern="cell" n:render="cell">
+    <n:attr name="col"><n:slot name="col"/></n:attr>
+    <n:attr name="row"><n:slot name="row"/></n:attr>
+    <n:attr name="formula"><n:slot name="formula"/></n:attr>
+    <n:attr name="value"><n:slot name="value"/></n:attr>
+  </cell>
+
+<n:invisible n:render="content"/>
+</xml>

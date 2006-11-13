@@ -1,0 +1,9 @@
+User-agent: *
+# Disallow: /trac/browser
+# Disallow: /trac/log
+# Disallow: /trac/changeset
+# Disallow: /trac/file
+Disallow: /trac
+Disallow: /svn/dojo/
+Disallow: /viewcvs
+Disallow: /cgi-bin/

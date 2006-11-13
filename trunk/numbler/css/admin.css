@@ -1,0 +1,269 @@
+
+html {
+  height:100%;
+  background-color: #d5d6d7;
+}
+
+a { 
+  color:#808080;
+}
+a:hover { 
+  color:#17A8DE;
+}
+
+/* Begin Typography & Colors */
+body {
+  font-size: 100%;  /* Resets 1em to 10px */
+  /*font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;*/
+  font-family: Arial,Tahoma,Sans-Serif,'Lucida Grande', Verdana;
+  color: #333;
+  margin: 10px auto;
+  height: 650px;
+  background-color:white; 
+/*  border: 1px solid gray;*/
+  text-align: left;
+  padding-top: 20px;
+  width:800px;
+}
+
+p,ul,li{ 
+  font-size: 16px;
+  /*font-family: 'Lucida Grande',verdana,arial,hevetica,snas-serif;*/
+  color: #333333;
+}
+
+ul,li { 
+}
+
+table { 
+  margin:0;
+  padding:0;
+  width:800px;
+}
+
+.contentrow { 
+  width:800px;
+}
+
+
+form .label {
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.faq  { 
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  padding:0;margin:0;
+  padding-bottom:10px;
+}
+.faq a { 
+  color:#808080;
+}
+.faq a:hover { 
+  color:#17A8DE;
+}
+
+input .sheettext {
+  width: 215px;
+}
+#sheetname { 
+  display: inline;
+}
+
+#sheetname .label,#sheetuser .label,#useremail .label { 
+  font-size:14px;
+  color:#17A8DE;
+}
+
+#sheetuser { 
+  display: inline;
+}
+
+.submitimport { 
+  float: left;
+}
+
+.importfailure { 
+  background-color: yellow;
+}
+
+#importwarnheader { 
+  padding:20px;
+  background-color: #FFFFE1;
+  margin-right:20px;
+}
+
+.importwarn { 
+  font-size:80%;
+}
+
+#contentcon { 
+  background-color:white;
+  padding-bottom:10px;
+  padding-left:25px;
+ /* padding-right:25px; this should be here but may cause other side effects*/
+
+}
+
+#contentcon #leftpanel { 
+  float:left;
+  width:497px;
+  margin-right:25px;
+}
+
+#contentcon #rightpanel { 
+  float:left;
+  width:228px;
+  background-color:#eee;
+  padding-top:25px;
+}
+
+#signinpanel { 
+  float:left;
+  width:228px;
+  margin-top:25px;
+  background-color: #d2eef9;
+}
+#signininner { 
+  margin:25px;
+ }
+
+
+.emphasized { 
+  color:#17A8DE;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.formlabel { 
+  float:left;
+  color:#707070;
+  font-weight:bold;
+  font-size:14px;
+  width:160px;
+  margin-top:5px;
+}
+
+
+
+#rightpanel p { 
+  color:#17A8DE;
+  font-size:14px;
+  font-weight:bold;
+}
+
+#rightinner { 
+  margin:20px;
+}
+
+
+.smaller { 
+  font-size:12px;
+  font-weight:bold;
+  color:#707070;
+}
+
+
+.bcheck { 
+  background-color:#ecf2a7;
+  border:0px;
+  display:none;
+}
+.bcheck p { 
+  padding-left:5px;padding-right:5px;
+}
+
+#safari { display:none; }
+#opera {  display:none; }
+
+#multisheets { 
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+#multisheets span { 
+  padding-left:10px;
+}
+
+
+.topic { 
+  font-size:14px;
+  margin-left:-25px;
+  font-weight:bold;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.supportheader { 
+  font-size:12px;
+}
+.supportheader ol li { 
+  font-size:12px;
+}
+
+.stitle { 
+  font-weight:bold;
+  font-size:12px;
+  padding:0;margin:0;
+}
+
+.supportlnk { 
+  font-size:12px;
+  padding:0;
+  margin:0;
+  margin-bottom:10px;
+}
+.supportlnk p{ 
+  margin-bottom:0;
+  margin-top:5px;
+  padding:0;
+  font-size:12px;
+  margin-left:10px;
+}
+
+.doctable { 
+  border:1px solid #C0C0C0;
+  width:750px;
+  margin:0;
+  padding:0;
+}
+.doctable th { 
+  padding:5px;
+}
+
+.doctable td {
+  border-top: 1px solid #C0C0C0;
+  padding:5px;
+  margin:0;
+  spacing:0;
+}
+
+.doctable #col1 { 
+  border-right: 1px solid #C0C0C0;
+  width:100px;
+}
+
+.preform { 
+  padding-right:2px;
+  font-family: Courier;
+  padding-left:2px;
+  color:#9F9F9F;
+  font-weight:bold;
+}
+
+#feedback { 
+  padding:0;margin:0;border:0;
+  width:600px;
+}
+
+#feedback #col1 { 
+  width:120px;
+}
+
+#feedback tr,#feedback td { 
+  padding:0;margin:0;border:0;
+}
+

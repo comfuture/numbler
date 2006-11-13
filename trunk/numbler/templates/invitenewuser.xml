@@ -1,0 +1,12 @@
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+<body style="  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;font-size:14px">
+<div style="padding-top:20px">
+<span n:render="username"/> has invited you to collaborate on a spreadsheet named <span style="font-weight:bold"><span n:render="sheetname"/></span>.
+  
+Because this spreadsheet is private you must create an account before continuing.  
+Please visit <span n:render="createaccount"/> to create an account.  
+
+This spreadsheet will be available from your "My Account" page after your account information has been verified.
+</div>
+</body>
+</html>

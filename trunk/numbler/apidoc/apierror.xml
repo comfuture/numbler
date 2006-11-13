@@ -1,0 +1,52 @@
+<div>
+  <h3>Numbler web service error codes</h3>
+  <table cellpadding="0" cellspacing="0" id="apierrors">
+    <tr>
+      <th>Error Condition</th>
+      <th>HTTP error code</th>
+      <th>Numbler error code</th>
+    </tr>
+    <tr>
+      <td>Access denied to the requested sheet</td>
+      <td>403</td>
+      <td>4001</td>
+    </tr>
+    <tr>
+      <td>Attempted access to a private sheet without authentication headers</td>
+      <td>401</td>
+      <td>4002</td>
+    </tr>
+    <tr>
+      <td>Invalid authorization signature</td>
+      <td>401</td>
+      <td>4003</td>
+    </tr>
+
+    <tr>
+      <td>An account was not found for the given access id</td>
+      <td>401</td>
+      <td>4004</td>
+    </tr>
+    <tr>
+      <td>The XML request is malformed</td>
+      <td>400</td>
+      <td>4005</td>
+    </tr>
+    <tr>
+      <td>not possible to delete a sheet via the webservices API</td>
+      <td>403</td>
+      <td>4006</td>
+    </tr>
+    <tr>
+      <td>Sheet not found</td>
+      <td>404</td>
+      <td>4007</td>
+    </tr>
+    <tr>
+      <td>The server encountered an internal error</td>
+      <td>500</td>
+      <td>5000</td>
+    </tr>
+
+  </table>
+</div>

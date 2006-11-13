@@ -1,0 +1,24 @@
+<div>
+  <h3>the REST error response</h3>
+  <p>The body of the rest error response is <span class="emph">always</span> an XML document.  The following information is transmitted:</p>
+  <ul>
+    <li>An appropriate HTTP response code (4xx, 5xx)</li>
+    <li>A Numbler specific error code.</li>
+    <li>A brief message indicating the source of the problem</li>
+  </ul>
+  <div class="example">
+    <h3>Example</h3>
+    <pre class="codesnippet">
+&lt;?xml version="1.0" charset="utf-8"?&gt;
+&lt;error&gt;
+   &lt;code&gt;4004&lt;/code&gt;
+   &lt;message&gt;An account was not found for the given user id&lt;/message&gt;
+   &lt;resource&gt;/k6HJStVnzomi62fm/API/D4&lt;/resource&gt;
+&lt;/error&gt;
+    </pre>
+    <p>for more information on error handling see the <a class="doclink" href="/apidoc/apierror">error section</a>.</p>
+  </div>
+
+
+
+</div>

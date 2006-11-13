@@ -1,0 +1,51 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="http://dojotoolkit.org/css/screen.css" media="screen">
+<link rel="stylesheet" type="text/css" href="http://dojotoolkit.org/css/print.css" media="print">
+</head>
+<body class="community">
+<!--#include virtual="/rest_template/header.html" -->
+<!-- content goes here -->
+<h1>Getting Involved Is Easy</h1>
+<p>
+	Dojo is Open Source software, and we'd love for you to get involved with
+	the project. Contributors use several tools to help keep development
+	organized, including <a
+	href="http://dojotoolkit.org/svn/dojo/trunk">Subversion</a> for source code
+	control and <a href="http://dojotoolkit.org/trac/report/6">Trac</a> for
+	bug-tracking.
+</p>
+<p>
+	Discussions about development on and with Dojo usually happens on the <a
+	href="/mailman/listinfo/dojo-interest">dojo-interest</a> list, and project
+	developers often hang out in IRC at <strong>irc.freenode.net #dojo</strong>
+</p>
+<p>
+	Dojo also depends in large part on the continued generosity of our
+	corporate sponsors who provide logistical, financial, and personnel support
+	for the project. If your organization would like to help Dojo flourish,
+	please get in touch with <a href="mailto:alex@dojotoolkit.org">Alex
+	Russell</a>.
+</p>
+<h1>Becoming A Committer</h1>
+<p>
+	Dojo is an Open Source project, so we keep our standards very high and try
+	to make decisions with community input. Therefore, in order to contribute
+	code to Dojo a developer must submit a <a
+	href="http://dojotoolkit.org/icla.txt">Contributors License Agreement</a>
+	to the Dojo Foundation. Contributors who make large contributions or who
+	have earned the respect of their peers are granted commit privileges and
+	can directly apply their changes to Dojo for everyone else to benefit from.
+	Committers are allowed to vote in Foundation matters and in general
+	determine the direction of the project.
+</p>
+<p>
+	You can find an up-to-date <a href="contributors.shtml">list of Dojo
+	committers here</a>.
+</p>
+<!-- content ends here -->
+<!--#include virtual="/rest_template/sidebar.html" -->
+<!--#include virtual="menu.html" -->
+<!--#include virtual="/rest_template/footer.html" -->
+</body>
+</html>

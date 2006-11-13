@@ -1,0 +1,417 @@
+.. title:: dojo.html -- The Dojo Manual
+
+Name
+===============================================================================
+
+dojo.html - convenience methods for HTML manipulation
+
+Summary and Overview
+===============================================================================
+
+This namespace contains methods and properties related to in-browser HTML
+manipulation. Usage in non-browser environments will have unspecified results.
+
+Usage
+===============================================================================
+
+::
+
+    FIXME: need to provide a usage example here
+
+
+API Reference
+===============================================================================
+
+Methods
+---------------------------------------
+
+``getElementsByClass(className, parent, nodeType)``:
+
+    Returns an Array of DOM Nodes, descended from ``parent``, which have been
+    given the specified ``className``. The ``nodeType`` modifier further reduces
+    the search criteria by searching only for those elements declared with a
+    particular tag name.
+
+    ``className``:
+        String.
+
+    ``parent``:
+        Optional. DOM Node. Defaults to the root of the document.
+
+    ``nodeType``:
+        Optional. String. Case insensitive tag name.
+
+    *return*:
+        Array of DOM Nodes.
+
+``body()``:
+
+    *return*:
+        A DOM Node. The body element of the current document.
+
+``createNodesFromText(text, wrap)``:
+
+    Un-serializes DOM nodes from the passed text. Analagous to the ``innerHTML``
+    property implemented in many browsers.
+
+    ``text``:
+        String. The serialized DOM to reconstruct.
+
+    ``wrap``:
+        Optional. Boolean. Defaults to ``false``. Determines if multiple
+        root-level nodes specified in ``text`` should be contained in a single
+        container ``<div>`` element, created and returned by the method.
+
+    *return*:
+        An Array of DOM Nodes. If ``wrap`` is ``true``, the returned Array will
+        contain a single element.
+
+``clearSelection()``:
+
+    Collapses any selected ranges in the current window or document.
+
+    *return*:
+        boolean indicating success or failure
+
+``disableSelection(node)``:
+
+   Ensures that selection cannot occur on the passed node.
+
+    ``node``:
+       Optional. A DOM node. Defaults to the document's body element.
+
+    *return*:
+        Boolean indicating success or failure.
+
+``enableSelection(node)``:
+
+   Ensures that selection can occur on the passed node.
+
+    ``node``:
+       Optional. A DOM node. Defaults to the document's body element.
+
+    *return*:
+        Boolean indicating success or failure.
+
+``selectElement(node)``:
+    
+    Selects the contents of the provided ``node`` in a new range.
+
+    ``node``:
+       A DOM node.
+
+    *return*:
+        ``null``
+
+``isSelectionCollapsed()``:
+    
+    Determines wether or not the the current document selection contains any
+    text.
+
+    *return*:
+        Boolean
+
+``getAncestorsByTag(node, type)``:
+
+    Returns an Array of DOM Nodes which are ancestors of ``node`` and whose
+    ``nodeName`` property (the tag name) matches ``type``. 
+
+    ``node``:
+       A DOM node.
+
+    ``type``:
+        String.
+
+    *return*:
+        An Array of DOM Nodes.
+
+``getFirstAncestorByTag(node, type)``:
+
+    Returns the first direct ancestor of ``node`` and whose ``nodeName``
+    property (the tag name) matches ``type``. 
+
+    ``node``:
+       A DOM node.
+
+    ``type``:
+        String.
+
+    *return*:
+        A DOM Node.
+
+
+
+``getEventTarget(evt)``:
+    
+    Returns the "source" of the passed DOM Event object. When using
+    ``dojo.event.connect``, this is already provided for you in the ``target``
+    attribute of the event object.
+
+    ``evt``:
+        DOM Event Object.
+
+    *return*:
+        A DOM Node
+
+``getScrollTop()``:
+    
+    Returns the number of pixels the current document is scrolled on the Y axis.
+
+    *return*:
+        ``int``
+
+``getScrollLeft()``:
+    
+    Returns the number of pixels the current document is scrolled on the X axis.
+
+    *return*:
+        ``int``
+
+``getScrollOffset()``:
+    
+    Returns the X and Y scroll offsets of the top-level viewport in pixels.
+
+    *return*:
+        Array of ``int``s, in the form ``[left, top]``
+
+``getViewportWidth()``:
+    
+    Returns the width of the top-level viewport in the current document in
+    pixels.
+
+    *return*:
+        ``int``
+
+``getViewportHeight()``:
+    
+    Returns the height of the top-level viewport in the current document in
+    pixels.
+
+    *return*:
+        ``int``
+
+``getViewportSize()``:
+    
+    Returns the width and height of the top-level viewport in the current
+    document in pixels.
+
+    *return*:
+        Array of ``int``s, in the form ``[width, height]``
+
+``getParentOfType(node, type)``:
+
+    Returns the first ancestor of the provided ``node`` whose ``nodeType``
+    matches the provided ``type``.
+
+    ``node``:
+        A DOM Node.
+
+    ``type``:
+        String. Corresponds to tag name of matching ancestor.
+
+    *return*:
+        A DOM Node. ``null`` if no matching ancestor is located.
+
+``getAttribute(node, attributeName)``:
+
+    Returns the value of the ``node``'s attribute.
+
+    ``node``:
+        A DOM Node.
+
+    ``attributeName``:
+        String. Case-insensitive name of the attribute.
+
+    *return*:
+        String. ``null`` if no value available.
+
+``hasAttribute(node, attributeName)``:
+
+    Returns wether or not the ``node`` has a value for the attribute provided.
+
+    ``node``:
+        A DOM Node.
+
+    ``attributeName``:
+        String. Case-insensitive name of the attribute.
+
+    *return*:
+        Boolean.
+
+``getClass(node)``:
+
+    Returns the current value of the ``class`` attribute of the provided
+
+    ``node``:
+        A DOM Node.
+
+    *return*:
+        String.
+
+``hasClass(node, className)``:
+
+    Returns wether the provided ``className`` has been explicitly added to the
+    ``class`` attribute of the passed ``node``.
+
+    ``node``:
+        A DOM Node.
+
+    ``className``:
+        String.
+
+    *return*:
+        Boolean
+
+``addClass(node, className)``:
+
+    Adds the passed ``className`` to the ``node`` in the highest precedence
+    position. Other previously (directly) added classes with conflicting rules
+    will "loose". Directly specified attributes of the ``node``'s style property
+    will continue to take precedence in the styling of the ``node``'s display.
+
+    ``node``:
+        A DOM Node.
+
+    ``className``:
+        String.
+
+    *return*:
+        Boolean indicating success or failure.
+
+``prependClass(node, className)``:
+
+    Adds the passed ``className`` to the ``node`` in the lowest precedence
+    position. Other previously (directly) added classes with conflicting rules
+    will "win".
+
+    ``node``:
+        A DOM Node.
+
+    ``className``:
+        String.
+
+    *return*:
+        Boolean indicating success or failure.
+
+``setClass(node, className)``:
+
+    Removes all other directly set classes and the passed ``className`` to the
+    ``node``. In a W3C compliant DOM implementation, this is equivalent to
+    setting ``node.className`` to the provided ``className``.
+
+    ``node``:
+        A DOM Node.
+
+    ``className``:
+        String. May contain multiple classes, e.g.: ``foo bar baz``.
+
+    *return*:
+        Boolean indicating success or failure.
+
+
+``removeClass(node, className, usePartialMatch)``:
+
+    Removes all occurances of the specified ``className``. If
+    ``usePartialMatch`` is ``true``, any classes whose names begin with
+    ``className`` will also be removed.
+
+    ``node``:
+        A DOM Node.
+
+    ``className``:
+        String. May contain multiple classes, e.g.: ``foo bar baz``.
+
+    ``usePartialMatch``:
+        Optional. Boolean. Defaults to ``false``.
+
+    *return*:
+        Boolean indicating success or failure.
+
+``gravity(node, evt)``:
+
+    Returns an integer constant which indicates in which direction of the passed
+    ``node`` the ``evt`` was fired.
+
+    ``node``:
+        A DOM Node.
+
+    ``evt``:
+        A DOM Event.
+
+    *return*:
+        ``int``, one of ``dojo.html.gravity.NORTH``,
+        ``dojo.html.gravity.SOUTH``, ``dojo.html.gravity.EAST``,
+        ``dojo.html.gravity.WEST``. 
+
+``overElement(node, evt)``:
+
+    Determines wether the passed ``evt`` was triggered at a location "inside" of
+    ``node``.
+
+    ``node``:
+        A DOM Node.
+
+    ``evt``:
+        A DOM Event.
+
+    *return*:
+        Boolean.
+
+``renderedTextContent(node)``:
+
+    Attempts to return the text contained in ``node`` as it would be rendered,
+    with the line breaks sorted out nicely. Unfinished.
+
+    ``node``:
+        A DOM Node.
+
+    *return*:
+        String.
+
+``setActiveStylesheet(title)``:
+
+    Toggles the ``disabled`` flag on the specified styleheet.
+
+    ``title``:
+        String. The "title" attribute of the styleheet to match.
+
+    *return*:
+        ``null``
+
+``getActiveStylesheet()``:
+
+    *return*:
+        String. Title of the active stylesheet.
+
+``getPreferredStyleSheet()``:
+
+    *return*:
+        String. Title of the preferred stylesheet.
+
+Requires
+===============================================================================
+
+- `dojo.dom`_
+- `dojo.style`_
+- `dojo.string`_
+
+.. _`dojo.dom`:    dom.html
+.. _`dojo.style`:    dom.html
+.. _`dojo.string`:    dom.html
+
+Provides
+===============================================================================
+
+dojo.html
+    Namespace for in-browser HTML and DOM manipulation methods
+
+
+About
+===============================================================================
+
+:Author: Alex Russell
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/02
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

@@ -1,0 +1,10 @@
+
+you can run the unittests by using trial program that is part of twisted.
+
+Example (from the source folder):
+
+trial unittests
+
+Notes:
+* For some of the tests a server must be running on port 8080 on the test machine.
+* Due to a bug in trial you will probably have to kill trial at the end of the run.

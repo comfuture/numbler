@@ -1,0 +1,229 @@
+.. title:: dojo.collections.ArrayList -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.collections.ArrayList - the ArrayList class as part of the collections
+namespace.
+
+Summary and Overview
+===============================================================================
+
+dojo.collections.ArrayList is an extended version of the core ECMAScript Array
+object.
+
+Usage
+===============================================================================
+
+::
+
+    var al = new dojo.collections.ArrayList();
+    al.add(myObject);
+    al.add(mySecondObject);
+    var item = al.item(1);
+    dojo.debug("item is mySecondObject: " + (item == mySecondObject));
+
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+``ArrayList(array)``:
+
+    Creates a new instance of an ArrayList, either empty or based on the passed
+    array object.
+
+    *Inherits from*:
+        nothing
+
+    ``array``:
+        argument of type Array
+
+    *returns*:
+        new object of type ArrayList.
+
+Properties
+---------------------------------------
+
+``count``:
+
+    An integer denoting how many members the ArrayList has.
+
+
+Methods
+---------------------------------------
+
+``add(object)``:
+
+    Adds object as a member of the ArrayList.
+
+    ``object``:
+        An object of any type (i.e. type Object).
+
+    *returns*:
+        null
+	
+``addRange(arr)``:
+
+    Adds a range of objects as members of the ArrayList.
+
+    ``arr``:
+        An object of type Array or of an array-based collection (such as
+        ArrayList, Queue or Stack).
+
+    *returns*:
+        null
+	
+``clear()``:
+
+    Clears all members of the ArrayList and resets ``count`` to 0.
+
+    *returns*:
+        null
+	
+``clone()``:
+
+    Clones the ArrayList.  Note that while the clone is not a reference to the
+    current ArrayList, members that are references to objects will remain
+    references to objects (i.e. reference members remain references).
+
+    *returns*:
+        new ArrayList.
+	
+``contains(object)``:
+
+    Check to see if the passed object is a member of the ArrayList.
+
+    ``object``:
+        An object of type Object.
+
+    *returns*:
+        Boolean (true || false)
+	
+``getIterator()``:
+
+    Gets an object of type dojo.collections.Iterator, for use in iterating over
+    the elements of the collection.
+
+    *returns*:
+        dojo.collections.Iterator
+	
+``indexOf(object)``:
+
+    Check to see if the passed object is a member of the ArrayList, and if so,
+    what index is can be accessed at.
+
+    ``object``:
+        An object of type Object.
+
+    *returns*:
+        integer; -1 if object is not a member of the ArrayList.
+	
+``insert(index, object)``:
+
+    Inserts object at index.
+
+    ``index``:
+        The index at which the object is to be inserted.
+
+    ``object``:
+        An object of type Object.
+
+    *returns*:
+        void.
+	
+``item(index)``:
+
+    Returns the object at index.
+
+    ``index``:
+        The index of the object to be returned.
+
+    *returns*:
+        object of type Object.
+	
+``remove(object)``:
+
+    Removes the object from the ArrayList, if found.
+
+    ``object``:
+        A reference to the object to be removed.
+
+    *returns*:
+        void.
+	
+``removeAt(index)``:
+
+    Removes an object at index from the ArrayList, if found.
+
+    ``index``:
+        The index to the object to be removed.
+
+    *returns*:
+        void.
+	
+``reverse()``:
+
+    Reverses the indices of the ArrayList
+    
+    *returns*:
+        void
+
+``sort(function)``:
+
+    Sorts and reindexes the ArrayList.
+    
+    ``function``:
+        Optional argument; a custom sorting function to be used in place of the
+        standard ECMAScript sorting functionality.
+        
+    *returns*:
+        void
+
+``toArray()``:
+
+    Returns an object of type Array, filled with the members of the ArrayList.
+    
+    *returns*:
+        object of type Array.
+
+``toString()``:
+
+    Returns a string representation of the ArrayList.
+    
+    *returns*:
+        A comma-delimited string.  Equivilent of *ArrayList*.toArray().join().
+
+Requires
+===============================================================================
+
+- No requirements.
+
+Provides
+===============================================================================
+
+dojo.collections.ArrayList
+    A class constructor that allows ArrayLists to be created
+
+
+To Do
+===============================================================================
+
+Public signature will not change in the foreseeable future, although internal
+implementations might.
+
+About
+===============================================================================
+
+:Author: Thomas R. Trenka, Ph.D.
+:Version: 0.2
+:Copyright: Dojo Foundation, 200x
+:Date: 2005/10/31
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

@@ -1,0 +1,136 @@
+.. title:: dojo.rpc.RpcService -- The Dojo Manual
+
+Name
+===============================================================================
+
+dojo.rpc.RpcService - RPC Base class for JavaScript
+
+Summary and Overview
+===============================================================================
+
+``dojo.rpc.RpcService`` provides RPC services using a SMD (Simple Method
+Description) definition of the available interfaces to construct an object
+whose methods return values from a remote function asynchronously.  Currently
+the only service type is JSON-RPC. 
+
+Usage
+===============================================================================
+
+::
+
+	//This class is a base class only, it must be overridden to provide
+	//specific functionality.
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+``RpcService()``:
+
+    The base RPC class  provides the general interfaces that the specific
+    RPC services implment.  It is not functional on its own.
+
+    *Inherits from*:
+        Nothing
+
+    *return*:
+        new object of type ``RpcService``
+
+Properties
+~~~~~~~~~~~~~
+
+    ``status``:
+        String. Indicates the current status of the service.
+
+    ``serviceUrl``:
+        URL. The url to retrieve the SMD file.
+
+Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``parseResults(object)``:
+
+	This function is intended to be overridden by specific 
+     	RPC implementations.  Implementations will recieve the
+	raw ``object`` received from an asycnronous call, the
+	function should return the actual results.  This stub
+	implementation, simply returns the object passed to it.
+	If a specific implementation does not override this 
+	function, the raw object will be passed to the developers
+	deferred callbacks. This function is typically called by
+	``resultCallback`` and should not be used outside of the 
+	object.
+
+	``object``:
+	    Raw data returned from the asyncronous request
+
+        *return*:
+            ``object``
+
+    ``errorCallback(deferredRequestHandler)``:
+
+	Opaque method that creates an errback function for 
+	dispatching error results to a DeferredRequest.errback()
+
+    ``resultCallback(deferredRequestHandler)``:
+
+	Opaque method that creates an callback function for 
+	dispatching results to a DeferredRequest.callback();  It
+	Will call parseResults on the raw data and send the
+	results of that to the deferred's callbacks. 
+
+    ``generateMethod(method, params)``:
+        
+        Opaque method that creates local functions for calling. Should not be
+        used except by the object.
+
+    ``processSMD(type, data, evt)``:
+        
+        Opaque method that creates local functions for calling. Should not be
+        used except by the object.
+
+     ``connect(smdURL)``:
+        
+        Async JSDL satisfaction. Creates local function stubs on this object as
+        a result.
+
+        ``smdURL``:
+            String. URL of the SMD file to retreive and process.
+
+        *return*:
+            Nothing
+
+Requires
+===============================================================================
+
+- `dojo.io.*`_
+- `dojo.json`_
+- `dojo.lang`_
+- `dojo.rpc.DeferredRequest`_
+
+.. _`dojo.io.*`: 		io.html
+.. _`dojo.json`:	json.html
+.. _`dojo.lang`:	lang.html
+
+Provides
+===============================================================================
+
+dojo.rpc.RpcService
+    Base class for extension to specific RPC methods.
+
+To Do
+===============================================================================
+
+Lots. But that's always true.
+
+About
+===============================================================================
+
+:Author: Dustin Machi
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/30
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

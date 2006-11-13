@@ -1,0 +1,59 @@
+<xml>
+  <fileinfo position="4" name="Working with Numbler"/>
+  <item description="where is the save button?" ref="savebutton">
+	  Numbler immediately saves your work whenever you make a change such as editing a cell, changing a column width, etc.
+  </item>
+  <item description="what happens if I make a mistake?" ref="undo">
+	  Numbler supports undoing the last 20 actions performed by you (not by other users you are collaborating with).  You will lose your undo information if you refresh your browser.
+  </item>
+  <item description="ok, but I still want a save button." ref="wantsave">
+	Numbler supports exporting your spreadsheet to XML or CSV format.  If you want to make a big change to your spreadsheet it may make sense to export your spreadsheet first.
+  </item>
+  <item description="navigation with the keyboard" ref="keyboard">
+	<table class="doctable" cellspacing="0" cellpadding="0">
+	  <tr><th id="col1">keyboard commands</th><th>operation</th></tr>
+	  <tr><td id="col1">Escape</td><td>Backs out any change in progress. For example, if you start editing a cell by mistake you can hit the escape key to revert to the original cell contents.</td></tr>
+	  <tr><td id="col1">Ctrl C</td><td>Copies a cell to the clipboard.  If you have multiple cells selected all visible cells are copied to the clipboard</td></tr>
+	  <tr><td id="col1">Ctrl V</td><td>Pastes a cell or cells from the clipboard.  This does not paste from the clipboard supported by your operating system.  A paste shows up immediately in other users browsers.
+		  <div style="font-weight:bold">Pasting from Excel&#174;:</div>
+		  If you select a range of cells from an Excel&#174; spreadsheet you can paste those cells into the formula editor at the top of the spreadsheet.  If you paste directly into a cell you will not get additional rows.
+		</td></tr>
+	  <tr><td id="col1">Ctrl X</td><td>Cuts one or more cells from your spreadsheet.  The cut will show up immediately in other users browsers.</td></tr>
+	  <tr><td id="col1">Ctrl Z</td><td>Undo the last operation</td></tr>
+	  <tr><td id="col1">Enter</td><td>Move to the next cell immediately below your current position.  Any changes are saved.</td></tr>
+	  <tr><td id="col1">Tab</td><td>Move to the next cell immediately to right of your current position.  Any changes are saved. </td></tr>
+	  <tr><td id="col1">arrow keys</td><td>Move the currently selected cell.</td></tr>
+	  <tr><td id="col1">shift + arrow keys</td><td>select a range of cells</td></tr>
+	  <tr><td id="col1">ctrl + arrow key</td><td>move to the end of the spreadsheet. For example, ctrol + right arrow changes the current position so that the last column (IV) is visible.</td></tr>
+	  <tr><td id="col1">page-down / page-up</td><td>move up or down a page worth of rows where the page size is the amount of rows that can be displayed in your browser.</td></tr>
+	  <tr><td id="col1">ctrl  + home</td><td>return to the top of the spreadsheet and set the focused cell to A1.</td></tr>
+	  <tr><td id="col1">ctrl  + end</td><td>Set the current cell to the maximum column and row that contains a formula or text value.</td></tr>
+	</table>
+  </item>
+  <item description="how does scrolling work?" ref="scrolling">
+	Numbler keeps a small portion of your spreadsheet in the browser.  When you scroll, Numbler may need to redraw the in view portion of your spreadsheet and occasionally fetch more data from the server.  A slight delay may be noticable depending on the speed of your browser.
+  </item>
+  <item description="can I insert web addresses and images into my sheets?" ref="webrefs">
+	Numbler automatically converts web addresses into links.  If you type in "http://numbler.com" in cell A4 you will now have a link to numbler.com.  If you type in "http://numbler.com/img/logo.gif" in cell A5 the Numbler logo will be visible but clipped to the boundaries of the cell.  If you wish for the image to be completely visible either adjust the column width and row heights or choose the "overflow" option by right clicking on the cell.
+  </item>
+  <item description="I copied a range of cells but I can't paste back into my desktop application." ref="cantpaste">
+    This is not currently supported.  You can export your sheet or copy individual cells but not copy a range of cells.  This will likely be fixed in the future.
+  </item>  
+  <item description="It looks like Numbler sometimes changes the numbers I type into a cell.  what's going on?" ref="literalcellmods">
+    Numbler automatically "normalizes" data that is typed into a cell.  For instance, if you type in $50.43 we convert that to the number 50.43 and store seperately the fact that you want the number to be treated as currency.  The same is true with percentages, scientific notation, date, and time values.
+  </item>
+  <item description="How do I know if Numbler has correctly interpreted a number, date, or time that I have entered into a cell?" ref="litdataentry">
+    Numbler will attempt to understand any data that you enter into a cell.  If Numbler can understand the data as a number, date, or time value the result will be displayed right-justified.  For instance, if you enter "5-march" Numbler will interpret that as the date "5-march-2006" (or whatever the current year is) and display the value in a "normalized" form.  However, if you enter "4 0" Numbler can not figure out if you are trying to enter "40" or some other value.  In this case Numbler will not interpret the value as a number and the display will stay left justified.
+  </item>
+
+<!--
+
+  <item description="" ref="">
+  </item>
+  <item description="" ref="">
+  </item>
+  <item description="" ref="">
+  </item>
+-->
+
+</xml>

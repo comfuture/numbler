@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:n="http://nevow.com/ns/nevow/0.1">
+<head>
+    <style type="text/css">
+      table {
+      width:600px;
+      font-size:12px;
+      padding:0px;
+      margin:0px;
+      }
+      tr {
+      width:600px;
+      }
+      .col1 {
+      width:100px;
+      }
+      .col2 {
+      width:500px;
+      }
+      </style>
+</head>
+<body style="font-family: 'Arial';font-size:12px;width:800px">
+<p>this email was generated from a support request on numbler.com.</p>
+<table style="border:0;padding:0;margin:0">
+      <tr><th class="col1"><span>item</span></th><th class="col2"><span>data</span></th></tr>
+      <tr><td class="col1">email address</td>
+	<td class="col2"><span n:render="email"/></td>
+	</tr>
+      <tr><td>IP address</td>
+	<td><span n:render="ip"/></td>
+	</tr>
+      <tr><td>user agent</td>
+	<td><span n:render="useragent"/></td>
+      </tr>
+      <tr><td>cookies</td>
+	<td><span n:render="cookies"/></td>
+      </tr>
+      <tr><td>sheet user name</td>
+	<td><span n:render="user"/></td>
+      </tr>
+</table>
+<hr/>
+<p>user comment:</p>
+<div n:render="comment"/>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+<xml xmlns:n="http://nevow.com/ns/nevow/0.1">
+<n:invisible n:pattern="header">
+	<n:invisible n:render="liveglue"/>
+	<script src="/js/import.js" language="javascript"></script>
+	<link href="/css/admin.css" type="text/css" rel="stylesheet"></link>
+  </n:invisible>
+</xml>

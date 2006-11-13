@@ -1,0 +1,10 @@
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+<body style="  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;font-size:14px">
+<div style="padding-top:20px">
+<span n:render="username"/> has invited you to collaborate on a spreadsheet named <span style="font-weight:bold"><span n:render="sheetname"/></span>.<br/>
+<br/> 
+Click the link <span n:render="url"/> to start or copy the link into your browser.
+</div>
+<p>To create your own spreadsheet go to <span n:render="linkname"/></p>
+</body>
+</html>

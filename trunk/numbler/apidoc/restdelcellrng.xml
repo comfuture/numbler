@@ -1,0 +1,37 @@
+<div>
+  <h3>Deleting a cell range</h3>
+  <div class="emph">syntax:</div>
+  <pre class="codesnippet">
+DELETE / sheetUID / API / rangestart - rangeend [ recvResults=0 ]
+
+examples:
+DELETE /zGe1yTmPf22gOH6o/API/D-I
+DELETE /zGe1yTmPf22gOH6o/API/A4-D9
+DELETE /zGe1yTmPf22gOH6o/API/1-13?recvResults=0
+  </pre>
+  <p>The delete cell range syntax is similar to the get cell range syntax.  The result handling is the same as with <a class="doclink" href="/apidoc/restdelcell">DELETE cell</a></p>
+  <div class="example">
+    <h3>Deleting a cell range (get the changed cells)</h3>
+    <div class="emph">REST request:</div>
+    <pre class="codesnippet">
+DELETE /zGe1yTmPf22gOH6o/API/D-I HTTP/1.1
+content-type: text/xml
+Authorization: NUMBLER oQHMghOxzPFpVkxGgdXg:6gLnj39stT5/zVoIGYegcQ==
+x-numbler-date: Tue, 11 Apr 2006 02:36:17 GMT
+    </pre>
+    <div class="emph">REST response:</div>
+    <pre class="codesnippet">
+
+
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xml&gt;
+  &lt;sheet guid="zGe1yTmPf22gOH6o" name="testdelcolrange"&gt;
+    &lt;cell formula="=SUM(B:Z)" col="ee" value="198" row="1000"&gt;&lt;/cell&gt;
+    &lt;cell formula="" col="h" value="" row="9"&gt;&lt;/cell&gt;
+    &lt;cell formula="" col="d" value="" row="4"&gt;&lt;/cell&gt;
+     &lt;cell formula="=SUM(B:Y)" col="z" value="99" row="5"&gt;&lt;/cell&gt;
+  &lt;/sheet&gt;
+&lt;/xml&gt;
+    </pre>
+  </div>
+</div>

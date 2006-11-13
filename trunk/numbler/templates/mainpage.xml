@@ -1,0 +1,42 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1">
+  <script language="javascript">
+    MochiKit.DOM.addLoadEvent(function() {
+
+    var prefix = $('numsheetprefix');
+    var numsheets = $('recentresults');
+    if(numsheets) {
+    if(numsheets.childNodes.length == 0) {
+    hideElement(prefix);
+    }
+    }
+    var agt=navigator.userAgent.toLowerCase();
+    if(agt.indexOf('safari') != -1) {
+    showElement($('safari'));
+    roundElement($('safari'));
+    }
+    if(agt.indexOf('opera') != -1) {
+    showElement($('opera'));
+    roundElement($('opera'));
+    }
+    });
+  </script>
+
+  <div id="contentcon"><div id="leftpanel">
+      <div class='bcheck' id='safari'>
+	<p>Safari is not yet supported.  Please try <a href="http://www.mozilla.com/firefox">Firefox</a> or <a href="http://www.caminobrowser.org">Camino</a>.</p>
+      </div>
+      <div class='bcheck' id='opera'>
+	<p>Opera is not yet supported.  Please try <a href="http://www.mozilla.com/firefox">Firefox</a></p>
+      </div>
+      <div style="width:100%">
+      <p>This is the default Numbler start page.</p>
+      </div>
+    </div>
+
+    <div id="rightpanel">
+      <n:invisible n:render="loginbar"/>
+    </div>
+    <!-- this is a hack -->
+    <div style="float:right;margin-right:25px"><n:invisible n:render="signin"/></div>
+  </div>
+</div>

@@ -1,0 +1,193 @@
+.. title:: dojo.collections.Dictionary -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.collections.Dictionary - the Dojo implementation of a standard
+Dictionary/Hashtable.
+
+Summary and Overview
+===============================================================================
+
+The Dictionary class is a basic implementation of a hashtable type collection.
+Any element added to it is automatically wrapped in a
+dojo.collections.DictionaryEntry object.
+
+Usage
+===============================================================================
+
+::
+
+    var d = new dojo.collections.Dictionary();
+    d.add("item1", myObject);
+    d.add("item2", mySecondObject);
+    if(d.containsValue(mySecondObject)){
+        d.remove("item2");
+    }
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+``Dictionary(dictionary)``:
+
+    Creates a new instance of Dictionary.  Note that while you can pass it an
+    object of type Dictionary to initialize, that usage is primarily reserved
+    for the ``clone`` method of Dictionary.
+
+    *Inherits from*:
+        nothing
+
+    ``dictionary``:
+        argument of type Dictionary
+
+    *returns*:
+        new object of type Dictionary.
+
+Properties
+---------------------------------------
+
+``count``:
+
+    An integer denoting how many members the Dictionary has.
+
+
+Methods
+---------------------------------------
+
+``add(key, object)``:
+
+    Adds a new DictionaryEntry to the internal hashtable.  Note that if the key
+    already exists in the Dictionary, its value will be overwritten with the new
+    object.
+
+    ``key``:
+        A String identifier.
+
+    ``object``:
+        An object of type Object.
+
+    *returns*:
+        void.
+	
+``clear()``:
+
+    Clears all members of the Dictionary and resets ``count`` to 0.
+
+    *returns*:
+        null
+	
+``clone()``:
+
+    Clones the Dictionary.  Note that while the clone is not a reference to the
+    current Dictionary, members that are references to objects will remain
+    references to objects (i.e. reference members remain references).
+
+    *returns*:
+        new Dictionary.
+	
+``contains(key)``:
+
+    Check to see if the passed string key is a member of the Dictionary.
+
+    ``key``:
+        A string identifier.
+
+    *returns*:
+        Boolean (true || false)
+	
+``containsKey(key)``:
+
+    Check to see if the passed string key is a member of the Dictionary.
+
+    ``key``:
+        A string identifier.
+
+    *returns*:
+        Boolean (true || false)
+	
+``containsValue(object)``:
+
+    Check to see if the passed object is a member of the Dictionary.
+
+    ``object``:
+        An object of type Object.
+
+    *returns*:
+        Boolean (true || false)
+	
+``getKeyList()``:
+
+    Gets an array of all of the current keys of the Dictionary.
+
+    *returns*:
+        Array.
+	
+``getValueList()``:
+
+    Gets an array of all of the current values of the Dictionary.
+
+    *returns*:
+        Array.
+	
+``getIterator()``:
+
+    Gets an object of type dojo.collections.DictionaryIterator, for use in 
+    iterating over the elements of the collection.
+
+    *returns*:
+        dojo.collections.DictionaryIterator
+	
+``item(key)``:
+
+    Returns a DictionaryEntry object of the passed key, undefined if not found.
+
+    ``key``:
+        A string identifier.
+
+    *returns*:
+        object of type Object.
+	
+``remove(key)``:
+
+    Removes the DictionaryEntry at string key.
+
+    ``key``:
+        A string identifier.
+
+    *returns*:
+        void.
+	
+Requires
+===============================================================================
+
+- No requirements.
+
+Provides
+===============================================================================
+
+dojo.collections.Dictionary
+    A class constructor that allows Dictionarys to be created
+
+
+To Do
+===============================================================================
+
+Public signature will not change in the foreseeable future, although internal
+implementations might.
+
+About
+===============================================================================
+
+:Author: Thomas R. Trenka, Ph.D.
+:Version: 0.2
+:Copyright: Dojo Foundation, 200x
+:Date: 2005/10/31
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

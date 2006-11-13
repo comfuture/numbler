@@ -1,0 +1,323 @@
+html { 
+  background-color: #d5d6d7;
+  height:100%;
+ }
+
+body { 
+  font-size: 12px;
+  font-family: Verdana, Arial, Sans-Serif;
+  border: 0px;
+  background-color:white;
+  margin:10px auto;
+  margin-left:10%;
+  margin-right:10%;
+}
+
+/* hacky min-width workaround from http://www.webreference.com/programming/min-width/2.html */
+
+.width {
+	width:100%;
+	min-width:800px;
+  background-color:white;
+}
+
+.content {
+	border:1px solid #c00;
+	padding:5px;
+}
+
+* html .minwidth {
+	padding-left:800px;
+  background-color:white;
+}
+
+* html .container {
+	margin-left:-800px;
+	position:relative;
+  background-color:white;
+}
+
+/*\*/
+* html .minwidth, * html .container, * html .content, * html .layout  {
+	height:1px;
+}
+/**/
+
+/* end hacky workaround for min-width */
+
+div { 
+  margin:0;padding:0;
+ }
+
+p { 
+  font-size: 14px;
+  font-weight:bold;
+  font-family: 'Lucida Grande',verdana,arial,hevetica,snas-serif;
+  color:#636363;
+ }
+
+form { 
+  margin:0;padding:0;
+ }
+
+#contentcon { 
+  padding-top:20px;
+  width:100%;
+  background-color:white;
+ }
+
+
+.sheetsummary { 
+  width:402px;
+  /* fucking IE hack */
+  margin-bottom:-3px;
+ }
+
+.detailsleft { 
+  float:left;
+  width:120px;
+  font-size:12px;
+  font-weight:800;
+  color:#17A8DE;
+  margin-bottom:5px;
+ }
+
+.detailsright { 
+  font-size:12px;
+  font-weight:bold;
+  color:#A0A0A0;
+  margin-bottom:5px;
+ }
+
+
+
+.expander, .sectionheader,.deletetab { 
+  font-size:16px;
+  font-weight:800;
+  color:#17A8DE;
+  cursor:pointer;
+ }
+
+.sectionheader { 
+  padding-top:20px;
+  padding-bottom:20px;
+  cursor:auto;
+ }
+
+a.sheetnamelink, .membersheet a { 
+  float:left;
+  font-size:16px;
+  font-weight:bold;
+  color:#636363;
+  text-decoration:none;
+ }
+
+#announcement { 
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:20px;
+  padding-bottom:20px;
+  margin-left:25px;
+  width:50%;
+  background-color:#fefe9e;
+  color:#98988c;
+  font-weight:bold;
+ }
+
+#sheetmanagement { 
+  float:left;
+  width:50%;
+  background-color:white;
+  padding-left:25px;
+ }
+
+#manageaccount { 
+  /*padding-top:20px;padding-bottom:20px;*/
+  float:right;
+  margin-right:25px;
+  width:270px;
+  background-color:#eee;
+  margin-bottom:25px;
+  height:400px;
+  padding-left:10px;
+  padding-top:10px;
+}
+
+
+.expander { 
+  float:left;
+  width:20px;
+  height:20px;
+  text-align:center;
+  border:1px solid #838383;
+  background-color: #F0F0F0;
+  margin-right:6px;
+ }
+
+.expandopen { 
+  float:left;
+  width:20px;
+  height:20px;
+  text-align:center;
+  border-top:1px solid #838383;
+  border-left:1px solid #838383;
+  border-right:1px solid #838383;
+  background-color: #F0F0F0;
+  margin-right:6px;
+  color:#C0C0C0;
+  cursor:pointer;
+}
+
+
+.membercount { 
+  font-weight:bold;
+  color:#17A8DE;
+ }
+
+.pendingcount {
+  color:#C0C0C0;
+  font-weight:bold;
+ }
+
+.invitesum { 
+  float:right;
+  margin-top:2px;
+  padding:0px;
+ }
+
+.sheetdetails { 
+  clear:both;
+  background-color: #F0F0F0;
+  border-left:1px solid #838383;
+  border-bottom:1px solid #838383;
+  border-right:1px solid #838383;
+  width:400px;
+ }
+
+.detailleftborder { 
+  float:left;
+  height:1px;
+  width:20px;
+  border-top: 1px solid #F0F0F0;
+ }
+
+.detailstop { 
+  float:left;
+  height:1px;
+  width:318px;
+  border-top:1px solid #838383;
+ }
+.detailrightborder {
+  float:right;
+  height:1px;
+  width:63px;
+  margin-right:-1px;
+  border-top:1px solid #D1c9c9;
+ }
+
+.deletetab { 
+  height:20px;
+  padding-left:5px;
+  display:none;
+  float:right;
+  /*
+  border-left:1px solid #d1c8c9;
+  border-top:1px solid #d1c8c9;
+  border-right:1px solid #d1c8c9;
+     */
+ }
+
+.deletetab span {
+  font-size:10px;
+  color:#C0C0C0;
+ }
+
+.dcontainer {  
+  padding-top:10px;
+  padding-left:25px;
+  padding-bottom:10px;
+}
+
+.currentmembers {
+  overflow:auto;
+  padding-bottom:20px;
+  width:240px;
+ }
+
+
+.sheetmember .pending { 
+  float:left;
+  font-weight:800;
+  color:#A0A0A0;
+  width:210px;
+  overflow:hidden;
+ }
+.sheetmember .member { 
+  float:left;
+  font-weight:800;
+  color:#17A8DE;  
+  width:190px;
+  overflow:hidden;
+ }
+
+.sheetmember .removelink { 
+  float:right;
+  font-weight:800;
+  color:#17A8DE;  
+  cursor:pointer;
+ }
+
+.sheetname,.invitetext { 
+  width:210px;
+  font-size:14px;
+  color:#636363;
+ }
+
+#membersheets { 
+  width:380px;
+  margin-left:20px;
+ }
+
+.membersheet { 
+  width:100%;
+  border-bottom: 1px solid #C0C0C0;
+ }
+
+.membersheet a{ 
+  float:left;
+ }
+
+.membersheet img { 
+  float:right;
+  cursor:pointer;
+ }
+
+.sheetinfo { 
+  margin-bottom:10px;
+ }
+
+.important { 
+  background-color:#FFFF9c;
+  margin:10px;
+  padding:10px;
+
+ }
+
+
+.updatecont { 
+  float:left;
+  width:195px;
+  filter:alpha(Opacity=0); /* craptastic IE doesn't support opacity directly */ 
+  opacity:0; 
+ }
+
+.updatingserver { 
+  font-size:12px;
+  color:#636363;
+}
+
+.emailhint { 
+  font-size:8pt;
+  color:rgb(103,103,103);
+  font-weight:normal;
+ }

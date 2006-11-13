@@ -1,0 +1,116 @@
+.. title:: dojo.collections.Set -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.collections.Set - a Singleton Object that provides basic set operations.
+
+Summary and Overview
+===============================================================================
+
+dojo.collections.Set is a singleton object that provides basic set operations to
+the user.  All operations operate on either Arrays or ArrayLists; if you pass an
+Array, it will be converted to an ArrayList internally before the comparison
+function happens.
+
+Usage
+===============================================================================
+
+::
+
+    var setA = new dojo.collections.ArrayList();
+    setA.add(...);
+    var setB = [];
+    setB.push(...);
+
+    var union = dojo.collections.Set.union(setA, setB);
+    var diff = dojo.collections.Set.difference(setA, setB);
+    var intersect = dojo.collections.Set.intersection(setA, setB);
+    ...
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+``Set``:
+
+    A singleton object that is immediately available on system load.  This is
+    *not* a constructor.
+
+Properties
+---------------------------------------
+
+    None.
+
+
+Methods
+---------------------------------------
+
+``union(setA, setB)``:
+
+    Creates a new set that is the result of a union operation between the two
+    passed sets.
+
+    *returns*:
+        dojo.collections.ArrayList
+	
+``intersection(setA, setB)``:
+
+    Creates a set that contains members that appear in both sets.
+
+    *returns*:
+        dojo.collections.ArrayList
+	
+``difference(setA, setB)``:
+
+    Creates a new set of all the members in setA that do not appear in setB.
+
+    *returns*:
+        dojo.collections.ArrayList
+	
+``isSubSet(setA, setB)``:
+
+    Returns a value stating that setB is a sub set of setA.
+
+    *returns*:
+        Boolean
+	
+``isSuperSet(setA, setB)``:
+
+    Returns a value stating that setB is a super set of setA.
+
+    *returns*:
+        Boolean
+
+Requires
+===============================================================================
+
+- No requirements.
+
+Provides
+===============================================================================
+
+dojo.collections.Set
+
+
+To Do
+===============================================================================
+
+Public signature will not change in the foreseeable future, although internal
+implementations might.
+
+About
+===============================================================================
+
+:Author: Thomas R. Trenka, Ph.D.
+:Version: 0.2
+:Copyright: Dojo Foundation, 200x
+:Date: 2005/10/31
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

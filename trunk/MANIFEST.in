@@ -1,0 +1,1 @@
+recursive-include numbler *.css *.js *.html *.png *.gif *.jpg *.htm *.tac *.jar *.xml *.zip *.gz *.sql *.certificate *.key *.encrypted *.crt *.cert *.pem passwd*

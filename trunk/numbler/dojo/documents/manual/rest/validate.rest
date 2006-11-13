@@ -1,0 +1,263 @@
+.. title:: dojo.validate -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.validate - basic data validation methods.  In general, the methods return 
+true if a condition is met, and false if not.
+
+Summary and Overview
+===============================================================================
+
+This namespace contains core validation, and subnamespaces for language and/or 
+country specific validation methods.  It is useful for client-side form and 
+data validation.
+
+Usage
+===============================================================================
+
+::
+
+    var isValidEmailAddress = dojo.validation.isEmailAddress("foo@dojotoolkit.org");
+    var isValidUSPhoneNumber = dojo.validation.us.isPhoneNumber("8005551212");
+
+
+API Reference
+===============================================================================
+
+Methods
+---------------------------------------
+
+``isText(value)``:
+
+    isText accepts a parameter, and determines if it is a string
+
+    ``value``:
+        value to test.
+
+    *returns*:
+        boolean
+
+``isInteger(value)``:
+
+    isInteger accepts a parameter, and determines if it is an integer.  Note 
+		that this returns true is it is string integer, or a number integer.
+
+    ``value``:
+        value to test.
+
+    *returns*:
+        boolean
+
+``isNumber(value)``:
+
+    isNumber accepts a parameter, and determines if it is a number.  Note 
+		that this also returns true is it is string number.
+
+    ``value``:
+        value to test.
+
+    *returns*:
+        boolean
+				
+``isEmailAddress(value, allowLocal, allowCruft)``:
+
+    isEmailAddress determines if value is an email address, with various levels 
+		of strictness in its validation.
+
+    ``value``:
+        value to test.
+
+    ``allowLocal``:
+        boolean. if true, values such as foo@localhost will return true.
+				
+    ``allowCruft``:
+        boolean. if true, values such as mailto:foo@dojotoolkit.org and 
+				<mailto:foo@dojotoolkit.org> will return true.
+				
+    *returns*:
+        boolean
+
+``isEmailAddressList(value, allowLocal, allowCruft)``:
+
+    isEmailAddress determines if a list of potential values are email addresses,
+		with various levels of strictness in its validation.
+
+    ``value``:
+        comma separated list of values to test.
+
+    ``allowLocal``:
+        boolean. if true, values such as foo@localhost will return true.
+				
+    ``allowCruft``:
+        boolean. if true, values such as mailto:foo@dojotoolkit.org and 
+				<mailto:foo@dojotoolkit.org> will return true.
+				
+    *returns*:
+        boolean
+				
+``isValidDate(dateValue, format)``:
+
+    isValidate determines if a date is valid under the specified format, or a 
+		default format of MM/DD/YYYY if not is specified.
+
+    ``dateValue``:
+        value to test.
+
+    ``format``:
+        format to test
+				Accepts many format types, including ISO8601 and RFC3339. All characters
+				in the format string are treated literally except the following tokens:
+				YYYY - matches a 4 digit year
+				M - matches a non zero-padded month
+				MM - matches a zero-padded month
+				D -  matches a non zero-padded date
+				DD -  matches a zero-padded date
+				DDD -  matches an ordinal date, 1-365, and 366 on leapyear
+				ww - matches week of year, 1-53
+				d - matches day of week, 1-7
+			
+				Examples: These are all equivalent to October 19, 2005:
+			
+				Date					Format
+				2005-W42-3		YYYY-Www-d
+				2005-292			YYYY-DDD
+				20051019			YYYYMMDD
+				10/19/2005		M/D/YYYY
+				19.10.2005		D.M.YYYY
+				
+    *returns*:
+        boolean
+
+``is24HourTime(value)``:
+
+    is24HourTime accepts a parameter, and determines if it is a valid 24 hour
+		time.
+
+    ``value``:
+        value to test.
+
+    *returns*:
+        boolean
+
+``is12HourTime(value)``:
+
+    is12HourTime accepts a parameter, and determines if it is a valid 12 hour
+		time.
+
+    ``value``:
+        value to test.
+
+    *returns*:
+        boolean
+
+``isIpAddress(value)``:
+
+    isIpAddress accepts a parameter, and determines if it is a valid IP address.
+		(IPv6 is not currently supported)
+
+    ``value``:
+        value to test.
+
+    *returns*:
+        boolean
+
+``isUrl(value)``:
+
+    isUrl accepts a parameter, and determines if it is a valid url, based on 
+		either a domain name or IP address. (IPv6 is not currently supported)
+
+    ``value``:
+        value to test.
+
+    *returns*:
+        boolean
+
+.. the following are dojo.validate.us and need to be moved to the relevant 
+.. document for that namespace
+
+``isCurrency(value)``:
+
+    isCurrency accepts a parameter, and determines if it is a valid US currency.
+		Supports optional plus/minus sign, optional dollar-sign, optional cents,
+		optional commas.
+
+    ``value``:
+        value to test.
+
+    *returns*:
+        boolean
+				
+``isPhoneNumber(value)``:
+
+    isPhoneNumber accepts a parameter, and determines if it is a valid US
+		phone number.  Support 4 common separators (none, space, -, and .). Need to 
+		add support for extensions.
+
+    ``value``:
+        value to test.
+
+    *returns*:
+        boolean
+				
+``isSocialSecurityNumber(value)``:
+
+    isSocialSecurityNumber accepts a parameter, and determines if it is a valid 
+		US Social Security Number.  Supports space, -, or no separator.
+
+    ``value``:
+        value to test.
+
+    *returns*:
+        boolean
+
+``isZipCode(value)``:
+
+    isZipCode accepts a parameter, and determines if it is a valid US zip code. 
+		Supports space, -, or no separator between base and optional +4 portion of
+		US zip code.
+
+    ``value``:
+        value to test.
+
+    *returns*:
+        boolean
+				
+``isState(value)``:
+
+    isState accepts a two character parameter, and determines if it is a valid 
+		postal abbreviation for a US state or territory.
+
+    ``value``:
+        value to test, 2 digit character representing a postal abbreviation.
+
+    *returns*:
+        boolean
+				
+Requires
+===============================================================================
+
+none
+
+Provides
+===============================================================================
+
+dojo.validate
+  A closure for dojo.validate
+
+dojo.validate.us
+	United States specific data validation
+
+About
+===============================================================================
+
+:Author: Dylan Schiemann
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/10/30
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

@@ -1,0 +1,5 @@
+<xml>
+  <sheet guid="asdfasdfasdfasddafs">
+    <cell col="1" row="1" formula="=SUM(2+2)"/>
+  </sheet>
+</xml>

@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<title>Dictionary Test</title>
+		<script language="JavaScript" type="text/javascript">
+			// Dojo configuration
+			djConfig = { 
+				isDebug: true
+			};
+		</script>
+		<script language="JavaScript" type="text/javascript" src="../../dojo.js"></script>
+		<script language="JavaScript" type="text/javascript" src="../jsunit_browser.js"></script>
+		<script language="JavaScript" type="text/javascript" src="test_Dictionary.js"></script>
+		<script language="JavaScript" type="text/javascript">
+			function init(){
+				var d = new dojo.collections.Dictionary();
+				d.add("foo",{test:"bar"});
+				d.add("baz","fab");
+				d.add("buck","shot");
+				d.add("apple",{test:"orange",toString:function(){ return this.test; }});
+
+				var s = [];
+				var e = d.getIterator();
+				
+				//	testing while form.
+				s.push("...testing while form...");
+				while(!e.atEnd){
+					s.push(e.key + " == " + e.value);
+					e.moveNext();
+				}
+				e.reset();
+
+				//	testing do...while form.
+				s.push(" ");
+				s.push("...testing do...while form...");
+				if (!e.atEnd){
+					do {
+						s.push(e.key + " == " + e.value);
+					} while (e.moveNext());
+				}
+				e.reset();
+				
+				//	testing for form
+				s.push(" ");
+				s.push("...testing for form...");
+				for (; !e.atEnd; e.moveNext()){
+					s.push(e.key + " == " + e.value);
+				}
+				
+				s.push(" ");
+				s.push("...testing with no elements...");
+				var d = new dojo.collections.Dictionary();
+				var e = d.getIterator();
+				if (!e.atEnd){
+					do {
+						s.push(e.key + " == " + e.value);
+					} while (e.moveNext());
+				}
+				document.getElementsByTagName("body")[0].innerHTML = s.join("<br/>");
+
+				//	run the unit tests now.
+				test_Dictionary_ctor();
+				test_Dictionary_add();
+				test_Dictionary_clear();
+				test_Dictionary_clone();
+				test_Dictionary_contains();
+				test_Dictionary_containsKey();
+				test_Dictionary_containsValue();
+				test_Dictionary_getKeyList();
+				test_Dictionary_getValueList();
+				test_Dictionary_remove();
+			}
+			dojo.hostenv.modulesLoadedListeners.push(init);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

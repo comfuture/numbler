@@ -1,0 +1,46 @@
+<div>
+  <h3>Retrieving a cell value using REST</h3>
+  <p>You can retrieve a Numbler cell using the same basic syntax you would use when referencing a spreadsheet cell.  
+    A cell is identified by a column and row value, e.g D23, I44, Q30000, etc.
+    The REST syntax requires that you submit the column identifier as a string in the range between A and IV (case is not important).  A = the 1st column, B = the second column, IV = the 256th column.
+    Most of the sample code will automatically translate column integers into the appropriate strings.
+  </p>
+  <div class="example">
+    <h3>Example</h3>
+    <p>In this example we will retrieve the cell D4 from our sheet.</p>
+    <div class="emph">request using Python</div>
+    <pre class="codesnippet">
+from numbler.sdk import api
+
+sheet = 'vCskO2bQZfwtRNGR'
+accid =  'lSUReoQjWydMLQvDGEdP'
+key = 'C83EEE2D724BF58C0B2AC76DAE7E7500451908B9'
+
+con = api.NumblerConnection(sheet,accid,key,'ws.numbler.com')
+con.getCell('D',4)
+    </pre>
+    <div class="emph">The REST request</div>
+    <p>You retrieve a single cell using the path sheetuID / API / cell ID.  This scheme only supports getting a single cell at a time.</p>
+    <pre class="codesnippet">
+GET /vCskO2bQZfwtRNGR/API/D4 HTTP/1.1
+content-type: text/xml
+Authorization: NUMBLER lSUReoQjWydMLQvDGEdP:B1Se/kkJGRQY+cJli6Aklg==
+x-numbler-date: Mon, 03 Apr 2006 15:54:13 GMT
+    </pre>
+    <div class="emph">response</div>
+    <pre class="codesnippet">
+HTTP/1.1 200 OK
+Transfer-encoding: chunked
+Date: Mon, 03 Apr 2006 15:54:13 GMT
+Content-type: text/xml; charset=UTF-8
+Server: TwistedWeb/2.1.0
+
+&lt;?xml version="1.0" ?&gt;
+&lt;xml&gt;
+  &lt;sheet guid="vCskO2bQZfwtRNGR" name="publicsheet"&gt;
+    &lt;cell col="d" formula="=10*5" row="4" value="50"/&gt;
+  &lt;/sheet&gt;
+&lt;/xml&gt;
+    </pre>
+  </div>
+</div>

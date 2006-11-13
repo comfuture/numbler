@@ -1,0 +1,16 @@
+<servicedef name="ebay_price" desc="Get prices from the ebay marketplace">
+  <connection host="localhost" port="9005" resource="/ebayprice"/>
+  <refreshInterval>2400</refreshInterval>
+  <params>
+    <inputs>
+      <param name="query" required="true"/>
+      <param name="category" required="false"/>
+      </inputs>
+    <outputs>
+      <param name="price" calcValue="true"/>
+      <param name="url" link="true"/>
+    </outputs>
+  </params>
+  <testdata>
+  </testdata>
+</servicedef>

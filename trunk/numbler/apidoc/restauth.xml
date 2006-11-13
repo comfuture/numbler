@@ -1,0 +1,56 @@
+<div>
+  <h3>REST authentication</h3>
+  <p>All Numbler web service requests must be authenticated.  With REST this is performed by generating transaction specific authentication headers for every request.  A subset of the HTTP headers must be signed with your secret key using an HMAC-SHA1 hash function as defined in <a href="http://www.ietf.org/rfc/rfc2104.txt">RFC 2104</a>.</p>
+  <p>Your Numbler access id is used to identify you to Numbler while the secret key is used to computed the hash - this means that the access id is sent in cleartext (in the HTTP header) but the secret key is never sent over the wire.  This is why you want to keep your secret key secret!</p>
+  <div class="emph">The HTTP information used to create the hash:</div>
+  <ul>
+    <li>HTTP method (GET,DELETE,PUT)</li>
+    <li>content-md5: if you don't compute the MD5 checksum then a return character must be present (see example)</li>
+    <li>content-type</li>
+    <li>x-numbler-date: a date field that indicates when the transaction was generated.  
+      The format must be according to <a href="http://www.ietf.org/rfc/rfc2616.txt">RFC 2616</a>  
+      You can find examples of this header throughout the documentation.</li>
+    <li>The path of the resource you are accessing, e.g /sheetUID/API/D4</li>
+  </ul>
+   <p>Any other headers may be present but will be ignored for the purpose of authentication.  One the hash is computed the entire result must be base64 encoded for transmission.</p>
+  <div class="example">
+    <div class="emph">computing the hash using python</div>
+    <pre class="codesnippet">
+import base64,hmac,sha
+
+secretkey = 'C83EEE2D724BF58C0B2AC76DAE7E7500451908B9'
+contentmd5 = ''
+
+encodestr = 'GET' + '\n' +\
+contentmd5 + '\n' +\
+'text/xml' + '\n' +\
+'Mon, 03 Apr 2006 15:54:13 GMT' + '\n' +\
+'/vCskO2bQZfwtRNGR/API/D4'
+
+authhash = base64.encodestring(hmac.new(secretkey,encodestr,sha).digest()).strip()
+    </pre>
+    <p>Summary of this algorithm:</p>
+    <ol>
+      <li>generate a string with the required headers.  The return characters must be present.  <b>Note</b>: the header itself is not used (e.g content-type) but rather the value (e.g text/xml)</li>
+      <li>compute the hash of the generated string using HMAC-SHA1.</li>
+      <li>Encode the string in base64</li>
+    </ol>
+    <p>If you are using python don't use this example, instead use the more optimized code in the sdk.</p>
+  </div>
+  <div class="example">
+    <h3>Putting it all together</h3>
+    <p>Now that we have the base64 encoded hash we can generate the authentication header.  This is where your Numbler access ID is used.</p>
+    <pre class="codesnippet">
+accessid = 'lSUReoQjWydMLQvDGEdP'
+authheader = 'NUMBLER %s:%s' % (accessid,authhash)
+    </pre>
+    <h3>the REST request:</h3>
+    <p>The authentication information is then added to the HTTP request in the Authorization header.</p>
+    <pre class="codesnippet">
+GET /vCskO2bQZfwtRNGR/API/D4 HTTP/1.1
+content-type: text/xml
+Authorization: NUMBLER lSUReoQjWydMLQvDGEdP:xjO8hi3m4p+dNCV5YlN6eg==
+x-numbler-date: Mon, 03 Apr 2006 15:54:13 GMT
+    </pre>
+  </div>
+</div>

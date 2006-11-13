@@ -1,0 +1,300 @@
+.. title:: dojo.widget.html.DatePicker -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.widget.html.DatePicker - A stand-alone DatePicker widget that makes it 
+easy to select a date, or switch by month and/or year.  The infrastructure is 
+in place to also allow scrolling by week rather than month, which is useful for 
+looking at schedules near the end of a month, without having to view two months 
+of data (though this feature is not implemented yet).
+
+Summary and Overview
+===============================================================================
+
+As JavaScript's Date and Time core APIs leave much to be desired, this widget 
+contains a lot of convenience methods for going between various date formats.
+
+We always show 42 days at a time, and we have things in place to scroll by week,
+not just by month or year (though this is not yet implemented).
+
+To get a sense of what month to highlight, we basically initialize on the 
+first Saturday of each month, since that will be either the first of two or 
+the second of three months being partially displayed, and then work forwards 
+and backwards from that point. Currently, we assume that dates are stored in the 
+`RFC 3339`_ format (2005-06-30T08:05:00-07:00), because Dylan finds it to be
+most human readable and easy to parse.  Extension of this to support other date 
+formats, such as those found in dojo.date, would be a welcome contribution.
+
+.. _`RFC 3339`:	http://www.faqs.org/rfcs/rfc3339.html
+
+Usage
+===============================================================================
+
+::
+
+  var datePicker = dojo.widget.createWidget("DatePicker", {},  
+  dojo.byId("datePickerNode"));
+
+or::
+
+  <div dojoType="DatePicker"></div>
+																		
+
+API Reference
+===============================================================================
+
+Properties
+---------------------------------------
+
+``today``:
+
+    A JavaScript Date object representing the current Date, based on the date 
+		of the client computer
+
+``date``:
+
+    A JavaScript Date object representing the currently selected date in the 
+		DatePicker
+
+``storedDate``:
+
+    An `RFC 3339`_ Date (2005-06-30T08:05:00-07:00 ) representing the 
+		currently stored date for the DatePicker
+
+``currentDate``:
+
+    An object representing the currently selected date as it appears in the 
+		user interface.  year, month, and date properties are set on this object.
+
+``firstSaturday``:
+
+    An object representing the date of the first Saturday currently shown in 
+		the DatePicker.  This is useful for implementing a feature that will 
+		allow the DatePicker to be scrolled by week rather than by month, and 
+		allow easy determination of which month a date is in for distinctive 
+		styling of dates from different months.
+
+``classNames``:
+
+    An object representing the CSS class names for the previous, current, and 
+		next months, as well as the current and selected dates.
+
+``templatePath``:
+
+    dojo.uri.dojoUri object representing the url for the html template for a 
+		DatePicker widget.
+		
+``templateCssPath``:
+
+    dojo.uri.dojoUri object representing the url for the css to be used for a 
+		DatePicker widget.
+
+Methods
+---------------------------------------
+
+``fillInTemplate(param)``:
+
+    Standard widget initialization function that allows the data and UI to be 
+		initialized after the template has been loaded.
+
+    no parameters
+
+    *returns*:
+        null
+				
+				
+``initData()``:
+
+    Initializes the date data for the DatePicker widget instance.  For example, 
+		if there is not already a value for storedDate, it is populated with 
+		today's date from the client.
+
+    no parameters
+
+    *returns*:
+        null
+
+``setDate(rfcDate)``:
+
+    Sets the value for storedDate to the rfcDate parameter that is passed. This 
+		is useful as it makes it easy to attach a dojo.event.connect statement to 
+		setDate to watch for changes to the storedDate value.
+
+    ``rfcDate``:
+        A date in `RFC 3339`_ format
+
+    *returns*:
+        null
+
+``initUI()``:
+
+    Initializes the DatePicker user interface (UI).  Loops through all of the 
+		date fields that are to be displayed, sets the correct date, and CSS class 
+		names based on what month the date falls in.  This is all done based on 
+		the calculation for the first Saturday that is displayed.  A few slightly 
+		hacky assumptions are made about the calendar content so that an event 
+		handler does not have to be added to each date field
+
+		no parameters
+				
+    *returns*:
+        null
+
+``incrementDate(date, bool)``:
+
+    Increments the date by +/- 1 day, depending on the value of bool.
+
+    ``date``:
+        JavaScript Date object instance representing the date to increment
+
+    ``bool``:
+        true adds 1 day to date, false subtracts 1 day
+				
+    *returns*:
+        a JavaScript Date object instance
+
+``incrementWeek(date, bool)``:
+
+    Not currently implemented
+
+``incrementMonth(date, bool)``:
+
+    Not currently implemented
+
+``incrementYear(date, bool)``:
+
+    Not currently implemented
+
+``onIncrementDate(evt)``:
+
+    Not currently implemented
+
+``onIncrementWeek(evt)``:
+
+    Not currently implemented
+
+``onIncrementMonth(evt)``:
+
+    Event handler for incrementing the date by a month, depending on which 
+		target the event occurred.  Increments the month of the DatePicker, but not 
+		of the storedDate, until an actual date is clicked on in the UI
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+
+``onIncrementYear(evt)``:
+
+    Event handler for incrementing the date by a year, depending on which 
+		target the event occurred.  Increments the year of the DatePicker, but not 
+		of the storedDate, until an actual date is clicked on in the UI
+
+    ``evt``:
+        JavaScript event object
+
+    *returns*:
+        null
+
+``setMonthLabel(monthIndex)``:
+
+    Sets the text name of the month in the DatePicker heading (i.e. January) 
+		based on the labels provided in the base class for the corresponding 
+		monthIndex
+
+    ``monthIndex``:
+        Integer from 0-11 representing the month to display
+
+    *returns*:
+        null
+
+``setYearLabels(year)``:
+
+    Sets the labels for the current, previous, and next year.
+
+    ``year``:
+        Four digit integer representing the year. (I Guess we're not Y10K 
+				compliant ;) )
+
+    *returns*:
+        null
+
+``getDateClassName(date, monthState)``:
+
+    Calculates and returns the CSS class name for a specific date, given 
+		whether it is the current month that is in primary focus on the DatePicker, 
+		the selectedDate, and the current date.
+
+    ``date``:
+        JavaScript Date object instance to determine the class name
+
+    ``monthState``:
+        string (current, previous, or next) representing where the date lies 
+				on the current DatePicker UI state.
+				
+    *returns*:
+        null
+ 
+``onClick(evt)``:
+
+    Default click event handler that prevents click events from propagating 
+		up the UI tree, or that can be connected to through dojo.event.connect to 
+		listen for other click events.
+
+    ``evt``:
+        DOM event object
+
+    *returns*:
+        null
+				
+``onSetDate(evt)``:
+
+    Event handler that listens for clicks on the actual date items, and 
+		determines how to change the UI of the DatePicker, as well as the 
+		storedDate.  Calls are then made to reinitialize the UI.
+
+    ``evt``:
+        DOM event object
+
+    *returns*:
+        null
+
+Requires
+===============================================================================
+
+- `dojo.widget`_
+- `dojo.widget.HtmlWidget`_
+- `dojo.widget.DatePicker`_
+- `dojo.widget.date`_
+- `dojo.event`_
+- `dojo.html`_
+
+.. _`dojo.widget`:	widget.html
+.. _`dojo.widget.HtmlWidget`:	widget/HtmlWidget.html
+.. _`dojo.widget.DatePicker`:	widget/DatePicker.html
+.. _`dojo.widget.date`:	date.html
+.. _`dojo.event`:	event.html
+.. _`dojo.html`:	html.html
+
+Provides
+===============================================================================
+
+dojo.widget.html.DatePicker
+    A class constructor that allows a widget of type 
+		dojo.widget.html.DatePicker to be created.
+
+About
+===============================================================================
+
+:Author: Dylan Schiemann
+:Version: 0.3
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/30
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

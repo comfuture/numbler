@@ -1,0 +1,15 @@
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+  <body style="  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;font-size:14px">
+    <div style="padding-top:20px">
+      You requested an Numbler API access ID and key.<br/>
+      Your Access ID:<br/>
+      <pre><n:invisible n:render="apiid"/></pre>
+      Your Secret key:<br/>
+      <pre><n:invisible n:render="apikey"/></pre>
+      <p style="font-weight:bold">Important: do not share this information with anyone.</p> 
+      For more information on using the Number web service API see <a href="http://numbler.com/apidoc">http://numbler.com/apidoc</a>
+      <br/><br/>
+      Numbler support team
+    </div>
+  </body>
+</html>

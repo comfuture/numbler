@@ -1,0 +1,161 @@
+.. title:: dojo.collections.Stack -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.collections.Stack - the Dojo implementation of a standard Stack (FILO).
+
+Summary and Overview
+===============================================================================
+
+dojo.collections.Stack is a basic implementation of a typical stack (FILO)
+object.
+
+Usage
+===============================================================================
+
+::
+
+    var stack = new dojo.collections.Stack();
+    stack.push(myObject);
+    stack.push(mySecondObject);
+    var o = stack.pop();
+    dojo.debug("The value of o is mySecondObject: " + (o == mySecondObject));
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+``Stack(array)``:
+
+    Creates a new instance of Stack, either empty or based on the passed
+    array object.
+
+    *Inherits from*:
+        nothing
+
+    ``array``:
+        argument of type Array
+
+    *returns*:
+        new object of type Stack.
+
+Properties
+---------------------------------------
+
+``count``:
+
+    An integer denoting how many members the Stack has.
+
+
+Methods
+---------------------------------------
+
+``clear()``:
+
+    Clears all members of the Stack and resets ``count`` to 0.
+
+    *returns*:
+        null
+	
+``clone()``:
+
+    Clones the Stack.  Note that while the clone is not a reference to the
+    current Stack, members that are references to objects will remain
+    references to objects (i.e. reference members remain references).
+
+    *returns*:
+        new Stack.
+	
+``contains(object)``:
+
+    Check to see if the passed object is a member of the Stack.
+
+    ``object``:
+        An object of type Object.
+
+    *returns*:
+        Boolean (true || false)
+	
+``copyTo(array, index)``:
+
+    Copies the contents of the Stack to array beginning at index.
+
+    ``array``:
+        The array to copy the contents of the stack to.
+
+    ``index``:
+        The index in the array to begin copying at.
+
+    *returns*:
+        void.
+	
+``getIterator()``:
+
+    Gets an object of type dojo.collections.Iterator, for use in iterating over
+    the elements of the collection.
+
+    *returns*:
+        dojo.collections.Iterator
+	
+``peek()``:
+
+    Returns the next item on the stack without removing it from the stack.
+
+    *returns*:
+        object of type Object.
+	
+``pop()``:
+
+    Removes and returns the next item on the stack.
+
+    *returns*:
+        object of type Object.
+	
+``push(object)``:
+
+    Pushing an object onto the stack.
+
+    *returns*:
+        void.
+	
+``toArray()``:
+
+    Returns an object of type Array, filled with the members of the Stack.
+    
+    *returns*:
+        object of type Array.
+
+Requires
+===============================================================================
+
+- No requirements.
+
+Provides
+===============================================================================
+
+dojo.collections.Stack
+    A class constructor that allows Stacks to be created
+
+
+To Do
+===============================================================================
+
+Public signature will not change in the foreseeable future, although internal
+implementations might.
+
+About
+===============================================================================
+
+:Author: Thomas R. Trenka, Ph.D.
+:Version: 0.2
+:Copyright: Dojo Foundation, 200x
+:Date: 2005/10/31
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

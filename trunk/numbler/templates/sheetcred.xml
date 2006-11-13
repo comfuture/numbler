@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<div id="contentcon" xmlns:n="http://nevow.com/ns/nevow/0.1">
+  <div style="padding-top:20px;padding-bottom:40px">
+    <div style="float:left;">
+    <h4>Already a member?</h4>
+      <n:invisible n:render='loginfragment'/>
+    </div>
+    <div style="float:right;margin-left:50px;width:60%">
+      <h4>Not a member?</h4>
+      <p>
+	You do not need an account to access this spreadsheet.  You must enter a user name so other users of this spreadsheet will know who you are.  We recommend that you <span class="persistent"><a href="/createaccount">create</a></span> a Numbler account so that you can manage your spreadsheets and have access to advanced features.
+      </p>
+      <form action="" method="POST" name="createsheet" onsubmit="checkname()">
+	<div n:render="form"/>
+	<div id="sheetbutton">
+	  <div class="label">&nbsp;</div>
+	  <input class="button" type="image" name="submit" value="Go" src="img/buttons/signin.jpg"/>
+	</div>
+      </form>
+    </div>
+    <div style="clear:both"/>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div>
+<h3>Handling of modified cells</h3>
+<p>Whenever a cell is added or deleted from the spreadsheet there is a chance that other cells 
+  will be effected.  A good example would be a spreadsheet that performs a mortgage calculation: 
+  if your program changes the interest rate the entire list of monthly payments will also change.
+</p>
+<p>By default, Numbler will return an XML document that contains all of the modified cells.  
+  Most of the time we expect that this will be useful information.  In other cases, such as the interest rate example, 
+  you may not care.  In this situation we support an additional argument to turn off changed cell 
+  notifications; instead you will receive a count of the number of changed cells.
+</p>
+</div>

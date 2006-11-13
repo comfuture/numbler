@@ -1,0 +1,15 @@
+<xml>
+  <fileinfo position="7" name="Formulas"/>
+  <item description="Do you support all popular desktop spreadsheet formulas?" ref="supportedformulas">
+	We aim to support the various formulas supported by desktop spreadsheet packages.  Please check out the Numbler <a href="/functiondoc">Formula Documentation</a> for more information.
+  </item>
+  <item description="Can I reference other Numbler spreadsheets?" ref="otherrefs">
+	Yes.  Numbler supports the syntax <span class="preform">=sheetname!cellreference</span>.  in Excel&#174; you might use something like <span class="preform">=Sheet2!C2C4</span>.  In numbler we use the sheet identifer (the unique ID that you see in your URL) as part of the formula, e.g <span class="preform">=ynsVbU0rQdFtFnot!C2C4</span>.  We plan to make this easier in the near future.
+  </item>
+</xml>
+
+<!--
+
+  <item description="" ref="">
+  </item>
+-->

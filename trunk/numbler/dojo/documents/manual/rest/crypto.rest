@@ -1,0 +1,45 @@
+.. title:: dojo.crypto -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.crypto - utility functions for basic crypto functionality.
+
+Summary and Overview
+===============================================================================
+
+dojo.crypto are a set of utilities functions to aid in basic crypto operations.
+*Note: this class may or may not disappear in future versions of Dojo, USE AT
+YOUR OWN RISK.*
+
+Requires
+===============================================================================
+
+- No requirements.
+
+Provides
+===============================================================================
+
+dojo.crypto
+    Singleton class with utility functions.
+
+
+To Do
+===============================================================================
+
+This class may or may not disappear in future versions of Dojo, USE AT
+YOUR OWN RISK.
+
+About
+===============================================================================
+
+:Author: Thomas R. Trenka, Ph.D.
+:Version: 0.2
+:Copyright: Dojo Foundation, 200x
+:Date: 2005/12/12
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

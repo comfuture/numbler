@@ -1,0 +1,217 @@
+
+
+.example {
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: normal;
+  padding-bottom:10px;
+}
+
+.createopt,.createlabel,.inputs { 
+  float:left;
+  margin-top:5px;
+  margin-bottom:5px;
+ }
+
+.inputs { 
+  float:left;
+  width:140px;
+  margin-right:40px;
+ }
+
+.createlabel { 
+  text-align:right;
+  font-weight:bold;
+  width:180px;
+  font-size:14px;
+  color:#17A8DE;
+  padding-right:15px;
+ }
+
+#formcontents .example, #formcontents #error { 
+  margin-top:5px;
+  margin-bottom:5px;
+ }
+#error { 
+  padding:10px;
+  float:left;
+  width:140px;
+  height:60px;
+  border:0px;
+ }
+
+.logindisp { 
+  padding-bottom:5px;
+  font-weight:bold;
+  font-size:14px;
+  color:#17A8DE; 
+}
+.logininput { 
+  padding-bottom:10px;
+  font-size:14px;
+  width: 150px;
+ }
+
+
+#loginparent { 
+  width:200px;
+  background-color:#eee;
+  border-color:green;
+ }
+
+#loginpanel { 
+  margin:10px 0px 10px 15px;
+  width:180px; 
+ }
+
+.loginerror { 
+  padding-bottom:5px;
+  width:150px;
+  font-size:12px;
+  color:red;
+ }
+
+#bottomfooter { 
+  width:100%;
+  background-color:white;
+  padding-bottom:25px;
+
+ }
+
+.footer { 
+  margin-top:10px;
+
+  color:#494949;
+  font-size:12px;
+  text-decoration:none;
+  margin-left:25%;margin-right:25%;
+}
+
+.footer ul li
+{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline;
+}
+
+.footer ul li a { 
+  border-left: 1px solid #555;
+  color:#17ABDE;
+  font-size:12px;
+  text-decoration:underline;
+  padding: 0 .4em;
+}
+.footer ul li.begin a { 
+  border: none;
+  padding: 0 .4em 0 0;
+}
+
+.copy { 
+  text-align:center;
+  color:#A0A0A0;
+  font-size:10px;
+}
+
+
+#linkbar { 
+  float:right;
+  margin-top:10px;
+  margin-right:20px;
+ }
+
+.permlink { 
+  font-size:14px;
+  margin-top:5px;
+  margin-bottom:5px;
+ }
+
+#linkbar a:link,#linkbar a:visited,.permlink a:link, .permlink a:visited { 
+  font-weight:bold;
+  color:#17A8DE;
+}
+
+.persistent a:link, .persistent a:visited { 
+  color:#17A8DE;
+ }
+
+#linkbar a { 
+  padding-left:5px;
+  border-left:2px solid #C0C0C0;
+  margin-right:5px;
+  font-size:14px;
+ }
+
+#linkbar .left { 
+  border-left:0px;
+}
+#linkbar .username, .emph { 
+  font-size:14px;
+  font-weight:bold;
+  color:#636363;
+ }
+
+#header {
+  padding:10px;
+  padding-left:25px;
+ }
+
+.label { 
+  font-size:14px;
+  color:#17A8DE;
+  font-weight:bold;
+  padding-bottom:5px;
+ }
+
+
+.standout { 
+  font-size:16px;
+  color:#FF0000;
+  font-weight:bold;
+}
+
+.standout a:link a:visited { 
+  color:#FF0000;
+}
+.standout.small { 
+  font-size:12px;
+ }
+
+
+#recentresults {
+  padding-bottom:20px;
+}
+
+#recentresults a { 
+  font-size:12px;
+  color:#808080;
+  font-weight:bold;
+  text-decoration:underline;
+}
+#recentresults a:hover { 
+  color:#17A8DE;  
+}
+
+.accmessage { 
+  padding-bottom:15px;
+  width:150px;
+ }
+
+.warningblock {
+  width:385px;
+  margin-left:150px;
+  margin-right:187px;
+  font-size:12px;
+  background-color:#ecf2a7;
+  border:0px;
+ }
+
+span.stress { 
+  font-weight:bold;
+ }
+
+
+ul.doclist li{ 
+  font-size:12px;
+ }

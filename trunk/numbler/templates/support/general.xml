@@ -1,0 +1,37 @@
+<xml>
+  <fileinfo position="1" name="General questions"/>
+  <item description="Why is a user name required?" ref="username">
+	Your user name identifies you when you are in a Numbler spreadsheet.  Other users of the same spreadsheet will see changes and chat messages identified by your user name.
+  </item>
+  <item description="What does Numbler do with my email address?" ref="emailsignup">
+    Your email address is used for a number of purposes:<br/>
+    <ul class="doclist"><li>to log-in to your Numbler account</li>
+      <li>To send you an invitation to a new spreadsheet</li>
+      <li>password recovery</li>
+      <li>system announcements</li>
+    </ul>
+    Numbler will not resell your email address to anyone.
+  </item>
+  <item description="How does numbler remember my recent spreadsheets?" ref="expire">
+    Numbler remembers your most recently used spreadsheets by storing a cookie in your browser.  This feature isn't really useful unless you have an account.
+  </item>
+  <item description="Supported browsers" ref="browsers">
+	Numbler is supported on Internet Explorer 6, Firefox 1.5 (or later), and Camino (mac only).  Earlier versions of firefox work, but you may encounter some display issues.  Safari and Konqueror are not yet supported.  Internet Explorer 7 might work but is not tested or supported.  Numbler recommends Firefox or Camino for the best performance.
+  </item>
+  <item description="Does Numbler support multiple languages or currencies?" ref="unicode">
+    Any language supported by your browser should work with Numbler.  For more information on configuring your account for your language and timezone see the localization section.  Numbler uses UTF-8 encoding for our web pages and email messages.  In some web based email systems (Yahoo! and Hotmail particularly) you may need to set your browser character encoding to UTF-8 to properly view Numbler email messages.  This is most noticable if your sheet name or user name uses non western characters.
+</item>
+  <item description="Does Numbler have an API?" ref="refAPI">
+    Yes we do!  See the <a href="/apidoc">API documentation</a> for more information.
+  </item>
+  <item description="My sheet is broken.  Can you look at it?" ref="refSupportOnBrokenSheet">
+    Sure. You need to invite support@numbler.com to your sheet before we can look at it (unless the sheet is public).  We don't look at your data if your spreadsheet is private <b>unless</b> you invite us!
+    
+  </item>
+
+  <!--
+  <item description="" ref="">
+  </item>
+
+  -->
+</xml>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:n="http://nevow.com/ns/nevow/0.1">
+  <head>
+    <n:invisible n:render="liveglue" />
+    <link href="css/myaccount.css" type="text/css" rel="stylesheet"/>    
+    <link href="css/shared.css" type="text/css" rel="stylesheet"/>    
+    <script type="text/javascript">
+      djConfig = {
+      baseScriptUri:'./dojo/'
+      };
+
+    MochiKit.DOM.addLoadEvent(function() {
+      var existing = $('recentresults');
+      if(existing) {
+      if(existing.childNodes.length == 0) {
+      hideElement('existingsheetstitle');
+      }
+      }
+      });
+    </script>
+    <script src="dojo/smallcompressed.js" type="text/javascript"></script>
+    <script src="/js/myaccount.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="width">
+      <div class="minwidth">
+	<div class="layout">
+	  <div class="container">
+
+    <n:invisible n:render="header"/>
+    <div id="contentcon"> 
+      <div id="sheetmanagement">
+	<div class="sectionheader" id="yoursheetsheader">&#160;</div>
+	<div id="mysheets" n:render="mysheets"/>
+	<div style="clear:both"/>
+	<div class="sectionheader" id="yourmembersheets">&#160;</div>
+	<div id="membersheets" n:render="membersheets"/>
+      </div>
+      <div n:render="manageaccount"/>
+      <div style="clear:both"/>
+      <!-- <div n:render="debug"/> -->
+    </div>
+    <div style="clear:both"/>
+    <n:invisible n:render="footer"/>
+
+</div>
+</div>
+</div>
+</div>
+  </body>
+</html>

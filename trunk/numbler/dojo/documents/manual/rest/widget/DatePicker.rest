@@ -1,0 +1,132 @@
+.. title:: dojo.widget.DatePicker -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.widget.html.DatePicker - Base class for a stand-alone DatePicker widget
+that makes it  easy to select a date, or switch by month and/or year.
+
+Summary and Overview
+===============================================================================
+
+Base class for a current HTML DatePicker, see dojo.widget.html.DatePicker
+
+Usage
+===============================================================================
+
+::
+
+  var datePicker = dojo.widget.createWidget("DatePicker", {},  
+  dojo.byId("datePickerNode"));
+
+or::
+
+  <div dojoType="DatePicker"></div>
+																		
+
+API Reference
+===============================================================================
+
+Properties
+---------------------------------------
+
+``widgetType``:
+
+    widgetType is set to DatePicker
+
+``isContainer``:
+
+    isContainer is set to false as the DatePicker does not currently support 
+		the nesting of other widgets.
+
+
+Methods
+---------------------------------------
+
+		none
+		
+Classes
+---------------------------------------
+
+``util``
+
+    Utility collection for any convenience methods specific to a DatePicker, 
+		but not specific to an instance..
+
+Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ ``toRfcDate(jsDate)``:
+
+    Convert a JavaScript date object, jsDate, to an `RFC 3339`_ date format. If 
+		no jsDate is passed in, it converts the value of today.  There is currently 
+		little attempt to validate the date inside this method.  Time is treated as 
+		0, in the GMT time zone, since this is a DatePicker.  This should probably 
+		be re-evaluated to chose using the time zone of either the current user, or 
+		a time zone that is passsed to the object.
+
+    ``jsDate``:
+        A JavaScript Date object instance
+
+    *returns*:
+        an `RFC 3339`_ date
+
+``fromRfcDate(rfCDate)``:
+
+    Converts an `RFC 3339`_ date string to a JavaScript Date object instance.
+
+    ``rfcDate``:
+        A string representing an `RFC 3339`_ formatted date.
+
+    *returns*:
+        a JavaScript Date object instance representing the value passed in by 
+				rfcDate, or today if rfcDate is not valid.
+
+``initFirstSaturday(month, year)``:
+
+    Set the date of the first Saturday that is being displayed on the 
+    DatePicker.
+
+    ``month``:
+        The month that is displayed on the calendar (0-11)
+
+    ``year``:
+        The four digit year that is displayed on the calendar (i.e. 2007)
+
+    *returns*:
+        null
+
+Requires
+===============================================================================
+
+- `dojo.widget.DomWidget`_
+- `dojo.date`_
+
+.. _`dojo.widget.DomWidget`:	widget/DomWidget.html
+.. _`dojo.widget.date`:	date.html
+
+
+Provides
+===============================================================================
+
+dojo.widget.DatePicker
+    A class constructor that allows a widget of type 
+    dojo.widget.DatePicker to be created.
+
+dojo.widget.DatePicker.util
+    Singleton utility collection for any convenience methods specific to a
+    DatePicker.
+
+About
+===============================================================================
+
+:Author: Dylan Schiemann
+:Version: 0.2
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/30
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

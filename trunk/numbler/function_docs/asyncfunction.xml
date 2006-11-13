@@ -1,0 +1,30 @@
+<div id="contentcon"><div>
+  
+  
+
+  
+  
+  <div><div>
+      <h3>WS</h3>
+      <div>
+    Runs a remote function or web service request.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">WS(service,argument,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">service,argument,...</span>
+    <span class="argdesc">The Name of the web service</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>The WS function is capable of running a number of different remote functions such as ebay price lookup, amazon price lookup, currency conversion, etc. as documented in the web service section.</p></div>
+    </p>
+  </div>
+      
+    </div></div>
+</div></div>

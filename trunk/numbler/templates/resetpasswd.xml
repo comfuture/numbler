@@ -1,0 +1,26 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1" id="contentcon" style="width:80%;padding-bottom:40px">
+  <p n:pattern="notexist">
+    There are no accounts with the email address <span style="font-weight:bold" n:render="email"/>.  If you entered the wrong email address please <a href="/resetpasswd">click here</a>.
+  </p>
+  <p n:pattern="notverified">
+    Oops! Numbler has not verified your email address yet.  You should have received a email message from Numbler to verify your email.  Please follow the instructions in the email to verify your account.
+  </p>
+  <p n:pattern="mailsent">
+    Please check your email for instructions on resetting your password.
+  </p>
+
+  <div n:pattern="theform">
+    <p class="emphasized">Forgot your password?</p>
+    <div style="font-size:12px">
+      <p style="font-size:12px">Please enter the email address you used to create your Numbler account:</p>
+      <form action="" method="POST" name="restform">
+	<span style="font-weight:bold;margin-right:10px">Email address:</span>
+	<span style="margin-right:10px">
+	  <input type="text" name="emailaddr"/>
+	</span>
+	<input type="submit" value="submit" name="submit"/>
+      </form>
+    </div>
+  </div>
+  <div n:render="theform"/>
+</div>

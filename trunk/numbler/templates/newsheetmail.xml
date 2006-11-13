@@ -1,0 +1,7 @@
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+<body style="font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;font-size:14px">
+<p><span n:render="org"/> has created for you a new spreadsheet named 
+<span style="font-weight:bold">&quot;<span n:render="sheetname"/>&quot;</span> at <span n:render="url"/>.  Send this URL to anyone who with whom you wish to share your spreadsheet.  Alternatively, click on the "invite" link from within your spreadsheet to send an email invite to friends and coworkers.
+</p>
+</body>
+</html>

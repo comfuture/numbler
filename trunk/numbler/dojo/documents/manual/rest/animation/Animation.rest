@@ -1,0 +1,364 @@
+.. title:: dojo.animation.* -- The Dojo Manual
+
+.. this is a comment. for more information on reST, see:
+   http://docutils.sf.net/docs/user/rst/quickstart.html
+   http://docutils.sf.net/docs/user/rst/quickref.html
+
+Name
+===============================================================================
+
+dojo.animation.*
+
+Summary and Overview
+===============================================================================
+
+The animation namespace allows you to create n-dimensional animations. These can
+be used to move elements across the screen, change an elements opacity, or
+anything else that you want to do over a given period of time in n-dimensions.
+
+Usage
+===============================================================================
+
+::
+
+    var curve = new dojo.math.curves.Line(...);
+    var anim = new dojo.animation.Animation(curve, 500);
+    dojo.event.connect(anim, "onAnimate", function(e) {
+        // do something with e.x, e.y, etc...
+    });
+    anim.play();
+
+    var seq = new dojo.animation.AnimationSequence();
+    // create animation1 and animation2 similar to anim above
+    seq.add(animation1, animation2);
+    seq.play();
+
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+``Animation(curve, duration, acceleration, repeatCount)``: or
+
+``Animation(curve, duration, acceleration, repeatCount)``:
+
+    *Inherits from*:
+        nothing
+
+    ``curve``:
+        A curve object that supports a ``getValue`` method. See
+        ``dojo.math.curves`` for example curves.
+
+    ``duraction``:
+        The total time the animation should last, in milliseconds.
+
+    ``acceleration``:
+        Determines whether or not the animation will speed up, slow down, or
+        otherwise change during the course of the animation. It supports two
+        types of values:
+
+        - *Curve object* - a ``dojo.math.curves`` object or any object that
+          implements ``getValue``.
+
+        - *Number* - a numeric value from -1 (max deceleration) to 1 (max
+          acceleration), inclusive. A value of 0 means no acceleration.
+
+    ``repeatCount``:
+        Optional. Determines the number of times the animation will repeat when
+        you play it. Defaults to 0. A value of -1 will repeat forever.
+
+    *returns*:
+        new object of type dojo.animation.Animation.
+
+Properties
+#####################################
+
+    ``curve``:
+        The curve used by the animation to compute coordinate values.
+
+    ``duration``:
+        The total time the animation should last, in milliseconds.
+
+    ``accel``:
+        Acceleration curve used to determine acceleration. (Note: this should
+        only be set to a numeric value (-1 to 1, inclusive) in the constructor.)
+
+    ``repeatCount``:
+        Set the number of times the animation should repeat.
+
+Methods
+#####################################
+
+    ``play(gotoStart)``:
+
+        Plays an animation either from the beginning or from where it was
+        paused.
+
+        ``gotoStart``:
+            Optional. If ``true``, plays the animation from the beginning, otherwise it
+            plays it from where it left off. If the animation has never been
+            played, or it has been played to completion, ``play`` will start at
+            the beginning regardless of the value of ``gotoStart``.
+
+    ``pause()``:
+
+        Pauses an animation if it is playing.
+
+    ``playPause()``:
+
+        Plays or pauses an animation. If the animation is currently playing, it
+        pauses the animation. If the animation is currently paused or stopped,
+        it plays the animation.
+
+    ``gotoPercent(pct, andPlay)``:
+
+        Jump to an arbitrary place in the animation.
+
+        ``pct``:
+            A decimal value between 0 and 100 inclusive that you want the
+            animation to jump to.
+
+        ``andPlay``:
+            Optional. If ``true``, play the animation after jumping to ``pct``. Otherwise,
+            the animation will be in the paused state, regardless of the state
+            it was in before the call to ``gotoPercent``.
+
+    ``stop(gotoEnd)``:
+
+        Stop the current animation if it is playing.
+
+        ``gotoEnd``:
+            Optional. If ``true``, the AnimationEvent will return coordinates for the end
+            position in the animation, otherwise the coordinates for the current
+            position in the animation will be sent.
+
+    ``status()``:
+
+        Get the status of the animation object. Possible values are:
+
+        - ``'paused'``
+        - ``'playing'``
+        - ``'stopped'``
+
+Event Handlers
+#####################################
+
+    ``onBegin(animationEvent)``:
+
+        Called when an animation begins playing from the start.
+
+    ``onAnimate(animationEvent)``:
+
+        Called every "frame" of the animation.
+
+    ``onEnd(animationEvent)``:
+
+        Called when an animation ends playing.
+
+    ``onPlay(animationEvent)``:
+
+        Called when an animation begins playing from the start or is resumed
+        from the paused state.
+
+    ``onPause(animationEvent)``:
+
+        Called when a playing animation is paused.
+
+    ``onStop(animationEvent)``:
+
+        Called when an animation is stopped via ``stop()``
+
+    ``handler(animationEvent)``:
+
+        Called along with any of the other event handlers. This can be used for
+        a one-size-fits all handler. You would then have to look at
+        ``event.type`` to figure out which event is being fired.
+
+``AnimationSequence(repeatCount)``:
+
+    ``repeatCount``:
+        Optional. The number of times you want the sequence to repeat. Defaults
+        to 0.
+
+Properties
+#####################################
+
+    ``repeatCount``:
+        The number of times you want the sequence to repeat.
+
+Methods
+#####################################
+
+    ``add(...)``:
+
+        Add ``Animation`` object arguments to the sequence in the order they are
+        listed.
+
+    ``remove(anim)``:
+
+        Removes the ``Animation`` object that matches ``anim``.
+
+    ``removeAll()`` or
+
+    ``clear()``:
+
+        Clears out the ``AnimationSequence``.
+
+    ``play(gotoStart)``:
+
+        Starts the ``AnimationSequence`` from the beginning if stopped or
+        resumes if paused.
+
+        ``gotoStart``:
+            Optional. If ``true``, plays the ``Animation`` from the beginning, otherwise it
+            plays it from where it left off. If the ``Animation`` has never been
+            played, or it has been played to completion, ``play`` will start at
+            the beginning regardless of the value of ``gotoStart``.
+
+    ``pause()``:
+
+        Pauses the current ``Animation`` running.
+
+    ``playPause()``:
+
+        If paused or stopped, resume playing the current ``Animation``. If playing,
+        pause the current ``Animation``.
+
+    ``stop()``:
+
+        Stop the currently running ``Animation``.
+
+    ``status()``:
+
+        Return the status of the currently running ``Animation``.
+
+Event Handlers
+#####################################
+
+    ``animationSequenceEvent`` is an object with the following properties:
+
+        ``type``:
+
+            Denotes the type of event. Possible values are ``"begin"``,
+            ``"next"``, or ``"end"``.
+
+        ``animation``:
+
+            Refers to the ``Animation`` object currently running.
+
+    ``onBegin(animationSequenceEvent)``:
+
+        Called when the first ``Animation`` begins.
+
+    ``onEnd(animationSequenceEvent)``:
+
+        Called when the last ``Animation`` ends.
+
+    ``onNext(animationSequenceEvent)``:
+
+        Called when one ``Animation`` ends before the next ``Animation`` begins.
+
+    ``handler(animationSequenceEvent)``:
+
+        Called along with any of the other event handlers. This can be used for
+        a one-size-fits all handler. You would then have to look at
+        ``event.type`` to figure out which event is being fired.
+
+``AnimationEvent(anim, type, coords, sTime, cTime, eTime, dur, pct, fps)``:
+
+    Used to create events for ``Animation`` objects. (Note:
+    ``AnimationSequence`` does not use the ``AnimationEvent`` for its events.)
+
+    See Properties below for description of arguments.
+
+    *Inherits from*:
+        nothing
+
+    *returns*:
+        new object of type ``dojo.animation.AnimationEvent``.
+
+Properties
+#####################################
+
+    ``type``:
+        String type of animation event. Possible values are: ``"animate"``,
+        ``"begin"``, ``"end"``, ``"play"``, ``"pause"``, or ``"stop"``.
+
+    ``animation``:
+        ``Animation`` object that event is associated with.
+
+    ``coords``:
+        Coordinate array of values at the given time in the animation.
+
+    ``x``:
+        Shortcut to ``coords[0]``
+
+    ``y``:
+        Shortcut to ``coords[1]``
+
+    ``z``:
+        Shortcut to ``coords[2]``
+
+    ``startTime``:
+        When the animation started.
+
+    ``endTime``:
+        When the animation will stop.
+
+    ``duration``:
+        How long the animation will run (in milliseconds).
+
+    ``percent``:
+        Percent of animation completed (0 - 100).
+
+    ``fps``:
+        Currently running frames per second.
+
+Methods
+#####################################
+
+    ``coordsAsInts()``:
+
+        Return a copy of the ``coords`` array with all the values rounded to
+        integer values.
+
+Requires
+===============================================================================
+
+- `dojo.hostenv`_
+- `dojo.math`_
+- `dojo.math.curves`_
+
+.. _`dojo.hostenv`: hostenv.html
+.. _`dojo.math`: math.html
+.. _`dojo.math.curves`: curves.html
+
+Provides
+===============================================================================
+
+dojo.animation.Animation
+    A class constructor to create Animation objects.
+
+dojo.animation.AnimationEvent
+    A class constructor to create AnimationEvent objects fired by animations.
+
+dojo.animation.AnimationSequence
+    A class constructor to create AnimationSequence objects which contain
+    animations.
+
+To Do
+===============================================================================
+
+Lots. But that's always true.
+
+About
+===============================================================================
+
+:Author: David Schontzler
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/10/25
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

@@ -1,0 +1,11 @@
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+<body style="  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;font-size:14px">
+<div style="padding-top:20px">
+<span n:render="username"/> has invited you to collaborate on a spreadsheet named 
+<span style="font-weight:bold"><span n:render="sheetname"/></span>.<br/><br/>
+Click <span n:render="url"/> to start using the sheet.<br/><br/>
+This spreadsheet will now be visible on your "My Account" page at <a href="http://numbler.com/myaccount">
+        <span n:render="fqdn"/>/myaccount</a>
+</div>
+</body>
+</html>

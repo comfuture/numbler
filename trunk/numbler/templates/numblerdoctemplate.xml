@@ -1,0 +1,38 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1">
+  <div n:render="reqarg" n:pattern="reqarg">
+    <span class="funcarg"><n:slot name="funcarg"/></span>
+    <span class="argdesc"><n:slot name="argdesc"/></span>
+  </div>
+  <div n:render="optarg" n:pattern="optarg">
+    <span class="funcarg"><n:slot name="funcarg"/></span>
+    <span class="argdesc"><n:slot name="argdesc"/></span>
+  </div>
+
+  <div n:pattern="commentpat" n:render="commentdetails">
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><n:slot name="commentinfo"/></div>
+    </p>
+  </div>
+  <div n:pattern="examplepat" n:render="exampledetails">
+    <p>
+      <div class="exampleheader">Example:</div>
+      <div class="example"><n:slot name="example"/></div>
+    </p>
+  </div>
+  <div n:render="sequence" n:data="funclist">
+    <div n:pattern="item">
+      <n:invisible n:render="funcname"/>
+      <div n:render="summary"/>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<div n:render="syntax"/>
+	<p>
+	<div n:render="arglist"/>
+	</p>
+      </div>
+      <n:invisible n:render="comments"/>
+      <n:invisible n:render="examples"/>
+    </div>
+  </div>
+</div>

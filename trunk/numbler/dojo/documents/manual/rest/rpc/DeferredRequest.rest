@@ -1,0 +1,143 @@
+.. title:: dojo.rpc.DeferredRequest-- The Dojo Manual
+
+Name
+===============================================================================
+
+dojo.rpc.DeferredRequest - Deferred object for recieving asyncronous results.
+
+Summary and Overview
+===============================================================================
+
+``dojo.rpc.DeferredRequest``:  Provides an object which the developer can 
+can register callbacks and errbacks that will be executed when its own 
+``callback`` and ``errback`` functions are called.  If new callbacks or errbacks
+are added to the deferred after its own callback or errorback has been triggered
+it will automatically execute the newly added callback/errback immediately
+
+Usage
+===============================================================================
+
+::
+
+    var deferred = remoted.doFoo("arg1", arg2);
+    deferred.addCallback(myCallbackFunc);
+    deferred.addErrback(myErrbackFunc);
+
+           -or-
+
+    remoted.doFoo("arg1", arg2).addCallback(myCallbackFunc)
+
+API Reference
+===============================================================================
+
+Classes
+---------------------------------------
+
+``DeferredRequest()``:
+
+	Implements a DeferredRequest object for handling
+	asyncronous communications.
+	
+    *Inherits from*:
+        nothing
+
+    *return*:
+        new object of type ``DeferredRequest``
+
+Properties
+~~~~~~~~~~~~~
+
+   ``callbacks``:
+        Array. Collection of callback functions to be executed
+		  when results are available.
+
+   ``errbacks``:
+        Array. Collection of errback functions to be executed
+		  when results are available.
+
+	``results``: 
+			Copy of the results from execution of the object's
+			``callback`` method.
+			
+Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    ``addCallback(callback)``:
+	
+		Adds a new callback function to the ``callbacks`` array.
+ 
+	``callback``:
+	    Function. Function to be added to ``callbacks``
+
+	*return*:
+		nothing.
+
+	``addErrback(errback)``:
+
+		Adds a new errback function to the ``errbacks`` array.
+
+		``errback``:
+			Function. Function to be added to ``errbacks``
+
+		*return*:
+			nothing.
+
+	``addBoth(callback, errback)``:
+		
+		Convienance method to add both callback and errback
+		functions at the same time.
+
+	``callback``:
+		Function. Function to be added with addCallback.
+
+	``errback``:
+		Function. Function to be added with addErrback.
+
+	*return*:
+		nothing.
+		
+	``callback(results)``:
+		Function. Executes each of the functions currently in the
+					``callbacks`` array.
+
+		``results``:
+			The results are passed as a paremeter to each of the 
+			functions in the ``callbacks`` collection.
+
+	``errback(error)``:
+		Function. Executes each of the functions currently in the
+					``errbacks`` array.
+
+		``error``:
+			Passed as a parameter to each of the functions in the
+			``errbacks`` collection.
+
+		*return*:
+			nothing.
+
+Requires
+===============================================================================
+
+- `dojo.lang`_
+
+.. _`dojo.lang`:	lang.html
+
+Provides
+===============================================================================
+
+dojo.rpc.DeferredRequest
+
+To Do
+===============================================================================
+
+Lots. But that's always true.
+
+About
+===============================================================================
+
+:Author: Dustin Machi
+:Version: 0.1
+:Copyright: Dojo Foundation, 2005
+:Date: 2005/12/30
+
+.. vim:ts=4:et:tw=80:shiftwidth=4:

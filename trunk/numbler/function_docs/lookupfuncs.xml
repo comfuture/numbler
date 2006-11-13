@@ -1,0 +1,160 @@
+<div id="contentcon"><div>
+  
+  
+
+  
+  
+  <div><div>
+      <h3>VLOOKUP</h3>
+      <div>
+    Search for search_value in the first column and return the value in the same row from another column based on column_index.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">VLOOKUP(</span><span class="synreq">search_value,</span><span class="synreq">search_range,</span><span class="synreq">column_index,</span><span class="synopt">approx_match</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">search_value</span>
+    <span class="argdesc">The value that you are looking for in search_range</span>
+  </div><div>
+    <span class="funcarg">search_range</span>
+    <span class="argdesc">A range of cells (e.g A5:B10, G22:AB100, A:C).  The first column in the range is the search column.</span>
+  </div><div>
+    <span class="funcarg">column_index</span>
+    <span class="argdesc">The offset from the start of the range that indicates the cell to return (based on the column).  1 is the search column, 2 is the next column to the right of the search column, etc.</span>
+  </div><div>
+    <span class="funcarg">approx_match</span>
+    <span class="argdesc">For Excel compatibility approx_match can be specified to indicate if VLOOKUP should perform an exact match or approximate match.  If TRUE or omitted the next largest value that is less than search_value is returned.  If FALSE only an exact match will be returned (otherwise an error occurs).</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>An error will occur if column_index is outside the range of cells specified in search_range.  VLOOKUP does not support wildcard characters in search_value.</p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>ROW</h3>
+      <div>
+    return the row number of a cell reference or range reference.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">ROW(</span><span class="synopt">reference</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">reference</span>
+    <span class="argdesc">a cell reference (e.g D4) or cell range reference (e.g D4:Q9).  If reference is not specified the current row is assumed.  If reference is a cell range the first row number is returned.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>COLUMN</h3>
+      <div>
+    return the column number of a cell reference or range reference.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">COLUMN(</span><span class="synopt">reference</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">reference</span>
+    <span class="argdesc">a cell reference or cell range reference.  If reference is not specified the current column is assumed.  If reference is a cell range the first column is returned.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>INDEX</h3>
+      <div>
+    return the value from cell_range based on the specified arguments.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">INDEX(</span><span class="synreq">cell_range,</span><span class="synopt">row_index,</span><span class="synopt">col_index</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">cell_range</span>
+    <span class="argdesc">a range of cells (e.g D4:E9)</span>
+  </div><div>
+    <span class="funcarg">row_index</span>
+    <span class="argdesc">the row index</span>
+  </div><div>
+    <span class="funcarg">col_index</span>
+    <span class="argdesc">the column index</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>If cell_range is one dimensional and only two arguments were supplied the second argument is assumed t be an index into the one dimensional range.  If cell_range is rectangular then both row_index and col_index must be supplied</p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>MATCH</h3>
+      <div>
+    Lookup the index of search_value in the range of cells specified by search_range.  Use Match when you need the position of the cell, not the cell value.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">MATCH(</span><span class="synreq">search_value,</span><span class="synreq">search_range,</span><span class="synopt">match_type</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">search_value</span>
+    <span class="argdesc">the value to match in search_range</span>
+  </div><div>
+    <span class="funcarg">search_range</span>
+    <span class="argdesc">A range of cells that is one dimensional, (eg: a1:a10, 1:1, Q:Q, A10:Z10, etc)</span>
+  </div><div>
+    <span class="funcarg">match_type</span>
+    <span class="argdesc">For Excel compatibility match_type can be specified to determine how the match should be performed.  If match_type is 1 MATCH finds the largest value that is less than or equal to search_value.  If match_type is 0 MATCH finds the first value that is exactly equal to search_value.  If match type is -1 MATCH finds the smallest value that is greater than or equal to search_value.</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>if match_type is 1 or -1 the cell range should be sorted.</p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>HLOOKUP</h3>
+      <div>
+    Search for a value in the top row of search_range and return a value in the same column based on row_index.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">HLOOKUP(</span><span class="synreq">search_value,</span><span class="synreq">search_range,</span><span class="synreq">row_index,</span><span class="synopt">approx_match</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">search_value</span>
+    <span class="argdesc">the value that you are looking for in search_range</span>
+  </div><div>
+    <span class="funcarg">search_range</span>
+    <span class="argdesc">A range of cells (e.g A5:B10, G22:AB100, A:C). The first row in the range is the search row</span>
+  </div><div>
+    <span class="funcarg">row_index</span>
+    <span class="argdesc">The offset from the start of the range that indicates the cell to return (based on the row).  1 is the search row, 2 is the next row below the search row, etc.</span>
+  </div><div>
+    <span class="funcarg">approx_match</span>
+    <span class="argdesc">For Excel compatibility approx_match can be specified to indicate if HLOOKUP should perform an exact match or approximate match.  If TRUE or omitted the next largest value that is less than search_value is returned.  If FALSE and exact match is returned (or an error is generated).</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>An error will occur if row_index is outside the range of cells specified in search_range.  HLOOKUP does not support wildcard characters in search_value.</p></div>
+    </p>
+  </div>
+      
+    </div></div>
+</div></div>

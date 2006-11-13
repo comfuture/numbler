@@ -1,0 +1,8 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1"
+  xmlns:athena="http://divmod.org/ns/athena/0.7" n:render="liveFragment">
+  <div class="membersheet" n:render="memberattrs">
+    <a title="open this sheet"><n:attr name="href"><n:slot name="href"/></n:attr><n:slot name="name"/></a>
+    <img src="/img/buttons/delete_noborder.jpg" title="delete your membership" onclick="Nevow.Athena.Widget.get(this).dodelete()"/>
+    <div style="clear:both"/>
+  </div>
+</div>

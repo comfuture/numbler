@@ -1,0 +1,97 @@
+<div id="contentcon"><div>
+  
+  
+
+  
+  
+  <div><div>
+      <h3>AND</h3>
+      <div>
+    returns TRUE if all the arguments evaluate to TRUE.  FALSE is returned if one or more arguments is FALSE.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">AND(logical1,logical2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">logical1,logical2,...</span>
+    <span class="argdesc">a logical expression that is either TRUE or FALSE.</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>for more information see the wikipedia article on <a href="http://en.wikipedia.org/wiki/Boolean_logic">boolean logic.</a></p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>OR</h3>
+      <div>
+    returns TRUE if one or more of the arguments evaluate to TRUE.  FALSE is only returned if all arguments are FALSE.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">AND(logical1,logical2,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">logical1,logical2,...</span>
+    <span class="argdesc">a logical expression that is either TRUE or FALSE.</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>for more information see the wikipedia article on <a href="http://en.wikipedia.org/wiki/Boolean_logic">boolean logic.</a></p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>NOT</h3>
+      <div>
+    returns the opposite logical value of the specified value.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">NOT(</span><span class="synreq">logical</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">logical</span>
+    <span class="argdesc">an expression that is either TRUE or FALSE.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>IF</h3>
+      <div>
+    IF returns the true_value if logical_test is True and false_value if logical_test is False.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">IF(</span><span class="synreq">logical_test,</span><span class="synreq">true_value,</span><span class="synopt">false_value</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">logical_test</span>
+    <span class="argdesc">an expression that evalutes to TRUE or FALSE</span>
+  </div><div>
+    <span class="funcarg">true_value</span>
+    <span class="argdesc">the value that is returned if logical_test is TRUE</span>
+  </div><div>
+    <span class="funcarg">false_value</span>
+    <span class="argdesc">the value that is returned if logical_test is FALSE. if false_value is not present then 0 is returned.</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>for more information see the wikipedia article on <a href="http://en.wikipedia.org/wiki/Boolean_logic">boolean logic.</a></p></div>
+    </p>
+  </div>
+      
+    </div></div>
+</div></div>

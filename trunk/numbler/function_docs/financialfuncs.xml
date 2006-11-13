@@ -1,0 +1,132 @@
+<div id="contentcon"><div>
+  
+  
+
+  
+  
+  <div><div>
+      <h3>DDB</h3>
+      <div>
+    returns the depreciation of an asset using the standard double declining balance method.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">DDB(</span><span class="synreq">cost,</span><span class="synreq">salvage,</span><span class="synreq">life,</span><span class="synreq">period,</span><span class="synopt">factor</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">cost</span>
+    <span class="argdesc">the initial cost</span>
+  </div><div>
+    <span class="funcarg">salvage</span>
+    <span class="argdesc">the end of life value of the asset (can be 0)</span>
+  </div><div>
+    <span class="funcarg">life</span>
+    <span class="argdesc">the number of periods over which you are depreciating the asset.</span>
+  </div><div>
+    <span class="funcarg">period</span>
+    <span class="argdesc">the target period which you want to calculate the depreciation.  Period must be the same units as life, e.g if life is 10 and period is 1 DDB will calculate the depreciation in the first year of the asset.</span>
+  </div><div>
+    <span class="funcarg">factor</span>
+    <span class="argdesc">The factor at which to depreciate the asset.  The default value is 2 (for double declining)</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>SLN</h3>
+      <div>
+    compute the straight line depreciation of an asset for one period.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">SLN(</span><span class="synreq">cost,</span><span class="synreq">salvage,</span><span class="synreq">life</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">cost</span>
+    <span class="argdesc">the initial cost of the asset</span>
+  </div><div>
+    <span class="funcarg">salvage</span>
+    <span class="argdesc">the end of life value of the asset</span>
+  </div><div>
+    <span class="funcarg">life</span>
+    <span class="argdesc">the number of periods over which the asset is depreciated.  If life is 10 SLN computes the yearly depreciation over 10 years.</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>PMT</h3>
+      <div>PMT returns the amount of payment for a loan based on a constant
+    interest rate and constant payments (each payment is equal amount).
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">PMT(</span><span class="synreq">rate,</span><span class="synreq">nper,</span><span class="synreq">pv,</span><span class="synopt">fv,</span><span class="synopt">type</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">rate</span>
+    <span class="argdesc">the constant interest rate</span>
+  </div><div>
+    <span class="funcarg">nper</span>
+    <span class="argdesc">the overall number of payments</span>
+  </div><div>
+    <span class="funcarg">pv</span>
+    <span class="argdesc">the present value of future payments worth now, also known as the principal</span>
+  </div><div>
+    <span class="funcarg">fv</span>
+    <span class="argdesc">the future value.  The default value is 0</span>
+  </div><div>
+    <span class="funcarg">type</span>
+    <span class="argdesc">must be 0 or omitted (payment at the end of the period)</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div><div>
+      <h3>IRR</h3>
+      <div>
+    Compute the internal rate of return using an interative process.  IRR works
+    by trying to solve for an NPV (net present value) of 0.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">IRR(</span><span class="synreq">values,</span><span class="synopt">guess</span><span class="synreq">)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">values</span>
+    <span class="argdesc">a cell reference or cell range containing a set of cash flows</span>
+  </div><div>
+    <span class="funcarg">guess</span>
+    <span class="argdesc">a starting value that is close to the final IRR.  guess is only necessary if IRR returns #NUM! or if your sample size is small.</span>
+  </div></div>
+	</p>
+      </div>
+      <div>
+    <p>
+      <div class="commentdetails">Comments:</div>
+      <div class="comments"><p>For more information see <a href="http://en.wikipedia.org/wiki/Internal_rate_of_return">internal rate of return</a></p></div>
+    </p>
+  </div>
+      
+    </div><div>
+      <h3>NPV</h3>
+      <div>
+    calculate the net present value for an investment.
+    </div>
+      <h4>Syntax:</h4>
+      <div class="syntax">
+	<span class="synreq">NPV(rate,value1,...)</span>
+	<p>
+	<div><div>
+    <span class="funcarg">rate,value1,...</span>
+    <span class="argdesc">the value of discount over the length of one period</span>
+  </div></div>
+	</p>
+      </div>
+      
+      
+    </div></div>
+</div></div>

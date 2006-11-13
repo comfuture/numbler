@@ -1,0 +1,1378 @@
+
+
+Unused terminals:
+
+
+Grammar
+
+Rule 1     expression -> datetime
+Rule 2     expression -> timedate
+Rule 3     expression -> time
+Rule 4     expression -> date
+Rule 5     expression -> number
+Rule 6     expression -> currency
+Rule 7     expression -> percentage
+Rule 8     datetime -> date SPACE time
+Rule 9     timedate -> time SPACE date
+Rule 10    date -> formaldate
+Rule 11    date -> monthday
+Rule 12    date -> monthyear
+Rule 13    date -> monthyearint
+Rule 14    monthday -> month datesep INTEGER
+Rule 15    monthyear -> INTEGER datesep month
+Rule 16    time -> shorttime
+Rule 17    time -> medtime
+Rule 18    time -> longtime
+Rule 19    time -> medtimeclock
+Rule 20    time -> longtimeclock
+Rule 21    medtime -> INTEGER TIMESEP INTEGER
+Rule 22    longtime -> medtime TIMESEP INTEGER
+Rule 23    shorttime -> INTEGER SPACE CLOCK
+Rule 24    number -> normalint
+Rule 25    number -> float
+Rule 26    commaint -> COMMAINT
+Rule 27    normalint -> commaint
+Rule 28    normalint -> INTEGER
+Rule 29    normalint -> commaint EXP
+Rule 30    normalint -> INTEGER EXP
+Rule 31    floatdec -> FRACTION
+Rule 32    floatdec -> FRACTION EXP
+Rule 33    float -> floatdec
+Rule 34    float -> commaint floatdec
+Rule 35    float -> INTEGER floatdec
+Rule 36    percentage -> number PERCENT
+Rule 37    percentage -> INTEGER PERCENT
+Rule 38    percentage -> INTEGER SPACE PERCENT
+Rule 39    percentage -> number SPACE PERCENT
+Rule 40    expression -> DASH expression
+Rule 41    expression -> DASH SPACE expression
+Rule 42    expression -> PLUS expression
+Rule 43    expression -> PLUS SPACE expression
+Rule 44    month -> SHORTMONTH
+Rule 45    month -> LONGMONTH
+Rule 46    datesep -> SLASH
+Rule 47    datesep -> DASH
+Rule 48    datesep -> SPACE
+Rule 49    monthyearint -> INTEGER datesep INTEGER
+Rule 50    formaldate -> shortdate
+Rule 51    formaldate -> meddate
+Rule 52    shortdate -> INTEGER datesep INTEGER datesep INTEGER
+Rule 53    meddate -> monthyear datesep INTEGER
+Rule 54    medtimeclock -> medtime SPACE CLOCK
+Rule 55    longtimeclock -> longtime SPACE CLOCK
+Rule 56    currency -> number CURRENCY
+Rule 57    currency -> number SPACE CURRENCY
+
+Terminals, with rules where they appear
+
+CLOCK                : 23 54 55
+COMMAINT             : 26
+CURRENCY             : 56 57
+DASH                 : 40 41 47
+EXP                  : 29 30 32
+FRACTION             : 31 32
+INTEGER              : 14 15 21 21 22 23 28 30 35 37 38 49 49 52 52 52 53
+LONGMONTH            : 45
+PERCENT              : 36 37 38 39
+PLUS                 : 42 43
+SHORTMONTH           : 44
+SLASH                : 46
+SPACE                : 8 9 23 38 39 41 43 48 54 55 57
+TIMESEP              : 21 22
+error                : 
+
+Nonterminals, with rules where they appear
+
+commaint             : 27 29 34
+currency             : 6
+date                 : 4 8 9
+datesep              : 14 15 49 52 52 53
+datetime             : 1
+expression           : 40 41 42 43 0
+float                : 25
+floatdec             : 33 34 35
+formaldate           : 10
+longtime             : 18 55
+longtimeclock        : 20
+meddate              : 51
+medtime              : 17 22 54
+medtimeclock         : 19
+month                : 14 15
+monthday             : 11
+monthyear            : 12 53
+monthyearint         : 13
+normalint            : 24
+number               : 5 36 39 56 57
+percentage           : 7
+shortdate            : 50
+shorttime            : 16
+time                 : 3 8 9
+timedate             : 2
+
+
+Parsing method: SLR
+
+
+state 0
+
+    (0) S' -> . expression
+    (1) expression -> . datetime
+    (2) expression -> . timedate
+    (3) expression -> . time
+    (4) expression -> . date
+    (5) expression -> . number
+    (6) expression -> . currency
+    (7) expression -> . percentage
+    (40) expression -> . DASH expression
+    (41) expression -> . DASH SPACE expression
+    (42) expression -> . PLUS expression
+    (43) expression -> . PLUS SPACE expression
+    (8) datetime -> . date SPACE time
+    (9) timedate -> . time SPACE date
+    (16) time -> . shorttime
+    (17) time -> . medtime
+    (18) time -> . longtime
+    (19) time -> . medtimeclock
+    (20) time -> . longtimeclock
+    (10) date -> . formaldate
+    (11) date -> . monthday
+    (12) date -> . monthyear
+    (13) date -> . monthyearint
+    (24) number -> . normalint
+    (25) number -> . float
+    (56) currency -> . number CURRENCY
+    (57) currency -> . number SPACE CURRENCY
+    (36) percentage -> . number PERCENT
+    (37) percentage -> . INTEGER PERCENT
+    (38) percentage -> . INTEGER SPACE PERCENT
+    (39) percentage -> . number SPACE PERCENT
+    (23) shorttime -> . INTEGER SPACE CLOCK
+    (21) medtime -> . INTEGER TIMESEP INTEGER
+    (22) longtime -> . medtime TIMESEP INTEGER
+    (54) medtimeclock -> . medtime SPACE CLOCK
+    (55) longtimeclock -> . longtime SPACE CLOCK
+    (50) formaldate -> . shortdate
+    (51) formaldate -> . meddate
+    (14) monthday -> . month datesep INTEGER
+    (15) monthyear -> . INTEGER datesep month
+    (49) monthyearint -> . INTEGER datesep INTEGER
+    (27) normalint -> . commaint
+    (28) normalint -> . INTEGER
+    (29) normalint -> . commaint EXP
+    (30) normalint -> . INTEGER EXP
+    (33) float -> . floatdec
+    (34) float -> . commaint floatdec
+    (35) float -> . INTEGER floatdec
+    (52) shortdate -> . INTEGER datesep INTEGER datesep INTEGER
+    (53) meddate -> . monthyear datesep INTEGER
+    (44) month -> . SHORTMONTH
+    (45) month -> . LONGMONTH
+    (26) commaint -> . COMMAINT
+    (31) floatdec -> . FRACTION
+    (32) floatdec -> . FRACTION EXP
+
+    DASH            shift and go to state 23
+    PLUS            shift and go to state 12
+    INTEGER         shift and go to state 17
+    SHORTMONTH      shift and go to state 28
+    LONGMONTH       shift and go to state 15
+    COMMAINT        shift and go to state 26
+    FRACTION        shift and go to state 14
+
+
+    medtimeclock                   shift and go to state 1
+    floatdec                       shift and go to state 2
+    monthyearint                   shift and go to state 3
+    float                          shift and go to state 4
+    number                         shift and go to state 22
+    month                          shift and go to state 27
+    currency                       shift and go to state 7
+    medtime                        shift and go to state 8
+    monthday                       shift and go to state 9
+    datetime                       shift and go to state 25
+    longtimeclock                  shift and go to state 10
+    commaint                       shift and go to state 11
+    longtime                       shift and go to state 13
+    shorttime                      shift and go to state 16
+    percentage                     shift and go to state 18
+    formaldate                     shift and go to state 19
+    meddate                        shift and go to state 20
+    monthyear                      shift and go to state 21
+    normalint                      shift and go to state 5
+    date                           shift and go to state 24
+    timedate                       shift and go to state 6
+    time                           shift and go to state 29
+    shortdate                      shift and go to state 30
+    expression                     shift and go to state 31
+
+state 1
+
+    (19) time -> medtimeclock .
+
+    $               reduce using rule 19 (time -> medtimeclock .)
+    SPACE           reduce using rule 19 (time -> medtimeclock .)
+
+
+
+state 2
+
+    (33) float -> floatdec .
+
+    $               reduce using rule 33 (float -> floatdec .)
+    PERCENT         reduce using rule 33 (float -> floatdec .)
+    SPACE           reduce using rule 33 (float -> floatdec .)
+    CURRENCY        reduce using rule 33 (float -> floatdec .)
+
+
+
+state 3
+
+    (13) date -> monthyearint .
+
+    $               reduce using rule 13 (date -> monthyearint .)
+    SPACE           reduce using rule 13 (date -> monthyearint .)
+
+
+
+state 4
+
+    (25) number -> float .
+
+    $               reduce using rule 25 (number -> float .)
+    PERCENT         reduce using rule 25 (number -> float .)
+    SPACE           reduce using rule 25 (number -> float .)
+    CURRENCY        reduce using rule 25 (number -> float .)
+
+
+
+state 5
+
+    (24) number -> normalint .
+
+    $               reduce using rule 24 (number -> normalint .)
+    PERCENT         reduce using rule 24 (number -> normalint .)
+    SPACE           reduce using rule 24 (number -> normalint .)
+    CURRENCY        reduce using rule 24 (number -> normalint .)
+
+
+
+state 6
+
+    (2) expression -> timedate .
+
+    $               reduce using rule 2 (expression -> timedate .)
+
+
+
+state 7
+
+    (6) expression -> currency .
+
+    $               reduce using rule 6 (expression -> currency .)
+
+
+
+state 8
+
+    (17) time -> medtime .
+    (22) longtime -> medtime . TIMESEP INTEGER
+    (54) medtimeclock -> medtime . SPACE CLOCK
+
+    $               reduce using rule 17 (time -> medtime .)
+    TIMESEP         shift and go to state 32
+    SPACE           shift and go to state 33
+
+  ! SPACE           [ reduce using rule 17 (time -> medtime .) ]
+
+
+state 9
+
+    (11) date -> monthday .
+
+    $               reduce using rule 11 (date -> monthday .)
+    SPACE           reduce using rule 11 (date -> monthday .)
+
+
+
+state 10
+
+    (20) time -> longtimeclock .
+
+    $               reduce using rule 20 (time -> longtimeclock .)
+    SPACE           reduce using rule 20 (time -> longtimeclock .)
+
+
+
+state 11
+
+    (27) normalint -> commaint .
+    (29) normalint -> commaint . EXP
+    (34) float -> commaint . floatdec
+    (31) floatdec -> . FRACTION
+    (32) floatdec -> . FRACTION EXP
+
+    $               reduce using rule 27 (normalint -> commaint .)
+    PERCENT         reduce using rule 27 (normalint -> commaint .)
+    SPACE           reduce using rule 27 (normalint -> commaint .)
+    CURRENCY        reduce using rule 27 (normalint -> commaint .)
+    EXP             shift and go to state 35
+    FRACTION        shift and go to state 14
+
+
+    floatdec                       shift and go to state 34
+
+state 12
+
+    (42) expression -> PLUS . expression
+    (43) expression -> PLUS . SPACE expression
+    (1) expression -> . datetime
+    (2) expression -> . timedate
+    (3) expression -> . time
+    (4) expression -> . date
+    (5) expression -> . number
+    (6) expression -> . currency
+    (7) expression -> . percentage
+    (40) expression -> . DASH expression
+    (41) expression -> . DASH SPACE expression
+    (42) expression -> . PLUS expression
+    (43) expression -> . PLUS SPACE expression
+    (8) datetime -> . date SPACE time
+    (9) timedate -> . time SPACE date
+    (16) time -> . shorttime
+    (17) time -> . medtime
+    (18) time -> . longtime
+    (19) time -> . medtimeclock
+    (20) time -> . longtimeclock
+    (10) date -> . formaldate
+    (11) date -> . monthday
+    (12) date -> . monthyear
+    (13) date -> . monthyearint
+    (24) number -> . normalint
+    (25) number -> . float
+    (56) currency -> . number CURRENCY
+    (57) currency -> . number SPACE CURRENCY
+    (36) percentage -> . number PERCENT
+    (37) percentage -> . INTEGER PERCENT
+    (38) percentage -> . INTEGER SPACE PERCENT
+    (39) percentage -> . number SPACE PERCENT
+    (23) shorttime -> . INTEGER SPACE CLOCK
+    (21) medtime -> . INTEGER TIMESEP INTEGER
+    (22) longtime -> . medtime TIMESEP INTEGER
+    (54) medtimeclock -> . medtime SPACE CLOCK
+    (55) longtimeclock -> . longtime SPACE CLOCK
+    (50) formaldate -> . shortdate
+    (51) formaldate -> . meddate
+    (14) monthday -> . month datesep INTEGER
+    (15) monthyear -> . INTEGER datesep month
+    (49) monthyearint -> . INTEGER datesep INTEGER
+    (27) normalint -> . commaint
+    (28) normalint -> . INTEGER
+    (29) normalint -> . commaint EXP
+    (30) normalint -> . INTEGER EXP
+    (33) float -> . floatdec
+    (34) float -> . commaint floatdec
+    (35) float -> . INTEGER floatdec
+    (52) shortdate -> . INTEGER datesep INTEGER datesep INTEGER
+    (53) meddate -> . monthyear datesep INTEGER
+    (44) month -> . SHORTMONTH
+    (45) month -> . LONGMONTH
+    (26) commaint -> . COMMAINT
+    (31) floatdec -> . FRACTION
+    (32) floatdec -> . FRACTION EXP
+
+    SPACE           shift and go to state 36
+    DASH            shift and go to state 23
+    PLUS            shift and go to state 12
+    INTEGER         shift and go to state 17
+    SHORTMONTH      shift and go to state 28
+    LONGMONTH       shift and go to state 15
+    COMMAINT        shift and go to state 26
+    FRACTION        shift and go to state 14
+
+
+    medtimeclock                   shift and go to state 1
+    floatdec                       shift and go to state 2
+    monthyearint                   shift and go to state 3
+    float                          shift and go to state 4
+    number                         shift and go to state 22
+    month                          shift and go to state 27
+    currency                       shift and go to state 7
+    medtime                        shift and go to state 8
+    monthday                       shift and go to state 9
+    datetime                       shift and go to state 25
+    longtimeclock                  shift and go to state 10
+    commaint                       shift and go to state 11
+    longtime                       shift and go to state 13
+    shorttime                      shift and go to state 16
+    percentage                     shift and go to state 18
+    formaldate                     shift and go to state 19
+    meddate                        shift and go to state 20
+    monthyear                      shift and go to state 21
+    normalint                      shift and go to state 5
+    date                           shift and go to state 24
+    timedate                       shift and go to state 6
+    time                           shift and go to state 29
+    shortdate                      shift and go to state 30
+    expression                     shift and go to state 37
+
+state 13
+
+    (18) time -> longtime .
+    (55) longtimeclock -> longtime . SPACE CLOCK
+
+    $               reduce using rule 18 (time -> longtime .)
+    SPACE           shift and go to state 38
+
+  ! SPACE           [ reduce using rule 18 (time -> longtime .) ]
+
+
+state 14
+
+    (31) floatdec -> FRACTION .
+    (32) floatdec -> FRACTION . EXP
+
+    $               reduce using rule 31 (floatdec -> FRACTION .)
+    PERCENT         reduce using rule 31 (floatdec -> FRACTION .)
+    SPACE           reduce using rule 31 (floatdec -> FRACTION .)
+    CURRENCY        reduce using rule 31 (floatdec -> FRACTION .)
+    EXP             shift and go to state 39
+
+
+
+state 15
+
+    (45) month -> LONGMONTH .
+
+    SLASH           reduce using rule 45 (month -> LONGMONTH .)
+    DASH            reduce using rule 45 (month -> LONGMONTH .)
+    SPACE           reduce using rule 45 (month -> LONGMONTH .)
+    $               reduce using rule 45 (month -> LONGMONTH .)
+
+
+
+state 16
+
+    (16) time -> shorttime .
+
+    $               reduce using rule 16 (time -> shorttime .)
+    SPACE           reduce using rule 16 (time -> shorttime .)
+
+
+
+state 17
+
+    (37) percentage -> INTEGER . PERCENT
+    (38) percentage -> INTEGER . SPACE PERCENT
+    (23) shorttime -> INTEGER . SPACE CLOCK
+    (21) medtime -> INTEGER . TIMESEP INTEGER
+    (15) monthyear -> INTEGER . datesep month
+    (49) monthyearint -> INTEGER . datesep INTEGER
+    (28) normalint -> INTEGER .
+    (30) normalint -> INTEGER . EXP
+    (35) float -> INTEGER . floatdec
+    (52) shortdate -> INTEGER . datesep INTEGER datesep INTEGER
+    (46) datesep -> . SLASH
+    (47) datesep -> . DASH
+    (48) datesep -> . SPACE
+    (31) floatdec -> . FRACTION
+    (32) floatdec -> . FRACTION EXP
+
+    PERCENT         shift and go to state 44
+    TIMESEP         shift and go to state 41
+    $               reduce using rule 28 (normalint -> INTEGER .)
+    CURRENCY        reduce using rule 28 (normalint -> INTEGER .)
+    EXP             shift and go to state 40
+    SLASH           shift and go to state 45
+    DASH            shift and go to state 46
+    SPACE           shift and go to state 47
+    FRACTION        shift and go to state 14
+
+  ! PERCENT         [ reduce using rule 28 (normalint -> INTEGER .) ]
+  ! SPACE           [ reduce using rule 28 (normalint -> INTEGER .) ]
+
+    floatdec                       shift and go to state 43
+    datesep                        shift and go to state 42
+
+state 18
+
+    (7) expression -> percentage .
+
+    $               reduce using rule 7 (expression -> percentage .)
+
+
+
+state 19
+
+    (10) date -> formaldate .
+
+    $               reduce using rule 10 (date -> formaldate .)
+    SPACE           reduce using rule 10 (date -> formaldate .)
+
+
+
+state 20
+
+    (51) formaldate -> meddate .
+
+    $               reduce using rule 51 (formaldate -> meddate .)
+    SPACE           reduce using rule 51 (formaldate -> meddate .)
+
+
+
+state 21
+
+    (12) date -> monthyear .
+    (53) meddate -> monthyear . datesep INTEGER
+    (46) datesep -> . SLASH
+    (47) datesep -> . DASH
+    (48) datesep -> . SPACE
+
+    $               reduce using rule 12 (date -> monthyear .)
+    SLASH           shift and go to state 45
+    DASH            shift and go to state 46
+    SPACE           shift and go to state 48
+
+  ! SPACE           [ reduce using rule 12 (date -> monthyear .) ]
+
+    datesep                        shift and go to state 49
+
+state 22
+
+    (5) expression -> number .
+    (56) currency -> number . CURRENCY
+    (57) currency -> number . SPACE CURRENCY
+    (36) percentage -> number . PERCENT
+    (39) percentage -> number . SPACE PERCENT
+
+    $               reduce using rule 5 (expression -> number .)
+    CURRENCY        shift and go to state 50
+    SPACE           shift and go to state 52
+    PERCENT         shift and go to state 51
+
+
+
+state 23
+
+    (40) expression -> DASH . expression
+    (41) expression -> DASH . SPACE expression
+    (1) expression -> . datetime
+    (2) expression -> . timedate
+    (3) expression -> . time
+    (4) expression -> . date
+    (5) expression -> . number
+    (6) expression -> . currency
+    (7) expression -> . percentage
+    (40) expression -> . DASH expression
+    (41) expression -> . DASH SPACE expression
+    (42) expression -> . PLUS expression
+    (43) expression -> . PLUS SPACE expression
+    (8) datetime -> . date SPACE time
+    (9) timedate -> . time SPACE date
+    (16) time -> . shorttime
+    (17) time -> . medtime
+    (18) time -> . longtime
+    (19) time -> . medtimeclock
+    (20) time -> . longtimeclock
+    (10) date -> . formaldate
+    (11) date -> . monthday
+    (12) date -> . monthyear
+    (13) date -> . monthyearint
+    (24) number -> . normalint
+    (25) number -> . float
+    (56) currency -> . number CURRENCY
+    (57) currency -> . number SPACE CURRENCY
+    (36) percentage -> . number PERCENT
+    (37) percentage -> . INTEGER PERCENT
+    (38) percentage -> . INTEGER SPACE PERCENT
+    (39) percentage -> . number SPACE PERCENT
+    (23) shorttime -> . INTEGER SPACE CLOCK
+    (21) medtime -> . INTEGER TIMESEP INTEGER
+    (22) longtime -> . medtime TIMESEP INTEGER
+    (54) medtimeclock -> . medtime SPACE CLOCK
+    (55) longtimeclock -> . longtime SPACE CLOCK
+    (50) formaldate -> . shortdate
+    (51) formaldate -> . meddate
+    (14) monthday -> . month datesep INTEGER
+    (15) monthyear -> . INTEGER datesep month
+    (49) monthyearint -> . INTEGER datesep INTEGER
+    (27) normalint -> . commaint
+    (28) normalint -> . INTEGER
+    (29) normalint -> . commaint EXP
+    (30) normalint -> . INTEGER EXP
+    (33) float -> . floatdec
+    (34) float -> . commaint floatdec
+    (35) float -> . INTEGER floatdec
+    (52) shortdate -> . INTEGER datesep INTEGER datesep INTEGER
+    (53) meddate -> . monthyear datesep INTEGER
+    (44) month -> . SHORTMONTH
+    (45) month -> . LONGMONTH
+    (26) commaint -> . COMMAINT
+    (31) floatdec -> . FRACTION
+    (32) floatdec -> . FRACTION EXP
+
+    SPACE           shift and go to state 53
+    DASH            shift and go to state 23
+    PLUS            shift and go to state 12
+    INTEGER         shift and go to state 17
+    SHORTMONTH      shift and go to state 28
+    LONGMONTH       shift and go to state 15
+    COMMAINT        shift and go to state 26
+    FRACTION        shift and go to state 14
+
+
+    medtimeclock                   shift and go to state 1
+    floatdec                       shift and go to state 2
+    monthyearint                   shift and go to state 3
+    float                          shift and go to state 4
+    number                         shift and go to state 22
+    month                          shift and go to state 27
+    currency                       shift and go to state 7
+    medtime                        shift and go to state 8
+    monthday                       shift and go to state 9
+    datetime                       shift and go to state 25
+    longtimeclock                  shift and go to state 10
+    commaint                       shift and go to state 11
+    longtime                       shift and go to state 13
+    shorttime                      shift and go to state 16
+    percentage                     shift and go to state 18
+    formaldate                     shift and go to state 19
+    meddate                        shift and go to state 20
+    monthyear                      shift and go to state 21
+    normalint                      shift and go to state 5
+    date                           shift and go to state 24
+    timedate                       shift and go to state 6
+    time                           shift and go to state 29
+    shortdate                      shift and go to state 30
+    expression                     shift and go to state 54
+
+state 24
+
+    (4) expression -> date .
+    (8) datetime -> date . SPACE time
+
+    $               reduce using rule 4 (expression -> date .)
+    SPACE           shift and go to state 55
+
+
+
+state 25
+
+    (1) expression -> datetime .
+
+    $               reduce using rule 1 (expression -> datetime .)
+
+
+
+state 26
+
+    (26) commaint -> COMMAINT .
+
+    $               reduce using rule 26 (commaint -> COMMAINT .)
+    EXP             reduce using rule 26 (commaint -> COMMAINT .)
+    FRACTION        reduce using rule 26 (commaint -> COMMAINT .)
+    PERCENT         reduce using rule 26 (commaint -> COMMAINT .)
+    SPACE           reduce using rule 26 (commaint -> COMMAINT .)
+    CURRENCY        reduce using rule 26 (commaint -> COMMAINT .)
+
+
+
+state 27
+
+    (14) monthday -> month . datesep INTEGER
+    (46) datesep -> . SLASH
+    (47) datesep -> . DASH
+    (48) datesep -> . SPACE
+
+    SLASH           shift and go to state 45
+    DASH            shift and go to state 46
+    SPACE           shift and go to state 48
+
+
+    datesep                        shift and go to state 56
+
+state 28
+
+    (44) month -> SHORTMONTH .
+
+    SLASH           reduce using rule 44 (month -> SHORTMONTH .)
+    DASH            reduce using rule 44 (month -> SHORTMONTH .)
+    SPACE           reduce using rule 44 (month -> SHORTMONTH .)
+    $               reduce using rule 44 (month -> SHORTMONTH .)
+
+
+
+state 29
+
+    (3) expression -> time .
+    (9) timedate -> time . SPACE date
+
+    $               reduce using rule 3 (expression -> time .)
+    SPACE           shift and go to state 57
+
+
+
+state 30
+
+    (50) formaldate -> shortdate .
+
+    $               reduce using rule 50 (formaldate -> shortdate .)
+    SPACE           reduce using rule 50 (formaldate -> shortdate .)
+
+
+
+state 31
+
+    (0) S' -> expression .
+
+
+
+
+state 32
+
+    (22) longtime -> medtime TIMESEP . INTEGER
+
+    INTEGER         shift and go to state 58
+
+
+
+state 33
+
+    (54) medtimeclock -> medtime SPACE . CLOCK
+
+    CLOCK           shift and go to state 59
+
+
+
+state 34
+
+    (34) float -> commaint floatdec .
+
+    $               reduce using rule 34 (float -> commaint floatdec .)
+    PERCENT         reduce using rule 34 (float -> commaint floatdec .)
+    SPACE           reduce using rule 34 (float -> commaint floatdec .)
+    CURRENCY        reduce using rule 34 (float -> commaint floatdec .)
+
+
+
+state 35
+
+    (29) normalint -> commaint EXP .
+
+    $               reduce using rule 29 (normalint -> commaint EXP .)
+    PERCENT         reduce using rule 29 (normalint -> commaint EXP .)
+    SPACE           reduce using rule 29 (normalint -> commaint EXP .)
+    CURRENCY        reduce using rule 29 (normalint -> commaint EXP .)
+
+
+
+state 36
+
+    (43) expression -> PLUS SPACE . expression
+    (1) expression -> . datetime
+    (2) expression -> . timedate
+    (3) expression -> . time
+    (4) expression -> . date
+    (5) expression -> . number
+    (6) expression -> . currency
+    (7) expression -> . percentage
+    (40) expression -> . DASH expression
+    (41) expression -> . DASH SPACE expression
+    (42) expression -> . PLUS expression
+    (43) expression -> . PLUS SPACE expression
+    (8) datetime -> . date SPACE time
+    (9) timedate -> . time SPACE date
+    (16) time -> . shorttime
+    (17) time -> . medtime
+    (18) time -> . longtime
+    (19) time -> . medtimeclock
+    (20) time -> . longtimeclock
+    (10) date -> . formaldate
+    (11) date -> . monthday
+    (12) date -> . monthyear
+    (13) date -> . monthyearint
+    (24) number -> . normalint
+    (25) number -> . float
+    (56) currency -> . number CURRENCY
+    (57) currency -> . number SPACE CURRENCY
+    (36) percentage -> . number PERCENT
+    (37) percentage -> . INTEGER PERCENT
+    (38) percentage -> . INTEGER SPACE PERCENT
+    (39) percentage -> . number SPACE PERCENT
+    (23) shorttime -> . INTEGER SPACE CLOCK
+    (21) medtime -> . INTEGER TIMESEP INTEGER
+    (22) longtime -> . medtime TIMESEP INTEGER
+    (54) medtimeclock -> . medtime SPACE CLOCK
+    (55) longtimeclock -> . longtime SPACE CLOCK
+    (50) formaldate -> . shortdate
+    (51) formaldate -> . meddate
+    (14) monthday -> . month datesep INTEGER
+    (15) monthyear -> . INTEGER datesep month
+    (49) monthyearint -> . INTEGER datesep INTEGER
+    (27) normalint -> . commaint
+    (28) normalint -> . INTEGER
+    (29) normalint -> . commaint EXP
+    (30) normalint -> . INTEGER EXP
+    (33) float -> . floatdec
+    (34) float -> . commaint floatdec
+    (35) float -> . INTEGER floatdec
+    (52) shortdate -> . INTEGER datesep INTEGER datesep INTEGER
+    (53) meddate -> . monthyear datesep INTEGER
+    (44) month -> . SHORTMONTH
+    (45) month -> . LONGMONTH
+    (26) commaint -> . COMMAINT
+    (31) floatdec -> . FRACTION
+    (32) floatdec -> . FRACTION EXP
+
+    DASH            shift and go to state 23
+    PLUS            shift and go to state 12
+    INTEGER         shift and go to state 17
+    SHORTMONTH      shift and go to state 28
+    LONGMONTH       shift and go to state 15
+    COMMAINT        shift and go to state 26
+    FRACTION        shift and go to state 14
+
+
+    medtimeclock                   shift and go to state 1
+    floatdec                       shift and go to state 2
+    monthyearint                   shift and go to state 3
+    float                          shift and go to state 4
+    number                         shift and go to state 22
+    month                          shift and go to state 27
+    currency                       shift and go to state 7
+    medtime                        shift and go to state 8
+    monthday                       shift and go to state 9
+    datetime                       shift and go to state 25
+    longtimeclock                  shift and go to state 10
+    commaint                       shift and go to state 11
+    longtime                       shift and go to state 13
+    shorttime                      shift and go to state 16
+    percentage                     shift and go to state 18
+    formaldate                     shift and go to state 19
+    meddate                        shift and go to state 20
+    monthyear                      shift and go to state 21
+    normalint                      shift and go to state 5
+    date                           shift and go to state 24
+    timedate                       shift and go to state 6
+    time                           shift and go to state 29
+    shortdate                      shift and go to state 30
+    expression                     shift and go to state 60
+
+state 37
+
+    (42) expression -> PLUS expression .
+
+    $               reduce using rule 42 (expression -> PLUS expression .)
+
+
+
+state 38
+
+    (55) longtimeclock -> longtime SPACE . CLOCK
+
+    CLOCK           shift and go to state 61
+
+
+
+state 39
+
+    (32) floatdec -> FRACTION EXP .
+
+    $               reduce using rule 32 (floatdec -> FRACTION EXP .)
+    PERCENT         reduce using rule 32 (floatdec -> FRACTION EXP .)
+    SPACE           reduce using rule 32 (floatdec -> FRACTION EXP .)
+    CURRENCY        reduce using rule 32 (floatdec -> FRACTION EXP .)
+
+
+
+state 40
+
+    (30) normalint -> INTEGER EXP .
+
+    $               reduce using rule 30 (normalint -> INTEGER EXP .)
+    PERCENT         reduce using rule 30 (normalint -> INTEGER EXP .)
+    SPACE           reduce using rule 30 (normalint -> INTEGER EXP .)
+    CURRENCY        reduce using rule 30 (normalint -> INTEGER EXP .)
+
+
+
+state 41
+
+    (21) medtime -> INTEGER TIMESEP . INTEGER
+
+    INTEGER         shift and go to state 62
+
+
+
+state 42
+
+    (15) monthyear -> INTEGER datesep . month
+    (49) monthyearint -> INTEGER datesep . INTEGER
+    (52) shortdate -> INTEGER datesep . INTEGER datesep INTEGER
+    (44) month -> . SHORTMONTH
+    (45) month -> . LONGMONTH
+
+    INTEGER         shift and go to state 63
+    SHORTMONTH      shift and go to state 28
+    LONGMONTH       shift and go to state 15
+
+
+    month                          shift and go to state 64
+
+state 43
+
+    (35) float -> INTEGER floatdec .
+
+    $               reduce using rule 35 (float -> INTEGER floatdec .)
+    PERCENT         reduce using rule 35 (float -> INTEGER floatdec .)
+    SPACE           reduce using rule 35 (float -> INTEGER floatdec .)
+    CURRENCY        reduce using rule 35 (float -> INTEGER floatdec .)
+
+
+
+state 44
+
+    (37) percentage -> INTEGER PERCENT .
+
+    $               reduce using rule 37 (percentage -> INTEGER PERCENT .)
+
+
+
+state 45
+
+    (46) datesep -> SLASH .
+
+    INTEGER         reduce using rule 46 (datesep -> SLASH .)
+    SHORTMONTH      reduce using rule 46 (datesep -> SLASH .)
+    LONGMONTH       reduce using rule 46 (datesep -> SLASH .)
+
+
+
+state 46
+
+    (47) datesep -> DASH .
+
+    INTEGER         reduce using rule 47 (datesep -> DASH .)
+    SHORTMONTH      reduce using rule 47 (datesep -> DASH .)
+    LONGMONTH       reduce using rule 47 (datesep -> DASH .)
+
+
+
+state 47
+
+    (38) percentage -> INTEGER SPACE . PERCENT
+    (23) shorttime -> INTEGER SPACE . CLOCK
+    (48) datesep -> SPACE .
+
+    PERCENT         shift and go to state 66
+    CLOCK           shift and go to state 65
+    INTEGER         reduce using rule 48 (datesep -> SPACE .)
+    SHORTMONTH      reduce using rule 48 (datesep -> SPACE .)
+    LONGMONTH       reduce using rule 48 (datesep -> SPACE .)
+
+
+
+state 48
+
+    (48) datesep -> SPACE .
+
+    INTEGER         reduce using rule 48 (datesep -> SPACE .)
+    SHORTMONTH      reduce using rule 48 (datesep -> SPACE .)
+    LONGMONTH       reduce using rule 48 (datesep -> SPACE .)
+
+
+
+state 49
+
+    (53) meddate -> monthyear datesep . INTEGER
+
+    INTEGER         shift and go to state 67
+
+
+
+state 50
+
+    (56) currency -> number CURRENCY .
+
+    $               reduce using rule 56 (currency -> number CURRENCY .)
+
+
+
+state 51
+
+    (36) percentage -> number PERCENT .
+
+    $               reduce using rule 36 (percentage -> number PERCENT .)
+
+
+
+state 52
+
+    (57) currency -> number SPACE . CURRENCY
+    (39) percentage -> number SPACE . PERCENT
+
+    CURRENCY        shift and go to state 68
+    PERCENT         shift and go to state 69
+
+
+
+state 53
+
+    (41) expression -> DASH SPACE . expression
+    (1) expression -> . datetime
+    (2) expression -> . timedate
+    (3) expression -> . time
+    (4) expression -> . date
+    (5) expression -> . number
+    (6) expression -> . currency
+    (7) expression -> . percentage
+    (40) expression -> . DASH expression
+    (41) expression -> . DASH SPACE expression
+    (42) expression -> . PLUS expression
+    (43) expression -> . PLUS SPACE expression
+    (8) datetime -> . date SPACE time
+    (9) timedate -> . time SPACE date
+    (16) time -> . shorttime
+    (17) time -> . medtime
+    (18) time -> . longtime
+    (19) time -> . medtimeclock
+    (20) time -> . longtimeclock
+    (10) date -> . formaldate
+    (11) date -> . monthday
+    (12) date -> . monthyear
+    (13) date -> . monthyearint
+    (24) number -> . normalint
+    (25) number -> . float
+    (56) currency -> . number CURRENCY
+    (57) currency -> . number SPACE CURRENCY
+    (36) percentage -> . number PERCENT
+    (37) percentage -> . INTEGER PERCENT
+    (38) percentage -> . INTEGER SPACE PERCENT
+    (39) percentage -> . number SPACE PERCENT
+    (23) shorttime -> . INTEGER SPACE CLOCK
+    (21) medtime -> . INTEGER TIMESEP INTEGER
+    (22) longtime -> . medtime TIMESEP INTEGER
+    (54) medtimeclock -> . medtime SPACE CLOCK
+    (55) longtimeclock -> . longtime SPACE CLOCK
+    (50) formaldate -> . shortdate
+    (51) formaldate -> . meddate
+    (14) monthday -> . month datesep INTEGER
+    (15) monthyear -> . INTEGER datesep month
+    (49) monthyearint -> . INTEGER datesep INTEGER
+    (27) normalint -> . commaint
+    (28) normalint -> . INTEGER
+    (29) normalint -> . commaint EXP
+    (30) normalint -> . INTEGER EXP
+    (33) float -> . floatdec
+    (34) float -> . commaint floatdec
+    (35) float -> . INTEGER floatdec
+    (52) shortdate -> . INTEGER datesep INTEGER datesep INTEGER
+    (53) meddate -> . monthyear datesep INTEGER
+    (44) month -> . SHORTMONTH
+    (45) month -> . LONGMONTH
+    (26) commaint -> . COMMAINT
+    (31) floatdec -> . FRACTION
+    (32) floatdec -> . FRACTION EXP
+
+    DASH            shift and go to state 23
+    PLUS            shift and go to state 12
+    INTEGER         shift and go to state 17
+    SHORTMONTH      shift and go to state 28
+    LONGMONTH       shift and go to state 15
+    COMMAINT        shift and go to state 26
+    FRACTION        shift and go to state 14
+
+
+    medtimeclock                   shift and go to state 1
+    floatdec                       shift and go to state 2
+    monthyearint                   shift and go to state 3
+    float                          shift and go to state 4
+    number                         shift and go to state 22
+    month                          shift and go to state 27
+    currency                       shift and go to state 7
+    medtime                        shift and go to state 8
+    monthday                       shift and go to state 9
+    datetime                       shift and go to state 25
+    longtimeclock                  shift and go to state 10
+    commaint                       shift and go to state 11
+    longtime                       shift and go to state 13
+    shorttime                      shift and go to state 16
+    percentage                     shift and go to state 18
+    formaldate                     shift and go to state 19
+    meddate                        shift and go to state 20
+    monthyear                      shift and go to state 21
+    normalint                      shift and go to state 5
+    date                           shift and go to state 24
+    timedate                       shift and go to state 6
+    time                           shift and go to state 29
+    shortdate                      shift and go to state 30
+    expression                     shift and go to state 70
+
+state 54
+
+    (40) expression -> DASH expression .
+
+    $               reduce using rule 40 (expression -> DASH expression .)
+
+
+
+state 55
+
+    (8) datetime -> date SPACE . time
+    (16) time -> . shorttime
+    (17) time -> . medtime
+    (18) time -> . longtime
+    (19) time -> . medtimeclock
+    (20) time -> . longtimeclock
+    (23) shorttime -> . INTEGER SPACE CLOCK
+    (21) medtime -> . INTEGER TIMESEP INTEGER
+    (22) longtime -> . medtime TIMESEP INTEGER
+    (54) medtimeclock -> . medtime SPACE CLOCK
+    (55) longtimeclock -> . longtime SPACE CLOCK
+
+    INTEGER         shift and go to state 72
+
+
+    medtimeclock                   shift and go to state 1
+    shorttime                      shift and go to state 16
+    medtime                        shift and go to state 8
+    longtime                       shift and go to state 13
+    time                           shift and go to state 71
+    longtimeclock                  shift and go to state 10
+
+state 56
+
+    (14) monthday -> month datesep . INTEGER
+
+    INTEGER         shift and go to state 73
+
+
+
+state 57
+
+    (9) timedate -> time SPACE . date
+    (10) date -> . formaldate
+    (11) date -> . monthday
+    (12) date -> . monthyear
+    (13) date -> . monthyearint
+    (50) formaldate -> . shortdate
+    (51) formaldate -> . meddate
+    (14) monthday -> . month datesep INTEGER
+    (15) monthyear -> . INTEGER datesep month
+    (49) monthyearint -> . INTEGER datesep INTEGER
+    (52) shortdate -> . INTEGER datesep INTEGER datesep INTEGER
+    (53) meddate -> . monthyear datesep INTEGER
+    (44) month -> . SHORTMONTH
+    (45) month -> . LONGMONTH
+
+    INTEGER         shift and go to state 75
+    SHORTMONTH      shift and go to state 28
+    LONGMONTH       shift and go to state 15
+
+
+    meddate                        shift and go to state 20
+    monthyear                      shift and go to state 21
+    month                          shift and go to state 27
+    monthyearint                   shift and go to state 3
+    date                           shift and go to state 74
+    shortdate                      shift and go to state 30
+    monthday                       shift and go to state 9
+    formaldate                     shift and go to state 19
+
+state 58
+
+    (22) longtime -> medtime TIMESEP INTEGER .
+
+    $               reduce using rule 22 (longtime -> medtime TIMESEP INTEGER .)
+    SPACE           reduce using rule 22 (longtime -> medtime TIMESEP INTEGER .)
+
+
+
+state 59
+
+    (54) medtimeclock -> medtime SPACE CLOCK .
+
+    $               reduce using rule 54 (medtimeclock -> medtime SPACE CLOCK .)
+    SPACE           reduce using rule 54 (medtimeclock -> medtime SPACE CLOCK .)
+
+
+
+state 60
+
+    (43) expression -> PLUS SPACE expression .
+
+    $               reduce using rule 43 (expression -> PLUS SPACE expression .)
+
+
+
+state 61
+
+    (55) longtimeclock -> longtime SPACE CLOCK .
+
+    $               reduce using rule 55 (longtimeclock -> longtime SPACE CLOCK .)
+    SPACE           reduce using rule 55 (longtimeclock -> longtime SPACE CLOCK .)
+
+
+
+state 62
+
+    (21) medtime -> INTEGER TIMESEP INTEGER .
+
+    $               reduce using rule 21 (medtime -> INTEGER TIMESEP INTEGER .)
+    SPACE           reduce using rule 21 (medtime -> INTEGER TIMESEP INTEGER .)
+    TIMESEP         reduce using rule 21 (medtime -> INTEGER TIMESEP INTEGER .)
+
+
+
+state 63
+
+    (49) monthyearint -> INTEGER datesep INTEGER .
+    (52) shortdate -> INTEGER datesep INTEGER . datesep INTEGER
+    (46) datesep -> . SLASH
+    (47) datesep -> . DASH
+    (48) datesep -> . SPACE
+
+    $               reduce using rule 49 (monthyearint -> INTEGER datesep INTEGER .)
+    SLASH           shift and go to state 45
+    DASH            shift and go to state 46
+    SPACE           shift and go to state 48
+
+  ! SPACE           [ reduce using rule 49 (monthyearint -> INTEGER datesep INTEGER .) ]
+
+    datesep                        shift and go to state 76
+
+state 64
+
+    (15) monthyear -> INTEGER datesep month .
+
+    $               reduce using rule 15 (monthyear -> INTEGER datesep month .)
+    SPACE           reduce using rule 15 (monthyear -> INTEGER datesep month .)
+    SLASH           reduce using rule 15 (monthyear -> INTEGER datesep month .)
+    DASH            reduce using rule 15 (monthyear -> INTEGER datesep month .)
+
+
+
+state 65
+
+    (23) shorttime -> INTEGER SPACE CLOCK .
+
+    $               reduce using rule 23 (shorttime -> INTEGER SPACE CLOCK .)
+    SPACE           reduce using rule 23 (shorttime -> INTEGER SPACE CLOCK .)
+
+
+
+state 66
+
+    (38) percentage -> INTEGER SPACE PERCENT .
+
+    $               reduce using rule 38 (percentage -> INTEGER SPACE PERCENT .)
+
+
+
+state 67
+
+    (53) meddate -> monthyear datesep INTEGER .
+
+    $               reduce using rule 53 (meddate -> monthyear datesep INTEGER .)
+    SPACE           reduce using rule 53 (meddate -> monthyear datesep INTEGER .)
+
+
+
+state 68
+
+    (57) currency -> number SPACE CURRENCY .
+
+    $               reduce using rule 57 (currency -> number SPACE CURRENCY .)
+
+
+
+state 69
+
+    (39) percentage -> number SPACE PERCENT .
+
+    $               reduce using rule 39 (percentage -> number SPACE PERCENT .)
+
+
+
+state 70
+
+    (41) expression -> DASH SPACE expression .
+
+    $               reduce using rule 41 (expression -> DASH SPACE expression .)
+
+
+
+state 71
+
+    (8) datetime -> date SPACE time .
+
+    $               reduce using rule 8 (datetime -> date SPACE time .)
+
+
+
+state 72
+
+    (23) shorttime -> INTEGER . SPACE CLOCK
+    (21) medtime -> INTEGER . TIMESEP INTEGER
+
+    SPACE           shift and go to state 77
+    TIMESEP         shift and go to state 41
+
+
+
+state 73
+
+    (14) monthday -> month datesep INTEGER .
+
+    $               reduce using rule 14 (monthday -> month datesep INTEGER .)
+    SPACE           reduce using rule 14 (monthday -> month datesep INTEGER .)
+
+
+
+state 74
+
+    (9) timedate -> time SPACE date .
+
+    $               reduce using rule 9 (timedate -> time SPACE date .)
+
+
+
+state 75
+
+    (15) monthyear -> INTEGER . datesep month
+    (49) monthyearint -> INTEGER . datesep INTEGER
+    (52) shortdate -> INTEGER . datesep INTEGER datesep INTEGER
+    (46) datesep -> . SLASH
+    (47) datesep -> . DASH
+    (48) datesep -> . SPACE
+
+    SLASH           shift and go to state 45
+    DASH            shift and go to state 46
+    SPACE           shift and go to state 48
+
+
+    datesep                        shift and go to state 42
+
+state 76
+
+    (52) shortdate -> INTEGER datesep INTEGER datesep . INTEGER
+
+    INTEGER         shift and go to state 78
+
+
+
+state 77
+
+    (23) shorttime -> INTEGER SPACE . CLOCK
+
+    CLOCK           shift and go to state 65
+
+
+
+state 78
+
+    (52) shortdate -> INTEGER datesep INTEGER datesep INTEGER .
+
+    $               reduce using rule 52 (shortdate -> INTEGER datesep INTEGER datesep INTEGER .)
+    SPACE           reduce using rule 52 (shortdate -> INTEGER datesep INTEGER datesep INTEGER .)
+
+
